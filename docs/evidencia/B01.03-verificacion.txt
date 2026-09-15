@@ -1,0 +1,69 @@
+B01.03-v1 — 2026-09-15 — verificación documental API
+Entorno: Linux/Bash; Python 3.14.7; Git 2.55.0.
+Punto: B01.03; siguiente registrado: B01.04 (no ejecutado).
+
+Entrada comprobada antes de cambios:
+- Verificadores B01.01/B01.02 de referencia: exit 0; 40+22 variantes.
+- sha256sum -c docs/blueprint/evidencia/B01.02.sha256: 10/10 OK.
+- Verificador API B01.02: exit 0; puntero anterior correcto.
+- git diff --check en ambos repositorios: exit 0.
+- Inventario Node: primer intento EPERM de sandbox; reejecución autorizada exit 0.
+
+Comandos finales API:
+python3 docs/evidencia/verificar-B01.03.py
+git diff --check
+
+PASS API: enlaces y formato; 12 campos del puntero; B01.03 completado, B01.04 siguiente según fuente
+PASS evidencia: SHA-256 referencia coincide; sin B01.04 ni transferencia T01; repositorios separados
+PASS alcance zephyriov-api: 8 archivos autorizados; cambios ajenos y HEAD preservados
+PASS alcance Zephyriov: 13 archivos autorizados; cambios ajenos y HEAD preservados
+NO EJECUTADO: SRS/SAN, HTTP, Android/web ni tests/lint/build de aplicación
+git diff --check: exit 0, sin salida.
+
+Referencia:
+python3 docs/blueprint/evidencia/verificar-B01.01.py
+python3 docs/blueprint/evidencia/verificar-B01.02.py
+python3 docs/blueprint/evidencia/verificar-B01.03.py
+sha256sum -c docs/blueprint/evidencia/B01.03.sha256
+git diff --check
+
+PASS JSON: 4 archivos; 40 IDs únicos; campos, fuentes y 20 escenarios × 2 colores
+PASS matriz literal: profundidad 3/4/5, tamaño 4, 120000/120001, errores 0/1/2, ilegales y prioridad
+PASS documentos: estructura, índice y enlaces nuevos
+NO EJECUTADO: algoritmo SRS, verificación SAN, HTTP, Android, web, tests/lint/build de aplicación
+PASS JSON: R05=8, R06=14; 22 variantes, 26 transiciones; 62 IDs globales únicos
+PASS matriz: new bad/mid/good, contadores previos, cola mixta, intento 7→8, secuencia bad→mid→good
+PASS graduación literal: 4/10→8, 4/8→8, 4/6→6, 3/3→3, 10/10→10, 8/10→10; D+1=2026-09-15
+PASS metadatos: fuentes/secciones, reloj/zona/semilla, efectos prohibidos y paridad de colores
+PASS fuentes sin cambios y 6 hashes históricos preservados; reglas/índice versionados en B01.02
+PASS documentos: enlaces, estructura e índice por capa
+NO EJECUTADO: algoritmo SRS, SAN, HTTP, Android/web, tests/lint/build de aplicación
+PASS JSON estricto: R07=4, R08=10, R09=4, R10=6; 24 variantes / 34 transiciones; 86 IDs únicos
+PASS matriz literal y colores: good/mid/bad review; lapse conserva reps/profundidad; cola, nextDue y origen
+PASS decimales: 1→3→7.50→18.75→46.88→117.20; fronteras 6.475/6.500/6.525; 1000000.00 sin tope numeric
+PASS fechas civiles desde D de cada bloque y rawInterval; regraduación bad→mid→good con un solo lapse
+PASS fuentes normativas intactas y 8 hashes B01.02 preservados; reglas/índice ampliados en B01.03
+PASS enlaces, índice por capa y alcance R07–R10; R11–R22 pendientes
+NO EJECUTADO: algoritmo SRS/SAN, HTTP, Android/web ni tests/lint/build de aplicación
+docs/blueprint/reglas-srs.md: OK
+docs/blueprint/fixtures-srs/README.md: OK
+docs/blueprint/fixtures-srs/R01.json: OK
+docs/blueprint/fixtures-srs/R02.json: OK
+docs/blueprint/fixtures-srs/R03.json: OK
+docs/blueprint/fixtures-srs/R04.json: OK
+docs/blueprint/fixtures-srs/R05.json: OK
+docs/blueprint/fixtures-srs/R06.json: OK
+docs/blueprint/fixtures-srs/R07.json: OK
+docs/blueprint/fixtures-srs/R08.json: OK
+docs/blueprint/fixtures-srs/R09.json: OK
+docs/blueprint/fixtures-srs/R10.json: OK
+docs/blueprint/evidencia/verificar-B01.03.py: OK
+docs/blueprint/evidencia/B01.03-fuentes.json: OK
+git diff --check: exit 0, sin salida.
+
+Manifiesto de referencia:
+2671b50242c33f6b00066abcd8ae341f208761c7b2d06a41015f809cc8f5b40c
+Los verificadores 40/62 abarcan sus respectivos subconjuntos; el acumulado actual es 86.
+Alcance final: 8 archivos API y 13 referencia, todos autorizados; sin cambios ajenos.
+El manifiesto API se calcula después de este registro para incluir su hash sin autorreferencia.
+Comando reproducible de cierre: sha256sum -c docs/evidencia/B01.03.sha256.

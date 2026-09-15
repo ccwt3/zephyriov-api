@@ -1,0 +1,47 @@
+B01.02-v1 — verificación final en repositorios de entrega
+Fecha: 2026-09-14T20:19:25-06:00
+Referencia: /home/cacawatin/code/personal/Zephyriov
+Comandos encadenados con &&:
+python3 docs/blueprint/evidencia/verificar-B01.02.py
+python3 docs/blueprint/evidencia/verificar-B01.01.py
+sha256sum -c docs/blueprint/evidencia/B01.02.sha256
+git diff --check
+Exit code: 0
+
+PASS JSON: R05=8, R06=14; 22 variantes, 26 transiciones; 62 IDs globales únicos
+PASS matriz: new bad/mid/good, contadores previos, cola mixta, intento 7→8, secuencia bad→mid→good
+PASS graduación literal: 4/10→8, 4/8→8, 4/6→6, 3/3→3, 10/10→10, 8/10→10; D+1=2026-09-15
+PASS metadatos: fuentes/secciones, reloj/zona/semilla, efectos prohibidos y paridad de colores
+PASS fuentes sin cambios y 6 hashes históricos preservados; reglas/índice versionados en B01.02
+PASS documentos: enlaces, estructura e índice por capa
+NO EJECUTADO: algoritmo SRS, SAN, HTTP, Android/web, tests/lint/build de aplicación
+PASS JSON: 4 archivos; 40 IDs únicos; campos, fuentes y 20 escenarios × 2 colores
+PASS matriz literal: profundidad 3/4/5, tamaño 4, 120000/120001, errores 0/1/2, ilegales y prioridad
+PASS documentos: estructura, índice y enlaces nuevos
+NO EJECUTADO: algoritmo SRS, verificación SAN, HTTP, Android, web, tests/lint/build de aplicación
+docs/blueprint/reglas-srs.md: OK
+docs/blueprint/fixtures-srs/R01.json: OK
+docs/blueprint/fixtures-srs/R02.json: OK
+docs/blueprint/fixtures-srs/R03.json: OK
+docs/blueprint/fixtures-srs/R04.json: OK
+docs/blueprint/fixtures-srs/R05.json: OK
+docs/blueprint/fixtures-srs/R06.json: OK
+docs/blueprint/fixtures-srs/README.md: OK
+docs/blueprint/evidencia/verificar-B01.02.py: OK
+docs/blueprint/evidencia/B01.02-fuentes.json: OK
+
+API: /home/cacawatin/code/personal/zeph/zephyriov-api
+python3 docs/evidencia/verificar-B01.02.py && git diff --check && git status --short
+Exit code: 0
+PASS API: 4 documentos, enlaces y formato; 12 campos del puntero
+PASS estado: B01.02 completado; siguiente B01.03 contrastado con fuente; sin fixtures anticipados ni transferencia T01
+PASS evidencia: hash de manifiesto B01.02 coincide con informe y puntero
+ M README.md
+?? Branch_changes.md
+?? docs/
+
+Revisión de alcance respecto del inventario de entrada:
+PASS: 11 archivos permitidos en referencia; 7 en API, incluido el registro de alcance.
+PASS: 146 archivos previos de referencia sin cambios; ningún archivo eliminado.
+PASS: README, Branch_changes y reglas de referencia preservan su contenido previo byte por byte.
+PASS: cambios previos y eliminaciones anteriores conservados; ningún otro punto ejecutado.

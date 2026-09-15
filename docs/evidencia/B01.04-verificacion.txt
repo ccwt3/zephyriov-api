@@ -1,0 +1,45 @@
+$ (/home/cacawatin/code/personal/Zephyriov) python3 docs/blueprint/evidencia/verificar-B01.04.py
+PASS JSON estricto/metadatos/fuentes/IDs: R11=16, R12=20, R13=10; 46 nuevas, 132 totales
+PASS R11: ambos colores, máximos propios pares/impares, good new/review, límite y bloque 2/10
+PASS R12: vacías/agotadas/futuras/inactivas/inválidas; todas reviews vencidas; sin duplicados; extremos 1/12 × 2/10; 14 ítems
+PASS R13: órdenes literales, semilla/versión/cinta, permutaciones y rondas; replay y entrada invertida; grupo único/desigual
+PASS fuentes, 12 artefactos B01.03 preservados, índice por capa y enlaces documentales
+NO EJECUTADO: dominio/PRNG productivo/SAN, HTTP, Android/web ni tests/lint/build de aplicación
+exit: 0
+
+$ (/home/cacawatin/code/personal/Zephyriov) sha256sum -c docs/blueprint/evidencia/B01.04.sha256
+docs/blueprint/reglas-srs.md: OK
+docs/blueprint/fixtures-srs/README.md: OK
+docs/blueprint/fixtures-srs/R01.json: OK
+docs/blueprint/fixtures-srs/R02.json: OK
+docs/blueprint/fixtures-srs/R03.json: OK
+docs/blueprint/fixtures-srs/R04.json: OK
+docs/blueprint/fixtures-srs/R05.json: OK
+docs/blueprint/fixtures-srs/R06.json: OK
+docs/blueprint/fixtures-srs/R07.json: OK
+docs/blueprint/fixtures-srs/R08.json: OK
+docs/blueprint/fixtures-srs/R09.json: OK
+docs/blueprint/fixtures-srs/R10.json: OK
+docs/blueprint/fixtures-srs/R11.json: OK
+docs/blueprint/fixtures-srs/R12.json: OK
+docs/blueprint/fixtures-srs/R13.json: OK
+docs/blueprint/evidencia/verificar-B01.04.py: OK
+docs/blueprint/evidencia/B01.04-fuentes.json: OK
+docs/blueprint/evidencia/B01.04.md: OK
+README.md: OK
+Branch_changes.md: OK
+exit: 0
+
+$ (/home/cacawatin/code/personal/Zephyriov) git diff --check
+exit: 0
+
+$ (/home/cacawatin/code/personal/zeph/zephyriov-api) python3 docs/evidencia/verificar-B01.04.py
+PASS API: 12 campos, enlaces, B01.04 completado y B01.05 siguiente según fuentes; sin ejecutar R14–R16/T01
+PASS evidencia: manifiesto B01.04 de referencia coincide; 132 variantes; repositorios separados
+PASS alcance zephyriov-api: 8 archivos autorizados; HEAD y cambios previos conservados
+PASS alcance Zephyriov: 12 archivos autorizados; HEAD y cambios previos conservados
+NO EJECUTADO: dominio/PRNG productivo/SAN, HTTP, Android/web ni tests/lint/build de aplicación
+exit: 0
+
+$ (/home/cacawatin/code/personal/zeph/zephyriov-api) git diff --check
+exit: 0

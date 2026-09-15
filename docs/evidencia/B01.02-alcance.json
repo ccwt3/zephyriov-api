@@ -1,0 +1,97 @@
+{
+  "point": "B01.02",
+  "version": "B01.02-v1",
+  "scope": "Archivos versionados o no ignorados por Git; no se incluyen .git, dependencias ni cachés.",
+  "repositories": [
+    {
+      "root": "/home/cacawatin/code/personal/Zephyriov",
+      "initialFileCount": 150,
+      "unchangedFiles": 146,
+      "changes": [
+        {
+          "path": "Branch_changes.md",
+          "before": "67647bac5bf4422562e470959e4f198e028e872436c7e8df8e33fb8a525d371a",
+          "after": "d04453177f566b422aa4a59adee042919be523b35ce45cc9129981574a1e5555"
+        },
+        {
+          "path": "README.md",
+          "before": "81f526f9acb7074611d909c524e51c9a76b413b98fb4598338d26a048f1a33db",
+          "after": "cf60c29a01948dbf072f79aa87c62f57ead555f47e3d19b0c6cb938e63041d27"
+        },
+        {
+          "path": "docs/blueprint/evidencia/B01.02-fuentes.json",
+          "before": null,
+          "after": "d5d9433bcbfcf039ba67c854c16bc10ac8770eb40f8257846dcb10acf85d1717"
+        },
+        {
+          "path": "docs/blueprint/evidencia/B01.02.md",
+          "before": null,
+          "after": "5e082fbbfc3ac83a17cd6f01d7a4110780c17abe383b4948dbe99449fcbdff4d"
+        },
+        {
+          "path": "docs/blueprint/evidencia/B01.02.sha256",
+          "before": null,
+          "after": "3d876d8ae468b8bba923744c62ff7ab9f6fdb50a083c587c2846b591fe19d3cc"
+        },
+        {
+          "path": "docs/blueprint/evidencia/verificar-B01.02.py",
+          "before": null,
+          "after": "93956a09298f3663f503ea30716347e3b54e3f2e76b6e7ced497f1fb85b3974f"
+        },
+        {
+          "path": "docs/blueprint/fixtures-srs/R05.json",
+          "before": null,
+          "after": "1720ba34b67e0fda95d2e787d73a63852626474ab7da1521642d066bb0eed5f7"
+        },
+        {
+          "path": "docs/blueprint/fixtures-srs/R06.json",
+          "before": null,
+          "after": "9a7cfc3a31844d33447ef65d4c7243e4908c9df7173a91d984888341d5de3bf8"
+        },
+        {
+          "path": "docs/blueprint/fixtures-srs/README.md",
+          "before": "b736d3ce67f04bf66d09ecb4cc8424a3ed151fc12d0242cf366fb335bd627e12",
+          "after": "ab8dab979e23495109a98ca41d4585cc7ac01014d3ddd708b939b1e6a89fd9d7"
+        },
+        {
+          "path": "docs/blueprint/reglas-srs.md",
+          "before": "0f11b214f6226cb19087b51cd7e2fd1f1dc02db3357d15fc3f72e7cc3f5a6e83",
+          "after": "c5b31a029c5ee1128411dff67861e9887b2902c351f2178c21e323e032880fea"
+        }
+      ]
+    },
+    {
+      "root": "/home/cacawatin/code/personal/zeph/zephyriov-api",
+      "initialFileCount": 4,
+      "unchangedFiles": 1,
+      "changes": [
+        {
+          "path": "Branch_changes.md",
+          "before": "97ab4fe370c5fb3117d431a90cab37d83257cca8632fc7df1f60ef9b1fab66fd",
+          "after": "dd1551f21425c4841818dd87d32ff32a43fc4164486db07d6bd37ab620fe4b5b"
+        },
+        {
+          "path": "README.md",
+          "before": "bc7a449cc0d845c96a8978cd5ab5e2ee13ed9d54406a5282297eaedb54d0fe1e",
+          "after": "6319f24c0f4a6de27ffe423e53de8af9173f7fb902041274a34fdcf85a1ba743"
+        },
+        {
+          "path": "docs/evidencia/B01.02.md",
+          "before": null,
+          "after": "c1803e6667adf7eccb8cabc760a438d704d8bae2c7d32bfee4e5beee51fc6be6"
+        },
+        {
+          "path": "docs/evidencia/verificar-B01.02.py",
+          "before": null,
+          "after": "cba1b0896a3c19c3d1df7ac5286d005a51254c28aa85c8d80dc010dab7f7367f"
+        },
+        {
+          "path": "docs/next-job",
+          "before": "c3393bfd689f60e5d3070ed47b02d615004e6cc3949be4adaf3ddf0d85eb5680",
+          "after": "5d126bc8ce1f1ea8383395e0791c32f5cdca694b4bcd49c4ad73dfeac3d39901"
+        }
+      ]
+    }
+  ],
+  "exclusions": "El log final y este registro quedan excluidos de sus propios hashes; el cierre agrega solo salida de checks al log. Cambios totales permitidos: 11 en referencia, 7 en API (incluido este registro)."
+}
