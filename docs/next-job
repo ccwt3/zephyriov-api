@@ -1,47 +1,41 @@
 # Estado de trabajo agéntico
 
-- Punto ejecutado: **B02.09 y B02.10**, en ese orden, sobre HEAD de entrada
-  `b10846d3b3343eb068115f36e77655f63c396046`. Los cambios previos
-  B02.01–B02.08 permanecían sin commit y fueron conservados.
-- Estado: `construido_local`, `probado(Node 26.9.0 y 24.21.0, Linux)`; OpenAPI/DTO y
-  auditoría de contrato local. Sin HTTP, proveedor, despliegue ni cliente.
-- Siguiente punto autorizado: **B03.01**, en otra sesión. No se ejecutó aquí.
-- Fuente del siguiente punto: `Zephyriov/docs/blueprint/plan-trabajo-agentico.md`,
-  §5 B03.01, §3 y §13; `plan-accionable-backend.md`, §B03. La referencia
-  local está en `/home/cacawatin/code/personal/Zephyriov/docs/blueprint/`.
-  B03.01 prepara un runner para los fixtures activos de B01, verifica
-  imports permitidos y traslada datos sin recalcular expectativas. B03.02
-  (fechas civiles/IANA) es posterior y no quedó autorizado en esta sesión.
+- Puntos ejecutados: **B03.01 y B03.02**, en ese orden, sobre HEAD de entrada
+  `32ed0b15b24a616b25b92a2684470683af7e3b29`. El árbol estaba limpio.
+- Estado: `construido_local`, `probado(Node 26.9.0 y Node 24.21.0, Linux)`.
+  [Informe y evidencia](evidencia/B03.01-B03.02.md). Sin HTTP,
+  persistencia, proveedor, despliegue ni cliente.
+- Siguiente punto autorizado: **B03.03**, en otra sesión. No se ejecutó aquí.
+- Fuente: `/home/cacawatin/code/personal/Zephyriov/docs/blueprint/`:
+  `plan-trabajo-agentico.md` §5 B03.03, §3 y §13;
+  `plan-accionable-backend.md` §B03; SRS activo
+  [reglas-srs.md](reglas-srs.md) R07–R10 y fixtures B01 pertinentes.
+  B03.03 calcula intervalo decimal exacto y separa el redondeo del valor
+  persistido (dos decimales) del redondeo de días para fecha (mitades hacia
+  arriba sobre valor sin redondear). B03.04 y posteriores no quedan
+  autorizados por este puntero.
 - Repositorio: esta raíz `zephyriov-api` para API e infraestructura. Orden:
-  planificación → API → infraestructura → Android → web. Android y web tienen
-  repositorios separados; al llegar a cliente se anuncia el cambio y se
-  detiene la sesión antes de modificarlo.
-- Archivos permitidos en B03.01: `src/domain/` para runner puro y sus
-  pruebas; leer `src/domain/fixtures/R01.json`–`R22.json` sin alterarlos;
-  documentación del runner e informe bajo `docs/`, README, Branch_changes y
-  este puntero. No editar esquemas B02, SRS/fixtures activos ni históricos,
-  endpoints, Auth, persistencia, infraestructura o clientes. No recalcular
-  expectativas B01 ni introducir motor SRS en B03.01.
-- Pruebas previstas para B03.01: inventariar 22 familias y 352 variantes
-  con IDs únicos; cargar y recorrer fixtures sin mutar sus entradas ni
-  expectativas; comprobar que los imports del runner/dominio no incluyen
-  framework, red, DB o cliente. Ejecutar `pnpm test`, `pnpm lint`,
-  `pnpm typecheck`, `pnpm build` y
-  `python3 docs/evidencia/verificar-T01.py`; registrar entorno, casos y
-  límites. Si cambia un artefacto instalable, ensayar consumidor local.
-- Dependencias verificadas: B01/G01 especificados; T01 transfirió 22 JSON
-  byte por byte idénticos, 352 IDs y SRS activo en `docs/reglas-srs.md`;
-  T02 aporta herramientas. B02.01–B02.10 están documentados en `docs/` y
-  sus informes; [B02.09–B02.10](evidencia/B02.09-B02.10.md) aprobaron
-  generación reproducible, 40/40 pruebas, lint, typecheck, build, T01 y
-  consumidor de tarball local. Node 24.21.0 repitió 40/40, lint,
-  typecheck, build, generación y consumidor con binario oficial verificado
-  en `/tmp`. No se editaron copias históricas B01.
-- Pendientes manuales: ninguno para B03.01. Owner/publicación en B11.05,
-  Auth efectivo en B05.12 y medición D15 con datos reales en B08.08 no
-  bloquean el runner.
-- Riesgos: OpenAPI no conserva todas las refinaciones de Zod. B02 acredita
-  formas/ejemplos, no decisiones SRS,
-  atomicidad, autorización ni persistencia. D15 conserva una lectura de
-  estado completa hasta que se mida historial/catálogo real en B08.08.
+  planificación → API → infraestructura → Android → web. Los clientes tienen
+  repositorios separados; al llegar a ellos, anunciar el cambio y detenerse.
+- Archivos previstos para B03.03: `src/domain/` para funciones puras y pruebas,
+  `docs/` para diseño e informe, README, Branch_changes y este puntero.
+  Una dependencia decimal requeriría justificarla y limitar cualquier cambio
+  de `package.json`/lockfile a ese fin antes de editar. No alterar SRS/fixtures,
+  contratos B02, endpoints, Auth, persistencia, infraestructura o clientes.
+- Pruebas previstas para B03.03: contrastar expectativas B01 de intervalo y
+  fecha sin generarlas desde el algoritmo nuevo; probar mitades exactas y
+  precisión decimal, entradas no mutadas, y verificar grafo de imports.
+  Ejecutar `pnpm test`, `pnpm lint`, `pnpm typecheck`, `pnpm build` y
+  `python3 docs/evidencia/verificar-T01.py`; registrar entorno y límites.
+  Ensayar consumidor local solo si cambia un artefacto instalable.
+- Dependencias verificadas: B01/G01 especificados; T01 transfirió los 22 JSON
+  activos con 352 IDs sin cambiar expectativas; T02 aporta herramientas.
+  B02.01–B02.10 están documentados. B03.01 ofrece runner e inventario;
+  B03.02 ofrece fecha civil/IANA y frontera UTC. Node 24.21.0 aprobó 48
+  pruebas, lint y typecheck; Node 26.9.0 aprobó además build y T01.
+- Pendientes manuales: ninguno para B03.03. La compatibilidad Android del
+  dominio corresponde a B03.10–B03.12 y no bloquea el cálculo local.
+- Riesgos: `Intl` depende de ICU/tzdata (Node 24.21.0: ICU 78.3, tzdata
+  2026c). La evidencia B03.01–B03.02 cubre solo inventario y campos
+  temporales, no decisiones SRS completas ni persistencia.
 - Última actualización: 2026-09-19, Mexico/General.

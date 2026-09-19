@@ -13,16 +13,25 @@ B02.03–B02.04 añadieron el
 [contrato de perfil, ajustes, repertorio, sesión y onboarding](docs/contrato-B02.03-B02.04.md).
 El [contrato B02.07–B02.08](docs/contrato-B02.07-B02.08.md) añade paquete
 offline/renovación y lecturas con revisión, ticket, avisos y readiness.
-El siguiente punto es B03.01, runner de fixtures del dominio SRS.
+El siguiente punto es B03.03, intervalo decimal exacto del dominio SRS.
 
 La raíz API se construye con Node.js 24 y pnpm 12.4.2. `pnpm install`,
 `pnpm test`, `pnpm lint`, `pnpm typecheck` y `pnpm build` son los comandos
 del esqueleto. El paquete exporta la versión de especificación y
 `zephyriov-api/contracts` con esquemas Zod y ejemplos instalables desde un
 tarball local. Los esquemas son fuente única; DTO TypeScript y OpenAPI se
-generan desde los esquemas Zod en B02.09. Todavía no contiene
-dominio, HTTP ni persistencia. La [evidencia T01](docs/evidencia/T01.md)
+generan desde los esquemas Zod en B02.09. Todavía no contiene el motor SRS
+completo, HTTP ni persistencia. La [evidencia T01](docs/evidencia/T01.md)
 y [evidencia T02](docs/evidencia/T02.md) detallan verificación y límites.
+
+**B03.01–B03.02 — runner y fechas (2026-09-19):** `src/domain/` contiene un
+runner puro que recorre las 352 variantes B01 sin generar expectativas y
+funciones de fecha civil gregoriana, conversión IANA y límites UTC con reloj
+inyectado. Se usa `Date`/`Intl` de Node 24.21.0 (ICU 78.3, tzdata 2026c),
+sin una biblioteca temporal adicional. El dominio todavía no se exporta como
+artefacto instalable; B03.10–B03.12 comprobarán su consumidor Android.
+[Diseño y límites](docs/dominio-B03.01-B03.02.md) ·
+[informe diario](docs/evidencia/B03.01-B03.02.md).
 
 El contrato B02.03–B02.04 exige precondiciones por recurso, conserva los
 snapshots de sesión/ítem y expresa onboarding como una operación atómica.

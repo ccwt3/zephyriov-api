@@ -1,5 +1,17 @@
 # Branch changes
 
+## 2026-09-19 — B03.01 y B03.02: fixtures y fechas del dominio
+
+Runner puro para 22 familias y 352 variantes B01 sin recalcular expectativas,
+con guardia de imports del dominio. Funciones de fecha civil/IANA y ventana
+UTC semiabierta con reloj inyectado; casos R20/R21, bisiestos y DST. Aprobaron
+48 pruebas, lint, typecheck, build y T01 bajo Node 26; 48 pruebas, lint y
+typecheck también bajo Node 24.21.0. Sin motor SRS completo ni artefacto
+Android. [Diseño](docs/dominio-B03.01-B03.02.md) e
+[informe](docs/evidencia/B03.01-B03.02.md). Siguiente B03.03.
+
+[Listo :v]
+
 ## 2026-09-19 — B02.09 y B02.10: OpenAPI/DTO y auditoría
 
 Los 70 esquemas Zod generan OpenAPI 3.1 y tipos DTO instalables desde el
