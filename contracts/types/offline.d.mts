@@ -1,0 +1,547 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- Generated TypeScript declarations. */
+export function offlinePackageContentHash(pkg: any): Promise<string>;
+export function verifyOfflinePackageContentHash(pkg: any): Promise<boolean>;
+/** The client must durably resolve its own outbox before making this request. */
+export function canRequestOfflineRenewal(pendingEventIds: any): boolean;
+/** The server can check reported decisions and its own revision, not a hidden client outbox. */
+export function assessOfflineRenewal(request: any, { currentAccountRevision, decidedEventIds }: {
+    currentAccountRevision: any;
+    decidedEventIds: any;
+}): "reconciliation_required" | "version_conflict" | "ready";
+/** The grace window permits submission, never another study block. */
+export function offlinePackageWindow(pkg: any, { startedAt, completedAt, receivedAt }: {
+    startedAt: any;
+    completedAt: any;
+    receivedAt: any;
+}): {
+    studyAllowed: boolean;
+    submissionAllowed: boolean;
+};
+/** The seed is planning material, never an access credential. */
+export const OfflineSeedMaterialSchema: z.ZodObject<{
+    generatorVersion: z.ZodString;
+    seed: z.ZodString;
+    activeLines: z.ZodArray<z.ZodObject<{
+        lineId: z.ZodUUID;
+        revisionId: z.ZodUUID;
+    }, z.core.$strict>>;
+}, z.core.$strict>;
+export const OfflinePackageSchema: z.ZodObject<{
+    id: z.ZodUUID;
+    deviceId: z.ZodUUID;
+    issuedAt: z.ZodString;
+    expiresAt: z.ZodString;
+    submitUntil: z.ZodString;
+    baseAccountRevision: z.ZodString;
+    manifestId: z.ZodUUID;
+    srsVersion: z.ZodString;
+    settings: z.ZodObject<{
+        version: z.ZodString;
+        newLinesPerDay: z.ZodNumber;
+        movesPerBlock: z.ZodNumber;
+        timezone: z.ZodString;
+    }, z.core.$strict>;
+    seedMaterial: z.ZodObject<{
+        generatorVersion: z.ZodString;
+        seed: z.ZodString;
+        activeLines: z.ZodArray<z.ZodObject<{
+            lineId: z.ZodUUID;
+            revisionId: z.ZodUUID;
+        }, z.core.$strict>>;
+    }, z.core.$strict>;
+    baseState: z.ZodObject<{
+        profile: z.ZodObject<{
+            id: z.ZodUUID;
+            emailVerified: z.ZodBoolean;
+            onboardedAt: z.ZodNullable<z.ZodString>;
+            settings: z.ZodObject<{
+                version: z.ZodString;
+                newLinesPerDay: z.ZodNumber;
+                movesPerBlock: z.ZodNumber;
+                timezone: z.ZodString;
+            }, z.core.$strict>;
+        }, z.core.$strict>;
+        repertoire: z.ZodArray<z.ZodObject<{
+            openingId: z.ZodUUID;
+            color: z.ZodEnum<{
+                white: "white";
+                black: "black";
+            }>;
+            active: z.ZodBoolean;
+            version: z.ZodString;
+        }, z.core.$strict>>;
+        cards: z.ZodArray<z.ZodObject<{
+            id: z.ZodUUID;
+            lineId: z.ZodUUID;
+            color: z.ZodEnum<{
+                white: "white";
+                black: "black";
+            }>;
+            generation: z.ZodString;
+            contentGeneration: z.ZodString;
+            version: z.ZodString;
+            state: z.ZodEnum<{
+                new: "new";
+                review: "review";
+            }>;
+            unlockedMoves: z.ZodNumber;
+            intervalDays: z.ZodString;
+            dueDate: z.ZodString;
+            reps: z.ZodNumber;
+            lapses: z.ZodNumber;
+            lastGrade: z.ZodNullable<z.ZodEnum<{
+                bad: "bad";
+                mid: "mid";
+                good: "good";
+            }>>;
+        }, z.core.$strict>>;
+        activity: z.ZodObject<{
+            eligibleDates: z.ZodArray<z.ZodString>;
+            currentStreak: z.ZodNumber;
+            bestStreak: z.ZodNumber;
+            lastActiveDate: z.ZodNullable<z.ZodString>;
+            asOfDate: z.ZodString;
+        }, z.core.$strict>;
+        currentSession: z.ZodNullable<z.ZodObject<{
+            id: z.ZodUUID;
+            studyDate: z.ZodString;
+            pedagogicalSettings: z.ZodObject<{
+                version: z.ZodString;
+                newLinesPerDay: z.ZodNumber;
+                movesPerBlock: z.ZodNumber;
+                timezone: z.ZodString;
+            }, z.core.$strict>;
+            planSeed: z.ZodString;
+            status: z.ZodEnum<{
+                in_progress: "in_progress";
+                completed: "completed";
+            }>;
+            items: z.ZodArray<z.ZodObject<{
+                id: z.ZodUUID;
+                sessionId: z.ZodUUID;
+                lineId: z.ZodUUID;
+                lineRevisionId: z.ZodUUID;
+                originType: z.ZodEnum<{
+                    new: "new";
+                    review: "review";
+                }>;
+                attemptNumber: z.ZodNumber;
+                parentEventId: z.ZodNullable<z.ZodUUID>;
+                status: z.ZodEnum<{
+                    pending: "pending";
+                    graded: "graded";
+                    cancelled: "cancelled";
+                }>;
+                sortOrder: z.ZodNumber;
+                baseCard: z.ZodObject<{
+                    id: z.ZodUUID;
+                    lineId: z.ZodUUID;
+                    color: z.ZodEnum<{
+                        white: "white";
+                        black: "black";
+                    }>;
+                    generation: z.ZodString;
+                    contentGeneration: z.ZodString;
+                    version: z.ZodString;
+                    state: z.ZodEnum<{
+                        new: "new";
+                        review: "review";
+                    }>;
+                    unlockedMoves: z.ZodNumber;
+                    intervalDays: z.ZodString;
+                    dueDate: z.ZodString;
+                    reps: z.ZodNumber;
+                    lapses: z.ZodNumber;
+                    lastGrade: z.ZodNullable<z.ZodEnum<{
+                        bad: "bad";
+                        mid: "mid";
+                        good: "good";
+                    }>>;
+                }, z.core.$strict>;
+                effectiveMoves: z.ZodNumber;
+                pedagogicalSettingsVersion: z.ZodString;
+                movesPerBlock: z.ZodNumber;
+                srsVersion: z.ZodString;
+            }, z.core.$strict>>;
+            newLineIds: z.ZodArray<z.ZodUUID>;
+            completedCount: z.ZodNumber;
+            pendingCount: z.ZodNumber;
+            cancelledCount: z.ZodNumber;
+        }, z.core.$strict>>;
+        manifestId: z.ZodUUID;
+        accountRevision: z.ZodString;
+        serverNow: z.ZodString;
+    }, z.core.$strict>;
+    lineRevisions: z.ZodArray<z.ZodObject<{
+        id: z.ZodUUID;
+        openingId: z.ZodUUID;
+        name: z.ZodString;
+        sortOrder: z.ZodNumber;
+        revisionId: z.ZodUUID;
+        movesHash: z.ZodString;
+        contentHash: z.ZodString;
+        totalStudentMovesByColor: z.ZodObject<{
+            white: z.ZodNumber;
+            black: z.ZodNumber;
+        }, z.core.$strict>;
+        moves: z.ZodArray<z.ZodObject<{
+            ply: z.ZodNumber;
+            san: z.ZodString;
+            explanation: z.ZodString;
+        }, z.core.$strict>>;
+        references: z.ZodArray<z.ZodObject<{
+            title: z.ZodString;
+            url: z.ZodOptional<z.ZodURL>;
+            citation: z.ZodString;
+            consultedAt: z.ZodString;
+            coverage: z.ZodString;
+            limitations: z.ZodString;
+        }, z.core.$strict>>;
+    }, z.core.$strict>>;
+    existingSessions: z.ZodArray<z.ZodObject<{
+        id: z.ZodUUID;
+        studyDate: z.ZodString;
+        pedagogicalSettings: z.ZodObject<{
+            version: z.ZodString;
+            newLinesPerDay: z.ZodNumber;
+            movesPerBlock: z.ZodNumber;
+            timezone: z.ZodString;
+        }, z.core.$strict>;
+        planSeed: z.ZodString;
+        status: z.ZodEnum<{
+            in_progress: "in_progress";
+            completed: "completed";
+        }>;
+        items: z.ZodArray<z.ZodObject<{
+            id: z.ZodUUID;
+            sessionId: z.ZodUUID;
+            lineId: z.ZodUUID;
+            lineRevisionId: z.ZodUUID;
+            originType: z.ZodEnum<{
+                new: "new";
+                review: "review";
+            }>;
+            attemptNumber: z.ZodNumber;
+            parentEventId: z.ZodNullable<z.ZodUUID>;
+            status: z.ZodEnum<{
+                pending: "pending";
+                graded: "graded";
+                cancelled: "cancelled";
+            }>;
+            sortOrder: z.ZodNumber;
+            baseCard: z.ZodObject<{
+                id: z.ZodUUID;
+                lineId: z.ZodUUID;
+                color: z.ZodEnum<{
+                    white: "white";
+                    black: "black";
+                }>;
+                generation: z.ZodString;
+                contentGeneration: z.ZodString;
+                version: z.ZodString;
+                state: z.ZodEnum<{
+                    new: "new";
+                    review: "review";
+                }>;
+                unlockedMoves: z.ZodNumber;
+                intervalDays: z.ZodString;
+                dueDate: z.ZodString;
+                reps: z.ZodNumber;
+                lapses: z.ZodNumber;
+                lastGrade: z.ZodNullable<z.ZodEnum<{
+                    bad: "bad";
+                    mid: "mid";
+                    good: "good";
+                }>>;
+            }, z.core.$strict>;
+            effectiveMoves: z.ZodNumber;
+            pedagogicalSettingsVersion: z.ZodString;
+            movesPerBlock: z.ZodNumber;
+            srsVersion: z.ZodString;
+        }, z.core.$strict>>;
+        newLineIds: z.ZodArray<z.ZodUUID>;
+        completedCount: z.ZodNumber;
+        pendingCount: z.ZodNumber;
+        cancelledCount: z.ZodNumber;
+    }, z.core.$strict>>;
+    contentHash: z.ZodString;
+}, z.core.$strict>;
+export const OfflineRenewalRequestSchema: z.ZodObject<{
+    deviceId: z.ZodUUID;
+    lastKnownRevision: z.ZodString;
+    resolvedEventIds: z.ZodArray<z.ZodUUID>;
+}, z.core.$strict>;
+export const OfflineRenewalExchangeSchema: z.ZodObject<{
+    request: z.ZodObject<{
+        deviceId: z.ZodUUID;
+        lastKnownRevision: z.ZodString;
+        resolvedEventIds: z.ZodArray<z.ZodUUID>;
+    }, z.core.$strict>;
+    response: z.ZodObject<{
+        id: z.ZodUUID;
+        deviceId: z.ZodUUID;
+        issuedAt: z.ZodString;
+        expiresAt: z.ZodString;
+        submitUntil: z.ZodString;
+        baseAccountRevision: z.ZodString;
+        manifestId: z.ZodUUID;
+        srsVersion: z.ZodString;
+        settings: z.ZodObject<{
+            version: z.ZodString;
+            newLinesPerDay: z.ZodNumber;
+            movesPerBlock: z.ZodNumber;
+            timezone: z.ZodString;
+        }, z.core.$strict>;
+        seedMaterial: z.ZodObject<{
+            generatorVersion: z.ZodString;
+            seed: z.ZodString;
+            activeLines: z.ZodArray<z.ZodObject<{
+                lineId: z.ZodUUID;
+                revisionId: z.ZodUUID;
+            }, z.core.$strict>>;
+        }, z.core.$strict>;
+        baseState: z.ZodObject<{
+            profile: z.ZodObject<{
+                id: z.ZodUUID;
+                emailVerified: z.ZodBoolean;
+                onboardedAt: z.ZodNullable<z.ZodString>;
+                settings: z.ZodObject<{
+                    version: z.ZodString;
+                    newLinesPerDay: z.ZodNumber;
+                    movesPerBlock: z.ZodNumber;
+                    timezone: z.ZodString;
+                }, z.core.$strict>;
+            }, z.core.$strict>;
+            repertoire: z.ZodArray<z.ZodObject<{
+                openingId: z.ZodUUID;
+                color: z.ZodEnum<{
+                    white: "white";
+                    black: "black";
+                }>;
+                active: z.ZodBoolean;
+                version: z.ZodString;
+            }, z.core.$strict>>;
+            cards: z.ZodArray<z.ZodObject<{
+                id: z.ZodUUID;
+                lineId: z.ZodUUID;
+                color: z.ZodEnum<{
+                    white: "white";
+                    black: "black";
+                }>;
+                generation: z.ZodString;
+                contentGeneration: z.ZodString;
+                version: z.ZodString;
+                state: z.ZodEnum<{
+                    new: "new";
+                    review: "review";
+                }>;
+                unlockedMoves: z.ZodNumber;
+                intervalDays: z.ZodString;
+                dueDate: z.ZodString;
+                reps: z.ZodNumber;
+                lapses: z.ZodNumber;
+                lastGrade: z.ZodNullable<z.ZodEnum<{
+                    bad: "bad";
+                    mid: "mid";
+                    good: "good";
+                }>>;
+            }, z.core.$strict>>;
+            activity: z.ZodObject<{
+                eligibleDates: z.ZodArray<z.ZodString>;
+                currentStreak: z.ZodNumber;
+                bestStreak: z.ZodNumber;
+                lastActiveDate: z.ZodNullable<z.ZodString>;
+                asOfDate: z.ZodString;
+            }, z.core.$strict>;
+            currentSession: z.ZodNullable<z.ZodObject<{
+                id: z.ZodUUID;
+                studyDate: z.ZodString;
+                pedagogicalSettings: z.ZodObject<{
+                    version: z.ZodString;
+                    newLinesPerDay: z.ZodNumber;
+                    movesPerBlock: z.ZodNumber;
+                    timezone: z.ZodString;
+                }, z.core.$strict>;
+                planSeed: z.ZodString;
+                status: z.ZodEnum<{
+                    in_progress: "in_progress";
+                    completed: "completed";
+                }>;
+                items: z.ZodArray<z.ZodObject<{
+                    id: z.ZodUUID;
+                    sessionId: z.ZodUUID;
+                    lineId: z.ZodUUID;
+                    lineRevisionId: z.ZodUUID;
+                    originType: z.ZodEnum<{
+                        new: "new";
+                        review: "review";
+                    }>;
+                    attemptNumber: z.ZodNumber;
+                    parentEventId: z.ZodNullable<z.ZodUUID>;
+                    status: z.ZodEnum<{
+                        pending: "pending";
+                        graded: "graded";
+                        cancelled: "cancelled";
+                    }>;
+                    sortOrder: z.ZodNumber;
+                    baseCard: z.ZodObject<{
+                        id: z.ZodUUID;
+                        lineId: z.ZodUUID;
+                        color: z.ZodEnum<{
+                            white: "white";
+                            black: "black";
+                        }>;
+                        generation: z.ZodString;
+                        contentGeneration: z.ZodString;
+                        version: z.ZodString;
+                        state: z.ZodEnum<{
+                            new: "new";
+                            review: "review";
+                        }>;
+                        unlockedMoves: z.ZodNumber;
+                        intervalDays: z.ZodString;
+                        dueDate: z.ZodString;
+                        reps: z.ZodNumber;
+                        lapses: z.ZodNumber;
+                        lastGrade: z.ZodNullable<z.ZodEnum<{
+                            bad: "bad";
+                            mid: "mid";
+                            good: "good";
+                        }>>;
+                    }, z.core.$strict>;
+                    effectiveMoves: z.ZodNumber;
+                    pedagogicalSettingsVersion: z.ZodString;
+                    movesPerBlock: z.ZodNumber;
+                    srsVersion: z.ZodString;
+                }, z.core.$strict>>;
+                newLineIds: z.ZodArray<z.ZodUUID>;
+                completedCount: z.ZodNumber;
+                pendingCount: z.ZodNumber;
+                cancelledCount: z.ZodNumber;
+            }, z.core.$strict>>;
+            manifestId: z.ZodUUID;
+            accountRevision: z.ZodString;
+            serverNow: z.ZodString;
+        }, z.core.$strict>;
+        lineRevisions: z.ZodArray<z.ZodObject<{
+            id: z.ZodUUID;
+            openingId: z.ZodUUID;
+            name: z.ZodString;
+            sortOrder: z.ZodNumber;
+            revisionId: z.ZodUUID;
+            movesHash: z.ZodString;
+            contentHash: z.ZodString;
+            totalStudentMovesByColor: z.ZodObject<{
+                white: z.ZodNumber;
+                black: z.ZodNumber;
+            }, z.core.$strict>;
+            moves: z.ZodArray<z.ZodObject<{
+                ply: z.ZodNumber;
+                san: z.ZodString;
+                explanation: z.ZodString;
+            }, z.core.$strict>>;
+            references: z.ZodArray<z.ZodObject<{
+                title: z.ZodString;
+                url: z.ZodOptional<z.ZodURL>;
+                citation: z.ZodString;
+                consultedAt: z.ZodString;
+                coverage: z.ZodString;
+                limitations: z.ZodString;
+            }, z.core.$strict>>;
+        }, z.core.$strict>>;
+        existingSessions: z.ZodArray<z.ZodObject<{
+            id: z.ZodUUID;
+            studyDate: z.ZodString;
+            pedagogicalSettings: z.ZodObject<{
+                version: z.ZodString;
+                newLinesPerDay: z.ZodNumber;
+                movesPerBlock: z.ZodNumber;
+                timezone: z.ZodString;
+            }, z.core.$strict>;
+            planSeed: z.ZodString;
+            status: z.ZodEnum<{
+                in_progress: "in_progress";
+                completed: "completed";
+            }>;
+            items: z.ZodArray<z.ZodObject<{
+                id: z.ZodUUID;
+                sessionId: z.ZodUUID;
+                lineId: z.ZodUUID;
+                lineRevisionId: z.ZodUUID;
+                originType: z.ZodEnum<{
+                    new: "new";
+                    review: "review";
+                }>;
+                attemptNumber: z.ZodNumber;
+                parentEventId: z.ZodNullable<z.ZodUUID>;
+                status: z.ZodEnum<{
+                    pending: "pending";
+                    graded: "graded";
+                    cancelled: "cancelled";
+                }>;
+                sortOrder: z.ZodNumber;
+                baseCard: z.ZodObject<{
+                    id: z.ZodUUID;
+                    lineId: z.ZodUUID;
+                    color: z.ZodEnum<{
+                        white: "white";
+                        black: "black";
+                    }>;
+                    generation: z.ZodString;
+                    contentGeneration: z.ZodString;
+                    version: z.ZodString;
+                    state: z.ZodEnum<{
+                        new: "new";
+                        review: "review";
+                    }>;
+                    unlockedMoves: z.ZodNumber;
+                    intervalDays: z.ZodString;
+                    dueDate: z.ZodString;
+                    reps: z.ZodNumber;
+                    lapses: z.ZodNumber;
+                    lastGrade: z.ZodNullable<z.ZodEnum<{
+                        bad: "bad";
+                        mid: "mid";
+                        good: "good";
+                    }>>;
+                }, z.core.$strict>;
+                effectiveMoves: z.ZodNumber;
+                pedagogicalSettingsVersion: z.ZodString;
+                movesPerBlock: z.ZodNumber;
+                srsVersion: z.ZodString;
+            }, z.core.$strict>>;
+            newLineIds: z.ZodArray<z.ZodUUID>;
+            completedCount: z.ZodNumber;
+            pendingCount: z.ZodNumber;
+            cancelledCount: z.ZodNumber;
+        }, z.core.$strict>>;
+        contentHash: z.ZodString;
+    }, z.core.$strict>;
+}, z.core.$strict>;
+export const OfflineRenewalConflictSchema: z.ZodObject<{
+    error: z.ZodObject<{
+        code: z.ZodEnum<{
+            AUTH_REQUIRED: "AUTH_REQUIRED";
+            EMAIL_UNVERIFIED: "EMAIL_UNVERIFIED";
+            ORIGIN_DENIED: "ORIGIN_DENIED";
+            NOT_FOUND: "NOT_FOUND";
+            VERSION_CONFLICT: "VERSION_CONFLICT";
+            EVENT_ID_REUSED: "EVENT_ID_REUSED";
+            RECONCILIATION_REQUIRED: "RECONCILIATION_REQUIRED";
+            PAYLOAD_TOO_LARGE: "PAYLOAD_TOO_LARGE";
+            VALIDATION_ERROR: "VALIDATION_ERROR";
+            RATE_LIMITED: "RATE_LIMITED";
+            SERVICE_UNAVAILABLE: "SERVICE_UNAVAILABLE";
+            REVISION_NOT_READY: "REVISION_NOT_READY";
+        }>;
+        message: z.ZodString;
+        requestId: z.ZodString;
+        retryable: z.ZodBoolean;
+        details: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            field: z.ZodString;
+            issue: z.ZodString;
+        }, z.core.$strict>>>;
+    }, z.core.$strict>;
+    serverNow: z.ZodString;
+}, z.core.$strict>;
+import * as z from 'zod';

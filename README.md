@@ -6,14 +6,72 @@ El [estado de trabajo agéntico](docs/next-job) es la fuente única del siguient
 punto. T01 transfirió la [especificación SRS activa](docs/reglas-srs.md),
 su [índice](docs/fixtures-srs.md) y 22 JSON de `src/domain/fixtures/` desde la
 referencia con hashes idénticos: 352 variantes declarativas. T02 preparó el
-paquete TypeScript mínimo. B01 y G01 están cerrados solo en especificación;
-el siguiente punto es B02.01, contrato de primitivas y errores.
+paquete TypeScript mínimo. B01 y G01 están cerrados solo en especificación.
+B02.01–B02.02 añadieron el
+[contrato local de primitivas, errores y catálogo](docs/contrato-B02.01-B02.02.md);
+B02.03–B02.04 añadieron el
+[contrato de perfil, ajustes, repertorio, sesión y onboarding](docs/contrato-B02.03-B02.04.md).
+El [contrato B02.07–B02.08](docs/contrato-B02.07-B02.08.md) añade paquete
+offline/renovación y lecturas con revisión, ticket, avisos y readiness.
+El siguiente punto es B03.01, runner de fixtures del dominio SRS.
 
 La raíz API se construye con Node.js 24 y pnpm 12.4.2. `pnpm install`,
 `pnpm test`, `pnpm lint`, `pnpm typecheck` y `pnpm build` son los comandos
-del esqueleto. El paquete exporta únicamente la versión de especificación;
-todavía no contiene dominio, HTTP ni persistencia. La [evidencia T01](docs/evidencia/T01.md)
+del esqueleto. El paquete exporta la versión de especificación y
+`zephyriov-api/contracts` con esquemas Zod y ejemplos instalables desde un
+tarball local. Los esquemas son fuente única; DTO TypeScript y OpenAPI se
+generan desde los esquemas Zod en B02.09. Todavía no contiene
+dominio, HTTP ni persistencia. La [evidencia T01](docs/evidencia/T01.md)
 y [evidencia T02](docs/evidencia/T02.md) detallan verificación y límites.
+
+El contrato B02.03–B02.04 exige precondiciones por recurso, conserva los
+snapshots de sesión/ítem y expresa onboarding como una operación atómica.
+La atomicidad y autorización se probarán con persistencia y rutas en B08;
+los esquemas locales sólo validan las formas y las decisiones de versión.
+
+**B02.09–B02.10 — artefactos y auditoría (2026-09-19):**
+`pnpm build` genera `contracts/openapi.json`, declaraciones del contrato y
+tipos DTO inferidos de Zod. El paquete local exporta OpenAPI y los tipos;
+la auditoría comprueba ejemplos 200/401/403 por operación, 12 errores y un
+recorrido de cuenta a lectura consistente mediante IDs públicos. OpenAPI
+documenta formas pero las refinaciones de Zod siguen siendo la validación
+normativa. La lectura de estado declara colecciones completas; D15 requiere
+mediciones con datos reales en B08.08. Auth efectivo espera B05.12.
+[Contrato y límites](docs/contrato-B02.09-B02.10.md) ·
+[informe diario](docs/evidencia/B02.09-B02.10.md).
+La verificación posterior del informe también aprobó 40 pruebas, lint,
+typecheck, build, generación y consumidor local bajo Node 24.21.0 oficial.
+
+**B02.05–B02.06 — eventos (2026-09-18):** `contracts/events.mjs` añade el
+`StudyEvent` congelable con intentos crudos, dependencias y evidencia de zona
+conocida, además de `EventDecision`/`EventResult` para replay, errores
+recuperables y lotes mixtos. El contrato no acepta `grade` del cliente ni
+demuestra SAN, autorización, persistencia o transacciones; esas garantías
+esperan B03–B09. [Contrato](docs/contrato-B02.05-B02.06.md) e
+[informe](docs/evidencia/B02.05-B02.06.md).
+
+La revisión estricta de B02.05–B02.06 fijó `zoneEvidenceRef` en cada evento:
+referencia una revisión de estado entregada al dispositivo o un paquete
+emitido, separada de la versión pedagógica. El servidor deberá resolverla
+contra su historial en B08/B09. El tamaño de lote se mide sobre los bytes
+UTF-8 recibidos; una comprobación de intercambio exige un resultado por
+evento enviado. El ejemplo aplicado ahora corresponde a la línea de un ply.
+
+**B02.07–B02.08 — paquete y revisión (2026-09-19):**
+`contracts/offline.mjs` define el snapshot offline con ventanas UTC de siete
+días de estudio y siete de entrega, digest SHA-256 canónico y precondiciones de
+renovación. `contracts/realtime.mjs` valida la barrera `minRevision`, ticket de
+30 segundos, avisos de revisión y readiness sin datos. El servidor deberá
+acreditar cobertura completa de líneas, emisión consistente, revisión durable,
+consumo único de tickets y autorización en B05/B08–B10. Las rutas Better Auth
+se inventariarán en B05.12. [Contrato](docs/contrato-B02.07-B02.08.md) e
+[informe](docs/evidencia/B02.07-B02.08.md). No hay HTTP ni clientes en esta
+entrega.
+
+[Informe B02.01–B02.02](docs/evidencia/B02.01-B02.02.md): validación de fechas
+imposibles y revisiones grandes, páginas ligadas a manifiesto, ETag y consumidor
+local. Node 24 estaba pendiente en ese informe y fue ensayado después en
+B02.09–B02.10; las rutas Auth reales esperan B05.
 
 Orden de trabajo: planificación → API → infraestructura → Android → web.
 API e infraestructura comparten repositorio; cada cliente se desarrolla

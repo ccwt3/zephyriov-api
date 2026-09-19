@@ -1,0 +1,259 @@
+{
+  "studyEvent": {
+    "eventId": "12121212-1212-4212-8212-121212121212",
+    "deviceId": "88888888-8888-4888-8888-888888888888",
+    "sessionRef": {"kind": "canonical", "id": "99999999-9999-4999-8999-999999999999"},
+    "itemRef": {"kind": "canonical", "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc"},
+    "packageId": null,
+    "lineId": "33333333-3333-4333-8333-333333333333",
+    "lineRevisionId": "44444444-4444-4444-8444-444444444444",
+    "srsVersion": "B01.10-v1",
+    "pedagogicalSettingsVersion": "1",
+    "base": {
+      "cardVersion": "1",
+      "generation": "personal-generation-1",
+      "contentGeneration": "content-generation-1"
+    },
+    "dependsOnEventIds": ["dddddddd-dddd-4ddd-8ddd-dddddddddddd"],
+    "startedAt": "2026-09-18T12:01:00.000Z",
+    "completedAt": "2026-09-18T12:01:15.000Z",
+    "studyDate": "2026-09-18",
+    "studyTimezone": "UTC",
+    "zoneEvidenceRef": {
+      "kind": "account-snapshot",
+      "accountRevision": "3",
+      "settingsVersion": "1"
+    },
+    "attempts": [
+      {"ply": 1, "playedSan": "e4", "elapsedMs": 1500}
+    ]
+  },
+  "knownStudyZone": {
+    "reference": {
+      "kind": "account-snapshot",
+      "accountRevision": "3",
+      "settingsVersion": "1"
+    },
+    "deviceId": "88888888-8888-4888-8888-888888888888",
+    "timezone": "UTC",
+    "knownAt": "2026-09-18T12:00:30.000Z"
+  },
+  "request": {
+    "events": [
+      {
+        "eventId": "12121212-1212-4212-8212-121212121212",
+        "deviceId": "88888888-8888-4888-8888-888888888888",
+        "sessionRef": {"kind": "canonical", "id": "99999999-9999-4999-8999-999999999999"},
+        "itemRef": {"kind": "canonical", "id": "cccccccc-cccc-4ccc-8ccc-cccccccccccc"},
+        "packageId": null,
+        "lineId": "33333333-3333-4333-8333-333333333333",
+        "lineRevisionId": "44444444-4444-4444-8444-444444444444",
+        "srsVersion": "B01.10-v1",
+        "pedagogicalSettingsVersion": "1",
+        "base": {
+          "cardVersion": "1",
+          "generation": "personal-generation-1",
+          "contentGeneration": "content-generation-1"
+        },
+        "dependsOnEventIds": ["dddddddd-dddd-4ddd-8ddd-dddddddddddd"],
+        "startedAt": "2026-09-18T12:01:00.000Z",
+        "completedAt": "2026-09-18T12:01:15.000Z",
+        "studyDate": "2026-09-18",
+        "studyTimezone": "UTC",
+        "zoneEvidenceRef": {
+          "kind": "account-snapshot",
+          "accountRevision": "3",
+          "settingsVersion": "1"
+        },
+        "attempts": [{"ply": 1, "playedSan": "e4", "elapsedMs": 1500}]
+      },
+      {
+        "eventId": "23232323-2323-4232-8232-232323232323",
+        "deviceId": "88888888-8888-4888-8888-888888888888",
+        "sessionRef": {"kind": "local", "id": "offline-session-1"},
+        "itemRef": {"kind": "local", "id": "offline-item-1"},
+        "packageId": "77777777-7777-4777-8777-777777777777",
+        "lineId": "33333333-3333-4333-8333-333333333333",
+        "lineRevisionId": "44444444-4444-4444-8444-444444444444",
+        "srsVersion": "B01.10-v1",
+        "pedagogicalSettingsVersion": "1",
+        "base": {
+          "cardVersion": "1",
+          "generation": "personal-generation-1",
+          "contentGeneration": "content-generation-1"
+        },
+        "dependsOnEventIds": ["56565656-5656-4565-8565-565656565656"],
+        "startedAt": "2026-09-18T12:02:00.000Z",
+        "completedAt": "2026-09-18T12:02:15.000Z",
+        "studyDate": "2026-09-18",
+        "studyTimezone": "UTC",
+        "zoneEvidenceRef": {
+          "kind": "issued-package",
+          "packageId": "77777777-7777-4777-8777-777777777777",
+          "settingsVersion": "1"
+        },
+        "attempts": [{"ply": 1, "playedSan": "e4", "elapsedMs": 1200}]
+      },
+      {
+        "eventId": "34343434-3434-4434-8434-343434343434",
+        "deviceId": "88888888-8888-4888-8888-888888888888",
+        "sessionRef": {"kind": "canonical", "id": "99999999-9999-4999-8999-999999999999"},
+        "itemRef": {"kind": "canonical", "id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa"},
+        "packageId": null,
+        "lineId": "33333333-3333-4333-8333-333333333333",
+        "lineRevisionId": "44444444-4444-4444-8444-444444444444",
+        "srsVersion": "B01.10-v1",
+        "pedagogicalSettingsVersion": "1",
+        "base": {
+          "cardVersion": "1",
+          "generation": "personal-generation-1",
+          "contentGeneration": "content-generation-1"
+        },
+        "dependsOnEventIds": [],
+        "startedAt": "2026-09-18T12:03:00.000Z",
+        "completedAt": "2026-09-18T12:03:15.000Z",
+        "studyDate": "2026-09-18",
+        "studyTimezone": "UTC",
+        "zoneEvidenceRef": {
+          "kind": "account-snapshot",
+          "accountRevision": "3",
+          "settingsVersion": "1"
+        },
+        "attempts": [{"ply": 1, "playedSan": "e4", "elapsedMs": 1300}]
+      }
+    ]
+  },
+  "remoteZoneChange": {
+    "serverChangedAt": "2026-09-17T01:01:00.000Z",
+    "serverCurrentTimezone": "Asia/Tokyo",
+    "oldBlock": {
+      "eventOverrides": {
+        "eventId": "45454545-4545-4454-8454-454545454545",
+        "sessionRef": {"kind": "local", "id": "remote-old-session"},
+        "itemRef": {"kind": "local", "id": "remote-old-item"},
+        "dependsOnEventIds": [],
+        "startedAt": "2026-09-17T01:00:00.000Z",
+        "completedAt": "2026-09-17T01:05:00.000Z",
+        "studyDate": "2026-09-16",
+        "studyTimezone": "America/Mexico_City",
+        "zoneEvidenceRef": {
+          "kind": "account-snapshot",
+          "accountRevision": "3",
+          "settingsVersion": "1"
+        }
+      },
+      "resolvedEvidence": {
+        "reference": {
+          "kind": "account-snapshot",
+          "accountRevision": "3",
+          "settingsVersion": "1"
+        },
+        "deviceId": "88888888-8888-4888-8888-888888888888",
+        "timezone": "America/Mexico_City",
+        "knownAt": "2026-09-15T00:00:00.000Z"
+      }
+    },
+    "nextBlock": {
+      "eventOverrides": {
+        "eventId": "56565656-5656-4565-8565-565656565656",
+        "sessionRef": {"kind": "local", "id": "remote-next-session"},
+        "itemRef": {"kind": "local", "id": "remote-next-item"},
+        "dependsOnEventIds": [],
+        "startedAt": "2026-09-17T01:07:00.000Z",
+        "completedAt": "2026-09-17T01:09:00.000Z",
+        "studyDate": "2026-09-17",
+        "studyTimezone": "Asia/Tokyo",
+        "zoneEvidenceRef": {
+          "kind": "account-snapshot",
+          "accountRevision": "4",
+          "settingsVersion": "2"
+        }
+      },
+      "resolvedEvidence": {
+        "reference": {
+          "kind": "account-snapshot",
+          "accountRevision": "4",
+          "settingsVersion": "2"
+        },
+        "deviceId": "88888888-8888-4888-8888-888888888888",
+        "timezone": "Asia/Tokyo",
+        "knownAt": "2026-09-17T01:06:00.000Z"
+      }
+    }
+  },
+  "appliedDecision": {
+    "eventId": "12121212-1212-4212-8212-121212121212",
+    "outcome": "applied",
+    "reason": "ACCEPTED",
+    "sessionId": "99999999-9999-4999-8999-999999999999",
+    "itemId": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
+    "grade": "good",
+    "cardAfter": {
+      "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+      "lineId": "33333333-3333-4333-8333-333333333333",
+      "color": "white",
+      "generation": "personal-generation-1",
+      "contentGeneration": "content-generation-1",
+      "version": "2",
+      "state": "review",
+      "unlockedMoves": 1,
+      "intervalDays": "1.00",
+      "dueDate": "2026-09-19",
+      "reps": 1,
+      "lapses": 0,
+      "lastGrade": "good"
+    },
+    "repeatItem": null,
+    "nextDue": {"date": "2026-09-19", "inDays": "1.00"},
+    "sessionCompleted": true,
+    "accountRevision": "5",
+    "decidedAt": "2026-09-18T12:01:16.000Z"
+  },
+  "response": {
+    "results": [
+      {
+        "eventId": "12121212-1212-4212-8212-121212121212",
+        "replayed": false,
+        "decision": {
+          "eventId": "12121212-1212-4212-8212-121212121212",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "sessionId": "99999999-9999-4999-8999-999999999999",
+          "itemId": "cccccccc-cccc-4ccc-8ccc-cccccccccccc",
+          "grade": "good",
+          "cardAfter": {
+            "id": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+            "lineId": "33333333-3333-4333-8333-333333333333",
+            "color": "white",
+            "generation": "personal-generation-1",
+            "contentGeneration": "content-generation-1",
+            "version": "2",
+            "state": "review",
+            "unlockedMoves": 1,
+            "intervalDays": "1.00",
+            "dueDate": "2026-09-19",
+            "reps": 1,
+            "lapses": 0,
+            "lastGrade": "good"
+          },
+          "repeatItem": null,
+          "nextDue": {"date": "2026-09-19", "inDays": "1.00"},
+          "sessionCompleted": true,
+          "accountRevision": "5",
+          "decidedAt": "2026-09-18T12:01:16.000Z"
+        }
+      },
+      {
+        "eventId": "23232323-2323-4232-8232-232323232323",
+        "retryable": true,
+        "code": "DEPENDENCY_PENDING"
+      },
+      {
+        "eventId": "34343434-3434-4434-8434-343434343434",
+        "retryable": false,
+        "code": "EVENT_ID_REUSED"
+      }
+    ],
+    "accountRevision": "5"
+  }
+}

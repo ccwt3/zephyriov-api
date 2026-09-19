@@ -1,0 +1,16 @@
+{
+  "errors": {
+    "AUTH_REQUIRED": { "error": { "code": "AUTH_REQUIRED", "message": "Authentication required", "requestId": "req-b0210", "retryable": false }, "serverNow": "2026-09-19T12:00:00.000Z" },
+    "EMAIL_UNVERIFIED": { "error": { "code": "EMAIL_UNVERIFIED", "message": "Email verification required", "requestId": "req-b0210", "retryable": false }, "serverNow": "2026-09-19T12:00:00.000Z" },
+    "ORIGIN_DENIED": { "error": { "code": "ORIGIN_DENIED", "message": "Origin denied", "requestId": "req-b0210", "retryable": false }, "serverNow": "2026-09-19T12:00:00.000Z" },
+    "NOT_FOUND": { "error": { "code": "NOT_FOUND", "message": "Resource not found", "requestId": "req-b0210", "retryable": false }, "serverNow": "2026-09-19T12:00:00.000Z" },
+    "VERSION_CONFLICT": { "error": { "code": "VERSION_CONFLICT", "message": "Version changed", "requestId": "req-b0210", "retryable": true }, "serverNow": "2026-09-19T12:00:00.000Z" },
+    "EVENT_ID_REUSED": { "error": { "code": "EVENT_ID_REUSED", "message": "Event ID already used", "requestId": "req-b0210", "retryable": false }, "serverNow": "2026-09-19T12:00:00.000Z" },
+    "RECONCILIATION_REQUIRED": { "error": { "code": "RECONCILIATION_REQUIRED", "message": "Resolve events first", "requestId": "req-b0210", "retryable": true }, "serverNow": "2026-09-19T12:00:00.000Z" },
+    "PAYLOAD_TOO_LARGE": { "error": { "code": "PAYLOAD_TOO_LARGE", "message": "Payload exceeds limit", "requestId": "req-b0210", "retryable": false }, "serverNow": "2026-09-19T12:00:00.000Z" },
+    "VALIDATION_ERROR": { "error": { "code": "VALIDATION_ERROR", "message": "Invalid request", "requestId": "req-b0210", "retryable": false, "details": [{ "field": "events", "issue": "required" }] }, "serverNow": "2026-09-19T12:00:00.000Z" },
+    "RATE_LIMITED": { "error": { "code": "RATE_LIMITED", "message": "Rate limited", "requestId": "req-b0210", "retryable": true }, "serverNow": "2026-09-19T12:00:00.000Z" },
+    "SERVICE_UNAVAILABLE": { "error": { "code": "SERVICE_UNAVAILABLE", "message": "Service unavailable", "requestId": "req-b0210", "retryable": true }, "serverNow": "2026-09-19T12:00:00.000Z" },
+    "REVISION_NOT_READY": { "error": { "code": "REVISION_NOT_READY", "message": "Revision not visible", "requestId": "req-b0210", "retryable": true }, "serverNow": "2026-09-19T12:00:00.000Z" }
+  }
+}

@@ -13,13 +13,56 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./contracts": {
+      "types": "./contracts/types/index.d.mts",
+      "default": "./contracts/index.mjs"
+    },
+    "./contracts/dto": {
+      "types": "./contracts/dto.d.mts"
+    },
+    "./contracts/openapi.json": {
+      "default": "./contracts/openapi.json"
+    },
+    "./contracts/examples.json": {
+      "default": "./contracts/examples.json"
+    },
+    "./contracts/examples-B02.03-B02.04.json": {
+      "default": "./contracts/examples-B02.03-B02.04.json"
+    },
+    "./contracts/examples-B02.05-B02.06.json": {
+      "default": "./contracts/examples-B02.05-B02.06.json"
+    },
+    "./contracts/examples-B02.07-B02.08.json": {
+      "default": "./contracts/examples-B02.07-B02.08.json"
+    },
+    "./contracts/examples-B02.10.json": {
+      "default": "./contracts/examples-B02.10.json"
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "contracts/index.mjs",
+    "contracts/primitives.mjs",
+    "contracts/errors.mjs",
+    "contracts/catalog.mjs",
+    "contracts/account.mjs",
+    "contracts/study.mjs",
+    "contracts/events.mjs",
+    "contracts/offline.mjs",
+    "contracts/realtime.mjs",
+    "contracts/dto.d.mts",
+    "contracts/types/*.d.mts",
+    "contracts/openapi.json",
+    "contracts/examples.json",
+    "contracts/examples-B02.03-B02.04.json",
+    "contracts/examples-B02.05-B02.06.json",
+    "contracts/examples-B02.07-B02.08.json",
+    "contracts/examples-B02.10.json"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "generate:contracts": "node contracts/generate.mjs",
+    "build": "node contracts/generate.mjs && tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint .",
     "test": "vitest run"
@@ -30,5 +73,8 @@
     "typescript": "5.9.3",
     "typescript-eslint": "8.70.0",
     "vitest": "5.0.1"
+  },
+  "dependencies": {
+    "zod": "4.6.5"
   }
 }

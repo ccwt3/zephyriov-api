@@ -1,5 +1,83 @@
 # Branch changes
 
+## 2026-09-19 — B02.09 y B02.10: OpenAPI/DTO y auditoría
+
+Los 70 esquemas Zod generan OpenAPI 3.1 y tipos DTO instalables desde el
+tarball local. Se auditaron 14 operaciones HTTP, ejemplos 200/401/403,
+12 errores y el recorrido de cuenta a estado por IDs públicos. 40 pruebas,
+lint, typecheck, build, T01 y consumidor de tarball aprobaron en Node 26.9.0.
+Una verificación posterior con binario oficial Node 24.21.0 aprobó de nuevo
+40 pruebas, lint, typecheck, build, generación y consumidor, sin instalar
+Node en el sistema.
+OpenAPI documenta formas; Zod conserva refinaciones. D15 requiere medición
+real en B08.08; Auth efectivo espera B05.12. Siguiente B03.01.
+[Contrato](docs/contrato-B02.09-B02.10.md) e
+[informe](docs/evidencia/B02.09-B02.10.md).
+
+[Listo :v]
+
+## 2026-09-19 — B02.07 y B02.08: paquete offline y revisión
+
+Se añadieron esquemas/ejemplos instalables para paquete offline con ventanas
+7+7 días, contenido verificable y renovación tras reconciliación, además de
+lecturas con `minRevision`, ticket, avisos y readiness. Se fijó la frontera
+Auth web/móvil sin inventar rutas Better Auth. 32 pruebas, lint, typecheck,
+build, verificador T01 y consumidor de tarball aprobaron en Node 26.9.0.
+La emisión y autorización efectivas esperan B05/B08–B10. Siguiente B02.09.
+[Contrato](docs/contrato-B02.07-B02.08.md) e
+[informe](docs/evidencia/B02.07-B02.08.md).
+
+[Listo :v]
+
+## 2026-09-18 — Corrección de B02.05 y B02.06 tras revisión estricta
+
+Se cerraron seis defectos del contrato local: referencia verificable de zona
+por evento, ejemplo aplicado coherente con la línea, motivos/efectos de
+decisión compatibles, UUID canónicos y revisiones decimales, límite de 256 KiB
+sobre el cuerpo original y correspondencia exacta de IDs en lotes mixtos.
+Las pruebas cubren cambio remoto de zona y paquete presente. El historial
+confiable de entregas y la aceptación HTTP corresponden a B08/B09; siguiente
+punto B02.07. [Contrato](docs/contrato-B02.05-B02.06.md) e
+[informe](docs/evidencia/B02.05-B02.06.md).
+
+[Listo :v]
+
+## 2026-09-18 — B02.05 y B02.06: eventos y decisiones
+
+Se añadieron los esquemas instalables de `StudyEvent`, intentos crudos,
+snapshots base, dependencias y evidencia de zona; y de `EventDecision`/
+`EventResult`, replay, errores recuperables/terminales y lotes mixtos.
+Los eventos no aceptan grading declarado por cliente; la decisión original
+no se sustituye al repetirla. Sin HTTP, dominio, persistencia ni clientes.
+[Contrato](docs/contrato-B02.05-B02.06.md) e
+[informe](docs/evidencia/B02.05-B02.06.md). Siguiente B02.07.
+
+[Listo :v]
+
+## 2026-09-18 — B02.03 y B02.04: cuenta, sesión y onboarding
+
+Esquemas y ejemplos instalables de perfil, ajustes, repertorio, tarjeta,
+ítem, sesión y estado de cuenta. Precondiciones por versión y color permitido;
+snapshots y origen de ítems conservados. Onboarding exige selección no vacía
+y respuesta coherente; su transacción y las rutas HTTP esperan B08.
+[Contrato](docs/contrato-B02.03-B02.04.md) e
+[informe](docs/evidencia/B02.03-B02.04.md). Siguiente B02.05.
+
+[Listo :v]
+
+## 2026-09-18 — B02.01 y B02.02: primitivas, errores y catálogo
+
+Se añadió `zephyriov-api/contracts` con esquemas Zod para ID, fecha,
+instante, revisiones/intervalos decimales, errores y catálogo. La paginación
+liga cursor a manifiesto; la revisión de línea usa ETag de contenido. Se
+incluyeron ejemplos autorizados y de error. Ocho pruebas, lint, typecheck,
+build y consumidor de tarball local aprobaron en Node 26.9.0.
+[Contrato](docs/contrato-B02.01-B02.02.md) e
+[informe](docs/evidencia/B02.01-B02.02.md). Siguiente B02.03; sin HTTP,
+dominio, persistencia ni clientes.
+
+[Listo :v]
+
 ## 2026-09-18 — T01 y T02: transferencia B01 y esqueleto API
 
 T01 fijó la especificación activa en API con 22 JSON byte por byte idénticos

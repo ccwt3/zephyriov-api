@@ -1,44 +1,47 @@
 # Estado de trabajo agéntico
 
-- Punto ejecutado: T01 y T02 (en ese orden).
-- Estado: completados localmente; T01 probado documentalmente y por hashes;
-  T02 probado en Node 26.9.0/Linux. Sin despliegue.
-- Siguiente punto autorizado: **B02.01**, solo en una sesión posterior.
-- Fuente: `Zephyriov/docs/blueprint/plan-trabajo-agentico.md`, §5 B02.01,
-  §3 y §13; `plan-accionable-backend.md`, §B02. B02.01 define primitivas,
-  IDs, fechas válidas, revisiones decimales y sobre de error. B01/G01 y
-  T01–T02 son sus dependencias satisfechas; rutas Auth efectivas esperan B05.
-- Repositorio: esta raíz `zephyriov-api` para API e infraestructura. Orden de
-  desarrollo: planificación → API → infraestructura → Android → web. Clientes
-  en repositorios separados. Al llegar a cliente anunciar «aquí terminó
-  backend/API; lo siguiente es en el repositorio del cliente…», identificarlo
-  y detenerse antes de cambiar.
-- Archivos permitidos en B02.01: `contracts/` para primitivas/esquemas de
-  error y sus pruebas, documentación del contrato bajo `docs/`, README,
-  Branch_changes y este puntero. Ajustes mínimos de package.json/lockfile
-  solo si los esquemas lo requieren y se justifican con versiones verificadas.
-  No implementar endpoints, Auth, dominio SRS, persistencia, infraestructura
-  ni clientes en ese punto.
-- Pruebas previstas para B02.01: ejemplos válidos/inválidos de ID y fecha
-  civil, fecha imposible, revisiones decimales grandes y sobre de error;
-  ejecutar `pnpm test`, `pnpm lint`, `pnpm typecheck`, `pnpm build` y un
-  consumidor local del contrato si cambia el artefacto. Registrar entorno
-  y separar la verificación documental de la compatibilidad runtime.
-- Dependencias verificadas en esta sesión: referencia B01.10 y nueve
-  verificadores pasaron al entrar; 22 JSON transferidos con hashes idénticos,
-  352 IDs únicos, manifiesto B01.10 original intacto. La referencia marca
-  sus copias como históricas; `docs/reglas-srs.md` y `docs/fixtures-srs.md`
-  son la única fuente normativa activa. Raíz API independiente conservada.
-- Evidencia: [informe T01](evidencia/T01.md),
-  [manifiesto de transferencia](evidencia/T01-transfer.json),
-  [verificador](evidencia/verificar-T01.py), [informe T02](evidencia/T02.md).
-  Lockfile T02 SHA-256:
-  `ebb0fdbcfa8ae2075d2a44a0a390955367950728d21fe667ef6305e39652f993`.
-  Sin commit nuevo ni alteración de fixtures/evidencias B01 originales.
-- Pendientes manuales: ninguno para T01/T02. Owner, visibilidad, remotos y
-  método de publicación cuando corresponda B11.05; no bloquean B02.01.
-- Riesgos: B01 solo especificación; T02 no implementa dominio, HTTP ni DB.
-  Node 24 objetivo no probado aquí por bloqueo del script de instalación
-  temporal `node@24.21.0`; prueba local aprobada en Node 26.9.0. D12 requiere
-  contrato B02.05 y ensayo B09.03. No atribuir aprobación de capas futuras.
-- Última actualización: 2026-09-18, Mexico/General.
+- Punto ejecutado: **B02.09 y B02.10**, en ese orden, sobre HEAD de entrada
+  `b10846d3b3343eb068115f36e77655f63c396046`. Los cambios previos
+  B02.01–B02.08 permanecían sin commit y fueron conservados.
+- Estado: `construido_local`, `probado(Node 26.9.0 y 24.21.0, Linux)`; OpenAPI/DTO y
+  auditoría de contrato local. Sin HTTP, proveedor, despliegue ni cliente.
+- Siguiente punto autorizado: **B03.01**, en otra sesión. No se ejecutó aquí.
+- Fuente del siguiente punto: `Zephyriov/docs/blueprint/plan-trabajo-agentico.md`,
+  §5 B03.01, §3 y §13; `plan-accionable-backend.md`, §B03. La referencia
+  local está en `/home/cacawatin/code/personal/Zephyriov/docs/blueprint/`.
+  B03.01 prepara un runner para los fixtures activos de B01, verifica
+  imports permitidos y traslada datos sin recalcular expectativas. B03.02
+  (fechas civiles/IANA) es posterior y no quedó autorizado en esta sesión.
+- Repositorio: esta raíz `zephyriov-api` para API e infraestructura. Orden:
+  planificación → API → infraestructura → Android → web. Android y web tienen
+  repositorios separados; al llegar a cliente se anuncia el cambio y se
+  detiene la sesión antes de modificarlo.
+- Archivos permitidos en B03.01: `src/domain/` para runner puro y sus
+  pruebas; leer `src/domain/fixtures/R01.json`–`R22.json` sin alterarlos;
+  documentación del runner e informe bajo `docs/`, README, Branch_changes y
+  este puntero. No editar esquemas B02, SRS/fixtures activos ni históricos,
+  endpoints, Auth, persistencia, infraestructura o clientes. No recalcular
+  expectativas B01 ni introducir motor SRS en B03.01.
+- Pruebas previstas para B03.01: inventariar 22 familias y 352 variantes
+  con IDs únicos; cargar y recorrer fixtures sin mutar sus entradas ni
+  expectativas; comprobar que los imports del runner/dominio no incluyen
+  framework, red, DB o cliente. Ejecutar `pnpm test`, `pnpm lint`,
+  `pnpm typecheck`, `pnpm build` y
+  `python3 docs/evidencia/verificar-T01.py`; registrar entorno, casos y
+  límites. Si cambia un artefacto instalable, ensayar consumidor local.
+- Dependencias verificadas: B01/G01 especificados; T01 transfirió 22 JSON
+  byte por byte idénticos, 352 IDs y SRS activo en `docs/reglas-srs.md`;
+  T02 aporta herramientas. B02.01–B02.10 están documentados en `docs/` y
+  sus informes; [B02.09–B02.10](evidencia/B02.09-B02.10.md) aprobaron
+  generación reproducible, 40/40 pruebas, lint, typecheck, build, T01 y
+  consumidor de tarball local. Node 24.21.0 repitió 40/40, lint,
+  typecheck, build, generación y consumidor con binario oficial verificado
+  en `/tmp`. No se editaron copias históricas B01.
+- Pendientes manuales: ninguno para B03.01. Owner/publicación en B11.05,
+  Auth efectivo en B05.12 y medición D15 con datos reales en B08.08 no
+  bloquean el runner.
+- Riesgos: OpenAPI no conserva todas las refinaciones de Zod. B02 acredita
+  formas/ejemplos, no decisiones SRS,
+  atomicidad, autorización ni persistencia. D15 conserva una lectura de
+  estado completa hasta que se mida historial/catálogo real en B08.08.
+- Última actualización: 2026-09-19, Mexico/General.
