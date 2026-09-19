@@ -1,6 +1,6 @@
 {
   "name": "zephyriov-api",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "engines": {
@@ -17,6 +17,10 @@
     "./contracts": {
       "types": "./contracts/types/index.d.mts",
       "default": "./contracts/index.mjs"
+    },
+    "./domain": {
+      "types": "./dist/domain/index.d.ts",
+      "default": "./dist/domain/index.js"
     },
     "./contracts/dto": {
       "types": "./contracts/dto.d.mts"

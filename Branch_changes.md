@@ -1,5 +1,17 @@
 # Branch changes
 
+## 2026-09-19 — B03.11 y B03.12: paridad y export local del dominio
+
+Se compararon salidas JSON normalizadas Node/Android para 238 porciones
+puras de fixtures B01 y casos de serialización, semilla, calendario y ajedrez.
+Se añadió `zephyriov-api/domain` con versión de conducta `B03.12-v1` y
+paquete local `0.0.1`, además de la matriz R01–R22 por capa y auditoría de
+imports. El tarball y las declaraciones se consumieron localmente; el APK
+temporal se desinstaló. Las verificaciones y límites figuran en el
+[informe](docs/evidencia/B03.11-B03.12.md). Siguiente B04.01.
+
+[Listo :v]
+
 ## 2026-09-19 — B03.10: consumidor mínimo en Android
 
 Se empaquetó el dominio compilado en un tarball local y se ejecutó un

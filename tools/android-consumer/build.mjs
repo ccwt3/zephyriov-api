@@ -26,26 +26,26 @@ function run(command, args, options = {}) {
   }
 }
 
-const work = mkdtempSync(join(tmpdir(), 'zephyriov-b03-10-'));
+const work = mkdtempSync(join(tmpdir(), 'zephyriov-b03-domain-'));
 const archive = run('pnpm', ['pack', '--pack-destination', work]).split('\n').at(-1);
 if (!archive) throw new Error('pnpm pack did not return an archive');
 run('tar', ['-xzf', join(work, basename(archive)), '-C', work]);
 const packed = join(work, 'package');
 const domain = join(packed, 'dist', 'domain');
-if (!existsSync(join(domain, 'verify-attempts.js'))) {
-  throw new Error('The built domain was not included in the local package');
+if (!existsSync(join(domain, 'index.js'))) {
+  throw new Error('The public domain entry was not included in the local package');
 }
 symlinkSync(join(root, 'node_modules'), join(packed, 'node_modules'));
 
 const assets = join(work, 'assets');
 await build({ configFile: false, root,
-  resolve: { alias: { 'zephyriov-domain': domain } },
+  resolve: { alias: { 'zephyriov-api/domain': join(domain, 'index.js') } },
   build: { outDir: assets, emptyOutDir: true, target: 'es2020', minify: false,
     lib: { entry: join(sourceDir, 'entry.mjs'), name: 'ZephyriovDomainProbe',
       formats: ['iife'], fileName: () => 'bundle.js' } },
   logLevel: 'warn' });
 writeFileSync(join(assets, 'index.html'),
-  '<!doctype html><html><meta charset="utf-8"><body>Zephyriov B03.10 probe<script src="bundle.js"></script></body></html>\n');
+  '<!doctype html><html><meta charset="utf-8"><body>Zephyriov domain probe<script src="bundle.js"></script></body></html>\n');
 
 const unsigned = join(work, 'unsigned.apk');
 const aligned = join(work, 'aligned.apk');

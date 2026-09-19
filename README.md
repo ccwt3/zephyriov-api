@@ -13,16 +13,17 @@ B02.03–B02.04 añadieron el
 [contrato de perfil, ajustes, repertorio, sesión y onboarding](docs/contrato-B02.03-B02.04.md).
 El [contrato B02.07–B02.08](docs/contrato-B02.07-B02.08.md) añade paquete
 offline/renovación y lecturas con revisión, ticket, avisos y readiness.
-El siguiente punto es B03.11, comparación normalizada Node/Android del
-dominio. B03.10 probó el consumidor mínimo en un Android real.
+El siguiente punto es B04.01, matriz de versiones y experimento local de
+transacción/Drizzle/Auth. B03.11 comparó el dominio en Node y Android;
+B03.12 abrió el export local `zephyriov-api/domain`.
 
 La raíz API se construye con Node.js 24 y pnpm 12.4.2. `pnpm install`,
 `pnpm test`, `pnpm lint`, `pnpm typecheck` y `pnpm build` son los comandos
 del esqueleto. El paquete exporta la versión de especificación y
 `zephyriov-api/contracts` con esquemas Zod y ejemplos instalables desde un
 tarball local. Los esquemas son fuente única; DTO TypeScript y OpenAPI se
-generan desde los esquemas Zod en B02.09. Todavía no contiene el motor SRS
-completo, HTTP ni persistencia. La [evidencia T01](docs/evidencia/T01.md)
+generan desde los esquemas Zod en B02.09. Contiene el dominio SRS puro,
+pero aún no HTTP ni persistencia. La [evidencia T01](docs/evidencia/T01.md)
 y [evidencia T02](docs/evidencia/T02.md) detallan verificación y límites.
 
 **B03.01–B03.02 — runner y fechas (2026-09-19):** `src/domain/` contiene un
@@ -82,11 +83,24 @@ transporte y decisiones autoritativas esperan B06/B09.
 bundle WebView obtenido del `dist/domain` empaquetado localmente. Vite 8.3.0
 es dependencia de desarrollo para este bundle. Ocho checks de fecha,
 decimal, SAN, nota, transición, plan y proyección pasaron en Android 11;
-la app de prueba se retiró del dispositivo. El export público inmutable del
-dominio sigue en B03.12 y la paridad exhaustiva en B03.11. El ensayo no
+la app de prueba se retiró del dispositivo. La paridad ampliada y el export
+se completaron después en B03.11–B03.12. El ensayo no
 modifica repositorios cliente ni demuestra HTTP/persistencia/offline.
 [Diseño y límites](docs/dominio-B03.10.md) ·
 [informe diario](docs/evidencia/B03.10.md).
+
+**B03.11–B03.12 — paridad y export local (2026-09-19):**
+`zephyriov-api/domain` exporta las funciones puras B03 y tipos con
+`DOMAIN_VERSION = B03.12-v1`; el paquete local pasó de `0.0.0` a `0.0.1`.
+Un adaptador común comparó JSON normalizado Node/Android de 238 porciones
+de fixtures B01 y casos directos de decimal, fechas, semilla y ajedrez. La
+matriz R01–R22 distingue esas garantías de HTTP/DB/cierre real/clientes.
+El tarball local queda identificado por versión y SHA-256 en el informe;
+`private:true` sigue activo. `chess.js` 1.4.0 es la única dependencia externa
+del dominio; fechas civiles usan `Date` UTC/`Intl` IANA y el intervalo decimal
+usa `bigint`. Cambios de esas reglas exigen otra versión y paridad. El APK
+temporal se desinstaló. [Diseño y matriz](docs/dominio-B03.11-B03.12.md) ·
+[informe diario](docs/evidencia/B03.11-B03.12.md).
 
 El contrato B02.03–B02.04 exige precondiciones por recurso, conserva los
 snapshots de sesión/ítem y expresa onboarding como una operación atómica.
