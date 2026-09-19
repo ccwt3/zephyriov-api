@@ -13,7 +13,8 @@ B02.03–B02.04 añadieron el
 [contrato de perfil, ajustes, repertorio, sesión y onboarding](docs/contrato-B02.03-B02.04.md).
 El [contrato B02.07–B02.08](docs/contrato-B02.07-B02.08.md) añade paquete
 offline/renovación y lecturas con revisión, ticket, avisos y readiness.
-El siguiente punto es B03.09, proyección pura de eventos pendientes.
+El siguiente punto es B03.10, consumidor mínimo en runtime Android dentro de
+herramientas API; está pendiente de dispositivo o emulador (M03).
 
 La raíz API se construye con Node.js 24 y pnpm 12.4.2. `pnpm install`,
 `pnpm test`, `pnpm lint`, `pnpm typecheck` y `pnpm build` son los comandos
@@ -65,6 +66,16 @@ rachas desde fechas civiles elegibles, incluso con llegadas desordenadas.
 No hay persistencia, HTTP ni export público de dominio en esta entrega.
 [Diseño y límites](docs/dominio-B03.07-B03.08.md) ·
 [informe diario](docs/evidencia/B03.07-B03.08.md).
+
+**B03.09 — proyección local (2026-09-19):** `projectPendingEvents` aplica notas
+ya verificadas en orden causal sobre copias de tarjetas y actividad, conserva
+los eventos completos y devuelve `confirmed:false`. Rechaza dependencias
+ausentes o no aplicadas, IDs repetidos, conflictos de línea e ítems/reintentos
+incoherentes. El dominio aún no tiene export público instalable; B03.10
+requiere un consumidor de ensayo en Android, pendiente de M03. Persistencia,
+transporte y decisiones autoritativas esperan B06/B09.
+[Diseño y límites](docs/dominio-B03.09.md) ·
+[informe diario](docs/evidencia/B03.09.md).
 
 El contrato B02.03–B02.04 exige precondiciones por recurso, conserva los
 snapshots de sesión/ítem y expresa onboarding como una operación atómica.

@@ -1,47 +1,49 @@
 # Estado de trabajo agéntico
 
-- Puntos ejecutados en esta sesión: **B03.07 y B03.08**, en ese orden,
-  sobre HEAD de entrada `e01196808258dc3d7eebf361c4d1fe61722b7e58`.
-  Se conservaron los cambios anteriores sin confirmar de B03.03–B03.06.
-- Estado: `construido_local`, `probado(Node 26.9.0 y Node 24.21.0,
-  Linux para tests; Node 26.9.0 para lint, typecheck y build)`.
-  [Informe y evidencia](evidencia/B03.07-B03.08.md). Sin HTTP,
+- Punto ejecutado en esta sesión: **B03.09**, sobre HEAD de entrada
+  `90621d62b229d2e4944e914fc090efd8b9234b62`. B03.10 era el segundo
+  punto autorizado, pero quedó pendiente por intervención manual M03 antes
+  de construir el consumidor. No se ejecutó B03.11.
+- Estado B03.09: `construido_local`, `probado(Node 26.9.0 y Node 24.21.0,
+  Linux)`. [Informe y evidencia](evidencia/B03.09.md). Sin HTTP,
   persistencia, proveedor, despliegue ni cliente.
-- Siguiente punto autorizado: **B03.09**, en otra sesión. No se ejecutó aquí.
+- **Siguiente punto autorizado: B03.10**, consumidor mínimo del paquete en
+  runtime Android dentro de herramientas de ensayo API. Reanudar al resolver
+  M03; no marcar B03.11 hasta completar y probar B03.10. El prompt diario
+  puede autorizar otro punto consecutivo después de B03.10.
 - Fuente: `/home/cacawatin/code/personal/Zephyriov/docs/blueprint/`:
-  `plan-trabajo-agentico.md` §5 B03.09, §3 y §13;
+  `plan-trabajo-agentico.md` §5 B03.10, §3, §13 y M03;
   `plan-accionable-backend.md` §B03; SRS activo
-  [reglas-srs.md](reglas-srs.md) R18/R22 y fixtures correspondientes;
-  contratos B02 de eventos. B03.09 proyecta eventos pendientes con
-  dependencias ya clasificadas, sin transporte B09. B03.10 y posteriores no
-  quedan autorizados por este puntero; el prompt diario puede autorizar otro
-  punto consecutivo.
+  [reglas-srs.md](reglas-srs.md) y fixtures correspondientes. B03.10 ejecuta
+  un consumidor de ensayo en el runtime destino, independiente de C02;
+  la comparación exhaustiva de JSON Node/Android corresponde a B03.11.
 - Repositorio: esta raíz `zephyriov-api` para API e infraestructura. Orden:
   planificación → API → infraestructura → Android → web. Los clientes tienen
   repositorios separados; al llegar a ellos, anunciar el cambio y detenerse.
-- Archivos previstos para B03.09: `src/domain/` para funciones puras y pruebas,
-  `docs/` para diseño e informe, README, Branch_changes y este puntero.
-  Justificar dependencia o configuración nueva antes de ampliar alcance.
-  No alterar SRS/fixtures, contratos B02, endpoints, Auth, persistencia,
-  infraestructura, plan fuente o clientes.
-- Pruebas previstas para B03.09: proyección determinista de eventos pendientes
-  con decisiones/dependencias preclasificadas, conservación de completos y
-  origen, no mutación de entrada, replay frente a nuevo intento y rechazo de
-  dependencia no satisfecha; contrastar las partes puras de R18/R22 sin
-  presentar ciclo de vida o transporte como probado. Revisar grafo de imports.
-  Ejecutar `pnpm test`, `pnpm lint`, `pnpm typecheck`, `pnpm build` y
-  `python3 docs/evidencia/verificar-T01.py`; registrar entorno y límites.
-  Ensayar consumidor local solo si cambia un artefacto instalable.
+- Archivos previstos para B03.10: herramientas de ensayo dentro de esta raíz
+  API, documentación en `docs/`, README, Branch_changes y este puntero.
+  Si el consumidor exige empaquetado local del dominio, justificar el cambio
+  preciso en `package.json`/configuración y probar instalación local; no
+  publicar ni modificar contratos B02, SRS/fixtures, endpoints, Auth,
+  persistencia, infraestructura, plan fuente o repositorios cliente.
+- Pruebas previstas para B03.10: construir, instalar y ejecutar el consumidor
+  mínimo en runtime Android real o emulado; registrar versión de Android,
+  motor JS, SDK y artefacto local consumido, con salida reproducible. Ejecutar
+  tests, lint, typecheck, build y T01 si se cambia código o paquete. No
+  presentar una ejecución Node/Linux como prueba Android. B03.11 conserva la
+  comparación completa de las 352 variantes y casos especiales.
 - Dependencias verificadas: B01/G01 especificados; T01 transfirió 22 JSON
   activos con 352 IDs; T02 aporta herramientas; B02.01–B02.10 documentados.
-  B03.01–B03.06 estaban probados localmente. B03.07 contrastó las 30
-  variantes R12–R13; B03.08 contrastó 52 variantes R14–R16 y 20 variantes
-  puras de racha R21. Pasaron 168 pruebas, lint, typecheck, build y T01;
-  Node 24.21.0 repitió las 168 pruebas.
-- Pendientes manuales: ninguno para B03.09. Compatibilidad Android del dominio
-  corresponde a B03.10–B03.12 y no bloquea la proyección local.
-- Riesgos: la semilla de cuenta/día debe proceder de material estable
-  acreditado por la capa de emisión; el builder solo recibe su valor. El
-  `fixture-tape-v1` no define el PRNG productivo. `Intl` depende de ICU/tzdata.
-  La evidencia todavía no cubre persistencia, HTTP ni export público.
+  B03.01–B03.09 están construidos localmente y probados bajo Node.
+  B03.09 aprobó 174 pruebas, lint, typecheck, build y T01; Node 24.21.0
+  repitió las 174 pruebas. Las partes puras R18/R22 no prueban ciclo de vida,
+  almacenamiento o transporte.
+- Intervención M03: SDK Android de Unity y Java 21 disponibles, pero ADB
+  36.0.0 no encontró dispositivo y no se detectó emulador/AVD. El
+  desarrollador debe conectar y autorizar depuración de un dispositivo o
+  habilitar emulador y compartir el perfil de runtime. Sin ello B03.10 no
+  puede probarse ni cerrarse.
+- Riesgos: B03.09 consume decisiones ya clasificadas y `confirmed:false`;
+  solo B06/B09 hacen autoritativa la decisión. `Intl` depende de ICU/tzdata.
+  No se ha demostrado paridad en Android ni export público del dominio.
 - Última actualización: 2026-09-19, Mexico/General.

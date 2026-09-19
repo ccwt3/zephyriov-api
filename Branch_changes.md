@@ -1,5 +1,18 @@
 # Branch changes
 
+## 2026-09-19 — B03.09: proyección local de eventos pendientes
+
+Se añadió `projectPendingEvents` para reproducir decisiones locales
+preclasificadas sobre tarjetas y actividad sin mutar la base, conservar
+completos y rechazar dependencias insatisfechas. Aprobaron 174 pruebas,
+lint, typecheck, build y T01 en Node 26.9.0; 174 pruebas también en
+Node 24.21.0. La prueba de runtime Android B03.10 quedó pendiente por M03:
+ADB no detecta dispositivo y no hay emulador local. El puntero sigue en
+B03.10. [Diseño](docs/dominio-B03.09.md) e
+[informe](docs/evidencia/B03.09.md).
+
+[Listo :v]
+
 ## 2026-09-19 — B03.07 y B03.08: plan diario, actividad y racha
 
 Se añadió selección pura R12–R13 con orden canónico, semilla/versiones
