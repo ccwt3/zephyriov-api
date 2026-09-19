@@ -1,0 +1,4 @@
+PASS alcance zephyriov-api: 9 archivos autorizados, HEAD e históricos preservados
+PASS alcance Zephyriov: 10 archivos autorizados, HEAD e históricos preservados
+PASS enlaces nuevos, manifiesto referencia y puntero B01.09; 292 variantes documentales
+PASS sin transferencia T01, otros puntos, aplicación, proveedores ni clientes

@@ -1,0 +1,1489 @@
+{
+  "fixtureVersion": "B01.04-v1",
+  "scope": "declarative-depth-cap",
+  "fixtures": [
+    {
+      "id": "R11-new-cap-white",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 8
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 4,
+        "validatedLine": {
+          "plies": 17,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 9,
+            "black": 8
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 9,
+        "effectiveMovesBefore": 8,
+        "studentPliesBefore": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15
+        ],
+        "studentPliesAfter": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-new-cap-black",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 8
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 4,
+        "validatedLine": {
+          "plies": 17,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 9,
+            "black": 8
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 8,
+        "effectiveMovesBefore": 8,
+        "studentPliesBefore": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16
+        ],
+        "studentPliesAfter": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-review-cap-white",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 8
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 4,
+        "validatedLine": {
+          "plies": 17,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 9,
+            "black": 8
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 9,
+        "effectiveMovesBefore": 8,
+        "studentPliesBefore": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15
+        ],
+        "studentPliesAfter": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-review-cap-black",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 8
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 4,
+        "validatedLine": {
+          "plies": 17,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 9,
+            "black": 8
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 8,
+        "effectiveMovesBefore": 8,
+        "studentPliesBefore": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16
+        ],
+        "studentPliesAfter": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-exact-min-white",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 7
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 2,
+        "validatedLine": {
+          "plies": 18,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 9,
+            "black": 9
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 9,
+        "effectiveMovesBefore": 7,
+        "studentPliesBefore": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13
+        ],
+        "studentPliesAfter": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-exact-min-black",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 7
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 2,
+        "validatedLine": {
+          "plies": 18,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 9,
+            "black": 9
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 9,
+        "effectiveMovesBefore": 7,
+        "studentPliesBefore": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        "studentPliesAfter": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-below-min-white",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 2
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 2,
+        "validatedLine": {
+          "plies": 24,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 12,
+            "black": 12
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 4,
+        "effectiveMovesBefore": 2,
+        "studentPliesBefore": [
+          1,
+          3
+        ],
+        "studentPliesAfter": [
+          1,
+          3,
+          5,
+          7
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-below-min-black",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 2
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 2,
+        "validatedLine": {
+          "plies": 24,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 12,
+            "black": 12
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 4,
+        "effectiveMovesBefore": 2,
+        "studentPliesBefore": [
+          2,
+          4
+        ],
+        "studentPliesAfter": [
+          2,
+          4,
+          6,
+          8
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-at-max-white",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 9
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 10,
+        "validatedLine": {
+          "plies": 18,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 9,
+            "black": 9
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 9,
+        "effectiveMovesBefore": 9,
+        "studentPliesBefore": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17
+        ],
+        "studentPliesAfter": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-at-max-black",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 9
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 10,
+        "validatedLine": {
+          "plies": 18,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 9,
+            "black": 9
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 9,
+        "effectiveMovesBefore": 9,
+        "studentPliesBefore": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18
+        ],
+        "studentPliesAfter": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-short-white",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 2
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 10,
+        "validatedLine": {
+          "plies": 3,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 2,
+            "black": 1
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 2,
+        "effectiveMovesBefore": 2,
+        "studentPliesBefore": [
+          1,
+          3
+        ],
+        "studentPliesAfter": [
+          1,
+          3
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-short-black",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 1
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 10,
+        "validatedLine": {
+          "plies": 3,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 2,
+            "black": 1
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 1,
+        "effectiveMovesBefore": 1,
+        "studentPliesBefore": [
+          2
+        ],
+        "studentPliesAfter": [
+          2
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-grow-max-white",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 10
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 10,
+        "validatedLine": {
+          "plies": 42,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 21,
+            "black": 21
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 20,
+        "effectiveMovesBefore": 10,
+        "studentPliesBefore": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19
+        ],
+        "studentPliesAfter": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19,
+          21,
+          23,
+          25,
+          27,
+          29,
+          31,
+          33,
+          35,
+          37,
+          39
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-grow-max-black",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 10
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 10,
+        "validatedLine": {
+          "plies": 42,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 21,
+            "black": 21
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 20,
+        "effectiveMovesBefore": 10,
+        "studentPliesBefore": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20
+        ],
+        "studentPliesAfter": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30,
+          32,
+          34,
+          36,
+          38,
+          40
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-cap-max-white",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 10
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 10,
+        "validatedLine": {
+          "plies": 35,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 18,
+            "black": 17
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 18,
+        "effectiveMovesBefore": 10,
+        "studentPliesBefore": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19
+        ],
+        "studentPliesAfter": [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19,
+          21,
+          23,
+          25,
+          27,
+          29,
+          31,
+          33,
+          35
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R11-cap-max-black",
+      "rule": "R11",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R11"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 10
+        }
+      },
+      "input": {
+        "verifiedGrade": "good",
+        "blockComplete": true,
+        "movesPerBlock": 10,
+        "validatedLine": {
+          "plies": 35,
+          "startsWith": "white",
+          "totalStudentMovesByColor": {
+            "white": 18,
+            "black": 17
+          }
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Proyección de profundidad; no selecciona líneas."
+      },
+      "expected": {
+        "depthAfterGood": 17,
+        "effectiveMovesBefore": 10,
+        "studentPliesBefore": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20
+        ],
+        "studentPliesAfter": [
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30,
+          32,
+          34
+        ]
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    }
+  ]
+}

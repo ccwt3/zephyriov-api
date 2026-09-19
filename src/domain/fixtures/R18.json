@@ -1,0 +1,2956 @@
+{
+  "fixtureVersion": "B01.07-v1",
+  "scope": "declarative-block-conservation",
+  "fixtures": [
+    {
+      "id": "R18-close-android-white",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "kill_process",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "restart",
+        "canStartAnotherBlock": true,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "nextBlockOwnMovesDone": 0
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-close-android-black",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "kill_process",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "restart",
+        "canStartAnotherBlock": true,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "nextBlockOwnMovesDone": 0
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-reload-web-white",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "platform": "web",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "reload_tab",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "restart",
+        "canStartAnotherBlock": true,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "nextBlockOwnMovesDone": 0
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-reload-web-black",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "platform": "web",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "reload_tab",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "restart",
+        "canStartAnotherBlock": true,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "nextBlockOwnMovesDone": 0
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-suspend-android-white",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "suspend_600000ms_resume",
+        "elapsedBackgroundMs": 600000
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "resume",
+        "canStartAnotherBlock": false,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        }
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-suspend-android-black",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "suspend_600000ms_resume",
+        "elapsedBackgroundMs": 600000
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "resume",
+        "canStartAnotherBlock": false,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        }
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-suspend-web-white",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "platform": "web",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "suspend_600000ms_resume",
+        "elapsedBackgroundMs": 600000
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "resume",
+        "canStartAnotherBlock": false,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        }
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-suspend-web-black",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "platform": "web",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "suspend_600000ms_resume",
+        "elapsedBackgroundMs": 600000
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "resume",
+        "canStartAnotherBlock": false,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        }
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-saved-before-send-white",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "kill_after_local_commit_before_send",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "restart",
+        "canStartAnotherBlock": true,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "nextBlockOwnMovesDone": 0
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-saved-before-send-black",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "kill_after_local_commit_before_send",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "restart",
+        "canStartAnotherBlock": true,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "nextBlockOwnMovesDone": 0
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-sending-uncertain-white",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "sending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "kill_during_send",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "sending",
+            "decision": null
+          }
+        ],
+        "partialMode": "restart",
+        "canStartAnotherBlock": true,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "nextBlockOwnMovesDone": 0,
+        "recovery": {
+          "eventId": "e2",
+          "payloadRef": "immutable-report-2",
+          "action": "query_or_resend_same_event",
+          "localReceiptDurable": false
+        }
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-sending-uncertain-black",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "sending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "kill_during_send",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "sending",
+            "decision": null
+          }
+        ],
+        "partialMode": "restart",
+        "canStartAnotherBlock": true,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "nextBlockOwnMovesDone": 0,
+        "recovery": {
+          "eventId": "e2",
+          "payloadRef": "immutable-report-2",
+          "action": "query_or_resend_same_event",
+          "localReceiptDurable": false
+        }
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-receipt-failed-white",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "sending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "receipt_commit_failed_then_kill",
+        "elapsedBackgroundMs": 0,
+        "remoteDecision": {
+          "eventId": "e2",
+          "outcome": "applied",
+          "receiptRef": "remote-e2"
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "sending",
+            "decision": null
+          }
+        ],
+        "partialMode": "restart",
+        "canStartAnotherBlock": true,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "nextBlockOwnMovesDone": 0,
+        "recovery": {
+          "eventId": "e2",
+          "payloadRef": "immutable-report-2",
+          "action": "query_or_resend_same_event",
+          "localReceiptDurable": false
+        }
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-receipt-failed-black",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "sending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "receipt_commit_failed_then_kill",
+        "elapsedBackgroundMs": 0,
+        "remoteDecision": {
+          "eventId": "e2",
+          "outcome": "applied",
+          "receiptRef": "remote-e2"
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "sending",
+            "decision": null
+          }
+        ],
+        "partialMode": "restart",
+        "canStartAnotherBlock": true,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "nextBlockOwnMovesDone": 0,
+        "recovery": {
+          "eventId": "e2",
+          "payloadRef": "immutable-report-2",
+          "action": "query_or_resend_same_event",
+          "localReceiptDurable": false
+        }
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-logout-owner-white",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "logout_A_login_B",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "blocked_other_owner",
+        "canStartAnotherBlock": false,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "B",
+        "partial": null,
+        "visibleEventIds": [],
+        "sendableEventIds": [],
+        "recoverableForOwnerA": [
+          "e1",
+          "e2"
+        ]
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-logout-owner-black",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "logout_A_login_B",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "blocked_other_owner",
+        "canStartAnotherBlock": false,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "B",
+        "partial": null,
+        "visibleEventIds": [],
+        "sendableEventIds": [],
+        "recoverableForOwnerA": [
+          "e1",
+          "e2"
+        ]
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-web-network-pause-white",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "platform": "web",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "lose_network",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "pause",
+        "canStartAnotherBlock": false,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        }
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-web-network-pause-black",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "platform": "web",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "lose_network",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "pause",
+        "canStartAnotherBlock": false,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        }
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-storage-failed-white",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "complete_third_local_commit_fails",
+        "elapsedBackgroundMs": 0,
+        "completedThird": {
+          "eventId": "e3",
+          "payloadRef": "immutable-report-3"
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "complete_unsaved",
+        "canStartAnotherBlock": false,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "completeInMemory": {
+          "eventId": "e3",
+          "payloadRef": "immutable-report-3"
+        },
+        "savedAnnouncement": false,
+        "durableEventIds": [
+          "e1",
+          "e2"
+        ]
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-storage-failed-black",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "complete_third_local_commit_fails",
+        "elapsedBackgroundMs": 0,
+        "completedThird": {
+          "eventId": "e3",
+          "payloadRef": "immutable-report-3"
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "complete_unsaved",
+        "canStartAnotherBlock": false,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "completeInMemory": {
+          "eventId": "e3",
+          "payloadRef": "immutable-report-3"
+        },
+        "savedAnnouncement": false,
+        "durableEventIds": [
+          "e1",
+          "e2"
+        ]
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-mixed-decisions-white",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "platform": "web",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "resolved",
+            "decision": {
+              "eventId": "e1",
+              "outcome": "applied",
+              "receiptRef": "durable-e1"
+            }
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "resolved",
+            "decision": {
+              "eventId": "e2",
+              "outcome": "practice",
+              "receiptRef": "durable-e2"
+            }
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "kill_with_two_resolved",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "resolved",
+            "decision": {
+              "eventId": "e1",
+              "outcome": "applied",
+              "receiptRef": "durable-e1"
+            }
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "resolved",
+            "decision": {
+              "eventId": "e2",
+              "outcome": "practice",
+              "receiptRef": "durable-e2"
+            }
+          }
+        ],
+        "partialMode": "restart",
+        "canStartAnotherBlock": true,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "nextBlockOwnMovesDone": 0
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-mixed-decisions-black",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "platform": "web",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "resolved",
+            "decision": {
+              "eventId": "e1",
+              "outcome": "applied",
+              "receiptRef": "durable-e1"
+            }
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "resolved",
+            "decision": {
+              "eventId": "e2",
+              "outcome": "practice",
+              "receiptRef": "durable-e2"
+            }
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "kill_with_two_resolved",
+        "elapsedBackgroundMs": 0
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "resolved",
+            "decision": {
+              "eventId": "e1",
+              "outcome": "applied",
+              "receiptRef": "durable-e1"
+            }
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "resolved",
+            "decision": {
+              "eventId": "e2",
+              "outcome": "practice",
+              "receiptRef": "durable-e2"
+            }
+          }
+        ],
+        "partialMode": "restart",
+        "canStartAnotherBlock": true,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": null,
+        "nextBlockOwnMovesDone": 0
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-expired-suspended-white",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "resume_with_expired_package",
+        "elapsedBackgroundMs": 0,
+        "packageStateAtResume": "expired"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "pause",
+        "canStartAnotherBlock": false,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        }
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R18-expired-suspended-black",
+      "rule": "R18",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "3.4. Envío, estado local y conexión",
+          "reference": "memoria y completos"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C04 — Estudio online y cola durable Android",
+          "reference": "commit local, recibos, errores y logout"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "platform": "android",
+        "owner": "A",
+        "durableEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        },
+        "networkAvailable": true,
+        "packageState": "valid",
+        "localCommitForFirstTwo": true
+      },
+      "input": {
+        "action": "resume_with_expired_package",
+        "elapsedBackgroundMs": 0,
+        "packageStateAtResume": "expired"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "retainedEvents": [
+          {
+            "eventId": "e1",
+            "owner": "A",
+            "payloadRef": "immutable-report-1",
+            "localState": "pending",
+            "decision": null
+          },
+          {
+            "eventId": "e2",
+            "owner": "A",
+            "payloadRef": "immutable-report-2",
+            "localState": "pending",
+            "decision": null
+          }
+        ],
+        "partialMode": "pause",
+        "canStartAnotherBlock": false,
+        "newSrsEffects": 0,
+        "partialDurableWrites": 0,
+        "partialTransmissions": 0,
+        "lostSavedEvents": [],
+        "visibleOwner": "A",
+        "partial": {
+          "itemId": "i3",
+          "ownMovesDone": 2,
+          "requiredOwnMoves": 4,
+          "activeElapsedMs": 2300,
+          "positionRef": "after-own-2",
+          "startedAt": "2026-09-16T16:00:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City"
+        }
+      },
+      "forbiddenEffects": [
+        "persist_partial",
+        "transmit_partial",
+        "lose_saved_complete",
+        "advance_srs_on_close",
+        "transfer_queue_to_other_owner",
+        "announce_saved_before_commit"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    }
+  ]
+}

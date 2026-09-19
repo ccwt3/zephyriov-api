@@ -1,0 +1,3 @@
+PASS alcance zephyriov-api: 9 archivos; HEAD, históricos y cambios previos intactos
+PASS alcance Zephyriov: 10 archivos; HEAD, históricos y cambios previos intactos
+PASS enlaces, manifiesto referencia y puntero T01; sin T01 ni desarrollo de aplicaciones

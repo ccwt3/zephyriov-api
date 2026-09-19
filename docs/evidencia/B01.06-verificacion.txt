@@ -1,0 +1,23 @@
+# B01.06-v1 — salida de verificación documental
+
+Referencia: python3 docs/blueprint/evidencia/verificar-B01.06.py
+PASS JSON estricto, IDs, metadatos y fuentes: R17=24 variantes, 34 pasos, 208 acumuladas
+PASS retiro: conserva tarjetas/completos; solo cancela pendientes propios; no rellena cupo
+PASS reactivación y mismo color: progreso/generaciones conservados; cancelados no se reabren
+PASS cambio y doble cambio: todas las tarjetas afectadas; generaciones nuevas sin progreso oculto
+PASS reset: new/0.00/reps0/lapses0/nota nula/due local; profundidad limitada en ambos colores
+PASS selección repetida no duplica ni vuelve a resetear; otras aperturas/cuentas intactas
+PASS completos aplicados/práctica/sin decisión y revisiones conservados; actividad no fabricada
+PASS fuentes, enlaces e índice por capa; 7 artefactos del manifiesto B01.05 preservados
+NO EJECUTADO: dominio, HTTP/persistencia, Android/web, R18–R22 ni tests/lint/build de aplicación
+
+API: python3 docs/evidencia/verificar-B01.06.py
+PASS alcance zephyriov-api: 9 archivos autorizados; HEAD, prefijos e históricos preservados
+PASS alcance Zephyriov: 10 archivos autorizados; HEAD, prefijos e históricos preservados
+PASS enlaces, 12 campos, nueve hashes de referencia; B01.06 completado y B01.07 sin ejecutar
+PASS R01–R16 y evidencia previa intactos; fuentes activas en referencia hasta T01
+PASS separación planificación/API/infraestructura/clientes; sin otros puntos
+NO EJECUTADO: dominio, HTTP/persistencia, Android/web ni tests/lint/build de aplicación
+
+git diff --check: PASS en ambos repositorios.
+Manifiestos: verificar con sha256sum -c desde el repositorio correspondiente.

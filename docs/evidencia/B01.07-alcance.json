@@ -1,0 +1,35 @@
+{
+  "version": "B01.07-v1",
+  "repositories": [
+    {
+      "root": "/home/cacawatin/code/personal/zeph/zephyriov-api",
+      "allowed": [
+        "Branch_changes.md",
+        "README.md",
+        "docs/evidencia/B01.07-alcance.json",
+        "docs/evidencia/B01.07-entrada.json",
+        "docs/evidencia/B01.07-verificacion.txt",
+        "docs/evidencia/B01.07.md",
+        "docs/evidencia/B01.07.sha256",
+        "docs/evidencia/verificar-B01.07.py",
+        "docs/next-job"
+      ]
+    },
+    {
+      "root": "/home/cacawatin/code/personal/Zephyriov",
+      "allowed": [
+        "Branch_changes.md",
+        "README.md",
+        "docs/blueprint/evidencia/B01.07-fuentes.json",
+        "docs/blueprint/evidencia/B01.07-verificacion.txt",
+        "docs/blueprint/evidencia/B01.07.md",
+        "docs/blueprint/evidencia/B01.07.sha256",
+        "docs/blueprint/evidencia/verificar-B01.07.py",
+        "docs/blueprint/fixtures-srs/R18.json",
+        "docs/blueprint/fixtures-srs/R22.json",
+        "docs/blueprint/fixtures-srs/README.md",
+        "docs/blueprint/reglas-srs.md"
+      ]
+    }
+  ]
+}

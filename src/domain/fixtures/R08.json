@@ -1,0 +1,1176 @@
+{
+  "fixtureVersion": "B01.03-v1",
+  "scope": "declarative-review-transitions",
+  "fixtures": [
+    {
+      "id": "R08-sequence-white",
+      "rule": "R08",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R08"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Convenciones comunes y arquitectura / B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS / Plan de los primeros siete días",
+          "reference": "B01.03"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS / Manejo de fechas"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 4,
+          "intervalDays": "7.50",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 1,
+        "remainingQueue": []
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good",
+          "good",
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 20,
+        "attemptNumbers": [
+          1,
+          1,
+          1
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDates": [
+          "2026-09-15",
+          "2026-10-04",
+          "2026-11-20"
+        ],
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil fijado al iniciar cada bloque; un D por paso. Sin DST, cambio de zona ni medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola fija; sin selección ni aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "18.75",
+              "dueDate": "2026-10-04",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-10-04",
+            "pendingQueue": [],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "18.750",
+              "dateOffsetDays": 19
+            }
+          },
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 12,
+              "intervalDays": "46.88",
+              "dueDate": "2026-11-20",
+              "reps": 9,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-11-20",
+            "pendingQueue": [],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "46.875",
+              "dateOffsetDays": 47
+            }
+          },
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 16,
+              "intervalDays": "117.20",
+              "dueDate": "2027-03-17",
+              "reps": 10,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2027-03-17",
+            "pendingQueue": [],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "117.200",
+              "dateOffsetDays": 117
+            }
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No reiniciar profundidad ni reps por lapse; no incrementar lapses por mid/good ni por reintentos ya new.",
+        "No multiplicar ni ampliar profundidad por mid; no conservar intervalo previo tras review/bad.",
+        "No usar vencimiento previo como base de fecha ni intervalo entero como valor persistido.",
+        "No redondear antes de multiplicar ni usar coma flotante binaria; la fecha parte del valor sin redondear.",
+        "No imponer el límite numeric(8,2) al intervalo ni un tope pedagógico de reintentos.",
+        "No cambiar originType review ni contar un reintento como otra línea nueva; no perder el bloque graded.",
+        "No presentar vencimiento anterior como nextDue al repetir; no atribuir pruebas de racha, I/O, HTTP o clientes a estos JSON."
+      ]
+    },
+    {
+      "id": "R08-sequence-black",
+      "rule": "R08",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R08"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Convenciones comunes y arquitectura / B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS / Plan de los primeros siete días",
+          "reference": "B01.03"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS / Manejo de fechas"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 4,
+          "intervalDays": "7.50",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 1,
+        "remainingQueue": []
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good",
+          "good",
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 20,
+        "attemptNumbers": [
+          1,
+          1,
+          1
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDates": [
+          "2026-09-15",
+          "2026-10-04",
+          "2026-11-20"
+        ],
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil fijado al iniciar cada bloque; un D por paso. Sin DST, cambio de zona ni medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola fija; sin selección ni aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "18.75",
+              "dueDate": "2026-10-04",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-10-04",
+            "pendingQueue": [],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "18.750",
+              "dateOffsetDays": 19
+            }
+          },
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 12,
+              "intervalDays": "46.88",
+              "dueDate": "2026-11-20",
+              "reps": 9,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-11-20",
+            "pendingQueue": [],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "46.875",
+              "dateOffsetDays": 47
+            }
+          },
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 16,
+              "intervalDays": "117.20",
+              "dueDate": "2027-03-17",
+              "reps": 10,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2027-03-17",
+            "pendingQueue": [],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "117.200",
+              "dateOffsetDays": 117
+            }
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No reiniciar profundidad ni reps por lapse; no incrementar lapses por mid/good ni por reintentos ya new.",
+        "No multiplicar ni ampliar profundidad por mid; no conservar intervalo previo tras review/bad.",
+        "No usar vencimiento previo como base de fecha ni intervalo entero como valor persistido.",
+        "No redondear antes de multiplicar ni usar coma flotante binaria; la fecha parte del valor sin redondear.",
+        "No imponer el límite numeric(8,2) al intervalo ni un tope pedagógico de reintentos.",
+        "No cambiar originType review ni contar un reintento como otra línea nueva; no perder el bloque graded.",
+        "No presentar vencimiento anterior como nextDue al repetir; no atribuir pruebas de racha, I/O, HTTP o clientes a estos JSON."
+      ]
+    },
+    {
+      "id": "R08-below-half-white",
+      "rule": "R08",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R08"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Convenciones comunes y arquitectura / B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS / Plan de los primeros siete días",
+          "reference": "B01.03"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS / Manejo de fechas"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 4,
+          "intervalDays": "2.59",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 20,
+        "attemptNumbers": [
+          1
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDates": [
+          "2026-09-15"
+        ],
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil fijado al iniciar cada bloque; un D por paso. Sin DST, cambio de zona ni medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola fija; sin selección ni aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "6.48",
+              "dueDate": "2026-09-21",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-21",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "6.475",
+              "dateOffsetDays": 6
+            }
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No reiniciar profundidad ni reps por lapse; no incrementar lapses por mid/good ni por reintentos ya new.",
+        "No multiplicar ni ampliar profundidad por mid; no conservar intervalo previo tras review/bad.",
+        "No usar vencimiento previo como base de fecha ni intervalo entero como valor persistido.",
+        "No redondear antes de multiplicar ni usar coma flotante binaria; la fecha parte del valor sin redondear.",
+        "No imponer el límite numeric(8,2) al intervalo ni un tope pedagógico de reintentos.",
+        "No cambiar originType review ni contar un reintento como otra línea nueva; no perder el bloque graded.",
+        "No presentar vencimiento anterior como nextDue al repetir; no atribuir pruebas de racha, I/O, HTTP o clientes a estos JSON."
+      ]
+    },
+    {
+      "id": "R08-below-half-black",
+      "rule": "R08",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R08"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Convenciones comunes y arquitectura / B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS / Plan de los primeros siete días",
+          "reference": "B01.03"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS / Manejo de fechas"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 4,
+          "intervalDays": "2.59",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 20,
+        "attemptNumbers": [
+          1
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDates": [
+          "2026-09-15"
+        ],
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil fijado al iniciar cada bloque; un D por paso. Sin DST, cambio de zona ni medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola fija; sin selección ni aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "6.48",
+              "dueDate": "2026-09-21",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-21",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "6.475",
+              "dateOffsetDays": 6
+            }
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No reiniciar profundidad ni reps por lapse; no incrementar lapses por mid/good ni por reintentos ya new.",
+        "No multiplicar ni ampliar profundidad por mid; no conservar intervalo previo tras review/bad.",
+        "No usar vencimiento previo como base de fecha ni intervalo entero como valor persistido.",
+        "No redondear antes de multiplicar ni usar coma flotante binaria; la fecha parte del valor sin redondear.",
+        "No imponer el límite numeric(8,2) al intervalo ni un tope pedagógico de reintentos.",
+        "No cambiar originType review ni contar un reintento como otra línea nueva; no perder el bloque graded.",
+        "No presentar vencimiento anterior como nextDue al repetir; no atribuir pruebas de racha, I/O, HTTP o clientes a estos JSON."
+      ]
+    },
+    {
+      "id": "R08-half-white",
+      "rule": "R08",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R08"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Convenciones comunes y arquitectura / B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS / Plan de los primeros siete días",
+          "reference": "B01.03"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS / Manejo de fechas"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 4,
+          "intervalDays": "2.60",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 20,
+        "attemptNumbers": [
+          1
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDates": [
+          "2026-09-15"
+        ],
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil fijado al iniciar cada bloque; un D por paso. Sin DST, cambio de zona ni medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola fija; sin selección ni aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "6.50",
+              "dueDate": "2026-09-22",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-22",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "6.500",
+              "dateOffsetDays": 7
+            }
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No reiniciar profundidad ni reps por lapse; no incrementar lapses por mid/good ni por reintentos ya new.",
+        "No multiplicar ni ampliar profundidad por mid; no conservar intervalo previo tras review/bad.",
+        "No usar vencimiento previo como base de fecha ni intervalo entero como valor persistido.",
+        "No redondear antes de multiplicar ni usar coma flotante binaria; la fecha parte del valor sin redondear.",
+        "No imponer el límite numeric(8,2) al intervalo ni un tope pedagógico de reintentos.",
+        "No cambiar originType review ni contar un reintento como otra línea nueva; no perder el bloque graded.",
+        "No presentar vencimiento anterior como nextDue al repetir; no atribuir pruebas de racha, I/O, HTTP o clientes a estos JSON."
+      ]
+    },
+    {
+      "id": "R08-half-black",
+      "rule": "R08",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R08"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Convenciones comunes y arquitectura / B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS / Plan de los primeros siete días",
+          "reference": "B01.03"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS / Manejo de fechas"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 4,
+          "intervalDays": "2.60",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 20,
+        "attemptNumbers": [
+          1
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDates": [
+          "2026-09-15"
+        ],
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil fijado al iniciar cada bloque; un D por paso. Sin DST, cambio de zona ni medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola fija; sin selección ni aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "6.50",
+              "dueDate": "2026-09-22",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-22",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "6.500",
+              "dateOffsetDays": 7
+            }
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No reiniciar profundidad ni reps por lapse; no incrementar lapses por mid/good ni por reintentos ya new.",
+        "No multiplicar ni ampliar profundidad por mid; no conservar intervalo previo tras review/bad.",
+        "No usar vencimiento previo como base de fecha ni intervalo entero como valor persistido.",
+        "No redondear antes de multiplicar ni usar coma flotante binaria; la fecha parte del valor sin redondear.",
+        "No imponer el límite numeric(8,2) al intervalo ni un tope pedagógico de reintentos.",
+        "No cambiar originType review ni contar un reintento como otra línea nueva; no perder el bloque graded.",
+        "No presentar vencimiento anterior como nextDue al repetir; no atribuir pruebas de racha, I/O, HTTP o clientes a estos JSON."
+      ]
+    },
+    {
+      "id": "R08-above-half-white",
+      "rule": "R08",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R08"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Convenciones comunes y arquitectura / B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS / Plan de los primeros siete días",
+          "reference": "B01.03"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS / Manejo de fechas"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 4,
+          "intervalDays": "2.61",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 20,
+        "attemptNumbers": [
+          1
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDates": [
+          "2026-09-15"
+        ],
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil fijado al iniciar cada bloque; un D por paso. Sin DST, cambio de zona ni medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola fija; sin selección ni aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "6.53",
+              "dueDate": "2026-09-22",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-22",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "6.525",
+              "dateOffsetDays": 7
+            }
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No reiniciar profundidad ni reps por lapse; no incrementar lapses por mid/good ni por reintentos ya new.",
+        "No multiplicar ni ampliar profundidad por mid; no conservar intervalo previo tras review/bad.",
+        "No usar vencimiento previo como base de fecha ni intervalo entero como valor persistido.",
+        "No redondear antes de multiplicar ni usar coma flotante binaria; la fecha parte del valor sin redondear.",
+        "No imponer el límite numeric(8,2) al intervalo ni un tope pedagógico de reintentos.",
+        "No cambiar originType review ni contar un reintento como otra línea nueva; no perder el bloque graded.",
+        "No presentar vencimiento anterior como nextDue al repetir; no atribuir pruebas de racha, I/O, HTTP o clientes a estos JSON."
+      ]
+    },
+    {
+      "id": "R08-above-half-black",
+      "rule": "R08",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R08"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Convenciones comunes y arquitectura / B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS / Plan de los primeros siete días",
+          "reference": "B01.03"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS / Manejo de fechas"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 4,
+          "intervalDays": "2.61",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 20,
+        "attemptNumbers": [
+          1
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDates": [
+          "2026-09-15"
+        ],
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil fijado al iniciar cada bloque; un D por paso. Sin DST, cambio de zona ni medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola fija; sin selección ni aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "6.53",
+              "dueDate": "2026-09-22",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-22",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "6.525",
+              "dateOffsetDays": 7
+            }
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No reiniciar profundidad ni reps por lapse; no incrementar lapses por mid/good ni por reintentos ya new.",
+        "No multiplicar ni ampliar profundidad por mid; no conservar intervalo previo tras review/bad.",
+        "No usar vencimiento previo como base de fecha ni intervalo entero como valor persistido.",
+        "No redondear antes de multiplicar ni usar coma flotante binaria; la fecha parte del valor sin redondear.",
+        "No imponer el límite numeric(8,2) al intervalo ni un tope pedagógico de reintentos.",
+        "No cambiar originType review ni contar un reintento como otra línea nueva; no perder el bloque graded.",
+        "No presentar vencimiento anterior como nextDue al repetir; no atribuir pruebas de racha, I/O, HTTP o clientes a estos JSON."
+      ]
+    },
+    {
+      "id": "R08-no-cap-white",
+      "rule": "R08",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R08"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Convenciones comunes y arquitectura / B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS / Plan de los primeros siete días",
+          "reference": "B01.03"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS / Manejo de fechas"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 4,
+          "intervalDays": "400000.00",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 20,
+        "attemptNumbers": [
+          1
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDates": [
+          "2026-09-15"
+        ],
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil fijado al iniciar cada bloque; un D por paso. Sin DST, cambio de zona ni medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola fija; sin selección ni aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "1000000.00",
+              "dueDate": "4764-08-12",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "4764-08-12",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "1000000.000",
+              "dateOffsetDays": 1000000
+            }
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No reiniciar profundidad ni reps por lapse; no incrementar lapses por mid/good ni por reintentos ya new.",
+        "No multiplicar ni ampliar profundidad por mid; no conservar intervalo previo tras review/bad.",
+        "No usar vencimiento previo como base de fecha ni intervalo entero como valor persistido.",
+        "No redondear antes de multiplicar ni usar coma flotante binaria; la fecha parte del valor sin redondear.",
+        "No imponer el límite numeric(8,2) al intervalo ni un tope pedagógico de reintentos.",
+        "No cambiar originType review ni contar un reintento como otra línea nueva; no perder el bloque graded.",
+        "No presentar vencimiento anterior como nextDue al repetir; no atribuir pruebas de racha, I/O, HTTP o clientes a estos JSON."
+      ]
+    },
+    {
+      "id": "R08-no-cap-black",
+      "rule": "R08",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R08"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Convenciones comunes y arquitectura / B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS / Plan de los primeros siete días",
+          "reference": "B01.03"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS / Manejo de fechas"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "review",
+          "unlockedMoves": 4,
+          "intervalDays": "400000.00",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 20,
+        "attemptNumbers": [
+          1
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDates": [
+          "2026-09-15"
+        ],
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil fijado al iniciar cada bloque; un D por paso. Sin DST, cambio de zona ni medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola fija; sin selección ni aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "1000000.00",
+              "dueDate": "4764-08-12",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "4764-08-12",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null,
+            "arithmetic": {
+              "rawInterval": "1000000.000",
+              "dateOffsetDays": 1000000
+            }
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No reiniciar profundidad ni reps por lapse; no incrementar lapses por mid/good ni por reintentos ya new.",
+        "No multiplicar ni ampliar profundidad por mid; no conservar intervalo previo tras review/bad.",
+        "No usar vencimiento previo como base de fecha ni intervalo entero como valor persistido.",
+        "No redondear antes de multiplicar ni usar coma flotante binaria; la fecha parte del valor sin redondear.",
+        "No imponer el límite numeric(8,2) al intervalo ni un tope pedagógico de reintentos.",
+        "No cambiar originType review ni contar un reintento como otra línea nueva; no perder el bloque graded.",
+        "No presentar vencimiento anterior como nextDue al repetir; no atribuir pruebas de racha, I/O, HTTP o clientes a estos JSON."
+      ]
+    }
+  ]
+}

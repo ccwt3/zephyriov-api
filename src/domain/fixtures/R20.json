@@ -1,0 +1,3814 @@
+{
+  "fixtureVersion": "B01.09-v1",
+  "scope": "declarative-block-time",
+  "fixtures": [
+    {
+      "id": "R20-midnight-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": {
+          "startedAt": "2026-09-17T05:58:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-16",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2026-09-16",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2026-09-17T06:03:00.000Z",
+        "receivedAt": "2026-09-17T06:03:00.000Z",
+        "continueAt": "2026-09-17T06:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2026-09-17T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2026-09-16",
+        "eventTimezone": "America/Mexico_City",
+        "dueDate": "2026-09-17",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2026-09-17",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2026-09-16"
+        ],
+        "continueDate": "2026-09-17",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-month-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": {
+          "startedAt": "2026-05-01T05:58:00.000Z",
+          "studyDate": "2026-04-30",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-04-30",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2026-04-30",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2026-05-01T06:03:00.000Z",
+        "receivedAt": "2026-05-01T06:03:00.000Z",
+        "continueAt": "2026-05-01T06:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2026-05-01T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2026-04-30",
+        "eventTimezone": "America/Mexico_City",
+        "dueDate": "2026-05-01",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2026-05-01",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2026-04-30"
+        ],
+        "continueDate": "2026-05-01",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-year-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": {
+          "startedAt": "2027-01-01T05:58:00.000Z",
+          "studyDate": "2026-12-31",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-12-31",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2026-12-31",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2027-01-01T06:03:00.000Z",
+        "receivedAt": "2027-01-01T06:03:00.000Z",
+        "continueAt": "2027-01-01T06:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2027-01-01T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2026-12-31",
+        "eventTimezone": "America/Mexico_City",
+        "dueDate": "2027-01-01",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2027-01-01",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2026-12-31"
+        ],
+        "continueDate": "2027-01-01",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-leap-enter-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "UTC",
+        "activeBlock": {
+          "startedAt": "2024-02-28T23:58:00.000Z",
+          "studyDate": "2024-02-28",
+          "studyTimezone": "UTC",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2024-02-28",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2024-02-28",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2024-02-29T00:03:00.000Z",
+        "receivedAt": "2024-02-29T00:03:00.000Z",
+        "continueAt": "2024-02-29T00:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2024-02-29T00:03:00.000Z",
+        "timezone": "UTC"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2024-02-28",
+        "eventTimezone": "UTC",
+        "dueDate": "2024-02-29",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2024-02-29",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2024-02-28"
+        ],
+        "continueDate": "2024-02-29",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-leap-exit-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "UTC",
+        "activeBlock": {
+          "startedAt": "2024-02-29T23:58:00.000Z",
+          "studyDate": "2024-02-29",
+          "studyTimezone": "UTC",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2024-02-29",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2024-02-29",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2024-03-01T00:03:00.000Z",
+        "receivedAt": "2024-03-01T00:03:00.000Z",
+        "continueAt": "2024-03-01T00:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2024-03-01T00:03:00.000Z",
+        "timezone": "UTC"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2024-02-29",
+        "eventTimezone": "UTC",
+        "dueDate": "2024-03-01",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2024-03-01",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2024-02-29"
+        ],
+        "continueDate": "2024-03-01",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-common-feb-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "UTC",
+        "activeBlock": {
+          "startedAt": "2025-02-28T23:58:00.000Z",
+          "studyDate": "2025-02-28",
+          "studyTimezone": "UTC",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2025-02-28",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2025-02-28",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2025-03-01T00:03:00.000Z",
+        "receivedAt": "2025-03-01T00:03:00.000Z",
+        "continueAt": "2025-03-01T00:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2025-03-01T00:03:00.000Z",
+        "timezone": "UTC"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2025-02-28",
+        "eventTimezone": "UTC",
+        "dueDate": "2025-03-01",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2025-03-01",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2025-02-28"
+        ],
+        "continueDate": "2025-03-01",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-century-common-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "UTC",
+        "activeBlock": {
+          "startedAt": "2100-02-28T23:58:00.000Z",
+          "studyDate": "2100-02-28",
+          "studyTimezone": "UTC",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2100-02-28",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2100-02-28",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2100-03-01T00:03:00.000Z",
+        "receivedAt": "2100-03-01T00:03:00.000Z",
+        "continueAt": "2100-03-01T00:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2100-03-01T00:03:00.000Z",
+        "timezone": "UTC"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2100-02-28",
+        "eventTimezone": "UTC",
+        "dueDate": "2100-03-01",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2100-03-01",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2100-02-28"
+        ],
+        "continueDate": "2100-03-01",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-century-leap-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "UTC",
+        "activeBlock": {
+          "startedAt": "2000-02-28T23:58:00.000Z",
+          "studyDate": "2000-02-28",
+          "studyTimezone": "UTC",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2000-02-28",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2000-02-28",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2000-02-29T00:03:00.000Z",
+        "receivedAt": "2000-02-29T00:03:00.000Z",
+        "continueAt": "2000-02-29T00:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2000-02-29T00:03:00.000Z",
+        "timezone": "UTC"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2000-02-28",
+        "eventTimezone": "UTC",
+        "dueDate": "2000-02-29",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2000-02-29",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2000-02-28"
+        ],
+        "continueDate": "2000-02-29",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-dst-forward-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "America/New_York",
+        "activeBlock": {
+          "startedAt": "2024-03-10T06:58:00.000Z",
+          "studyDate": "2024-03-10",
+          "studyTimezone": "America/New_York",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2024-03-10",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2024-03-10",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2024-03-10T07:03:00.000Z",
+        "receivedAt": "2024-03-10T07:03:00.000Z",
+        "continueAt": "2024-03-10T07:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2024-03-10T07:03:00.000Z",
+        "timezone": "America/New_York"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2024-03-10",
+        "eventTimezone": "America/New_York",
+        "dueDate": "2024-03-11",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2024-03-11",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2024-03-10"
+        ],
+        "continueDate": "2024-03-10",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-dst-backward-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "America/New_York",
+        "activeBlock": {
+          "startedAt": "2024-11-03T05:58:00.000Z",
+          "studyDate": "2024-11-03",
+          "studyTimezone": "America/New_York",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2024-11-03",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2024-11-03",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2024-11-03T06:03:00.000Z",
+        "receivedAt": "2024-11-03T06:03:00.000Z",
+        "continueAt": "2024-11-03T06:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2024-11-03T06:03:00.000Z",
+        "timezone": "America/New_York"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2024-11-03",
+        "eventTimezone": "America/New_York",
+        "dueDate": "2024-11-04",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2024-11-04",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2024-11-03"
+        ],
+        "continueDate": "2024-11-03",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-suspended-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": {
+          "startedAt": "2026-09-17T05:58:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 2,
+          "activeElapsedMs": 2300
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "pendingYesterday": [
+          "pending-old"
+        ]
+      },
+      "input": {
+        "operation": "suspended",
+        "now": "2026-09-17T06:03:00.000Z",
+        "processSurvives": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2026-09-17T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "activityFromReplacingPending": 0,
+        "partialDurableWrites": 0,
+        "eventsCreated": 0,
+        "carryPendingQueue": false,
+        "canStudy": true,
+        "activeBlock": {
+          "startedAt": "2026-09-17T05:58:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 2,
+          "activeElapsedMs": 2300
+        },
+        "nextAction": "resume_same_block",
+        "newBlockDate": null
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-closed-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": {
+          "startedAt": "2026-09-17T05:58:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 2,
+          "activeElapsedMs": 2300
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "pendingYesterday": [
+          "pending-old"
+        ]
+      },
+      "input": {
+        "operation": "closed",
+        "now": "2026-09-17T06:03:00.000Z",
+        "processSurvives": false,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2026-09-17T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "activityFromReplacingPending": 0,
+        "partialDurableWrites": 0,
+        "eventsCreated": 0,
+        "carryPendingQueue": false,
+        "canStudy": true,
+        "activeBlock": null,
+        "nextAction": "recover_or_build_current_day_from_cards",
+        "newBlockDate": "2026-09-17",
+        "newBlockOwnMovesDone": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-expired-suspended-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": {
+          "startedAt": "2026-09-17T05:58:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 2,
+          "activeElapsedMs": 2300
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "pendingYesterday": [
+          "pending-old"
+        ]
+      },
+      "input": {
+        "operation": "expired-suspended",
+        "now": "2026-09-17T06:03:00.000Z",
+        "processSurvives": true,
+        "package": {
+          "issuedAt": "2026-09-10T06:03:00.000Z",
+          "expiresAt": "2026-09-17T06:03:00.000Z",
+          "submitUntil": "2026-09-24T06:03:00.000Z"
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2026-09-17T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "activityFromReplacingPending": 0,
+        "partialDurableWrites": 0,
+        "eventsCreated": 0,
+        "carryPendingQueue": false,
+        "canStudy": false,
+        "activeBlock": {
+          "startedAt": "2026-09-17T05:58:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 2,
+          "activeElapsedMs": 2300
+        },
+        "nextAction": "reconcile_and_renew",
+        "newBlockDate": null
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-replace-pending-white",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": null,
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "pendingYesterday": [
+          "pending-old"
+        ]
+      },
+      "input": {
+        "operation": "replace-pending",
+        "now": "2026-09-17T06:03:00.000Z",
+        "processSurvives": false,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2026-09-17T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "activityFromReplacingPending": 0,
+        "partialDurableWrites": 0,
+        "eventsCreated": 0,
+        "carryPendingQueue": false,
+        "canStudy": true,
+        "activeBlock": null,
+        "nextAction": "recover_or_build_current_day_from_cards",
+        "newBlockDate": "2026-09-17",
+        "newBlockOwnMovesDone": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-midnight-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": {
+          "startedAt": "2026-09-17T05:58:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-16",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2026-09-16",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2026-09-17T06:03:00.000Z",
+        "receivedAt": "2026-09-17T06:03:00.000Z",
+        "continueAt": "2026-09-17T06:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2026-09-17T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2026-09-16",
+        "eventTimezone": "America/Mexico_City",
+        "dueDate": "2026-09-17",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2026-09-17",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2026-09-16"
+        ],
+        "continueDate": "2026-09-17",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-month-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": {
+          "startedAt": "2026-05-01T05:58:00.000Z",
+          "studyDate": "2026-04-30",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-04-30",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2026-04-30",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2026-05-01T06:03:00.000Z",
+        "receivedAt": "2026-05-01T06:03:00.000Z",
+        "continueAt": "2026-05-01T06:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2026-05-01T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2026-04-30",
+        "eventTimezone": "America/Mexico_City",
+        "dueDate": "2026-05-01",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2026-05-01",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2026-04-30"
+        ],
+        "continueDate": "2026-05-01",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-year-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": {
+          "startedAt": "2027-01-01T05:58:00.000Z",
+          "studyDate": "2026-12-31",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-12-31",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2026-12-31",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2027-01-01T06:03:00.000Z",
+        "receivedAt": "2027-01-01T06:03:00.000Z",
+        "continueAt": "2027-01-01T06:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2027-01-01T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2026-12-31",
+        "eventTimezone": "America/Mexico_City",
+        "dueDate": "2027-01-01",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2027-01-01",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2026-12-31"
+        ],
+        "continueDate": "2027-01-01",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-leap-enter-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "UTC",
+        "activeBlock": {
+          "startedAt": "2024-02-28T23:58:00.000Z",
+          "studyDate": "2024-02-28",
+          "studyTimezone": "UTC",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2024-02-28",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2024-02-28",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2024-02-29T00:03:00.000Z",
+        "receivedAt": "2024-02-29T00:03:00.000Z",
+        "continueAt": "2024-02-29T00:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2024-02-29T00:03:00.000Z",
+        "timezone": "UTC"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2024-02-28",
+        "eventTimezone": "UTC",
+        "dueDate": "2024-02-29",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2024-02-29",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2024-02-28"
+        ],
+        "continueDate": "2024-02-29",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-leap-exit-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "UTC",
+        "activeBlock": {
+          "startedAt": "2024-02-29T23:58:00.000Z",
+          "studyDate": "2024-02-29",
+          "studyTimezone": "UTC",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2024-02-29",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2024-02-29",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2024-03-01T00:03:00.000Z",
+        "receivedAt": "2024-03-01T00:03:00.000Z",
+        "continueAt": "2024-03-01T00:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2024-03-01T00:03:00.000Z",
+        "timezone": "UTC"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2024-02-29",
+        "eventTimezone": "UTC",
+        "dueDate": "2024-03-01",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2024-03-01",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2024-02-29"
+        ],
+        "continueDate": "2024-03-01",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-common-feb-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "UTC",
+        "activeBlock": {
+          "startedAt": "2025-02-28T23:58:00.000Z",
+          "studyDate": "2025-02-28",
+          "studyTimezone": "UTC",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2025-02-28",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2025-02-28",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2025-03-01T00:03:00.000Z",
+        "receivedAt": "2025-03-01T00:03:00.000Z",
+        "continueAt": "2025-03-01T00:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2025-03-01T00:03:00.000Z",
+        "timezone": "UTC"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2025-02-28",
+        "eventTimezone": "UTC",
+        "dueDate": "2025-03-01",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2025-03-01",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2025-02-28"
+        ],
+        "continueDate": "2025-03-01",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-century-common-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "UTC",
+        "activeBlock": {
+          "startedAt": "2100-02-28T23:58:00.000Z",
+          "studyDate": "2100-02-28",
+          "studyTimezone": "UTC",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2100-02-28",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2100-02-28",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2100-03-01T00:03:00.000Z",
+        "receivedAt": "2100-03-01T00:03:00.000Z",
+        "continueAt": "2100-03-01T00:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2100-03-01T00:03:00.000Z",
+        "timezone": "UTC"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2100-02-28",
+        "eventTimezone": "UTC",
+        "dueDate": "2100-03-01",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2100-03-01",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2100-02-28"
+        ],
+        "continueDate": "2100-03-01",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-century-leap-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "UTC",
+        "activeBlock": {
+          "startedAt": "2000-02-28T23:58:00.000Z",
+          "studyDate": "2000-02-28",
+          "studyTimezone": "UTC",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2000-02-28",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2000-02-28",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2000-02-29T00:03:00.000Z",
+        "receivedAt": "2000-02-29T00:03:00.000Z",
+        "continueAt": "2000-02-29T00:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2000-02-29T00:03:00.000Z",
+        "timezone": "UTC"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2000-02-28",
+        "eventTimezone": "UTC",
+        "dueDate": "2000-02-29",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2000-02-29",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2000-02-28"
+        ],
+        "continueDate": "2000-02-29",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-dst-forward-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "America/New_York",
+        "activeBlock": {
+          "startedAt": "2024-03-10T06:58:00.000Z",
+          "studyDate": "2024-03-10",
+          "studyTimezone": "America/New_York",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2024-03-10",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2024-03-10",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2024-03-10T07:03:00.000Z",
+        "receivedAt": "2024-03-10T07:03:00.000Z",
+        "continueAt": "2024-03-10T07:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2024-03-10T07:03:00.000Z",
+        "timezone": "America/New_York"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2024-03-10",
+        "eventTimezone": "America/New_York",
+        "dueDate": "2024-03-11",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2024-03-11",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2024-03-10"
+        ],
+        "continueDate": "2024-03-10",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-dst-backward-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "America/New_York",
+        "activeBlock": {
+          "startedAt": "2024-11-03T05:58:00.000Z",
+          "studyDate": "2024-11-03",
+          "studyTimezone": "America/New_York",
+          "ownMovesDone": 0
+        },
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2024-11-03",
+          "reps": 0,
+          "lapses": 0
+        },
+        "session": {
+          "id": "session-start",
+          "studyDate": "2024-11-03",
+          "newLineIds": [
+            "L1"
+          ],
+          "pedagogicalSettings": {
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          }
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": []
+      },
+      "input": {
+        "operation": "complete_then_continue",
+        "verifiedGrade": "good",
+        "ownMaximum": 10,
+        "lineId": "L1",
+        "compatiblePlan": true,
+        "activityCriterion": "one_selected_new_graded",
+        "completedAt": "2024-11-03T06:03:00.000Z",
+        "receivedAt": "2024-11-03T06:03:00.000Z",
+        "continueAt": "2024-11-03T06:03:00.000Z",
+        "pendingYesterday": [
+          "pending-old"
+        ],
+        "cardsAvailableAtContinue": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2024-11-03T06:03:00.000Z",
+        "timezone": "America/New_York"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "eventStudyDate": "2024-11-03",
+        "eventTimezone": "America/New_York",
+        "dueDate": "2024-11-04",
+        "cardAfter": {
+          "state": "review",
+          "unlockedMoves": 8,
+          "intervalDays": "1.00",
+          "dueDate": "2024-11-04",
+          "reps": 1,
+          "lapses": 0
+        },
+        "activityDates": [
+          "2024-11-03"
+        ],
+        "continueDate": "2024-11-03",
+        "continueAction": "recover_or_build_current_day_from_cards",
+        "carryPendingQueue": false,
+        "activityFromReplacingPending": 0,
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "partialDurableWrites": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-suspended-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": {
+          "startedAt": "2026-09-17T05:58:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 2,
+          "activeElapsedMs": 2300
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "pendingYesterday": [
+          "pending-old"
+        ]
+      },
+      "input": {
+        "operation": "suspended",
+        "now": "2026-09-17T06:03:00.000Z",
+        "processSurvives": true,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2026-09-17T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "activityFromReplacingPending": 0,
+        "partialDurableWrites": 0,
+        "eventsCreated": 0,
+        "carryPendingQueue": false,
+        "canStudy": true,
+        "activeBlock": {
+          "startedAt": "2026-09-17T05:58:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 2,
+          "activeElapsedMs": 2300
+        },
+        "nextAction": "resume_same_block",
+        "newBlockDate": null
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-closed-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": {
+          "startedAt": "2026-09-17T05:58:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 2,
+          "activeElapsedMs": 2300
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "pendingYesterday": [
+          "pending-old"
+        ]
+      },
+      "input": {
+        "operation": "closed",
+        "now": "2026-09-17T06:03:00.000Z",
+        "processSurvives": false,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2026-09-17T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "activityFromReplacingPending": 0,
+        "partialDurableWrites": 0,
+        "eventsCreated": 0,
+        "carryPendingQueue": false,
+        "canStudy": true,
+        "activeBlock": null,
+        "nextAction": "recover_or_build_current_day_from_cards",
+        "newBlockDate": "2026-09-17",
+        "newBlockOwnMovesDone": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-expired-suspended-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": {
+          "startedAt": "2026-09-17T05:58:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 2,
+          "activeElapsedMs": 2300
+        },
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "pendingYesterday": [
+          "pending-old"
+        ]
+      },
+      "input": {
+        "operation": "expired-suspended",
+        "now": "2026-09-17T06:03:00.000Z",
+        "processSurvives": true,
+        "package": {
+          "issuedAt": "2026-09-10T06:03:00.000Z",
+          "expiresAt": "2026-09-17T06:03:00.000Z",
+          "submitUntil": "2026-09-24T06:03:00.000Z"
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2026-09-17T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "activityFromReplacingPending": 0,
+        "partialDurableWrites": 0,
+        "eventsCreated": 0,
+        "carryPendingQueue": false,
+        "canStudy": false,
+        "activeBlock": {
+          "startedAt": "2026-09-17T05:58:00.000Z",
+          "studyDate": "2026-09-16",
+          "studyTimezone": "America/Mexico_City",
+          "ownMovesDone": 2,
+          "activeElapsedMs": 2300
+        },
+        "nextAction": "reconcile_and_renew",
+        "newBlockDate": null
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R20-replace-pending-black",
+      "rule": "R20",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.09; D12; §13"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R20/R21; definición de rachas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "fecha/zona al inicio y Continuar"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "instantes UTC, recepción y cronología"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "zona conocida y sesión canónica"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "suspensión, cierre, zona conocida y vencimiento"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C10 — Paridad entre clientes y publicación web",
+          "reference": "P11"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "fechas elegibles sin depender de llegada"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "knownTimezone": "America/Mexico_City",
+        "activeBlock": null,
+        "savedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "pendingYesterday": [
+          "pending-old"
+        ]
+      },
+      "input": {
+        "operation": "replace-pending",
+        "now": "2026-09-17T06:03:00.000Z",
+        "processSurvives": false,
+        "package": null
+      },
+      "clock": {
+        "kind": "fixed",
+        "now": "2026-09-17T06:03:00.000Z",
+        "timezone": "America/Mexico_City"
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Plan compatible y nota precondicionados; sin selección aleatoria en este caso temporal."
+      },
+      "expected": {
+        "preservedEvents": [
+          "saved-before"
+        ],
+        "activityDates": [
+          "2026-09-15"
+        ],
+        "activityFromReplacingPending": 0,
+        "partialDurableWrites": 0,
+        "eventsCreated": 0,
+        "carryPendingQueue": false,
+        "canStudy": true,
+        "activeBlock": null,
+        "nextAction": "recover_or_build_current_day_from_cards",
+        "newBlockDate": "2026-09-17",
+        "newBlockOwnMovesDone": 0
+      },
+      "forbiddenEffects": [
+        "Reatribuir fecha por hora de fin o recepción.",
+        "Reescribir días históricos por cambio de zona.",
+        "Otorgar actividad al sustituir pendientes o descartar parcial.",
+        "Multiplicar cupo creando otra sesión para la misma cuenta/fecha.",
+        "Extender vigencia por medianoche, DST o suspensión.",
+        "Tratar estos ejemplos como pruebas ejecutadas de dominio, HTTP o cliente."
+      ],
+      "evidence": {
+        "specification": "declarative",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    }
+  ]
+}

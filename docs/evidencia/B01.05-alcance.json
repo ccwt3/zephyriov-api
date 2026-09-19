@@ -1,0 +1,36 @@
+{
+  "version": "B01.05-v1",
+  "repositories": [
+    {
+      "root": "/home/cacawatin/code/personal/zeph/zephyriov-api",
+      "allowed": [
+        "README.md",
+        "Branch_changes.md",
+        "docs/next-job",
+        "docs/evidencia/B01.05-entrada.json",
+        "docs/evidencia/B01.05-alcance.json",
+        "docs/evidencia/B01.05.md",
+        "docs/evidencia/B01.05-verificacion.txt",
+        "docs/evidencia/B01.05.sha256",
+        "docs/evidencia/verificar-B01.05.py"
+      ]
+    },
+    {
+      "root": "/home/cacawatin/code/personal/Zephyriov",
+      "allowed": [
+        "README.md",
+        "Branch_changes.md",
+        "docs/blueprint/reglas-srs.md",
+        "docs/blueprint/fixtures-srs/README.md",
+        "docs/blueprint/fixtures-srs/R14.json",
+        "docs/blueprint/fixtures-srs/R15.json",
+        "docs/blueprint/fixtures-srs/R16.json",
+        "docs/blueprint/evidencia/B01.05-fuentes.json",
+        "docs/blueprint/evidencia/B01.05.md",
+        "docs/blueprint/evidencia/verificar-B01.05.py",
+        "docs/blueprint/evidencia/B01.05-verificacion.txt",
+        "docs/blueprint/evidencia/B01.05.sha256"
+      ]
+    }
+  ]
+}

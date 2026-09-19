@@ -1,0 +1,36 @@
+{
+  "version": "B01.06-v1",
+  "description": "Cambios permitidos comparados con snapshot de entrada; ningún archivo fuera de esta lista puede cambiar. Documentos históricos ampliados solo por apéndice en referencia.",
+  "repositories": [
+    {
+      "root": "/home/cacawatin/code/personal/zeph/zephyriov-api",
+      "allowed": [
+        "Branch_changes.md",
+        "README.md",
+        "docs/evidencia/B01.06-alcance.json",
+        "docs/evidencia/B01.06-entrada.json",
+        "docs/evidencia/B01.06-verificacion.txt",
+        "docs/evidencia/B01.06.md",
+        "docs/evidencia/B01.06.sha256",
+        "docs/evidencia/verificar-B01.06.py",
+        "docs/next-job"
+      ]
+    },
+    {
+      "root": "/home/cacawatin/code/personal/Zephyriov",
+      "allowed": [
+        "Branch_changes.md",
+        "README.md",
+        "docs/blueprint/evidencia/B01.06-fuentes.json",
+        "docs/blueprint/evidencia/B01.06-verificacion.txt",
+        "docs/blueprint/evidencia/B01.06.md",
+        "docs/blueprint/evidencia/B01.06.sha256",
+        "docs/blueprint/evidencia/verificar-B01.06.py",
+        "docs/blueprint/fixtures-srs/R17.json",
+        "docs/blueprint/fixtures-srs/README.md",
+        "docs/blueprint/reglas-srs.md"
+      ]
+    }
+  ],
+  "priorEvidence": "B01.05 verifiers and all manifests passed before edits; R01–R16 preserved"
+}

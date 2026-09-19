@@ -1,0 +1,36 @@
+B01.05-v1 — 2026-09-15, Mexico/General
+Entorno: Linux/Bash; Python 3.14.7; Git 2.55.0.
+
+Entrada:
+PASS verificador B01.04 referencia; 20 hashes de referencia y 7 hashes API.
+El verificador histórico API falló en la aserción del HEAD anterior (23f3d17).
+PASS comparación de ambos inventarios con after de B01.04-alcance:
+el commit API 3bf55a4 registró la misma entrega; ningún artefacto divergente.
+Verificador histórico preservado. Snapshot actual: B01.05-entrada.json.
+
+$ python3 docs/blueprint/evidencia/verificar-B01.05.py (desde referencia)
+PASS JSON estricto, IDs, metadatos, fuentes: R14=16/R15=16/R16=20; 52 nuevas, 184 totales
+PASS 116 pasos literales; ambos colores; nuevas distintas aun bad/mid; 1/2 exigen todas
+PASS sin nuevas: todos reviews y reintentos; lapse y mid conservan originType review
+PASS sesión vacía, prácticas, parciales, inválidos y cancelaciones sin actividad fabricada
+PASS cancelación: conjunto exigible, cierre sin actividad y evidencia ganada conservada
+PASS deduplicación por cuenta/día; otra cuenta no bloquea el alta propia
+PASS fuentes sin cambios; 16 artefactos B01.04 preservados; índice por capa y enlaces
+NO EJECUTADO: dominio, HTTP/persistencia, Android/web, R17–R22 ni tests/lint/build de aplicación
+
+$ sha256sum -c docs/blueprint/evidencia/B01.05.sha256 (desde referencia)
+PASS 11 archivos del manifiesto.
+SHA-256 del manifiesto: 2ece9e3b9f78f0972998f90310addb947f8118a3e1c89a9279af1e8bdf0c363d
+
+$ python3 docs/evidencia/verificar-B01.05.py (desde API)
+PASS alcance zephyriov-api: 9 archivos autorizados; HEAD y artefactos previos preservados
+PASS alcance Zephyriov: 12 archivos autorizados; HEAD y artefactos previos preservados
+PASS enlaces, 12 campos, manifiestos y B01.05 completado; B01.06 siguiente sin ejecutar
+PASS separación de repositorios; sin transferencia T01 ni clientes
+NO EJECUTADO: dominio, HTTP/persistencia, Android/web ni tests/lint/build de aplicación
+
+$ git diff --check (en ambos repositorios)
+PASS (salida vacía; exit 0 en ambos).
+
+Sin algoritmo nuevo, aplicación, proveedores ni desarrollo de cliente.
+B01.06 solo señalado como siguiente; no ejecutado.

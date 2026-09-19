@@ -1,0 +1,3536 @@
+{
+  "fixtureVersion": "B01.07-v1",
+  "scope": "declarative-transport-and-pedagogical-retry",
+  "fixtures": [
+    {
+      "id": "R22-replay-applied-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "cardVersion": "8",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "replay-applied",
+        "reportVerified": true,
+        "submittedEvent": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "packageExpired": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "storedDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "responseDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "replayed": true
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-replay-applied-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "cardVersion": "8",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "replay-applied",
+        "reportVerified": true,
+        "submittedEvent": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "packageExpired": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "storedDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "responseDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "replayed": true
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-replay-practice-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": {
+          "eventId": "e1",
+          "outcome": "practice",
+          "reason": "STALE_CARD",
+          "grade": "good",
+          "cardAfterRef": null,
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "replay-practice",
+        "reportVerified": true,
+        "submittedEvent": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "packageExpired": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "storedDecision": {
+          "eventId": "e1",
+          "outcome": "practice",
+          "reason": "STALE_CARD",
+          "grade": "good",
+          "cardAfterRef": null,
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "responseDecision": {
+          "eventId": "e1",
+          "outcome": "practice",
+          "reason": "STALE_CARD",
+          "grade": "good",
+          "cardAfterRef": null,
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "replayed": true
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-replay-practice-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": {
+          "eventId": "e1",
+          "outcome": "practice",
+          "reason": "STALE_CARD",
+          "grade": "good",
+          "cardAfterRef": null,
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "replay-practice",
+        "reportVerified": true,
+        "submittedEvent": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "packageExpired": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "storedDecision": {
+          "eventId": "e1",
+          "outcome": "practice",
+          "reason": "STALE_CARD",
+          "grade": "good",
+          "cardAfterRef": null,
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "responseDecision": {
+          "eventId": "e1",
+          "outcome": "practice",
+          "reason": "STALE_CARD",
+          "grade": "good",
+          "cardAfterRef": null,
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "replayed": true
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-replay-invalid-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": {
+          "eventId": "e1",
+          "outcome": "invalid",
+          "reason": "INVALID_ATTEMPTS",
+          "grade": null,
+          "cardAfterRef": null,
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "replay-invalid",
+        "reportVerified": false,
+        "submittedEvent": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "packageExpired": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "storedDecision": {
+          "eventId": "e1",
+          "outcome": "invalid",
+          "reason": "INVALID_ATTEMPTS",
+          "grade": null,
+          "cardAfterRef": null,
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "responseDecision": {
+          "eventId": "e1",
+          "outcome": "invalid",
+          "reason": "INVALID_ATTEMPTS",
+          "grade": null,
+          "cardAfterRef": null,
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "replayed": true
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-replay-invalid-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": {
+          "eventId": "e1",
+          "outcome": "invalid",
+          "reason": "INVALID_ATTEMPTS",
+          "grade": null,
+          "cardAfterRef": null,
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "replay-invalid",
+        "reportVerified": false,
+        "submittedEvent": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "packageExpired": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "storedDecision": {
+          "eventId": "e1",
+          "outcome": "invalid",
+          "reason": "INVALID_ATTEMPTS",
+          "grade": null,
+          "cardAfterRef": null,
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "responseDecision": {
+          "eventId": "e1",
+          "outcome": "invalid",
+          "reason": "INVALID_ATTEMPTS",
+          "grade": null,
+          "cardAfterRef": null,
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "replayed": true
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-replay-after-expiry-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "cardVersion": "8",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "replay-after-expiry",
+        "reportVerified": true,
+        "submittedEvent": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "packageExpired": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "storedDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "responseDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "replayed": true
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-replay-after-expiry-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "cardVersion": "8",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "replay-after-expiry",
+        "reportVerified": true,
+        "submittedEvent": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "packageExpired": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "storedDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "responseDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "replayed": true
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-reordered-payload-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "cardVersion": "8",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "reordered-payload",
+        "reportVerified": true,
+        "submittedEvent": {
+          "attemptNumber": 1,
+          "originType": "new",
+          "dependsOnEventIds": [],
+          "baseCardVersion": "7",
+          "payloadRef": "report-1",
+          "itemId": "i1",
+          "eventId": "e1"
+        },
+        "packageExpired": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "storedDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "responseDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "replayed": true
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-reordered-payload-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "cardVersion": "8",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "reordered-payload",
+        "reportVerified": true,
+        "submittedEvent": {
+          "attemptNumber": 1,
+          "originType": "new",
+          "dependsOnEventIds": [],
+          "baseCardVersion": "7",
+          "payloadRef": "report-1",
+          "itemId": "i1",
+          "eventId": "e1"
+        },
+        "packageExpired": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "storedDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "responseDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "replayed": true
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-query-not-found-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "query-not-found",
+        "reportVerified": true,
+        "queryStatus": 404
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "nextSubmission": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "decision": null
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-query-not-found-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "query-not-found",
+        "reportVerified": true,
+        "queryStatus": 404
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "nextSubmission": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "decision": null
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-id-reused-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "cardVersion": "8",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "id-reused",
+        "reportVerified": true,
+        "submittedEvent": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "different-report",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "packageExpired": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "storedDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "responseCode": "EVENT_ID_REUSED",
+        "replayed": false,
+        "retryAutomatically": false
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-id-reused-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "cardVersion": "8",
+        "otherPendingItems": [
+          "independent-item"
+        ]
+      },
+      "input": {
+        "action": "id-reused",
+        "reportVerified": true,
+        "submittedEvent": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "different-report",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "packageExpired": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "newEventIds": [],
+        "newItemIds": [],
+        "additionalSrsApplications": 0,
+        "storedDecision": {
+          "eventId": "e1",
+          "outcome": "applied",
+          "reason": "ACCEPTED",
+          "grade": "good",
+          "cardAfterRef": "card-v8",
+          "repeatItem": null,
+          "accountRevision": "51",
+          "decidedAt": "2026-09-16T16:01:00.000Z"
+        },
+        "responseCode": "EVENT_ID_REUSED",
+        "replayed": false,
+        "retryAutomatically": false
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-new-bad-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "cardState": "new",
+        "originType": "new"
+      },
+      "input": {
+        "action": "new-bad",
+        "reportVerified": true,
+        "verifiedGrade": "bad"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 1,
+        "parentOutcome": "applied",
+        "newEventIds": [
+          "e2"
+        ],
+        "newItemIds": [
+          "i2"
+        ],
+        "repeatItem": {
+          "itemId": "i2",
+          "parentEventId": "e1",
+          "originType": "new",
+          "attemptNumber": 2,
+          "queueAfter": [
+            "independent-item",
+            "i2"
+          ]
+        },
+        "nextCompletedEvent": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "new-report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        }
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-new-bad-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "cardState": "new",
+        "originType": "new"
+      },
+      "input": {
+        "action": "new-bad",
+        "reportVerified": true,
+        "verifiedGrade": "bad"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 1,
+        "parentOutcome": "applied",
+        "newEventIds": [
+          "e2"
+        ],
+        "newItemIds": [
+          "i2"
+        ],
+        "repeatItem": {
+          "itemId": "i2",
+          "parentEventId": "e1",
+          "originType": "new",
+          "attemptNumber": 2,
+          "queueAfter": [
+            "independent-item",
+            "i2"
+          ]
+        },
+        "nextCompletedEvent": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "new-report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        }
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-new-mid-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "cardState": "new",
+        "originType": "new"
+      },
+      "input": {
+        "action": "new-mid",
+        "reportVerified": true,
+        "verifiedGrade": "mid"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 1,
+        "parentOutcome": "applied",
+        "newEventIds": [
+          "e2"
+        ],
+        "newItemIds": [
+          "i2"
+        ],
+        "repeatItem": {
+          "itemId": "i2",
+          "parentEventId": "e1",
+          "originType": "new",
+          "attemptNumber": 2,
+          "queueAfter": [
+            "independent-item",
+            "i2"
+          ]
+        },
+        "nextCompletedEvent": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "new-report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        }
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-new-mid-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "cardState": "new",
+        "originType": "new"
+      },
+      "input": {
+        "action": "new-mid",
+        "reportVerified": true,
+        "verifiedGrade": "mid"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 1,
+        "parentOutcome": "applied",
+        "newEventIds": [
+          "e2"
+        ],
+        "newItemIds": [
+          "i2"
+        ],
+        "repeatItem": {
+          "itemId": "i2",
+          "parentEventId": "e1",
+          "originType": "new",
+          "attemptNumber": 2,
+          "queueAfter": [
+            "independent-item",
+            "i2"
+          ]
+        },
+        "nextCompletedEvent": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "new-report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        }
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-review-bad-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "review",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "cardState": "review",
+        "originType": "review"
+      },
+      "input": {
+        "action": "review-bad",
+        "reportVerified": true,
+        "verifiedGrade": "bad"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 1,
+        "parentOutcome": "applied",
+        "newEventIds": [
+          "e2"
+        ],
+        "newItemIds": [
+          "i2"
+        ],
+        "repeatItem": {
+          "itemId": "i2",
+          "parentEventId": "e1",
+          "originType": "review",
+          "attemptNumber": 2,
+          "queueAfter": [
+            "independent-item",
+            "i2"
+          ]
+        },
+        "nextCompletedEvent": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "new-report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "review",
+          "attemptNumber": 2
+        }
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-review-bad-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "review",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "cardState": "review",
+        "originType": "review"
+      },
+      "input": {
+        "action": "review-bad",
+        "reportVerified": true,
+        "verifiedGrade": "bad"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 1,
+        "parentOutcome": "applied",
+        "newEventIds": [
+          "e2"
+        ],
+        "newItemIds": [
+          "i2"
+        ],
+        "repeatItem": {
+          "itemId": "i2",
+          "parentEventId": "e1",
+          "originType": "review",
+          "attemptNumber": 2,
+          "queueAfter": [
+            "independent-item",
+            "i2"
+          ]
+        },
+        "nextCompletedEvent": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "new-report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "review",
+          "attemptNumber": 2
+        }
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-review-mid-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "review",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "cardState": "review",
+        "originType": "review"
+      },
+      "input": {
+        "action": "review-mid",
+        "reportVerified": true,
+        "verifiedGrade": "mid"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 1,
+        "parentOutcome": "applied",
+        "newEventIds": [],
+        "newItemIds": [],
+        "repeatItem": null
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-review-mid-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "review",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "cardState": "review",
+        "originType": "review"
+      },
+      "input": {
+        "action": "review-mid",
+        "reportVerified": true,
+        "verifiedGrade": "mid"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 1,
+        "parentOutcome": "applied",
+        "newEventIds": [],
+        "newItemIds": [],
+        "repeatItem": null
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-new-good-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "cardState": "new",
+        "originType": "new"
+      },
+      "input": {
+        "action": "new-good",
+        "reportVerified": true,
+        "verifiedGrade": "good"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 1,
+        "parentOutcome": "applied",
+        "newEventIds": [],
+        "newItemIds": [],
+        "repeatItem": null
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-new-good-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "new",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "cardState": "new",
+        "originType": "new"
+      },
+      "input": {
+        "action": "new-good",
+        "reportVerified": true,
+        "verifiedGrade": "good"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 1,
+        "parentOutcome": "applied",
+        "newEventIds": [],
+        "newItemIds": [],
+        "repeatItem": null
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-review-good-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "review",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "cardState": "review",
+        "originType": "review"
+      },
+      "input": {
+        "action": "review-good",
+        "reportVerified": true,
+        "verifiedGrade": "good"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 1,
+        "parentOutcome": "applied",
+        "newEventIds": [],
+        "newItemIds": [],
+        "repeatItem": null
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-review-good-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e1",
+          "itemId": "i1",
+          "payloadRef": "report-1",
+          "baseCardVersion": "7",
+          "dependsOnEventIds": [],
+          "originType": "review",
+          "attemptNumber": 1
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "cardState": "review",
+        "originType": "review"
+      },
+      "input": {
+        "action": "review-good",
+        "reportVerified": true,
+        "verifiedGrade": "good"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 1,
+        "parentOutcome": "applied",
+        "newEventIds": [],
+        "newItemIds": [],
+        "repeatItem": null
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-parent-pending-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "parentDecision": null
+      },
+      "input": {
+        "action": "parent-pending",
+        "reportVerified": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 0,
+        "newEventIds": [],
+        "newItemIds": [],
+        "retainedEvent": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        },
+        "grade": null,
+        "responseCode": "DEPENDENCY_PENDING",
+        "outcome": null,
+        "retryAutomatically": true
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-parent-pending-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "parentDecision": null
+      },
+      "input": {
+        "action": "parent-pending",
+        "reportVerified": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 0,
+        "newEventIds": [],
+        "newItemIds": [],
+        "retainedEvent": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        },
+        "grade": null,
+        "responseCode": "DEPENDENCY_PENDING",
+        "outcome": null,
+        "retryAutomatically": true
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-parent-practice-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "parentDecision": {
+          "eventId": "e1",
+          "outcome": "practice"
+        }
+      },
+      "input": {
+        "action": "parent-practice",
+        "reportVerified": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 0,
+        "newEventIds": [],
+        "newItemIds": [],
+        "retainedEvent": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        },
+        "grade": "good",
+        "responseCode": "DEPENDENCY_PRACTICE",
+        "outcome": "practice",
+        "retryAutomatically": false
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-parent-practice-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "parentDecision": {
+          "eventId": "e1",
+          "outcome": "practice"
+        }
+      },
+      "input": {
+        "action": "parent-practice",
+        "reportVerified": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 0,
+        "newEventIds": [],
+        "newItemIds": [],
+        "retainedEvent": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        },
+        "grade": "good",
+        "responseCode": "DEPENDENCY_PRACTICE",
+        "outcome": "practice",
+        "retryAutomatically": false
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-parent-invalid-white",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "event": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "parentDecision": {
+          "eventId": "e1",
+          "outcome": "invalid"
+        }
+      },
+      "input": {
+        "action": "parent-invalid",
+        "reportVerified": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 0,
+        "newEventIds": [],
+        "newItemIds": [],
+        "retainedEvent": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        },
+        "grade": null,
+        "responseCode": "DEPENDENCY_INVALID",
+        "outcome": "invalid",
+        "retryAutomatically": false
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R22-parent-invalid-black",
+      "rule": "R22",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.07; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R18/R22"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "misma decisión, IDs y reintentos"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "dependencia pendiente/práctica/inválida"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Dos dispositivos",
+          "reference": "reenvío frente a nuevo intento"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "event": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        },
+        "decision": null,
+        "cardVersion": "7",
+        "otherPendingItems": [
+          "independent-item"
+        ],
+        "parentDecision": {
+          "eventId": "e1",
+          "outcome": "invalid"
+        }
+      },
+      "input": {
+        "action": "parent-invalid",
+        "reportVerified": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "preserveOriginalEvent": true,
+        "additionalActivityFromTransport": 0,
+        "independentItemsUnchanged": true,
+        "additionalSrsApplications": 0,
+        "newEventIds": [],
+        "newItemIds": [],
+        "retainedEvent": {
+          "eventId": "e2",
+          "itemId": "i2",
+          "payloadRef": "report-2",
+          "baseCardVersion": "8",
+          "dependsOnEventIds": [
+            "e1"
+          ],
+          "originType": "new",
+          "attemptNumber": 2
+        },
+        "grade": null,
+        "responseCode": "DEPENDENCY_INVALID",
+        "outcome": "invalid",
+        "retryAutomatically": false
+      },
+      "forbiddenEffects": [
+        "new_id_for_timeout",
+        "duplicate_srs_on_replay",
+        "overwrite_original_payload_or_decision",
+        "count_retry_as_new_line",
+        "dependency_on_independent_card"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    }
+  ]
+}

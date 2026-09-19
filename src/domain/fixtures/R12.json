@@ -1,0 +1,5114 @@
+{
+  "fixtureVersion": "B01.04-v1",
+  "scope": "declarative-daily-selection",
+  "fixtures": [
+    {
+      "id": "R12-empty-white",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "candidates": []
+      },
+      "input": {
+        "newLinesPerDay": 6,
+        "movesPerBlock": 4,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [],
+        "reviewLineIds": [],
+        "orderedLineIds": [],
+        "items": [],
+        "shuffleTrace": {
+          "canonicalGroups": {},
+          "shuffledGroups": {},
+          "groupOrder": [],
+          "drawCount": 0
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-only-reviews-white",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "candidates": [
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          },
+          {
+            "lineId": "R2",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R2-v1"
+          },
+          {
+            "lineId": "R3",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-01",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R3-v1"
+          },
+          {
+            "lineId": "R4",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R4-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 6,
+        "movesPerBlock": 4,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [],
+        "reviewLineIds": [
+          "R1",
+          "R2",
+          "R3",
+          "R4"
+        ],
+        "orderedLineIds": [
+          "R1",
+          "R2",
+          "R3",
+          "R4"
+        ],
+        "items": [
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R2",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R3",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R4",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {},
+          "shuffledGroups": {},
+          "groupOrder": [],
+          "drawCount": 0
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-reference-white",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "candidates": [
+          {
+            "lineId": "A1",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A1-v1"
+          },
+          {
+            "lineId": "B1",
+            "openingId": "B",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "B1-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          },
+          {
+            "lineId": "R2",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R2-v1"
+          },
+          {
+            "lineId": "R3",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-01",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R3-v1"
+          },
+          {
+            "lineId": "R4",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R4-v1"
+          },
+          {
+            "lineId": "R5",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-16",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R5-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 6,
+        "movesPerBlock": 4,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [
+          0
+        ],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "B1",
+          "A1"
+        ],
+        "reviewLineIds": [
+          "R1",
+          "R2",
+          "R3",
+          "R4"
+        ],
+        "orderedLineIds": [
+          "B1",
+          "A1",
+          "R1",
+          "R2",
+          "R3",
+          "R4"
+        ],
+        "items": [
+          {
+            "lineId": "B1",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A1",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R2",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R3",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R4",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A1"
+            ],
+            "B": [
+              "B1"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A1"
+            ],
+            "B": [
+              "B1"
+            ]
+          },
+          "groupOrder": [
+            "B",
+            "A"
+          ],
+          "drawCount": 1
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-future-only-white",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "candidates": [
+          {
+            "lineId": "A1",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-16",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A1-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-16",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 6,
+        "movesPerBlock": 4,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [],
+        "reviewLineIds": [],
+        "orderedLineIds": [],
+        "items": [],
+        "shuffleTrace": {
+          "canonicalGroups": {},
+          "shuffledGroups": {},
+          "groupOrder": [],
+          "drawCount": 0
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-ineligible-white",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "candidates": [
+          {
+            "lineId": "A1",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A1-v1"
+          },
+          {
+            "lineId": "B1",
+            "openingId": "B",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": false,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "B1-v1"
+          },
+          {
+            "lineId": "C1",
+            "openingId": "C",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": false,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "C1-v1"
+          },
+          {
+            "lineId": "D1",
+            "openingId": "D",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 0,
+            "totalStudentMovesByColor": {
+              "white": 0,
+              "black": 0
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "D1-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": false,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          },
+          {
+            "lineId": "S1",
+            "openingId": "S",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": false,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "S1-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 6,
+        "movesPerBlock": 4,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "A1"
+        ],
+        "reviewLineIds": [],
+        "orderedLineIds": [
+          "A1"
+        ],
+        "items": [
+          {
+            "lineId": "A1",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A1"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A1"
+            ]
+          },
+          "groupOrder": [
+            "A"
+          ],
+          "drawCount": 0
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-min-small-white",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "candidates": [
+          {
+            "lineId": "A1",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A1-v1"
+          },
+          {
+            "lineId": "B1",
+            "openingId": "B",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "B1-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 1,
+        "movesPerBlock": 2,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [
+          0
+        ],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "B1"
+        ],
+        "reviewLineIds": [
+          "R1"
+        ],
+        "orderedLineIds": [
+          "B1",
+          "R1"
+        ],
+        "items": [
+          {
+            "lineId": "B1",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A1"
+            ],
+            "B": [
+              "B1"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A1"
+            ],
+            "B": [
+              "B1"
+            ]
+          },
+          "groupOrder": [
+            "B",
+            "A"
+          ],
+          "drawCount": 1
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-min-large-white",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "candidates": [
+          {
+            "lineId": "A1",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A1-v1"
+          },
+          {
+            "lineId": "B1",
+            "openingId": "B",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "B1-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 1,
+        "movesPerBlock": 10,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [
+          0
+        ],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "B1"
+        ],
+        "reviewLineIds": [
+          "R1"
+        ],
+        "orderedLineIds": [
+          "B1",
+          "R1"
+        ],
+        "items": [
+          {
+            "lineId": "B1",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A1"
+            ],
+            "B": [
+              "B1"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A1"
+            ],
+            "B": [
+              "B1"
+            ]
+          },
+          "groupOrder": [
+            "B",
+            "A"
+          ],
+          "drawCount": 1
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-max-small-white",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "candidates": [
+          {
+            "lineId": "A01",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A01-v1"
+          },
+          {
+            "lineId": "A02",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A02-v1"
+          },
+          {
+            "lineId": "A03",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A03-v1"
+          },
+          {
+            "lineId": "A04",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A04-v1"
+          },
+          {
+            "lineId": "A05",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A05-v1"
+          },
+          {
+            "lineId": "A06",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A06-v1"
+          },
+          {
+            "lineId": "A07",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A07-v1"
+          },
+          {
+            "lineId": "A08",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A08-v1"
+          },
+          {
+            "lineId": "A09",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A09-v1"
+          },
+          {
+            "lineId": "A10",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A10-v1"
+          },
+          {
+            "lineId": "A11",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A11-v1"
+          },
+          {
+            "lineId": "A12",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A12-v1"
+          },
+          {
+            "lineId": "A13",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A13-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          },
+          {
+            "lineId": "R2",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R2-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 12,
+        "movesPerBlock": 2,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A11",
+          "A12",
+          "A13"
+        ],
+        "reviewLineIds": [
+          "R1",
+          "R2"
+        ],
+        "orderedLineIds": [
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A11",
+          "A12",
+          "A13",
+          "R1",
+          "R2"
+        ],
+        "items": [
+          {
+            "lineId": "A02",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A03",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A04",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A05",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A06",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A07",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A08",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A09",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A10",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A11",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A12",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A13",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R2",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A01",
+              "A02",
+              "A03",
+              "A04",
+              "A05",
+              "A06",
+              "A07",
+              "A08",
+              "A09",
+              "A10",
+              "A11",
+              "A12",
+              "A13"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A02",
+              "A03",
+              "A04",
+              "A05",
+              "A06",
+              "A07",
+              "A08",
+              "A09",
+              "A10",
+              "A11",
+              "A12",
+              "A13",
+              "A01"
+            ]
+          },
+          "groupOrder": [
+            "A"
+          ],
+          "drawCount": 12
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-max-large-white",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "candidates": [
+          {
+            "lineId": "A01",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A01-v1"
+          },
+          {
+            "lineId": "A02",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A02-v1"
+          },
+          {
+            "lineId": "A03",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A03-v1"
+          },
+          {
+            "lineId": "A04",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A04-v1"
+          },
+          {
+            "lineId": "A05",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A05-v1"
+          },
+          {
+            "lineId": "A06",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A06-v1"
+          },
+          {
+            "lineId": "A07",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A07-v1"
+          },
+          {
+            "lineId": "A08",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A08-v1"
+          },
+          {
+            "lineId": "A09",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A09-v1"
+          },
+          {
+            "lineId": "A10",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A10-v1"
+          },
+          {
+            "lineId": "A11",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A11-v1"
+          },
+          {
+            "lineId": "A12",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A12-v1"
+          },
+          {
+            "lineId": "A13",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A13-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          },
+          {
+            "lineId": "R2",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R2-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 12,
+        "movesPerBlock": 10,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A11",
+          "A12",
+          "A13"
+        ],
+        "reviewLineIds": [
+          "R1",
+          "R2"
+        ],
+        "orderedLineIds": [
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A11",
+          "A12",
+          "A13",
+          "R1",
+          "R2"
+        ],
+        "items": [
+          {
+            "lineId": "A02",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A03",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A04",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A05",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A06",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A07",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A08",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A09",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A10",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A11",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A12",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "A13",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          },
+          {
+            "lineId": "R2",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A01",
+              "A02",
+              "A03",
+              "A04",
+              "A05",
+              "A06",
+              "A07",
+              "A08",
+              "A09",
+              "A10",
+              "A11",
+              "A12",
+              "A13"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A02",
+              "A03",
+              "A04",
+              "A05",
+              "A06",
+              "A07",
+              "A08",
+              "A09",
+              "A10",
+              "A11",
+              "A12",
+              "A13",
+              "A01"
+            ]
+          },
+          "groupOrder": [
+            "A"
+          ],
+          "drawCount": 12
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-effective-cap-white",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "candidates": [
+          {
+            "lineId": "A1",
+            "openingId": "A",
+            "color": "white",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 10,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 17,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 8
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A1-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "white",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 10,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 5,
+            "totalStudentMovesByColor": {
+              "white": 3,
+              "black": 2
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 6,
+        "movesPerBlock": 10,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "A1"
+        ],
+        "reviewLineIds": [
+          "R1"
+        ],
+        "orderedLineIds": [
+          "A1",
+          "R1"
+        ],
+        "items": [
+          {
+            "lineId": "A1",
+            "originType": "new",
+            "effectiveMoves": 9,
+            "studentPlies": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17
+            ]
+          },
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 3,
+            "studentPlies": [
+              1,
+              3,
+              5
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A1"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A1"
+            ]
+          },
+          "groupOrder": [
+            "A"
+          ],
+          "drawCount": 0
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-empty-black",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "candidates": []
+      },
+      "input": {
+        "newLinesPerDay": 6,
+        "movesPerBlock": 4,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [],
+        "reviewLineIds": [],
+        "orderedLineIds": [],
+        "items": [],
+        "shuffleTrace": {
+          "canonicalGroups": {},
+          "shuffledGroups": {},
+          "groupOrder": [],
+          "drawCount": 0
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-only-reviews-black",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "candidates": [
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          },
+          {
+            "lineId": "R2",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R2-v1"
+          },
+          {
+            "lineId": "R3",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-01",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R3-v1"
+          },
+          {
+            "lineId": "R4",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R4-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 6,
+        "movesPerBlock": 4,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [],
+        "reviewLineIds": [
+          "R1",
+          "R2",
+          "R3",
+          "R4"
+        ],
+        "orderedLineIds": [
+          "R1",
+          "R2",
+          "R3",
+          "R4"
+        ],
+        "items": [
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R2",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R3",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R4",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {},
+          "shuffledGroups": {},
+          "groupOrder": [],
+          "drawCount": 0
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-reference-black",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "candidates": [
+          {
+            "lineId": "A1",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A1-v1"
+          },
+          {
+            "lineId": "B1",
+            "openingId": "B",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "B1-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          },
+          {
+            "lineId": "R2",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R2-v1"
+          },
+          {
+            "lineId": "R3",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-01",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R3-v1"
+          },
+          {
+            "lineId": "R4",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R4-v1"
+          },
+          {
+            "lineId": "R5",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-16",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R5-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 6,
+        "movesPerBlock": 4,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [
+          0
+        ],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "B1",
+          "A1"
+        ],
+        "reviewLineIds": [
+          "R1",
+          "R2",
+          "R3",
+          "R4"
+        ],
+        "orderedLineIds": [
+          "B1",
+          "A1",
+          "R1",
+          "R2",
+          "R3",
+          "R4"
+        ],
+        "items": [
+          {
+            "lineId": "B1",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A1",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R2",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R3",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R4",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A1"
+            ],
+            "B": [
+              "B1"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A1"
+            ],
+            "B": [
+              "B1"
+            ]
+          },
+          "groupOrder": [
+            "B",
+            "A"
+          ],
+          "drawCount": 1
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-future-only-black",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "candidates": [
+          {
+            "lineId": "A1",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-16",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A1-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-16",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 6,
+        "movesPerBlock": 4,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [],
+        "reviewLineIds": [],
+        "orderedLineIds": [],
+        "items": [],
+        "shuffleTrace": {
+          "canonicalGroups": {},
+          "shuffledGroups": {},
+          "groupOrder": [],
+          "drawCount": 0
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-ineligible-black",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "candidates": [
+          {
+            "lineId": "A1",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A1-v1"
+          },
+          {
+            "lineId": "B1",
+            "openingId": "B",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": false,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "B1-v1"
+          },
+          {
+            "lineId": "C1",
+            "openingId": "C",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": false,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "C1-v1"
+          },
+          {
+            "lineId": "D1",
+            "openingId": "D",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 0,
+            "totalStudentMovesByColor": {
+              "white": 0,
+              "black": 0
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "D1-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": false,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          },
+          {
+            "lineId": "S1",
+            "openingId": "S",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": false,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "S1-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 6,
+        "movesPerBlock": 4,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "A1"
+        ],
+        "reviewLineIds": [],
+        "orderedLineIds": [
+          "A1"
+        ],
+        "items": [
+          {
+            "lineId": "A1",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A1"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A1"
+            ]
+          },
+          "groupOrder": [
+            "A"
+          ],
+          "drawCount": 0
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-min-small-black",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "candidates": [
+          {
+            "lineId": "A1",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A1-v1"
+          },
+          {
+            "lineId": "B1",
+            "openingId": "B",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "B1-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 1,
+        "movesPerBlock": 2,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [
+          0
+        ],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "B1"
+        ],
+        "reviewLineIds": [
+          "R1"
+        ],
+        "orderedLineIds": [
+          "B1",
+          "R1"
+        ],
+        "items": [
+          {
+            "lineId": "B1",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A1"
+            ],
+            "B": [
+              "B1"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A1"
+            ],
+            "B": [
+              "B1"
+            ]
+          },
+          "groupOrder": [
+            "B",
+            "A"
+          ],
+          "drawCount": 1
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-min-large-black",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "candidates": [
+          {
+            "lineId": "A1",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A1-v1"
+          },
+          {
+            "lineId": "B1",
+            "openingId": "B",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "B1-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 1,
+        "movesPerBlock": 10,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [
+          0
+        ],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "B1"
+        ],
+        "reviewLineIds": [
+          "R1"
+        ],
+        "orderedLineIds": [
+          "B1",
+          "R1"
+        ],
+        "items": [
+          {
+            "lineId": "B1",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A1"
+            ],
+            "B": [
+              "B1"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A1"
+            ],
+            "B": [
+              "B1"
+            ]
+          },
+          "groupOrder": [
+            "B",
+            "A"
+          ],
+          "drawCount": 1
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-max-small-black",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "candidates": [
+          {
+            "lineId": "A01",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A01-v1"
+          },
+          {
+            "lineId": "A02",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A02-v1"
+          },
+          {
+            "lineId": "A03",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A03-v1"
+          },
+          {
+            "lineId": "A04",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A04-v1"
+          },
+          {
+            "lineId": "A05",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A05-v1"
+          },
+          {
+            "lineId": "A06",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A06-v1"
+          },
+          {
+            "lineId": "A07",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A07-v1"
+          },
+          {
+            "lineId": "A08",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A08-v1"
+          },
+          {
+            "lineId": "A09",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A09-v1"
+          },
+          {
+            "lineId": "A10",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A10-v1"
+          },
+          {
+            "lineId": "A11",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A11-v1"
+          },
+          {
+            "lineId": "A12",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A12-v1"
+          },
+          {
+            "lineId": "A13",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A13-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          },
+          {
+            "lineId": "R2",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R2-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 12,
+        "movesPerBlock": 2,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A11",
+          "A12",
+          "A13"
+        ],
+        "reviewLineIds": [
+          "R1",
+          "R2"
+        ],
+        "orderedLineIds": [
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A11",
+          "A12",
+          "A13",
+          "R1",
+          "R2"
+        ],
+        "items": [
+          {
+            "lineId": "A02",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A03",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A04",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A05",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A06",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A07",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A08",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A09",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A10",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A11",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A12",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A13",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R2",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A01",
+              "A02",
+              "A03",
+              "A04",
+              "A05",
+              "A06",
+              "A07",
+              "A08",
+              "A09",
+              "A10",
+              "A11",
+              "A12",
+              "A13"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A02",
+              "A03",
+              "A04",
+              "A05",
+              "A06",
+              "A07",
+              "A08",
+              "A09",
+              "A10",
+              "A11",
+              "A12",
+              "A13",
+              "A01"
+            ]
+          },
+          "groupOrder": [
+            "A"
+          ],
+          "drawCount": 12
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-max-large-black",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "candidates": [
+          {
+            "lineId": "A01",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A01-v1"
+          },
+          {
+            "lineId": "A02",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A02-v1"
+          },
+          {
+            "lineId": "A03",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A03-v1"
+          },
+          {
+            "lineId": "A04",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A04-v1"
+          },
+          {
+            "lineId": "A05",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A05-v1"
+          },
+          {
+            "lineId": "A06",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A06-v1"
+          },
+          {
+            "lineId": "A07",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A07-v1"
+          },
+          {
+            "lineId": "A08",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A08-v1"
+          },
+          {
+            "lineId": "A09",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A09-v1"
+          },
+          {
+            "lineId": "A10",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A10-v1"
+          },
+          {
+            "lineId": "A11",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A11-v1"
+          },
+          {
+            "lineId": "A12",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A12-v1"
+          },
+          {
+            "lineId": "A13",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A13-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-14",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          },
+          {
+            "lineId": "R2",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 4,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 18,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 9
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R2-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 12,
+        "movesPerBlock": 10,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A11",
+          "A12",
+          "A13"
+        ],
+        "reviewLineIds": [
+          "R1",
+          "R2"
+        ],
+        "orderedLineIds": [
+          "A02",
+          "A03",
+          "A04",
+          "A05",
+          "A06",
+          "A07",
+          "A08",
+          "A09",
+          "A10",
+          "A11",
+          "A12",
+          "A13",
+          "R1",
+          "R2"
+        ],
+        "items": [
+          {
+            "lineId": "A02",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A03",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A04",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A05",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A06",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A07",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A08",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A09",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A10",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A11",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A12",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "A13",
+            "originType": "new",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          },
+          {
+            "lineId": "R2",
+            "originType": "review",
+            "effectiveMoves": 4,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A01",
+              "A02",
+              "A03",
+              "A04",
+              "A05",
+              "A06",
+              "A07",
+              "A08",
+              "A09",
+              "A10",
+              "A11",
+              "A12",
+              "A13"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A02",
+              "A03",
+              "A04",
+              "A05",
+              "A06",
+              "A07",
+              "A08",
+              "A09",
+              "A10",
+              "A11",
+              "A12",
+              "A13",
+              "A01"
+            ]
+          },
+          "groupOrder": [
+            "A"
+          ],
+          "drawCount": 12
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    },
+    {
+      "id": "R12-effective-cap-black",
+      "rule": "R12",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 —",
+          "reference": "R12"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible",
+          "reference": "ID estable, semilla y generador explícitos"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza",
+          "reference": "Máximo propio, pool, preferencias y orden"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Scheduling y profundidad",
+          "reference": "Ampliación limitada"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.04; §11 día 4"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "candidates": [
+          {
+            "lineId": "A1",
+            "openingId": "A",
+            "color": "black",
+            "state": "new",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 10,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 17,
+            "totalStudentMovesByColor": {
+              "white": 9,
+              "black": 8
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "A1-v1"
+          },
+          {
+            "lineId": "R1",
+            "openingId": "R",
+            "color": "black",
+            "state": "review",
+            "dueDate": "2026-09-15",
+            "unlockedMoves": 10,
+            "active": true,
+            "movesValid": true,
+            "linePlies": 5,
+            "totalStudentMovesByColor": {
+              "white": 3,
+              "black": 2
+            },
+            "generation": "1",
+            "contentGeneration": "1",
+            "lineRevisionId": "R1-v1"
+          }
+        ]
+      },
+      "input": {
+        "newLinesPerDay": 6,
+        "movesPerBlock": 10,
+        "planKind": "fresh",
+        "generatorVersion": "fixture-tape-v1"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día civil inyectado; sin ensayo temporal R20–R21."
+      },
+      "seed": {
+        "kind": "explicit",
+        "value": "zero",
+        "generatorVersion": "fixture-tape-v1",
+        "draws": [],
+        "reason": "Doble de prueba con cinta finita; consumo exacto, sin PRNG productivo."
+      },
+      "expected": {
+        "newLineIds": [
+          "A1"
+        ],
+        "reviewLineIds": [
+          "R1"
+        ],
+        "orderedLineIds": [
+          "A1",
+          "R1"
+        ],
+        "items": [
+          {
+            "lineId": "A1",
+            "originType": "new",
+            "effectiveMoves": 8,
+            "studentPlies": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16
+            ]
+          },
+          {
+            "lineId": "R1",
+            "originType": "review",
+            "effectiveMoves": 2,
+            "studentPlies": [
+              2,
+              4
+            ]
+          }
+        ],
+        "shuffleTrace": {
+          "canonicalGroups": {
+            "A": [
+              "A1"
+            ]
+          },
+          "shuffledGroups": {
+            "A": [
+              "A1"
+            ]
+          },
+          "groupOrder": [
+            "A"
+          ],
+          "drawCount": 0
+        }
+      },
+      "forbiddenEffects": [
+        "No inventar movimientos ni contar los del rival.",
+        "No mutar tarjetas, catálogo o preferencias de entrada.",
+        "No duplicar líneas para llenar cupos.",
+        "No incluir aperturas inactivas, líneas inválidas ni tarjetas futuras.",
+        "No crear progreso, actividad, reintentos ni escrituras persistentes al seleccionar."
+      ]
+    }
+  ]
+}

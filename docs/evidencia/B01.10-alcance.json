@@ -1,0 +1,44 @@
+{
+  "version": "B01.10-v1",
+  "repositories": [
+    {
+      "root": "/home/cacawatin/code/personal/zeph/zephyriov-api",
+      "allowed": [
+        "README.md",
+        "Branch_changes.md",
+        "docs/next-job",
+        "docs/evidencia/B01.10.md",
+        "docs/evidencia/B01.10-entrada.json",
+        "docs/evidencia/B01.10-alcance.json",
+        "docs/evidencia/B01.10-verificacion.txt",
+        "docs/evidencia/B01.10.sha256",
+        "docs/evidencia/verificar-B01.10.py"
+      ]
+    },
+    {
+      "root": "/home/cacawatin/code/personal/Zephyriov",
+      "allowed": [
+        "README.md",
+        "Branch_changes.md",
+        "docs/blueprint/reglas-srs.md",
+        "docs/blueprint/fixtures-srs/README.md",
+        "docs/blueprint/evidencia/B01.10.md",
+        "docs/blueprint/evidencia/B01.10-fuentes.json",
+        "docs/blueprint/evidencia/B01.10-inventario.json",
+        "docs/blueprint/evidencia/B01.10-verificacion.txt",
+        "docs/blueprint/evidencia/B01.10.sha256",
+        "docs/blueprint/evidencia/verificar-B01.10.py"
+      ],
+      "headerReplacements": {
+        "docs/blueprint/reglas-srs.md": {
+          "before": "# Reglas SRS — calificación de bloques\n\nVersión documental: `B01.01-v1`, 14 de septiembre de 2026.\nAlcance entregado: **B01.01, R01–R04**. Especificación local verificada;\nimplementación del dominio, HTTP e interacción de clientes no ejecutadas.\n\n",
+          "after": "# Reglas SRS — especificación B01\n\nEstado vigente al 2026-09-16: **B01.01–B01.10 completados documentalmente**,\n22 familias R01–R22 y 352 variantes. Auditoría `B01.10-v1`, puerta G01 de\nespecificación; dominio, HTTP, persistencia y clientes no ejecutados.\n[Inventario y cierre](evidencia/B01.10.md). Las secciones siguientes conservan\nel contexto y alcance histórico de cada entrega; el cierre vigente está al final.\n\n"
+        },
+        "docs/blueprint/fixtures-srs/README.md": {
+          "before": "# Índice de fixtures SRS\n\nVersiones documentales: `B01.01-v1` (40 variantes de calificación),\n`B01.02-v1` (22 variantes de nuevas), `B01.03-v1` (24 de repasos),\n`B01.04-v1` (46 de profundidad/selección) y `B01.05-v1` (52 de actividad).\nTotal actual: 184 variantes, 92 escenarios por dos\ncolores. La notación `{white,black}` enumera dos IDs completos: sustituir las\nllaves por cada color. Todos están en los JSON enlazados; no representa casos\npendientes de generar. [Reglas y formato](../reglas-srs.md).\n\n",
+          "after": "# Índice de fixtures SRS\n\nEstado vigente al 2026-09-16: **352 variantes, 22 familias R01–R22**, auditadas\nen B01.10 (G01 de especificación). [Inventario completo por ID, fuente y capa](../evidencia/B01.10-inventario.json)\ny [cierre diario](../evidencia/B01.10.md). Dominio, HTTP, Android y web no ejecutados.\nLos índices y conteos de entregas anteriores se conservan debajo como historial;\nla matriz completa vigente está en la sección B01.10 al final. `{white,black}`\nenumera dos IDs concretos ya incluidos en JSON. [Reglas](../reglas-srs.md).\n\n"
+        }
+      }
+    }
+  ]
+}

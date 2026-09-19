@@ -1,0 +1,2124 @@
+{
+  "fixtureVersion": "B01.05-v1",
+  "scope": "declarative-activity-evidence",
+  "fixtures": [
+    {
+      "id": "R15-one-bad-white",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "white",
+        "newLineIds": [
+          "N1"
+        ],
+        "items": [
+          {
+            "id": "N1.1",
+            "lineId": "N1",
+            "originType": "new",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "N1.1",
+            "grade": "bad",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "N1.2",
+              "lineId": "N1",
+              "originType": "new",
+              "attemptNumber": 2,
+              "parentItemId": "N1.1",
+              "status": "pending"
+            }
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [
+              "N1"
+            ],
+            "pendingItemIds": [
+              "N1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 1
+          }
+        ],
+        "activityDaysAfter": [
+          {
+            "accountId": "account-A",
+            "studyDate": "2026-09-15"
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-one-bad-black",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "black",
+        "newLineIds": [
+          "N1"
+        ],
+        "items": [
+          {
+            "id": "N1.1",
+            "lineId": "N1",
+            "originType": "new",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "N1.1",
+            "grade": "bad",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "N1.2",
+              "lineId": "N1",
+              "originType": "new",
+              "attemptNumber": 2,
+              "parentItemId": "N1.1",
+              "status": "pending"
+            }
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [
+              "N1"
+            ],
+            "pendingItemIds": [
+              "N1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 1
+          }
+        ],
+        "activityDaysAfter": [
+          {
+            "accountId": "account-A",
+            "studyDate": "2026-09-15"
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-one-mid-white",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "white",
+        "newLineIds": [
+          "N1"
+        ],
+        "items": [
+          {
+            "id": "N1.1",
+            "lineId": "N1",
+            "originType": "new",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "N1.1",
+            "grade": "mid",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "N1.2",
+              "lineId": "N1",
+              "originType": "new",
+              "attemptNumber": 2,
+              "parentItemId": "N1.1",
+              "status": "pending"
+            }
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [
+              "N1"
+            ],
+            "pendingItemIds": [
+              "N1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 1
+          }
+        ],
+        "activityDaysAfter": [
+          {
+            "accountId": "account-A",
+            "studyDate": "2026-09-15"
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-one-mid-black",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "black",
+        "newLineIds": [
+          "N1"
+        ],
+        "items": [
+          {
+            "id": "N1.1",
+            "lineId": "N1",
+            "originType": "new",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "N1.1",
+            "grade": "mid",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "N1.2",
+              "lineId": "N1",
+              "originType": "new",
+              "attemptNumber": 2,
+              "parentItemId": "N1.1",
+              "status": "pending"
+            }
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [
+              "N1"
+            ],
+            "pendingItemIds": [
+              "N1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 1
+          }
+        ],
+        "activityDaysAfter": [
+          {
+            "accountId": "account-A",
+            "studyDate": "2026-09-15"
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-two-mixed-white",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "white",
+        "newLineIds": [
+          "N1",
+          "N2"
+        ],
+        "items": [
+          {
+            "id": "N1.1",
+            "lineId": "N1",
+            "originType": "new",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          },
+          {
+            "id": "N2.1",
+            "lineId": "N2",
+            "originType": "new",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          },
+          {
+            "id": "R1.1",
+            "lineId": "R1",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "N1.1",
+            "grade": "bad",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "N1.2",
+              "lineId": "N1",
+              "originType": "new",
+              "attemptNumber": 2,
+              "parentItemId": "N1.1",
+              "status": "pending"
+            }
+          },
+          {
+            "kind": "applied",
+            "itemId": "N2.1",
+            "grade": "mid",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "N2.2",
+              "lineId": "N2",
+              "originType": "new",
+              "attemptNumber": 2,
+              "parentItemId": "N2.1",
+              "status": "pending"
+            }
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [
+              "N1"
+            ],
+            "pendingItemIds": [
+              "N2.1",
+              "R1.1",
+              "N1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [
+              "N1",
+              "N2"
+            ],
+            "pendingItemIds": [
+              "R1.1",
+              "N1.2",
+              "N2.2"
+            ],
+            "completedCount": 2,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 1
+          }
+        ],
+        "activityDaysAfter": [
+          {
+            "accountId": "account-A",
+            "studyDate": "2026-09-15"
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-two-mixed-black",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "black",
+        "newLineIds": [
+          "N1",
+          "N2"
+        ],
+        "items": [
+          {
+            "id": "N1.1",
+            "lineId": "N1",
+            "originType": "new",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          },
+          {
+            "id": "N2.1",
+            "lineId": "N2",
+            "originType": "new",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          },
+          {
+            "id": "R1.1",
+            "lineId": "R1",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "N1.1",
+            "grade": "bad",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "N1.2",
+              "lineId": "N1",
+              "originType": "new",
+              "attemptNumber": 2,
+              "parentItemId": "N1.1",
+              "status": "pending"
+            }
+          },
+          {
+            "kind": "applied",
+            "itemId": "N2.1",
+            "grade": "mid",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "N2.2",
+              "lineId": "N2",
+              "originType": "new",
+              "attemptNumber": 2,
+              "parentItemId": "N2.1",
+              "status": "pending"
+            }
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [
+              "N1"
+            ],
+            "pendingItemIds": [
+              "N2.1",
+              "R1.1",
+              "N1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [
+              "N1",
+              "N2"
+            ],
+            "pendingItemIds": [
+              "R1.1",
+              "N1.2",
+              "N2.2"
+            ],
+            "completedCount": 2,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 1
+          }
+        ],
+        "activityDaysAfter": [
+          {
+            "accountId": "account-A",
+            "studyDate": "2026-09-15"
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-two-repeat-one-white",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "white",
+        "newLineIds": [
+          "N1",
+          "N2"
+        ],
+        "items": [
+          {
+            "id": "N1.1",
+            "lineId": "N1",
+            "originType": "new",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          },
+          {
+            "id": "N2.1",
+            "lineId": "N2",
+            "originType": "new",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "N1.1",
+            "grade": "bad",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "N1.2",
+              "lineId": "N1",
+              "originType": "new",
+              "attemptNumber": 2,
+              "parentItemId": "N1.1",
+              "status": "pending"
+            }
+          },
+          {
+            "kind": "applied",
+            "itemId": "N1.2",
+            "grade": "good",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "review",
+            "retry": null
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [
+              "N1"
+            ],
+            "pendingItemIds": [
+              "N2.1",
+              "N1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [
+              "N1"
+            ],
+            "pendingItemIds": [
+              "N2.1"
+            ],
+            "completedCount": 2,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          }
+        ],
+        "activityDaysAfter": []
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-two-repeat-one-black",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "black",
+        "newLineIds": [
+          "N1",
+          "N2"
+        ],
+        "items": [
+          {
+            "id": "N1.1",
+            "lineId": "N1",
+            "originType": "new",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          },
+          {
+            "id": "N2.1",
+            "lineId": "N2",
+            "originType": "new",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "N1.1",
+            "grade": "bad",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "N1.2",
+              "lineId": "N1",
+              "originType": "new",
+              "attemptNumber": 2,
+              "parentItemId": "N1.1",
+              "status": "pending"
+            }
+          },
+          {
+            "kind": "applied",
+            "itemId": "N1.2",
+            "grade": "good",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "review",
+            "retry": null
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [
+              "N1"
+            ],
+            "pendingItemIds": [
+              "N2.1",
+              "N1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [
+              "N1"
+            ],
+            "pendingItemIds": [
+              "N2.1"
+            ],
+            "completedCount": 2,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          }
+        ],
+        "activityDaysAfter": []
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-reviews-partial-white",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "white",
+        "newLineIds": [],
+        "items": [
+          {
+            "id": "R1.1",
+            "lineId": "R1",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          },
+          {
+            "id": "R2.1",
+            "lineId": "R2",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "R1.1",
+            "grade": "good",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "review",
+            "cardStateAfter": "review",
+            "retry": null
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R2.1"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          }
+        ],
+        "activityDaysAfter": []
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-reviews-partial-black",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "black",
+        "newLineIds": [],
+        "items": [
+          {
+            "id": "R1.1",
+            "lineId": "R1",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          },
+          {
+            "id": "R2.1",
+            "lineId": "R2",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "R1.1",
+            "grade": "good",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "review",
+            "cardStateAfter": "review",
+            "retry": null
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R2.1"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          }
+        ],
+        "activityDaysAfter": []
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-reviews-complete-white",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "white",
+        "newLineIds": [],
+        "items": [
+          {
+            "id": "R1.1",
+            "lineId": "R1",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          },
+          {
+            "id": "R2.1",
+            "lineId": "R2",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "R1.1",
+            "grade": "mid",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "review",
+            "cardStateAfter": "review",
+            "retry": null
+          },
+          {
+            "kind": "applied",
+            "itemId": "R2.1",
+            "grade": "good",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "review",
+            "cardStateAfter": "review",
+            "retry": null
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R2.1"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [],
+            "completedCount": 2,
+            "cancelledCount": 0,
+            "sessionStatus": "completed",
+            "activityAdded": 1
+          }
+        ],
+        "activityDaysAfter": [
+          {
+            "accountId": "account-A",
+            "studyDate": "2026-09-15"
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-reviews-complete-black",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "black",
+        "newLineIds": [],
+        "items": [
+          {
+            "id": "R1.1",
+            "lineId": "R1",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          },
+          {
+            "id": "R2.1",
+            "lineId": "R2",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "R1.1",
+            "grade": "mid",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "review",
+            "cardStateAfter": "review",
+            "retry": null
+          },
+          {
+            "kind": "applied",
+            "itemId": "R2.1",
+            "grade": "good",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "review",
+            "cardStateAfter": "review",
+            "retry": null
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R2.1"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [],
+            "completedCount": 2,
+            "cancelledCount": 0,
+            "sessionStatus": "completed",
+            "activityAdded": 1
+          }
+        ],
+        "activityDaysAfter": [
+          {
+            "accountId": "account-A",
+            "studyDate": "2026-09-15"
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-review-lapse-retries-white",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "white",
+        "newLineIds": [],
+        "items": [
+          {
+            "id": "R1.1",
+            "lineId": "R1",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          },
+          {
+            "id": "R2.1",
+            "lineId": "R2",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "R1.1",
+            "grade": "bad",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "review",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "R1.2",
+              "lineId": "R1",
+              "originType": "review",
+              "attemptNumber": 2,
+              "parentItemId": "R1.1",
+              "status": "pending"
+            }
+          },
+          {
+            "kind": "applied",
+            "itemId": "R2.1",
+            "grade": "good",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "review",
+            "cardStateAfter": "review",
+            "retry": null
+          },
+          {
+            "kind": "applied",
+            "itemId": "R1.2",
+            "grade": "mid",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "R1.3",
+              "lineId": "R1",
+              "originType": "review",
+              "attemptNumber": 3,
+              "parentItemId": "R1.2",
+              "status": "pending"
+            }
+          },
+          {
+            "kind": "applied",
+            "itemId": "R1.3",
+            "grade": "good",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "review",
+            "retry": null
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R2.1",
+              "R1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R1.2"
+            ],
+            "completedCount": 2,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R1.3"
+            ],
+            "completedCount": 3,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [],
+            "completedCount": 4,
+            "cancelledCount": 0,
+            "sessionStatus": "completed",
+            "activityAdded": 1
+          }
+        ],
+        "activityDaysAfter": [
+          {
+            "accountId": "account-A",
+            "studyDate": "2026-09-15"
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-review-lapse-retries-black",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "black",
+        "newLineIds": [],
+        "items": [
+          {
+            "id": "R1.1",
+            "lineId": "R1",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          },
+          {
+            "id": "R2.1",
+            "lineId": "R2",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "R1.1",
+            "grade": "bad",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "review",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "R1.2",
+              "lineId": "R1",
+              "originType": "review",
+              "attemptNumber": 2,
+              "parentItemId": "R1.1",
+              "status": "pending"
+            }
+          },
+          {
+            "kind": "applied",
+            "itemId": "R2.1",
+            "grade": "good",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "review",
+            "cardStateAfter": "review",
+            "retry": null
+          },
+          {
+            "kind": "applied",
+            "itemId": "R1.2",
+            "grade": "mid",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "R1.3",
+              "lineId": "R1",
+              "originType": "review",
+              "attemptNumber": 3,
+              "parentItemId": "R1.2",
+              "status": "pending"
+            }
+          },
+          {
+            "kind": "applied",
+            "itemId": "R1.3",
+            "grade": "good",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "new",
+            "cardStateAfter": "review",
+            "retry": null
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R2.1",
+              "R1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R1.2"
+            ],
+            "completedCount": 2,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R1.3"
+            ],
+            "completedCount": 3,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [],
+            "completedCount": 4,
+            "cancelledCount": 0,
+            "sessionStatus": "completed",
+            "activityAdded": 1
+          }
+        ],
+        "activityDaysAfter": [
+          {
+            "accountId": "account-A",
+            "studyDate": "2026-09-15"
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-review-practice-retry-white",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "white",
+        "newLineIds": [],
+        "items": [
+          {
+            "id": "R1.1",
+            "lineId": "R1",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "R1.1",
+            "grade": "bad",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "review",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "R1.2",
+              "lineId": "R1",
+              "originType": "review",
+              "attemptNumber": 2,
+              "parentItemId": "R1.1",
+              "status": "pending"
+            }
+          },
+          {
+            "kind": "practice",
+            "itemId": "R1.2",
+            "grade": "good",
+            "blockComplete": true,
+            "decision": "practice"
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          }
+        ],
+        "activityDaysAfter": []
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    },
+    {
+      "id": "R15-review-practice-retry-black",
+      "rule": "R15",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R15"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Racha y progreso",
+          "reference": "§2.3"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "cancelación no es esfuerzo; conjunto exigible"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B06 — Primer bloque completo por HTTP",
+          "reference": "solo aplicado actualiza sesión y actividad; reintentos mantienen origen"
+        },
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.05 / §11 día 5 / D16"
+        }
+      ],
+      "initialState": {
+        "accountId": "account-A",
+        "sessionId": "session-A",
+        "color": "black",
+        "newLineIds": [],
+        "items": [
+          {
+            "id": "R1.1",
+            "lineId": "R1",
+            "originType": "review",
+            "attemptNumber": 1,
+            "parentItemId": null,
+            "status": "pending"
+          }
+        ],
+        "activityDays": []
+      },
+      "input": {
+        "operations": [
+          {
+            "kind": "applied",
+            "itemId": "R1.1",
+            "grade": "bad",
+            "blockComplete": true,
+            "decision": "applied",
+            "cardStateBefore": "review",
+            "cardStateAfter": "new",
+            "retry": {
+              "id": "R1.2",
+              "lineId": "R1",
+              "originType": "review",
+              "attemptNumber": 2,
+              "parentItemId": "R1.1",
+              "status": "pending"
+            }
+          },
+          {
+            "kind": "practice",
+            "itemId": "R1.2",
+            "grade": "good",
+            "blockComplete": true,
+            "decision": "practice"
+          }
+        ]
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-15",
+        "timezone": "America/Mexico_City",
+        "reason": "Día ya atribuido; sin medianoche, cambios de zona ni orden temporal R20–R21."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Plan e ítems fijados; sin selección aleatoria."
+      },
+      "expected": {
+        "steps": [
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          },
+          {
+            "qualifiedNewLineIds": [],
+            "pendingItemIds": [
+              "R1.2"
+            ],
+            "completedCount": 1,
+            "cancelledCount": 0,
+            "sessionStatus": "in_progress",
+            "activityAdded": 0
+          }
+        ],
+        "activityDaysAfter": []
+      },
+      "forbiddenEffects": [
+        "Contar intentos repetidos como líneas nuevas distintas.",
+        "Exigir good para calificar esfuerzo de nuevas.",
+        "Cambiar originType de review a new tras lapse.",
+        "Contar práctica, parcial, inválido o cancelación como ejercicio aplicado.",
+        "Crear actividad solo por vaciar o cancelar el plan.",
+        "Duplicar actividad de la misma cuenta/día o mezclar cuentas.",
+        "Borrar bloques calificados o actividad obtenida al cancelar pendientes."
+      ]
+    }
+  ]
+}

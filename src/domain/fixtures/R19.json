@@ -1,0 +1,4694 @@
+{
+  "fixtureVersion": "B01.08-v1",
+  "scope": "declarative-pedagogical-snapshots",
+  "fixtures": [
+    {
+      "id": "R19-save-android-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "knownSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "save-android",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "saveDesiredSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "presentation": {
+          "saved": {
+            "version": "2",
+            "newLinesPerDay": 10,
+            "movesPerBlock": 6
+          },
+          "inUse": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "notice": "Los cambios se aplicarán a las próximas sesiones. La sesión iniciada y las sesiones de tus descargas vigentes conservarán sus preferencias anteriores hasta que renueves la descarga.",
+          "noticeAt": [
+            "before_or_with_save",
+            "after_success"
+          ],
+          "downloadRenewalRequired": true
+        },
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-save-android-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "knownSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "save-android",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "saveDesiredSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "presentation": {
+          "saved": {
+            "version": "2",
+            "newLinesPerDay": 10,
+            "movesPerBlock": 6
+          },
+          "inUse": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "notice": "Los cambios se aplicarán a las próximas sesiones. La sesión iniciada y las sesiones de tus descargas vigentes conservarán sus preferencias anteriores hasta que renueves la descarga.",
+          "noticeAt": [
+            "before_or_with_save",
+            "after_success"
+          ],
+          "downloadRenewalRequired": true
+        },
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-save-web-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "web",
+        "profileSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "knownSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": null,
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "save-web",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "saveDesiredSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "presentation": {
+          "saved": {
+            "version": "2",
+            "newLinesPerDay": 10,
+            "movesPerBlock": 6
+          },
+          "inUse": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "notice": "Los cambios se aplicarán a las próximas sesiones.",
+          "noticeAt": [
+            "before_or_with_save",
+            "after_success"
+          ],
+          "downloadRenewalRequired": false
+        },
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-save-web-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "web",
+        "profileSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "knownSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": null,
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "save-web",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "saveDesiredSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "presentation": {
+          "saved": {
+            "version": "2",
+            "newLinesPerDay": 10,
+            "movesPerBlock": 6
+          },
+          "inUse": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "notice": "Los cambios se aplicarán a las próximas sesiones.",
+          "noticeAt": [
+            "before_or_with_save",
+            "after_success"
+          ],
+          "downloadRenewalRequired": false
+        },
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-resume-canonical-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "resume-canonical",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-resume-canonical-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "resume-canonical",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-next-online-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": null,
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "next-online",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "source": "online_without_prior_session_or_package"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "effectiveSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalQuota": 10,
+        "selectedSessionId": "session-new",
+        "canonicalSessionAfter": null
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-next-online-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": null,
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "next-online",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "source": "online_without_prior_session_or_package"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "effectiveSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalQuota": 10,
+        "selectedSessionId": "session-new",
+        "canonicalSessionAfter": null
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-package-future-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": null,
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "package-future",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "source": "valid_old_package",
+        "dayAlreadyResolved": "2026-09-17"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-local-next-day",
+        "canonicalSessionAfter": null
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-package-future-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": null,
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "package-future",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "source": "valid_old_package",
+        "dayAlreadyResolved": "2026-09-17"
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-local-next-day",
+        "canonicalSessionAfter": null
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-canonical-same-day-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "canonical-same-day",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-canonical-same-day-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "canonical-same-day",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-old-package-compatible-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "2",
+            "newLinesPerDay": 10,
+            "movesPerBlock": 6
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6",
+            "L7",
+            "L8",
+            "L9",
+            "L10"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "old-package-compatible",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "eventSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "eventLineId": "L1",
+        "eventReportVerified": true,
+        "deliveryWindowValid": true,
+        "gradingProbe": {
+          "cardState": "review",
+          "depth": 5,
+          "errors": 1,
+          "correctSlowMoves": 0,
+          "verified": true
+        },
+        "goodGrowthProbe": {
+          "cardState": "new",
+          "depth": 4,
+          "ownMaximum": 20,
+          "verifiedGrade": "good"
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "eventOutcome": "applied",
+        "eventReason": "ACCEPTED",
+        "eventSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 10,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "2",
+            "newLinesPerDay": 10,
+            "movesPerBlock": 6
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6",
+            "L7",
+            "L8",
+            "L9",
+            "L10"
+          ]
+        },
+        "probeGrade": "mid",
+        "probeGoodDepth": 8
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-old-package-compatible-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "2",
+            "newLinesPerDay": 10,
+            "movesPerBlock": 6
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6",
+            "L7",
+            "L8",
+            "L9",
+            "L10"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "old-package-compatible",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "eventSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "eventLineId": "L1",
+        "eventReportVerified": true,
+        "deliveryWindowValid": true,
+        "gradingProbe": {
+          "cardState": "review",
+          "depth": 5,
+          "errors": 1,
+          "correctSlowMoves": 0,
+          "verified": true
+        },
+        "goodGrowthProbe": {
+          "cardState": "new",
+          "depth": 4,
+          "ownMaximum": 20,
+          "verifiedGrade": "good"
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "eventOutcome": "applied",
+        "eventReason": "ACCEPTED",
+        "eventSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 10,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "2",
+            "newLinesPerDay": 10,
+            "movesPerBlock": 6
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6",
+            "L7",
+            "L8",
+            "L9",
+            "L10"
+          ]
+        },
+        "probeGrade": "mid",
+        "probeGoodDepth": 8
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-outside-plan-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "outside-plan",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "eventSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "eventLineId": "L7",
+        "localPlanLineIds": [
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6",
+          "L7"
+        ],
+        "eventReportVerified": true,
+        "deliveryWindowValid": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "eventOutcome": "practice",
+        "eventReason": "OUTSIDE_DAILY_PLAN",
+        "eventSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "eventSrsApplications": 0,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-outside-plan-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "outside-plan",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "eventSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "eventLineId": "L7",
+        "localPlanLineIds": [
+          "L2",
+          "L3",
+          "L4",
+          "L5",
+          "L6",
+          "L7"
+        ],
+        "eventReportVerified": true,
+        "deliveryWindowValid": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "eventOutcome": "practice",
+        "eventReason": "OUTSIDE_DAILY_PLAN",
+        "eventSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "eventSrsApplications": 0,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-renewal-new-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "renewal-new",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "outboxResolved": true,
+        "revisionCurrent": true,
+        "installCommitSucceeded": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "newPackage": {
+          "id": "package-new",
+          "settings": {
+            "version": "2",
+            "newLinesPerDay": 10,
+            "movesPerBlock": 6
+          }
+        },
+        "futureEligiblePackageSessionSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-renewal-new-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "renewal-new",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "outboxResolved": true,
+        "revisionCurrent": true,
+        "installCommitSucceeded": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "newPackage": {
+          "id": "package-new",
+          "settings": {
+            "version": "2",
+            "newLinesPerDay": 10,
+            "movesPerBlock": 6
+          }
+        },
+        "futureEligiblePackageSessionSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-renewal-failed-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "renewal-failed",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "outboxResolved": false,
+        "revisionCurrent": false,
+        "installCommitSucceeded": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "newPackage": null,
+        "downloadReadyAnnouncement": false,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-renewal-failed-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "renewal-failed",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "outboxResolved": false,
+        "revisionCurrent": false,
+        "installCommitSucceeded": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "newPackage": null,
+        "downloadReadyAnnouncement": false,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-offline-unaware-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "offline-unaware",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "networkAvailable": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "knownSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-offline-unaware-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "offline-unaware",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "networkAvailable": false
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "knownSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-grade-old-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "grade-old",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "gradingProbe": {
+          "cardState": "review",
+          "depth": 5,
+          "errors": 1,
+          "correctSlowMoves": 0,
+          "verified": true
+        },
+        "goodGrowthProbe": {
+          "cardState": "new",
+          "depth": 4,
+          "ownMaximum": 20,
+          "verifiedGrade": "good"
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "probeGrade": "mid",
+        "probeGoodDepth": 8
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-grade-old-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "grade-old",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "gradingProbe": {
+          "cardState": "review",
+          "depth": 5,
+          "errors": 1,
+          "correctSlowMoves": 0,
+          "verified": true
+        },
+        "goodGrowthProbe": {
+          "cardState": "new",
+          "depth": 4,
+          "ownMaximum": 20,
+          "verifiedGrade": "good"
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "probeGrade": "mid",
+        "probeGoodDepth": 8
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-grade-new-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": null,
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "grade-new",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "source": "online_without_prior_session_or_package",
+        "gradingProbe": {
+          "cardState": "review",
+          "depth": 5,
+          "errors": 1,
+          "correctSlowMoves": 0,
+          "verified": true
+        },
+        "goodGrowthProbe": {
+          "cardState": "new",
+          "depth": 4,
+          "ownMaximum": 20,
+          "verifiedGrade": "good"
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "effectiveSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalQuota": 10,
+        "selectedSessionId": "session-new",
+        "canonicalSessionAfter": null,
+        "probeGrade": "bad",
+        "probeGoodDepth": 10
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-grade-new-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": null,
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "grade-new",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "source": "online_without_prior_session_or_package",
+        "gradingProbe": {
+          "cardState": "review",
+          "depth": 5,
+          "errors": 1,
+          "correctSlowMoves": 0,
+          "verified": true
+        },
+        "goodGrowthProbe": {
+          "cardState": "new",
+          "depth": 4,
+          "ownMaximum": 20,
+          "verifiedGrade": "good"
+        }
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "effectiveSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalQuota": 10,
+        "selectedSessionId": "session-new",
+        "canonicalSessionAfter": null,
+        "probeGrade": "bad",
+        "probeGoodDepth": 10
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-destination-canonical-white",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "destination-canonical",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "destinationDayAlreadyResolved": "2026-09-16",
+        "knownZoneChanged": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "historicalDatesRewritten": false,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    },
+    {
+      "id": "R19-destination-canonical-black",
+      "rule": "R19",
+      "sources": [
+        {
+          "path": "../plan-trabajo-agentico.md",
+          "section": "B01 — Reglas de producto y fixtures SRS",
+          "reference": "B01.08; §13 capas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R19"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "Autoridad, alcance y acuerdos",
+          "reference": "snapshots y aviso aprobado 11/09"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B08 — Repertorio, preferencias, dashboard y sesiones completas",
+          "reference": "sesión canónica y preferencias deseadas"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B09 — Paquetes offline y reconciliación de eventos",
+          "reference": "planes compatibles y OUTSIDE_DAILY_PLAN"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C05 — Selección manual, biblioteca, Home, progreso y ajustes",
+          "reference": "aviso y valores guardados/en uso"
+        },
+        {
+          "path": "../plan-accionable-cliente.md",
+          "section": "C06 — Android offline, proyección y vencimiento",
+          "reference": "renovación y preferencias de descarga"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "owner": "A",
+        "platform": "android",
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "knownSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "canonicalSession": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        },
+        "package": {
+          "id": "package-old",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "validity": "valid"
+        },
+        "completeEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ]
+      },
+      "input": {
+        "action": "destination-canonical",
+        "eligiblePoolEnough": true,
+        "otherConflicts": false,
+        "destinationDayAlreadyResolved": "2026-09-16",
+        "knownZoneChanged": true
+      },
+      "clock": {
+        "kind": "fixed",
+        "studyDate": "2026-09-16",
+        "timezone": "America/Mexico_City",
+        "note": "Fecha precondicionada; no prueba R20/R21 ni calendario."
+      },
+      "seed": {
+        "kind": "not_applicable",
+        "reason": "Planes e identidades declarados; no ejecutar selección aleatoria."
+      },
+      "expected": {
+        "profileSettings": {
+          "version": "2",
+          "newLinesPerDay": 10,
+          "movesPerBlock": 6
+        },
+        "preservedEvents": [
+          {
+            "eventId": "e-old",
+            "payloadRef": "immutable-old-report",
+            "settingsVersion": "1"
+          }
+        ],
+        "rewriteExistingSession": false,
+        "rewriteOldPackage": false,
+        "duplicateDailySession": false,
+        "newActivityFromSettings": 0,
+        "historicalDatesRewritten": false,
+        "effectiveSettings": {
+          "version": "1",
+          "newLinesPerDay": 6,
+          "movesPerBlock": 4
+        },
+        "canonicalQuota": 6,
+        "selectedSessionId": "session-existing",
+        "canonicalSessionAfter": {
+          "id": "session-existing",
+          "owner": "A",
+          "studyDate": "2026-09-16",
+          "settings": {
+            "version": "1",
+            "newLinesPerDay": 6,
+            "movesPerBlock": 4
+          },
+          "newLineIds": [
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5",
+            "L6"
+          ]
+        }
+      },
+      "forbiddenEffects": [
+        "retroactive_pedagogy",
+        "union_of_daily_quotas",
+        "invalidate_only_for_settings_version",
+        "rewrite_completed_event",
+        "silent_settings_save",
+        "invent_offline_settings_update"
+      ],
+      "evidence": {
+        "specification": "documentary",
+        "domain": "not_executed",
+        "http": "not_executed",
+        "android": "not_executed",
+        "web": "not_executed"
+      }
+    }
+  ]
+}

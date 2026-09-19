@@ -1,0 +1,1466 @@
+{
+  "fixtureVersion": "B01.02-v1",
+  "scope": "declarative-new-transitions",
+  "fixtures": [
+    {
+      "id": "R06-standard-white",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-14",
+          "reps": 0,
+          "lapses": 0
+        },
+        "originType": "new",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 10
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 1,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-standard-black",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-14",
+          "reps": 0,
+          "lapses": 0
+        },
+        "originType": "new",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 10
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 1,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-exact-white",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-14",
+          "reps": 0,
+          "lapses": 0
+        },
+        "originType": "new",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 8
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 1,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-exact-black",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-14",
+          "reps": 0,
+          "lapses": 0
+        },
+        "originType": "new",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 8
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 1,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-capped-white",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-14",
+          "reps": 0,
+          "lapses": 0
+        },
+        "originType": "new",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 6
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 6,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 1,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-capped-black",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-14",
+          "reps": 0,
+          "lapses": 0
+        },
+        "originType": "new",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 6
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 6,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 1,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-short-white",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 3,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-14",
+          "reps": 0,
+          "lapses": 0
+        },
+        "originType": "new",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 3
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 3,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 1,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-short-black",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 3,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-14",
+          "reps": 0,
+          "lapses": 0
+        },
+        "originType": "new",
+        "attemptNumber": 1,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 3
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 3,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 1,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-max-white",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 10,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 7,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 10
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 10,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 7,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-max-black",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 10,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 7,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 10
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 10,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 7,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-retained-white",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 8,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 7,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 10
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 10,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 7,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-retained-black",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 8,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-10",
+          "reps": 7,
+          "lapses": 2
+        },
+        "originType": "review",
+        "attemptNumber": 7,
+        "remainingQueue": [
+          "other-new",
+          "other-review",
+          "older-retry"
+        ]
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 10
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 10,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 8,
+              "lapses": 2
+            },
+            "gradedAttemptNumber": 7,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [
+              "other-new",
+              "other-review",
+              "older-retry"
+            ],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-sequence-white",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "white",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-14",
+          "reps": 0,
+          "lapses": 0
+        },
+        "originType": "new",
+        "attemptNumber": 1,
+        "remainingQueue": []
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "bad",
+          "mid",
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 10
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "bad",
+            "cardAfter": {
+              "state": "new",
+              "unlockedMoves": 4,
+              "intervalDays": "0.00",
+              "dueDate": "2026-09-14",
+              "reps": 0,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": true,
+            "nextDue": null,
+            "pendingQueue": [
+              "subject-attempt-2"
+            ],
+            "retry": {
+              "position": "end",
+              "attemptNumber": 2,
+              "originType": "new",
+              "sameLine": true,
+              "sameSession": true
+            }
+          },
+          {
+            "grade": "mid",
+            "cardAfter": {
+              "state": "new",
+              "unlockedMoves": 4,
+              "intervalDays": "0.00",
+              "dueDate": "2026-09-14",
+              "reps": 0,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 2,
+            "itemStatus": "graded",
+            "repeatRequired": true,
+            "nextDue": null,
+            "pendingQueue": [
+              "subject-attempt-3"
+            ],
+            "retry": {
+              "position": "end",
+              "attemptNumber": 3,
+              "originType": "new",
+              "sameLine": true,
+              "sameSession": true
+            }
+          },
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 1,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 3,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    },
+    {
+      "id": "R06-sequence-black",
+      "rule": "R06",
+      "sources": [
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B01 — Especificación funcional y casos de referencia",
+          "reference": "R06"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "2.3. Comportamientos: especificación del SRS original / Scheduling y profundidad"
+        },
+        {
+          "path": "../plan-desarrollo-zephyriov.md",
+          "section": "Unidad, selección y limpieza"
+        },
+        {
+          "path": "../plan-accionable-backend.md",
+          "section": "B03 — Dominio SRS puro y reproducible"
+        },
+        {
+          "path": "../../../README.md",
+          "section": "Motor SRS"
+        }
+      ],
+      "initialState": {
+        "color": "black",
+        "card": {
+          "state": "new",
+          "unlockedMoves": 4,
+          "intervalDays": "0.00",
+          "dueDate": "2026-09-14",
+          "reps": 0,
+          "lapses": 0
+        },
+        "originType": "new",
+        "attemptNumber": 1,
+        "remainingQueue": []
+      },
+      "input": {
+        "blockComplete": true,
+        "verifiedGrades": [
+          "bad",
+          "mid",
+          "good"
+        ],
+        "pedagogicalSnapshot": {
+          "movesPerBlock": 4
+        },
+        "totalStudentMoves": 10
+      },
+      "clock": {
+        "studyDate": "2026-09-14",
+        "timezone": "America/Mexico_City",
+        "kind": "fixed",
+        "reason": "Día y zona ya fijados al iniciar cada bloque; sin cruce de medianoche."
+      },
+      "seed": {
+        "kind": "no_aplica",
+        "reason": "Cola ya fijada; no se seleccionan líneas ni se usa aleatoriedad."
+      },
+      "expected": {
+        "steps": [
+          {
+            "grade": "bad",
+            "cardAfter": {
+              "state": "new",
+              "unlockedMoves": 4,
+              "intervalDays": "0.00",
+              "dueDate": "2026-09-14",
+              "reps": 0,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 1,
+            "itemStatus": "graded",
+            "repeatRequired": true,
+            "nextDue": null,
+            "pendingQueue": [
+              "subject-attempt-2"
+            ],
+            "retry": {
+              "position": "end",
+              "attemptNumber": 2,
+              "originType": "new",
+              "sameLine": true,
+              "sameSession": true
+            }
+          },
+          {
+            "grade": "mid",
+            "cardAfter": {
+              "state": "new",
+              "unlockedMoves": 4,
+              "intervalDays": "0.00",
+              "dueDate": "2026-09-14",
+              "reps": 0,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 2,
+            "itemStatus": "graded",
+            "repeatRequired": true,
+            "nextDue": null,
+            "pendingQueue": [
+              "subject-attempt-3"
+            ],
+            "retry": {
+              "position": "end",
+              "attemptNumber": 3,
+              "originType": "new",
+              "sameLine": true,
+              "sameSession": true
+            }
+          },
+          {
+            "grade": "good",
+            "cardAfter": {
+              "state": "review",
+              "unlockedMoves": 8,
+              "intervalDays": "1.00",
+              "dueDate": "2026-09-15",
+              "reps": 1,
+              "lapses": 0
+            },
+            "gradedAttemptNumber": 3,
+            "itemStatus": "graded",
+            "repeatRequired": false,
+            "nextDue": "2026-09-15",
+            "pendingQueue": [],
+            "retry": null
+          }
+        ]
+      },
+      "forbiddenEffects": [
+        "No incrementar reps por bad/mid de tarjeta new ni por crear el reintento.",
+        "No incrementar lapses de tarjeta new ni reiniciar contadores/depth al repetir o graduar.",
+        "No exceder totalStudentMoves ni graduar por bad/mid; no añadir un tope pedagógico de intentos.",
+        "No reclasificar originType ni contar el reintento como otra línea nueva.",
+        "No presentar dueDate anterior como nextDue al reencolar ni perder el resultado completo.",
+        "No atribuir a estos JSON pruebas de persistencia, racha, HTTP, idempotencia o clientes."
+      ]
+    }
+  ]
+}
