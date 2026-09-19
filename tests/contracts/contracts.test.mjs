@@ -5,9 +5,9 @@ import {
   decodeCatalogCursor, encodeCatalogCursor, ErrorEnvelopeSchema, ERROR_STATUS,
   IdSchema, InstantSchema, IntervalDaysSchema, LineRevisionSchema,
   LineRevisionResponseSchema, lineRevisionEtag, paginateCatalog, RevisionSchema,
-} from './index.mjs';
+} from '../../contracts/index.mjs';
 
-const examples = JSON.parse(readFileSync(new URL('./examples.json', import.meta.url), 'utf8'));
+const examples = JSON.parse(readFileSync(new URL('../../contracts/examples.json', import.meta.url), 'utf8'));
 
 describe('B02.01 transport primitives and error envelope', () => {
   it('accepts opaque UUIDs and rejects malformed identifiers', () => {

@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { projectPendingEvents, type PendingProjectionEvent,
-  type PendingProjectionInput } from './project-pending-events.js';
+  type PendingProjectionInput } from '../../src/domain/project-pending-events.js';
 
 const retryItem = { id: 'i2', lineId: 'line', originType: 'review' as const,
   attemptNumber: 2, parentItemId: 'i1', status: 'pending' as const };
@@ -77,7 +77,7 @@ describe('B03.09 projectPendingEvents', () => {
   });
 
   it('keeps the two committed R18 complete reports in every declarative closure scenario', () => {
-    const fixtures = JSON.parse(readFileSync(new URL('./fixtures/R18.json', import.meta.url), 'utf8'))
+    const fixtures = JSON.parse(readFileSync(new URL('../../src/domain/fixtures/R18.json', import.meta.url), 'utf8'))
       .fixtures as Array<{ id: string; initialState: { durableEvents: Array<{
         eventId: string; payloadRef: string; owner: string; localState: string;
         decision: unknown;
@@ -101,7 +101,7 @@ describe('B03.09 projectPendingEvents', () => {
   });
 
   it('matches the R22 dependency outcome categories and does not create transport IDs', () => {
-    const fixtures = JSON.parse(readFileSync(new URL('./fixtures/R22.json', import.meta.url), 'utf8'))
+    const fixtures = JSON.parse(readFileSync(new URL('../../src/domain/fixtures/R22.json', import.meta.url), 'utf8'))
       .fixtures as Array<{ id: string; initialState: { parentDecision?: { outcome: string } | null };
         expected: { responseCode?: string; outcome?: string | null } }>;
     for (const fixture of fixtures.filter((item) => item.id.includes('parent-'))) {

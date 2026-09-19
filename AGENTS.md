@@ -14,3 +14,4 @@
   arquitectura y Branch_changes al cerrar la sesión con `[Listo :v]`.
 - Conserva los cambios ajenos y ejecuta tests, lint, typecheck y build que
   correspondan al punto. Detente ante contradicción o intervención manual.
+- Haz test driven development, primero el test y luego la logica, separa los tests y la logica en carpetas separadas.

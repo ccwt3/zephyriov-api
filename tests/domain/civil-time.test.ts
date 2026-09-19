@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
-import { addCivilDays, civilDateAt, currentCivilDate, isWithinUtcWindow } from './civil-time.js';
+import { addCivilDays, civilDateAt, currentCivilDate, isWithinUtcWindow } from '../../src/domain/civil-time.js';
 
 describe('civil dates and UTC boundaries', () => {
   it('matches the temporal fields of the transferred R20/R21 fixtures', () => {
@@ -17,7 +17,7 @@ describe('civil dates and UTC boundaries', () => {
       };
     };
     const load = (rule: string): TemporalCase[] => JSON.parse(readFileSync(
-      new URL(`./fixtures/${rule}.json`, import.meta.url), 'utf8',
+      new URL(`../../src/domain/fixtures/${rule}.json`, import.meta.url), 'utf8',
     )).fixtures as TemporalCase[];
 
     for (const fixture of load('R20')) {

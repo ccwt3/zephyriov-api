@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { gradeBlock, type GradeBlockInput } from './grade-block.js';
-import { verifyAttempts } from './verify-attempts.js';
+import { gradeBlock, type GradeBlockInput } from '../../src/domain/grade-block.js';
+import { verifyAttempts } from '../../src/domain/verify-attempts.js';
 
 interface GradingFixture {
   id: string;
@@ -13,7 +13,7 @@ interface GradingFixture {
 }
 
 function fixtures(rule: string): GradingFixture[] {
-  return JSON.parse(readFileSync(new URL(`./fixtures/${rule}.json`, import.meta.url), 'utf8')).fixtures;
+  return JSON.parse(readFileSync(new URL(`../../src/domain/fixtures/${rule}.json`, import.meta.url), 'utf8')).fixtures;
 }
 
 describe('B03.05 gradeBlock', () => {

@@ -1,10 +1,10 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
-import { buildDailyPlan, PLAN_GENERATOR_VERSION, type DailyPlanInput } from './build-daily-plan.js';
+import { buildDailyPlan, PLAN_GENERATOR_VERSION, type DailyPlanInput } from '../../src/domain/build-daily-plan.js';
 
 const fixtures = [12, 13].flatMap((number) =>
-  (JSON.parse(readFileSync(new URL(`./fixtures/R${number}.json`, import.meta.url), 'utf8')) as {
+  (JSON.parse(readFileSync(new URL(`../../src/domain/fixtures/R${number}.json`, import.meta.url), 'utf8')) as {
     fixtures: Array<{
       id: string;
       initialState: Pick<DailyPlanInput, 'color' | 'candidates'>;

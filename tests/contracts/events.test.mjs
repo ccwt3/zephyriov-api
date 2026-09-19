@@ -6,10 +6,10 @@ import {
   STUDY_EVENTS_MAX_BYTES, StudyEventSchema, StudyEventsExchangeSchema,
   StudyEventsRequestSchema, StudyEventsResponseSchema,
   validateStudyEventDependencies, validateStudyEventZoneEvidence,
-} from './index.mjs';
+} from '../../contracts/index.mjs';
 
-const examples = JSON.parse(readFileSync(new URL('./examples-B02.05-B02.06.json', import.meta.url)));
-const previous = JSON.parse(readFileSync(new URL('./examples-B02.03-B02.04.json', import.meta.url)));
+const examples = JSON.parse(readFileSync(new URL('../../contracts/examples-B02.05-B02.06.json', import.meta.url)));
+const previous = JSON.parse(readFileSync(new URL('../../contracts/examples-B02.03-B02.04.json', import.meta.url)));
 
 describe('B02.05 immutable raw study events', () => {
   it('accepts raw attempts and rejects client grading, false IDs and false revisions', () => {

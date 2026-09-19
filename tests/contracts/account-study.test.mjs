@@ -9,10 +9,10 @@ import {
   SettingsPatchRequestSchema, SettingsPatchResponseSchema, SettingsSchema,
   SettingsVersionConflictSchema, StudyItemSchema, StudySessionCreateRequestSchema,
   StudySessionResponseSchema, StudySessionSchema, versionFromIfMatch,
-} from './index.mjs';
+} from '../../contracts/index.mjs';
 
-const examples = JSON.parse(readFileSync(new URL('./examples-B02.03-B02.04.json', import.meta.url)));
-const catalog = JSON.parse(readFileSync(new URL('./examples.json', import.meta.url)));
+const examples = JSON.parse(readFileSync(new URL('../../contracts/examples-B02.03-B02.04.json', import.meta.url)));
+const catalog = JSON.parse(readFileSync(new URL('../../contracts/examples.json', import.meta.url)));
 
 describe('B02.03 profile, settings and repertoire', () => {
   it('keeps nullable onboarding and immutable settings versions', () => {

@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
-import { calculateReviewInterval } from './review-interval.js';
+import { calculateReviewInterval } from '../../src/domain/review-interval.js';
 
 type ReviewCase = {
   id: string;
@@ -12,7 +12,7 @@ type ReviewCase = {
 };
 
 const load = (rule: string): ReviewCase[] => JSON.parse(readFileSync(
-  new URL(`./fixtures/${rule}.json`, import.meta.url), 'utf8',
+  new URL(`../../src/domain/fixtures/${rule}.json`, import.meta.url), 'utf8',
 )).fixtures as ReviewCase[];
 
 describe('B03.03 exact review intervals', () => {

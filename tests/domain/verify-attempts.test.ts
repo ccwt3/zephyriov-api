@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
-import { verifyAttempts, type VerifyAttemptsInput } from './verify-attempts.js';
+import { verifyAttempts, type VerifyAttemptsInput } from '../../src/domain/verify-attempts.js';
 
 const white: VerifyAttemptsInput = {
   theorySan: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Bc5', 'O-O'],
@@ -82,7 +82,7 @@ describe('B03.04 SAN and attempt verification', () => {
       expected: { reportedAttemptPlies: number[]; slowCorrectCount: number } };
     let checked = 0;
     for (const rule of ['R01', 'R02', 'R03', 'R04']) {
-      const cases = JSON.parse(readFileSync(new URL(`./fixtures/${rule}.json`, import.meta.url), 'utf8'))
+      const cases = JSON.parse(readFileSync(new URL(`../../src/domain/fixtures/${rule}.json`, import.meta.url), 'utf8'))
         .fixtures as Case[];
       for (const fixture of cases) {
         const start = fixture.initialState.color === 'white' ? 1 : 2;

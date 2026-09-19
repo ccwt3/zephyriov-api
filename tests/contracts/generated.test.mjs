@@ -1,14 +1,14 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import * as z from 'zod';
-import * as contract from './index.mjs';
+import * as contract from '../../contracts/index.mjs';
 
-const document = JSON.parse(readFileSync(new URL('./openapi.json', import.meta.url)));
+const document = JSON.parse(readFileSync(new URL('../../contracts/openapi.json', import.meta.url)));
 const files = [
-  JSON.parse(readFileSync(new URL('./examples.json', import.meta.url))),
-  JSON.parse(readFileSync(new URL('./examples-B02.03-B02.04.json', import.meta.url))),
-  JSON.parse(readFileSync(new URL('./examples-B02.05-B02.06.json', import.meta.url))),
-  JSON.parse(readFileSync(new URL('./examples-B02.07-B02.08.json', import.meta.url))),
+  JSON.parse(readFileSync(new URL('../../contracts/examples.json', import.meta.url))),
+  JSON.parse(readFileSync(new URL('../../contracts/examples-B02.03-B02.04.json', import.meta.url))),
+  JSON.parse(readFileSync(new URL('../../contracts/examples-B02.05-B02.06.json', import.meta.url))),
+  JSON.parse(readFileSync(new URL('../../contracts/examples-B02.07-B02.08.json', import.meta.url))),
 ];
 const valid = [
   [0, 'catalogPage', 'CatalogPage'], [0, 'lineRevision', 'LineRevision'],

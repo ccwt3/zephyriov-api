@@ -2,10 +2,10 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
-import { runFixtures, type FixtureFamily } from './fixture-runner.js';
+import { runFixtures, type FixtureFamily } from '../../src/domain/fixture-runner.js';
 
-const domainDirectory = fileURLToPath(new URL('./', import.meta.url));
-const fixtureDirectory = fileURLToPath(new URL('./fixtures/', import.meta.url));
+const domainDirectory = fileURLToPath(new URL('../../src/domain/', import.meta.url));
+const fixtureDirectory = fileURLToPath(new URL('../../src/domain/fixtures/', import.meta.url));
 
 function loadFamilies(): Record<string, FixtureFamily> {
   return Object.fromEntries(readdirSync(fixtureDirectory)

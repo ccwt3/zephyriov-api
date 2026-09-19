@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
-import { deriveActivity, deriveStreak, type ActivityOperation, type ActivityState } from './derive-activity.js';
+import { deriveActivity, deriveStreak, type ActivityOperation, type ActivityState } from '../../src/domain/derive-activity.js';
 
 interface ActivityFixture {
   id: string;
@@ -12,11 +12,11 @@ interface ActivityFixture {
 }
 
 const activityFixtures = [14, 15, 16].flatMap((number) =>
-  (JSON.parse(readFileSync(new URL(`./fixtures/R${number}.json`, import.meta.url), 'utf8')) as {
+  (JSON.parse(readFileSync(new URL(`../../src/domain/fixtures/R${number}.json`, import.meta.url), 'utf8')) as {
     fixtures: ActivityFixture[];
   }).fixtures);
 
-const streakFixtures = (JSON.parse(readFileSync(new URL('./fixtures/R21.json', import.meta.url), 'utf8')) as {
+const streakFixtures = (JSON.parse(readFileSync(new URL('../../src/domain/fixtures/R21.json', import.meta.url), 'utf8')) as {
   fixtures: Array<{
     id: string;
     initialState: { eligibleDates?: string[] };

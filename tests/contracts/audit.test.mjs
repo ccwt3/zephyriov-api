@@ -1,14 +1,14 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import * as z from 'zod';
-import * as contract from './index.mjs';
+import * as contract from '../../contracts/index.mjs';
 
 const read = (name) => JSON.parse(readFileSync(new URL(name, import.meta.url)));
-const openapi = read('./openapi.json');
-const account = read('./examples-B02.03-B02.04.json');
-const events = read('./examples-B02.05-B02.06.json');
-const realtime = read('./examples-B02.07-B02.08.json');
-const { errors } = read('./examples-B02.10.json');
+const openapi = read('../../contracts/openapi.json');
+const account = read('../../contracts/examples-B02.03-B02.04.json');
+const events = read('../../contracts/examples-B02.05-B02.06.json');
+const realtime = read('../../contracts/examples-B02.07-B02.08.json');
+const { errors } = read('../../contracts/examples-B02.10.json');
 const schemaFor = ({ $ref }) => {
   const name = $ref.split('/').at(-1);
   return {

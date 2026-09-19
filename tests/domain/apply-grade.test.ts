@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { applyGrade, type SrsCard } from './apply-grade.js';
-import type { Grade } from './grade-block.js';
+import { applyGrade, type SrsCard } from '../../src/domain/apply-grade.js';
+import type { Grade } from '../../src/domain/grade-block.js';
 
 interface TransitionFixture {
   id: string;
@@ -18,7 +18,7 @@ interface TransitionFixture {
 }
 
 function fixtures(rule: string): TransitionFixture[] {
-  return JSON.parse(readFileSync(new URL(`./fixtures/${rule}.json`, import.meta.url), 'utf8')).fixtures;
+  return JSON.parse(readFileSync(new URL(`../../src/domain/fixtures/${rule}.json`, import.meta.url), 'utf8')).fixtures;
 }
 
 describe('B03.06 applyGrade', () => {
@@ -57,7 +57,7 @@ describe('B03.06 applyGrade', () => {
   });
 
   it('caps good depth at each color’s validated line length in all R11 cases', () => {
-    const cases = JSON.parse(readFileSync(new URL('./fixtures/R11.json', import.meta.url), 'utf8')).fixtures;
+    const cases = JSON.parse(readFileSync(new URL('../../src/domain/fixtures/R11.json', import.meta.url), 'utf8')).fixtures;
     expect(cases).toHaveLength(16);
     for (const fixture of cases) {
       const { color, card: partial } = fixture.initialState;
