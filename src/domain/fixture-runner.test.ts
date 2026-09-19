@@ -49,7 +49,8 @@ describe('B01 declarative fixture runner', () => {
       const source = readFileSync(`${domainDirectory}/${name}`, 'utf8');
       const imports = [...source.matchAll(/(?:import|export)\s+(?:[^'";]*?\s+from\s+)?['"]([^'"]+)['"]/g)];
       for (const [, specifier] of imports) {
-        expect(specifier, `${name} imports outside src/domain`).toMatch(/^\.\//);
+        expect(specifier === 'chess.js' || specifier.startsWith('./'),
+          `${name} imports outside src/domain or chess.js`).toBe(true);
       }
       expect(source, `${name} uses dynamic import`).not.toMatch(/\bimport\s*\(/);
     }

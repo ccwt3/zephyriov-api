@@ -1,5 +1,42 @@
 # Branch changes
 
+## 2026-09-19 — B03.07 y B03.08: plan diario, actividad y racha
+
+Se añadió selección pura R12–R13 con orden canónico, semilla/versiones
+explícitas, round-robin, claves lógicas estables y cinta B01 solo de prueba.
+Se implementó actividad R14–R16 con origen de reintentos conservado y racha
+R21 por fechas civiles elegibles. Aprobaron 168 pruebas, lint, typecheck,
+build y T01 en Node 26.9.0; 168 pruebas también en Node 24.21.0.
+Sin HTTP, persistencia ni clientes. [Diseño](docs/dominio-B03.07-B03.08.md)
+e [informe](docs/evidencia/B03.07-B03.08.md). Siguiente B03.09.
+
+[Listo :v]
+
+## 2026-09-19 — B03.05 y B03.06: nota y transición SRS
+
+Se añadió calificación de bloques R01–R04 desde intentos verificados y
+transición pura de tarjeta R05–R11 con vencimientos, profundidad, reps,
+lapses y directiva de reintento. Se contrastaron 40 variantes, 60 pasos de
+transición y 16 casos de máximo propio. Aprobaron 63 pruebas, lint,
+typecheck y build en Node 26.9.0 y Node 24.21.0, además de T01.
+Sin HTTP, persistencia ni cliente. [Diseño](docs/dominio-B03.05-B03.06.md)
+e [informe](docs/evidencia/B03.05-B03.06.md). Siguiente B03.07.
+
+[Listo :v]
+
+## 2026-09-19 — B03.03 y B03.04: intervalo y SAN del dominio
+
+Se implementó el intervalo decimal exacto con `bigint`, primer repaso
+`1.00 → 3.00` y posteriores `×2.5`; se aclaró la excepción en el plan fuente.
+Se añadió verificación pura de plies, SAN y tiempos con `chess.js` 1.4.0,
+incluidos rechazos estructurales y continuidad teórica tras error legal.
+56 pruebas, lint, typecheck, build y T01 aprobaron en Node 26.9.0; 56 pruebas,
+lint y typecheck también en Node 24.21.0. La nota espera B03.05; no hay
+HTTP, persistencia ni cliente. [Diseño](docs/dominio-B03.03-B03.04.md) e
+[informe](docs/evidencia/B03.03-B03.04.md). Siguiente B03.05.
+
+[Listo :v]
+
 ## 2026-09-19 — B03.01 y B03.02: fixtures y fechas del dominio
 
 Runner puro para 22 familias y 352 variantes B01 sin recalcular expectativas,
