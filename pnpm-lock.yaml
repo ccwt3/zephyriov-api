@@ -185,6 +185,9 @@ importers:
       typescript-eslint:
         specifier: 8.70.0
         version: 8.70.0(eslint@10.11.0)(typescript@5.9.3)
+      vite:
+        specifier: 8.3.0
+        version: 8.3.0(@types/node@24.13.6)
       vitest:
         specifier: 5.0.1
         version: 5.0.1(@types/node@24.13.6)(vite@8.3.0(@types/node@24.13.6))

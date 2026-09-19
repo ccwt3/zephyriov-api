@@ -1,5 +1,17 @@
 # Branch changes
 
+## 2026-09-19 — B03.10: consumidor mínimo en Android
+
+Se empaquetó el dominio compilado en un tarball local y se ejecutó un
+consumidor WebView aislado con ocho checks en Android 11; todos pasaron.
+El APK sin permisos se desinstaló después de verificar el resultado.
+Vite 8.3.0 quedó fijado para el bundle de ensayo. Aprobaron 174 pruebas,
+lint, typecheck, build y T01. B03.11 queda como siguiente punto para la
+comparación exhaustiva Node/Android. [Diseño](docs/dominio-B03.10.md) e
+[informe](docs/evidencia/B03.10.md).
+
+[Listo :v]
+
 ## 2026-09-19 — B03.09: proyección local de eventos pendientes
 
 Se añadió `projectPendingEvents` para reproducir decisiones locales
