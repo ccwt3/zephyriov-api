@@ -13,7 +13,8 @@ B02.03–B02.04 añadieron el
 [contrato de perfil, ajustes, repertorio, sesión y onboarding](docs/contrato-B02.03-B02.04.md).
 El [contrato B02.07–B02.08](docs/contrato-B02.07-B02.08.md) añade paquete
 offline/renovación y lecturas con revisión, ticket, avisos y readiness.
-El siguiente punto es B04.06, migraciones locales de sesiones e ítems.
+El siguiente punto es B04.10, ensayo remoto del esquema de producto en una
+base Turso aislada y vacía.
 B04.03 dejó versionado el esquema local de identidad, perfil, preferencias y
 revisión de cuenta. B04.02 cerró el ensayo remoto en una base Turso de ensayo
 aislada con motor SQLite, plan Free y región US declarados.
@@ -73,6 +74,29 @@ el esquema. Aprobaron 191 pruebas locales, lint, typecheck y build. El
 contenido editorial y las transiciones SRS corresponden a B07/B08; la prueba
 remota del esquema, a B04.10. [Diseño](docs/esquema-B04.04-B04.05.md) ·
 [informe diario](docs/evidencia/B04.04-B04.05.md).
+
+**B04.06–B04.07 — sesiones y eventos locales (2026-09-20):** dos migraciones
+añaden una sesión por cuenta/día, ítems con snapshots y clasificación original,
+eventos congelados, dependencias materializadas desde el reporte, intentos
+verificados, decisiones inmutables y mapeos de referencias locales. Una FK
+compuesta y triggers impiden vínculos entre cuentas; un índice parcial permite
+una sola decisión aplicada por ítem. `migrateLocal` aplica ahora cinco archivos
+con checksum. Aprobaron 202 pruebas locales, lint, typecheck, build y una
+migración del artefacto compilado. La validación contractual completa, Auth,
+casos de uso y prueba remota del producto corresponden a B06/B04.10.
+[Diseño](docs/esquema-B04.06-B04.07.md) ·
+[informe diario](docs/evidencia/B04.06-B04.07.md).
+
+**B04.08–B04.09 — operación y adaptadores locales (2026-09-20):** la sexta
+migración añade paquetes offline, actividad diaria, limitadores y tickets
+ligados a cuenta y sesión Auth, con ventanas y consumo comprobados. Los
+adaptadores leen filas propias y revisión en un snapshot del primario,
+incrementan la revisión por CAS y arbitran cupo/ticket en una sentencia. Las
+lecturas devuelven datos de persistencia para que B08 construya el DTO. Pasaron
+213 pruebas locales, lint, typecheck, build y migración compilada. B04.10
+debe probar el esquema de producto en Turso remoto; B05/B08–B10 integrarán
+Auth, rutas, contenido de paquete y socket. [Diseño](docs/esquema-B04.08-B04.09.md) ·
+[informe diario](docs/evidencia/B04.08-B04.09.md).
 
 **B03.01–B03.02 — runner y fechas (2026-09-19):** `src/domain/` contiene un
 runner puro que recorre las 352 variantes B01 sin generar expectativas y

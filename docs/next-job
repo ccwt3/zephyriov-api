@@ -1,39 +1,44 @@
 # Estado de trabajo agéntico
 
-- Puntos ejecutados en esta sesión: **B04.04 y B04.05** sobre HEAD de entrada
-  `c94ddc7`. Se migraron catálogo/manifiestos/puntero y después
-  repertorio/tarjetas, sin mezclar código cliente. [Informe](evidencia/B04.04-B04.05.md) ·
-  [diseño](esquema-B04.04-B04.05.md).
-- Estado: `probado(SQLite local, Linux x64, Node 26.9.0)`. Aprobaron 191
-  pruebas locales, lint, typecheck, build y migración del artefacto compilado;
-  cuatro pruebas remotas opt-in quedaron omitidas. El esquema de producto no
-  se aplicó a Turso remoto; esa validación corresponde a B04.10.
-- **Siguiente punto pendiente: B04.06**, migraciones locales de sesiones e
-  ítems, unicidad por cuenta/día y clasificación original de intento.
-  **No se ejecutó B04.06 en esta sesión.**
+- Puntos ejecutados en esta sesión: **B04.08 y B04.09** sobre HEAD de entrada
+  `29735c8`, conservando los cambios previos B04.06–B04.07. Se añadieron
+  esquema operativo, adaptadores y planes de consulta locales, sin código de
+  clientes. [Informe](evidencia/B04.08-B04.09.md) ·
+  [diseño](esquema-B04.08-B04.09.md).
+- Estado: `probado(SQLite local, Linux x64, Node 26.9.0)`. Aprobaron 213
+  pruebas locales, lint, typecheck, build y migración compilada; cuatro pruebas
+  remotas opt-in quedaron omitidas. El esquema de producto no se aplicó a
+  Turso remoto.
+- **Siguiente punto pendiente: B04.10**, ensayo del esquema de producto en
+  una base remota aislada y vacía: migración/reinicio, violación de cada tipo
+  de constraint y rollback de una secuencia representativa de escrituras B06.
+  **No se ejecutó B04.10 en esta sesión.**
 - Fuentes: `/home/cacawatin/code/personal/Zephyriov/docs/blueprint/`:
-  `plan-trabajo-agentico.md` §3, §5 B04.06 y §13;
+  `plan-trabajo-agentico.md` §3, §5 B04.10 y §13;
   `plan-accionable-backend.md` §B04; SRS activo
-  [reglas-srs.md](reglas-srs.md) y fixtures en `src/domain/fixtures/`.
+  [reglas-srs.md](reglas-srs.md), contratos B02 y fixtures en
+  `src/domain/fixtures/`.
 - Repositorio: esta raíz `zephyriov-api` para API e infraestructura. Orden:
   planificación → API → infraestructura → Android → web. Los clientes tienen
   repositorios separados; al llegar a ellos, anunciar el cambio y detenerse.
-- Alcance previsto B04.06: `study_sessions` y `study_items`, snapshots
-  pedagógicos y base, unicidad `(user_id,study_date)`, identidad/propiedad
-  compuesta de cuenta-sesión-tarjeta, clave lógica e intento original
-  `new`/`review`. Archivos previstos: `src/persistence/`, `migrations/`,
-  `tests/persistence/`, `docs/`, README, Branch_changes y este puntero. No
-  ampliar a eventos/decisiones, paquetes, HTTP, despliegue ni clientes.
-- Pruebas previstas B04.06: TDD de restricciones por cuenta/día, claves
-  compuestas y clasificación/reintento; base local nueva y ya migrada,
-  repetición sin duplicaciones, fallo/rollback representativo. Ejecutar tests,
-  lint, typecheck y build. La validación remota del producto sigue B04.10.
-- Dependencias verificadas: G01/T01/T02, B02.01–B02.10, B03.01–B03.12 y
-  B04.01–B04.05 documentados. `DOMAIN_VERSION = B03.12-v1`.
-- Intervención manual: ninguna pendiente para B04.06 local. M04 se satisfizo
-  para el ensayo remoto B04.02; base de producción y cuotas vigentes siguen
-  trabajo posterior de B11/M12.
-- Riesgos: Drizzle no expresa los triggers ni la FK diferida del SQL versionado;
-  no generar una migración desde los modelos sin cotejarla. B05 debe revisar
-  plugins/opciones Auth finales. Ninguna prueba local sustituye B04.10.
-- Última actualización: 2026-09-19, Mexico/General.
+- Alcance previsto B04.10: probar las seis migraciones en un primario Turso
+  **de ensayo, aislado y vacío**, reinicio sin duplicaciones, FKs/UNIQUE/CHECK,
+  triggers de propiedad e inmutabilidad, CAS de cero filas, dos cuentas y
+  rollback remoto representativo. Archivos previstos: `tests/persistence/`,
+  `tools/b04/` si hace falta, `docs/`, README, Branch_changes y este puntero.
+  El alcance de B04.10 excluye HTTP, despliegue y clientes; otro punto requiere
+  autorización del prompt y sus dependencias.
+- Pruebas previstas B04.10: opt-in con bandera explícita, verificar base vacía
+  antes de migrar, repetir migración/reinicio, ejecutar casos negativos de
+  constraints sobre datos sintéticos, dos writers y rollback; limpiar tablas
+  de ensayo o usar base descartable, registrar comandos y resultados sin
+  secretos. Ejecutar tests, lint, typecheck y build que correspondan.
+- Dependencias verificadas localmente: G01/T01/T02, B02.01–B02.10,
+  B03.01–B03.12 y B04.01–B04.09 documentados. `DOMAIN_VERSION = B03.12-v1`.
+- Intervención manual: ninguna para B04.08–B04.09. M04 aportó base y token de
+  ensayo para B04.02; antes de B04.10 confirmar que el destino remoto sea
+  aislado y vacío. Si no existe, preparar M04 sin tocar datos de producto.
+- Riesgos: la prueba SQLite local y los planes de consulta locales no
+  sustituyen B04.10. El runtime declarado es Node 24; esta sesión probó Node
+  26.9.0. Los adaptadores requieren un cliente apuntado al primario.
+- Última actualización: 2026-09-20, Mexico/General.

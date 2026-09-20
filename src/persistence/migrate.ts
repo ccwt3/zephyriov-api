@@ -2,11 +2,11 @@ import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import type { Client } from '@libsql/client';
 
-const migrationNames = ['001_identity_profile.sql', '002_catalog.sql', '003_cards_repertoire.sql'] as const;
+const migrationNames = ['001_identity_profile.sql', '002_catalog.sql', '003_cards_repertoire.sql', '004_study.sql', '005_events.sql', '006_operational.sql'] as const;
 type MigrationName = typeof migrationNames[number];
 
 /** Apply versioned migrations through the named point, each atomically. */
-export async function migrateLocal(client: Client, through: MigrationName = '003_cards_repertoire.sql'): Promise<void> {
+export async function migrateLocal(client: Client, through: MigrationName = '006_operational.sql'): Promise<void> {
   await client.execute('pragma foreign_keys = on');
   for (const migrationName of migrationNames) {
     const source = await readFile(new URL(`../../migrations/${migrationName}`, import.meta.url), 'utf8');

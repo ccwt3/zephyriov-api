@@ -1,5 +1,28 @@
 # Branch changes
 
+## 2026-09-20 — B04.08 y B04.09: operación y adaptadores locales
+
+Se añadió la migración de paquetes, días de actividad, limitadores y tickets;
+los adaptadores agrupan lecturas del primario y ejecutan CAS, cupo y consumo
+atómicos. Aprobaron 213 pruebas locales, lint, typecheck, build, planes de
+consulta y migración compilada bajo Node 26.9.0. El esquema de producto aún
+requiere ensayo remoto en B04.10. [Diseño](docs/esquema-B04.08-B04.09.md) e
+[informe](docs/evidencia/B04.08-B04.09.md).
+
+[Listo :v]
+
+## 2026-09-20 — B04.06 y B04.07: sesiones y eventos locales
+
+Se versionaron sesiones/ítems con unicidad por cuenta/día, snapshots y origen
+inmutable, y eventos/decisiones/dependencias/intentos/mapeos con propiedad
+compuesta y una sola aplicación por ítem. Aprobaron 202 pruebas locales,
+lint, typecheck, build y migración compilada bajo Node 26.9.0. Sin aplicación
+del esquema de producto a Turso remoto; siguiente B04.08.
+[Diseño](docs/esquema-B04.06-B04.07.md) e
+[informe](docs/evidencia/B04.06-B04.07.md).
+
+[Listo :v]
+
 ## 2026-09-19 — B04.04 y B04.05: catálogo, repertorio y tarjetas locales
 
 Se añadieron migraciones SQL versionadas para revisiones de línea inmutables,
