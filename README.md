@@ -13,18 +13,66 @@ B02.03–B02.04 añadieron el
 [contrato de perfil, ajustes, repertorio, sesión y onboarding](docs/contrato-B02.03-B02.04.md).
 El [contrato B02.07–B02.08](docs/contrato-B02.07-B02.08.md) añade paquete
 offline/renovación y lecturas con revisión, ticket, avisos y readiness.
-El siguiente punto es B04.01, matriz de versiones y experimento local de
-transacción/Drizzle/Auth. B03.11 comparó el dominio en Node y Android;
-B03.12 abrió el export local `zephyriov-api/domain`.
+El siguiente punto es B04.06, migraciones locales de sesiones e ítems.
+B04.03 dejó versionado el esquema local de identidad, perfil, preferencias y
+revisión de cuenta. B04.02 cerró el ensayo remoto en una base Turso de ensayo
+aislada con motor SQLite, plan Free y región US declarados.
+B03.11 comparó el dominio en Node y Android; B03.12 abrió el export local
+`zephyriov-api/domain`.
 
 La raíz API se construye con Node.js 24 y pnpm 12.4.2. `pnpm install`,
 `pnpm test`, `pnpm lint`, `pnpm typecheck` y `pnpm build` son los comandos
 del esqueleto. El paquete exporta la versión de especificación y
 `zephyriov-api/contracts` con esquemas Zod y ejemplos instalables desde un
 tarball local. Los esquemas son fuente única; DTO TypeScript y OpenAPI se
-generan desde los esquemas Zod en B02.09. Contiene el dominio SRS puro,
-pero aún no HTTP ni persistencia. La [evidencia T01](docs/evidencia/T01.md)
+generan desde los esquemas Zod en B02.09. Contiene el dominio SRS puro y el
+esquema local de persistencia; aún no hay HTTP ni adaptadores de casos de uso.
+La [evidencia T01](docs/evidencia/T01.md)
 y [evidencia T02](docs/evidencia/T02.md) detallan verificación y límites.
+
+**B04.01 — compatibilidad transaccional local (2026-09-19):** el lockfile fija
+`@libsql/client` 0.18.0, `drizzle-orm` 0.45.2, `better-auth` y
+`@better-auth/drizzle-adapter` 1.7.5. Un ensayo aislado en SQLite en memoria
+demostró commit y rollback en el driver, en Drizzle y en el adaptador Auth;
+este último requiere `transaction: true`. Las tablas del ensayo no son el
+esquema del producto. Pasaron 177 pruebas, lint, typecheck, build y T01; la
+prueba remota con dos writers se completó después en B04.02.
+[Matriz y reproducción](docs/compatibilidad.md) ·
+[informe diario](docs/evidencia/B04.01.md).
+
+**B04.02 — ensayo remoto (2026-09-19):** dos conexiones libSQL contra
+el primario Turso verificaron commit/rollback del driver, fallo tras dos
+escrituras Drizzle, transacción Auth con `transaction: true` y un único ganador
+en la carrera CAS de revisión. Las tablas sintéticas se eliminaron y se
+comprobó que no quedaran restos. La prueba remota exige
+`B04_REMOTE_PROBE=1` y `.env` local; no se ejecuta en el conjunto normal.
+M04 confirmó motor SQLite, plan Free y región US; el endpoint identifica
+`aws-us-east-2`. El resultado permite comenzar B04.03 en otra sesión.
+[Matriz y reproducción](docs/compatibilidad.md) ·
+[informe diario](docs/evidencia/B04.02.md).
+
+**B04.03 — migración local de identidad y cuenta (2026-09-19):** SQL versionado
+crea las cuatro tablas base de Better Auth 1.7.5 y las tablas `profiles`,
+`settings_revisions` y `account_revisions`. `migrateLocal` aplica la migración
+en una transacción con checksum; la repetición conserva esquema y datos. Las
+revisiones de ajustes son inmutables y la revisión de cuenta no retrocede.
+Pasaron 182 pruebas locales, lint, typecheck y build. El esquema generado de
+Auth omitió solo relaciones v2 incompatibles con Drizzle 0.45.2; el adaptador
+instalado escribió usuario y sesión sobre la migración. El siguiente punto es
+B04.04, catálogo y manifiestos locales; la validación remota del esquema de
+producto corresponde a B04.10. [Diseño](docs/esquema-B04.03.md) ·
+[informe diario](docs/evidencia/B04.03.md).
+
+**B04.04–B04.05 — catálogo y tarjetas locales (2026-09-19):** dos migraciones
+añaden aperturas, líneas, revisiones inmutables, manifiestos sellados y un
+puntero único que exige carga completa; después repertorio y tarjetas con FK
+compuestas de cuenta/apertura/color. El color de una selección y sus tarjetas
+puede cambiar atómicamente gracias a una FK diferida. `migrateLocal` aplica
+los tres archivos SQL con checksum y los modelos Drizzle permiten consultar
+el esquema. Aprobaron 191 pruebas locales, lint, typecheck y build. El
+contenido editorial y las transiciones SRS corresponden a B07/B08; la prueba
+remota del esquema, a B04.10. [Diseño](docs/esquema-B04.04-B04.05.md) ·
+[informe diario](docs/evidencia/B04.04-B04.05.md).
 
 **B03.01–B03.02 — runner y fechas (2026-09-19):** `src/domain/` contiene un
 runner puro que recorre las 352 variantes B01 sin generar expectativas y

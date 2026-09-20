@@ -80,7 +80,11 @@
     "vitest": "5.0.1"
   },
   "dependencies": {
+    "@better-auth/drizzle-adapter": "1.7.5",
+    "@libsql/client": "0.18.0",
+    "better-auth": "1.7.5",
     "chess.js": "1.4.0",
+    "drizzle-orm": "0.45.2",
     "zod": "4.6.5"
   }
 }

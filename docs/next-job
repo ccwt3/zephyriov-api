@@ -1,42 +1,39 @@
 # Estado de trabajo agéntico
 
-- Puntos ejecutados en esta sesión: **B03.11 y B03.12** sobre HEAD de entrada
-  `e7eb6e1`. No se ejecutó B04.01.
-- Estado: `construido_local`, `probado(Node 26.9.0/Node 24.21.0 y Android 11,
-  WebView 152.0.7977.64)` para el dominio puro y su artefacto local. La matriz
-  separa los casos B01 que requieren HTTP, DB, ciclo de vida o cliente.
-  [Informe y evidencia](evidencia/B03.11-B03.12.md).
-- **Siguiente punto autorizado: B04.01** únicamente, matriz de versiones y
-  experimento mínimo local de transacción interactiva/Drizzle/Auth. El prompt
-  diario puede autorizar otro punto consecutivo si sus dependencias se cumplen.
-  B04.02 requiere intervención M04 para Turso remoto; no está autorizada
-  automáticamente por este puntero.
+- Puntos ejecutados en esta sesión: **B04.04 y B04.05** sobre HEAD de entrada
+  `c94ddc7`. Se migraron catálogo/manifiestos/puntero y después
+  repertorio/tarjetas, sin mezclar código cliente. [Informe](evidencia/B04.04-B04.05.md) ·
+  [diseño](esquema-B04.04-B04.05.md).
+- Estado: `probado(SQLite local, Linux x64, Node 26.9.0)`. Aprobaron 191
+  pruebas locales, lint, typecheck, build y migración del artefacto compilado;
+  cuatro pruebas remotas opt-in quedaron omitidas. El esquema de producto no
+  se aplicó a Turso remoto; esa validación corresponde a B04.10.
+- **Siguiente punto pendiente: B04.06**, migraciones locales de sesiones e
+  ítems, unicidad por cuenta/día y clasificación original de intento.
+  **No se ejecutó B04.06 en esta sesión.**
 - Fuentes: `/home/cacawatin/code/personal/Zephyriov/docs/blueprint/`:
-  `plan-trabajo-agentico.md` §5 B04.01, §3 y §13;
+  `plan-trabajo-agentico.md` §3, §5 B04.06 y §13;
   `plan-accionable-backend.md` §B04; SRS activo
   [reglas-srs.md](reglas-srs.md) y fixtures en `src/domain/fixtures/`.
 - Repositorio: esta raíz `zephyriov-api` para API e infraestructura. Orden:
   planificación → API → infraestructura → Android → web. Los clientes tienen
   repositorios separados; al llegar a ellos, anunciar el cambio y detenerse.
-- Alcance previsto B04.01: documentar matriz de versiones/compatibilidad y
-  ejecutar un experimento mínimo local que compruebe semántica de transacción
-  interactiva con el driver, Drizzle y adaptador Auth elegido, sin secretos.
-  Archivos previstos: `docs/compatibilidad.md`, `docs/evidencia/`, herramientas
-  de ensayo local, dependencias/configuración justificadas en `package.json` y
-  lockfile, README, Branch_changes y este puntero. No ampliar a esquema de
-  producto, migraciones, endpoints, proveedor remoto, infraestructura ni
-  clientes. Contrastar versiones con fuentes oficiales antes de fijarlas.
-- Pruebas previstas B04.01: experimento local reproducible con commit,
-  rollback y fallo inyectado; ejecutar tests, lint, typecheck y build del
-  repositorio si se cambia código/configuración; T01 si se toca la cadena de
-  build. Registrar límites frente a dos writers remotos de B04.02.
-- Dependencias verificadas: G01/T01/T02, B02.01–B02.10 y B03.01–B03.12
-  documentados. El export local del dominio es `zephyriov-api/domain` con
-  `DOMAIN_VERSION = B03.12-v1`; la paridad se midió en Android real sin dejar
-  el APK de ensayo instalado. B04.01 no requiere M04; B04.02 sí.
-- Intervención manual: ninguna pendiente para B03.11–B03.12. M04 permanece
-  futura para el ensayo remoto B04.02; no asumir credenciales ni cuotas.
-- Riesgos: el consumidor WebView resuelve `chess.js` desde instalación local;
-  la versión del runtime IANA puede cambiar. La paridad pura no prueba
-  transacciones, Auth, HTTP, cierre físico, offline ni clientes.
+- Alcance previsto B04.06: `study_sessions` y `study_items`, snapshots
+  pedagógicos y base, unicidad `(user_id,study_date)`, identidad/propiedad
+  compuesta de cuenta-sesión-tarjeta, clave lógica e intento original
+  `new`/`review`. Archivos previstos: `src/persistence/`, `migrations/`,
+  `tests/persistence/`, `docs/`, README, Branch_changes y este puntero. No
+  ampliar a eventos/decisiones, paquetes, HTTP, despliegue ni clientes.
+- Pruebas previstas B04.06: TDD de restricciones por cuenta/día, claves
+  compuestas y clasificación/reintento; base local nueva y ya migrada,
+  repetición sin duplicaciones, fallo/rollback representativo. Ejecutar tests,
+  lint, typecheck y build. La validación remota del producto sigue B04.10.
+- Dependencias verificadas: G01/T01/T02, B02.01–B02.10, B03.01–B03.12 y
+  B04.01–B04.05 documentados. `DOMAIN_VERSION = B03.12-v1`.
+- Intervención manual: ninguna pendiente para B04.06 local. M04 se satisfizo
+  para el ensayo remoto B04.02; base de producción y cuotas vigentes siguen
+  trabajo posterior de B11/M12.
+- Riesgos: Drizzle no expresa los triggers ni la FK diferida del SQL versionado;
+  no generar una migración desde los modelos sin cotejarla. B05 debe revisar
+  plugins/opciones Auth finales. Ninguna prueba local sustituye B04.10.
 - Última actualización: 2026-09-19, Mexico/General.

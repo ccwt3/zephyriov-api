@@ -1,5 +1,53 @@
 # Branch changes
 
+## 2026-09-19 — B04.04 y B04.05: catálogo, repertorio y tarjetas locales
+
+Se añadieron migraciones SQL versionadas para revisiones de línea inmutables,
+manifiestos completos, puntero único, repertorio por cuenta y tarjetas con
+relaciones compuestas de propiedad y color. La FK diferida permite cambio de
+color y generación dentro de una transacción; una actualización incompleta
+falla. Aprobaron 191 pruebas locales, lint, typecheck, build y migración del
+artefacto compilado bajo Node 26.9.0. Sin aplicación remota del esquema.
+[Diseño](docs/esquema-B04.04-B04.05.md) e
+[informe](docs/evidencia/B04.04-B04.05.md). Siguiente B04.06.
+
+[Listo :v]
+
+## 2026-09-19 — B04.03: migración local de identidad y cuenta
+
+Se versionó una migración SQLite con las cuatro tablas base de Better Auth
+1.7.5 y tablas de perfil, revisiones de preferencias y revisión de cuenta.
+La aplicación transaccional comprueba checksum; restricciones, repetición,
+adaptador Auth y rollback representativo pasaron en SQLite local. Aprobaron
+182 pruebas, lint, typecheck y build bajo Node 26.9.0. El SQL de producto aún
+no se ensayó en Turso. [Diseño](docs/esquema-B04.03.md) e
+[informe](docs/evidencia/B04.03.md). Siguiente B04.04.
+
+[Listo :v]
+
+## 2026-09-19 — B04.02: ensayo remoto cerrado
+
+Cuatro pruebas pasaron en la base Turso aislada: commit/rollback del driver,
+fallo tras dos escrituras Drizzle, transacción Auth y carrera CAS con dos
+conexiones. Las tablas sintéticas se limpiaron. El test remoto requiere una
+bandera explícita; 177 pruebas locales, lint, typecheck y build aprobaron con
+binarios instalados. M04 confirmó motor SQLite, plan Free y región US;
+el siguiente punto es B04.03. [Matriz](docs/compatibilidad.md) e
+[informe](docs/evidencia/B04.02.md).
+
+[Listo :v]
+
+## 2026-09-19 — B04.01: matriz y transacciones locales
+
+Se fijaron versiones libSQL 0.18.0, Drizzle 0.45.2 y Better Auth/adaptador
+1.7.5. Un ensayo sintético demostró commit, rollback y fallo inyectado en
+driver, Drizzle y adaptador Auth con `transaction: true`. Aprobaron 177 tests,
+lint, typecheck, build, lockfile y T01 bajo Node 24.21.0/pnpm 12.4.2.
+[Matriz](docs/compatibilidad.md) e [informe](docs/evidencia/B04.01.md).
+Siguiente B04.02, detenido hasta M04 para la base remota de ensayo.
+
+[Listo :v]
+
 ## 2026-09-19 — B03.11 y B03.12: paridad y export local del dominio
 
 Se compararon salidas JSON normalizadas Node/Android para 238 porciones
