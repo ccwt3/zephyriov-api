@@ -13,8 +13,9 @@ B02.03–B02.04 añadieron el
 [contrato de perfil, ajustes, repertorio, sesión y onboarding](docs/contrato-B02.03-B02.04.md).
 El [contrato B02.07–B02.08](docs/contrato-B02.07-B02.08.md) añade paquete
 offline/renovación y lecturas con revisión, ticket, avisos y readiness.
-El siguiente punto es B04.10, ensayo remoto del esquema de producto en una
-base Turso aislada y vacía.
+El siguiente punto es B05.02, registro/login y autorización de una cuenta no
+verificada con correo capturado localmente. B04 quedó cerrado con el ensayo
+remoto del esquema de producto; B05.01 integró Better Auth y el perfil inicial.
 B04.03 dejó versionado el esquema local de identidad, perfil, preferencias y
 revisión de cuenta. B04.02 cerró el ensayo remoto en una base Turso de ensayo
 aislada con motor SQLite, plan Free y región US declarados.
@@ -94,9 +95,27 @@ adaptadores leen filas propias y revisión en un snapshot del primario,
 incrementan la revisión por CAS y arbitran cupo/ticket en una sentencia. Las
 lecturas devuelven datos de persistencia para que B08 construya el DTO. Pasaron
 213 pruebas locales, lint, typecheck, build y migración compilada. B04.10
-debe probar el esquema de producto en Turso remoto; B05/B08–B10 integrarán
+probó después el esquema de producto en Turso remoto; B05/B08–B10 integrarán
 Auth, rutas, contenido de paquete y socket. [Diseño](docs/esquema-B04.08-B04.09.md) ·
 [informe diario](docs/evidencia/B04.08-B04.09.md).
+
+**B04.10 — esquema de producto remoto (2026-09-22):** las seis migraciones se
+aplicaron sobre una base Turso de ensayo comprobada vacía. Pasaron reinicio
+idempotente, CHECK/UNIQUE/FK, propiedad, inmutabilidad, CAS de dos escritores y
+rollback tras cada una de seis escrituras representativas B06. La herramienta
+rechaza destinos no vacíos y la limpieza dejó cero objetos. B04 queda cerrado;
+la inyección en el caso HTTP definitivo se repite en B06.06.
+[Compatibilidad](docs/compatibilidad.md) ·
+[informe diario](docs/evidencia/B04.10-B05.01.md).
+
+**B05.01 — integración Better Auth y perfil estable (2026-09-22):** la fábrica
+interna usa Better Auth/Drizzle con transacciones reales. Su hook de usuario
+crea de forma transaccional e idempotente perfil `6/4`, zona `UTC`, revisión de
+ajustes `1` y revisión de cuenta `1`, sin sobrescribir estado existente. Tres
+pruebas cubren el adaptador real, repetición simultánea y rollback por usuario
+ausente. Email/password permanece deshabilitado hasta B05.02; aún no hay Auth
+HTTP, correo ni OAuth. [Diseño](docs/auth-B05.01.md) ·
+[informe diario](docs/evidencia/B04.10-B05.01.md).
 
 **B03.01–B03.02 — runner y fechas (2026-09-19):** `src/domain/` contiene un
 runner puro que recorre las 352 variantes B01 sin generar expectativas y

@@ -1,5 +1,18 @@
 # Branch changes
 
+## 2026-09-22 — B04.10 y B05.01: esquema remoto e integración Auth
+
+Las seis migraciones de producto pasaron en una base Turso de ensayo vacía:
+reinicio, tipos de restricción, propiedad, inmutabilidad, CAS con dos writers y
+rollback tras cada escritura representativa B06. La limpieza dejó cero
+objetos. Después se integró Better Auth/Drizzle con creación transaccional e
+idempotente del perfil inicial 6/4 UTC y sus revisiones. Aprobaron cuatro casos
+remotos, 216 pruebas locales, lint, typecheck y build bajo Node 26.9.0.
+[Compatibilidad](docs/compatibilidad.md), [diseño Auth](docs/auth-B05.01.md) e
+[informe](docs/evidencia/B04.10-B05.01.md). Siguiente B05.02.
+
+[Listo :v]
+
 ## 2026-09-20 — B04.08 y B04.09: operación y adaptadores locales
 
 Se añadió la migración de paquetes, días de actividad, limitadores y tickets;

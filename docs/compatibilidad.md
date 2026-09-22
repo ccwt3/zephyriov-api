@@ -1,4 +1,4 @@
-# Compatibilidad B04.01–B04.02: transacciones locales y remotas
+# Compatibilidad B04.01–B04.10: transacciones locales y remotas
 
 Fecha de consulta y ensayo: 2026-09-19. B04.01 fijó una combinación exacta y
 la probó localmente; B04.02 ensayó esa combinación sobre Turso remoto antes de
@@ -82,4 +82,39 @@ Reproducción desde la raíz API, con `.env` local y base de ensayo confirmada:
 
 ```sh
 B04_REMOTE_PROBE=1 node --env-file=.env ./node_modules/vitest/vitest.mjs run tests/persistence/remote-transaction-probe.test.ts --reporter=verbose
+```
+
+## B04.10 — esquema de producto en el primario remoto
+
+El 2026-09-22 la misma base de ensayo tenía cero objetos antes de la prueba.
+`tests/persistence/remote-product-schema.test.ts` requiere la bandera separada
+`B04_REMOTE_PRODUCT_PROBE=1`; `tools/b04/remote-product-probe.mjs` rechaza el
+destino si encuentra cualquier tabla, vista o trigger. El ensayo aplicó las
+seis migraciones reales, verificó los checksums al repetir `migrateLocal`,
+conservó los datos sintéticos y ejercitó dos cuentas.
+
+Se observaron fallos remotos sin escrituras parciales para las categorías
+CHECK, UNIQUE y FK, para el trigger de propiedad ticket/sesión y para un
+trigger de inmutabilidad. Dos conexiones intentaron el mismo CAS de revisión:
+una obtuvo la fila y la otra cero filas. Finalmente se inyectó un fallo después
+de cada prefijo de una secuencia B06 de seis escrituras —evento, intento,
+decisión, tarjeta, ítem y revisión de cuenta— y todas revirtieron el prefijo
+completo.
+
+| Caso remoto | Resultado | Latencia observada |
+| --- | --- | ---: |
+| Seis migraciones, reinicio y conservación | pasó | 1770 ms |
+| CHECK/UNIQUE/FK, propiedad e inmutabilidad | pasó | 518 ms |
+| CAS de dos escritores y aislamiento de segunda cuenta | pasó | 437 ms |
+| Rollback tras cada una de seis escrituras B06 | pasó | 2729 ms |
+| Limpieza y consulta posterior | pasó, cero objetos | incluida en 21.32 s totales |
+
+La corrida usó Node 26.9.0, `@libsql/client` 0.18.0 y SQLite remoto 3.47.0.
+Las latencias son una muestra funcional. No miden carga ni sustituyen la
+inyección sobre el caso de uso HTTP definitivo de B06.06. La limpieza elimina
+únicamente el esquema cuya creación asumió la herramienta después de probar
+que la base estaba vacía.
+
+```sh
+B04_REMOTE_PRODUCT_PROBE=1 node --env-file=.env ./node_modules/vitest/vitest.mjs run tests/persistence/remote-product-schema.test.ts --reporter=verbose
 ```
