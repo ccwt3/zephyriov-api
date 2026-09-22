@@ -1,5 +1,20 @@
 # Branch changes
 
+## 2026-09-22 — B05.04 y B05.05: frontera HTTP y ensayo web Auth
+
+Cookies host API y CORS exacto con credenciales; origen obligatorio para POST,
+retornos por URL completa y controles CSRF de Better Auth activos. Página
+local de ensayo con SQLite temporal/correo en memoria, probada en Firefox
+156.0 para registro, verificación, sesión y recuperación. TDD, 229 pruebas
+locales, lint, typecheck y build aprobados mediante binarios instalados;
+ocho pruebas remotas opt-in omitidas. Firefox requirió ejecución fuera del
+sandbox, autorizada por el usuario; bloqueo resuelto. No hay trabajo manual
+pendiente para estos puntos. Siguiente B05.06; fase API abierta.
+[Diseño](docs/auth-B05.04-B05.05.md) e
+[informe diario](docs/evidencia/B05.04-B05.05.md).
+
+[Listo :v]
+
 ## 2026-09-22 — B05.02 y B05.03: registro, verificación y recuperación
 
 Registro/login real con perfil único y guardia de negocio para sesión y correo

@@ -3,6 +3,7 @@ import { drizzleAdapter } from '@better-auth/drizzle-adapter';
 import { drizzle } from 'drizzle-orm/libsql';
 import { betterAuth } from 'better-auth';
 import * as authSchema from '../persistence/auth-schema.js';
+import { authHTTPPolicy, secureAuthHandler, type AuthHTTPOptions } from './http-security.js';
 
 export const INITIAL_PROFILE = Object.freeze({
   settingsVersion: '1',
@@ -67,19 +68,27 @@ export interface AuthEmail {
   token: string;
 }
 
-export interface AuthOptions {
-  baseURL: string;
+export interface AuthOptions extends AuthHTTPOptions {
   secret: string;
   sendVerificationEmail: (message: AuthEmail) => Promise<void>;
   sendResetPassword: (message: AuthEmail) => Promise<void>;
 }
 
 export function createZephyriovAuth(client: Client, options: AuthOptions) {
+  const policy = authHTTPPolicy(options);
   const db = drizzle({ client, schema: authSchema });
-  return betterAuth({
+  const auth = betterAuth({
     appName: 'Zephyriov',
     baseURL: options.baseURL,
     secret: options.secret,
+    trustedOrigins: [...policy.origins],
+    advanced: {
+      useSecureCookies: options.baseURL.startsWith('https://'),
+      crossSubDomainCookies: { enabled: false },
+      defaultCookieAttributes: { httpOnly: true, sameSite: 'lax', path: '/' },
+      disableOriginCheck: false,
+      disableCSRFCheck: false,
+    },
     database: drizzleAdapter(db, {
       provider: 'sqlite',
       schema: authSchema,
@@ -107,4 +116,6 @@ export function createZephyriovAuth(client: Client, options: AuthOptions) {
       },
     },
   });
+  auth.handler = secureAuthHandler(auth.handler, policy);
+  return auth;
 }

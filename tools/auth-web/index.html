@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ensayo local de Auth</title>
+<body>
+  <h1>Ensayo local de Auth</h1>
+  <p>Usa solo cuentas ficticias. El correo se captura localmente y los datos se eliminan al detener el ensayo.</p>
+  <p id="return-error" role="alert"></p>
+  <fieldset>
+    <legend>Cuenta de ensayo</legend>
+    <p><label>Nombre <input id="name" autocomplete="name"></label></p>
+    <p><label>Correo <input id="email" type="email" autocomplete="email"></label></p>
+    <p><label>Contraseña <input id="password" type="password" autocomplete="current-password"></label></p>
+    <button id="signup" type="button">Registrar</button>
+    <button id="login" type="button">Iniciar sesión</button>
+    <button id="resend" type="button">Reenviar verificación</button>
+    <button id="recovery" type="button">Solicitar recuperación</button>
+  </fieldset>
+  <fieldset>
+    <legend>Recuperación desde el enlace recibido</legend>
+    <label>Nueva contraseña <input id="new-password" type="password" autocomplete="new-password"></label>
+    <button id="reset" type="button" disabled>Cambiar contraseña</button>
+  </fieldset>
+  <p><button id="session" type="button">Consultar sesión</button></p>
+  <p id="identity">Sin sesión</p>
+  <p id="status" role="status" data-busy="true">Consultando…</p>
+  <p><button id="mail" type="button">Ver correo local</button></p>
+  <ul id="mailbox"></ul>
+  <script type="module" src="/probe.js"></script>
+</body>
+</html>

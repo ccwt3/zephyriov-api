@@ -10,7 +10,9 @@ export const credentials = {
   name: 'Local test', email: 'local@example.invalid', password: 'local-test-password-123',
 };
 
-export async function authFixture() {
+export async function authFixture(options: {
+  baseURL?: string; webOrigins?: string[]; allowedReturnURLs?: string[];
+} = {}) {
   const directory = await mkdtemp(join(tmpdir(), 'zephyriov-auth-flow-'));
   const client = createClient({ url: `file:${join(directory, 'test.db')}` });
   await migrateLocal(client);
@@ -18,6 +20,9 @@ export async function authFixture() {
   const resetEmails: AuthEmail[] = [];
   const auth = createZephyriovAuth(client, {
     baseURL,
+    webOrigins: [],
+    allowedReturnURLs: [`${baseURL}/`, `${baseURL}/reset`],
+    ...options,
     secret: 'test-secret-that-is-at-least-thirty-two-characters',
     sendVerificationEmail: async (message) => { verificationEmails.push(message); },
     sendResetPassword: async (message) => { resetEmails.push(message); },
@@ -26,9 +31,9 @@ export async function authFixture() {
   return {
     client, auth, verificationEmails, resetEmails,
     async post(path: string, body: unknown, cookie?: string) {
-      return auth.handler(new Request(`${baseURL}/api/auth${path}`, {
+      return auth.handler(new Request(`${options.baseURL ?? baseURL}/api/auth${path}`, {
         method: 'POST',
-        headers: { 'content-type': 'application/json', origin: baseURL, ...(cookie ? { cookie } : {}) },
+        headers: { 'content-type': 'application/json', origin: options.baseURL ?? baseURL, ...(cookie ? { cookie } : {}) },
         body: JSON.stringify(body),
       }));
     },

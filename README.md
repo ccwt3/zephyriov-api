@@ -13,8 +13,9 @@ B02.03–B02.04 añadieron el
 [contrato de perfil, ajustes, repertorio, sesión y onboarding](docs/contrato-B02.03-B02.04.md).
 El [contrato B02.07–B02.08](docs/contrato-B02.07-B02.08.md) añade paquete
 offline/renovación y lecturas con revisión, ticket, avisos y readiness.
-El siguiente punto es B05.04, cookies host API, CORS exacto, protección
-CSRF/origen y matriz de retornos. B04 quedó cerrado con el ensayo remoto del
+El siguiente punto es B05.06, consumidor Expo mínimo de ensayo Auth.
+B05.04–B05.05 fijaron cookies host API, CORS/origen y retornos exactos y
+probaron una página local en Firefox. B04 quedó cerrado con el ensayo remoto del
 esquema de producto; B05.01–B05.03 integraron Better Auth, perfil inicial,
 registro/login, verificación y recuperación con correo capturado localmente.
 B04.03 dejó versionado el esquema local de identidad, perfil, preferencias y
@@ -30,7 +31,8 @@ del esqueleto. El paquete exporta la versión de especificación y
 tarball local. Los esquemas son fuente única; DTO TypeScript y OpenAPI se
 generan desde los esquemas Zod en B02.09. Contiene el dominio SRS puro y el
 esquema local de persistencia. El handler HTTP de Better Auth se prueba en
-proceso; aún no hay servidor escuchando ni rutas/casos de uso de negocio.
+proceso y con servidores temporales de ensayo en loopback; aún no hay
+servidor de producto ni rutas/casos de uso de negocio.
 La [evidencia T01](docs/evidencia/T01.md)
 y [evidencia T02](docs/evidencia/T02.md) detallan verificación y límites.
 
@@ -118,6 +120,19 @@ pruebas cubren el adaptador real, repetición simultánea y rollback por usuario
 ausente. Email/password permanece deshabilitado hasta B05.02; aún no hay Auth
 HTTP, correo ni OAuth. [Diseño](docs/auth-B05.01.md) ·
 [informe diario](docs/evidencia/B04.10-B05.01.md).
+
+**B05.04–B05.05 — frontera HTTP y página de ensayo (2026-09-22):** cookies
+HTTPS Secure/HttpOnly/Lax sin Domain, CORS con credenciales y orígenes exactos,
+POST JSON con origen obligatorio y retornos registrados por URL completa.
+Los controles de Better Auth permanecen activos también en tests. La página
+`tools/auth-web/` recorrió registro/verificación/recuperación y sesión desde
+otro origen en Firefox 156.0, con SQLite temporal y correo en memoria. No
+almacena sesión en storage del navegador. Es herramienta API, fuera de los
+clientes de producto. Aprobaron 229 pruebas locales, lint, typecheck, build y
+el recorrido opt-in de navegador; se usaron binarios instalados porque pnpm
+no pudo verificar su firma contra el registro. Siguiente B05.06; API continúa.
+[Diseño y reproducción](docs/auth-B05.04-B05.05.md) ·
+[informe diario](docs/evidencia/B05.04-B05.05.md).
 
 **B05.02–B05.03 — registro, verificación y recuperación (2026-09-22):** el
 handler Better Auth recorre registro/login, reenvío, verificación y reset con
