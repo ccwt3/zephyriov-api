@@ -28,6 +28,8 @@ test('Better Auth creates one stable product profile through its user hook', asy
   const auth = createZephyriovAuth(client, {
     baseURL: 'http://localhost:3000',
     secret: 'test-secret-that-is-at-least-thirty-two-characters',
+    sendVerificationEmail: async () => {},
+    sendResetPassword: async () => {},
   });
   const context = await auth.$context;
 

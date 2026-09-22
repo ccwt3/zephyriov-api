@@ -1,45 +1,47 @@
 # Estado de trabajo agéntico
 
-- Puntos ejecutados en esta sesión: **B04.10 y B05.01** sobre HEAD de entrada
-  `037eb78`. B04 cerró su ensayo remoto y B05 comenzó con la integración
-  interna de Better Auth, sin HTTP ni código de clientes.
-  [Informe](evidencia/B04.10-B05.01.md) ·
-  [compatibilidad](compatibilidad.md) · [diseño Auth](auth-B05.01.md).
-- Estado B04.10: `probado(Turso remoto, Linux x64, Node 26.9.0)`. Cuatro casos
-  pasaron sobre una base aislada comprobada vacía; la limpieza posterior dejó
-  cero objetos. B04 está cerrado y la inyección definitiva se repite en B06.06.
-- Estado B05.01: `probado(SQLite local, Linux x64, Node 26.9.0)`. Tres pruebas
-  del adaptador real, idempotencia y rollback pasaron. El conjunto local aprobó
-  216 pruebas, lint, typecheck y build; ocho pruebas remotas opt-in quedaron
-  omitidas en la corrida local.
-- **Siguiente punto pendiente: B05.02**, registro/login y autorización de una
-  cuenta no verificada, con correo capturado localmente. **No se ejecutó
-  B05.02 en esta sesión.**
+- Puntos ejecutados en esta sesión: **B05.02 y B05.03**, exactamente los dos
+  autorizados, sobre HEAD de entrada `123d2c1`. Registro/login, autorización
+  de negocio por correo verificado, verificación/reenvío y recuperación con
+  correo capturado localmente. [Informe](evidencia/B05.02-B05.03.md) ·
+  [diseño Auth](auth-B05.02-B05.03.md).
+- Estado B05.02–B05.03: `probado(SQLite local, Linux x64, Node 26.9.0)`.
+  Once pruebas Auth aprobaron (ocho nuevas); el conjunto local aprobó 224
+  pruebas, lint, typecheck y build. Ocho pruebas remotas opt-in omitidas.
+  El handler Auth se prueba en proceso con Request/Response; no hay servidor
+  desplegado ni rutas de negocio, correo real o clientes.
+- **Siguiente punto pendiente: B05.04**, cookies host API, CORS exacto,
+  protección CSRF/origen y matriz de retornos. **No se ejecutó B05.04.**
 - Fuentes: `/home/cacawatin/code/personal/Zephyriov/docs/blueprint/`:
-  `plan-trabajo-agentico.md` §3, §5 B05.02 y §13;
+  `plan-trabajo-agentico.md` §3, §5 B05.04 y §13;
   `plan-accionable-backend.md` §B05; contratos B02 y esquema B04 de esta raíz.
 - Repositorio: esta raíz `zephyriov-api` para API e infraestructura. Orden:
   planificación → API → infraestructura → Android → web. La fase API continúa;
   no corresponde cambiar todavía a un repositorio cliente.
-- Alcance previsto B05.02: habilitar email/contraseña en la instancia Auth,
-  recorrer registro y login mediante la API real de Better Auth, capturar el
-  correo de verificación localmente y negar sincronización de negocio mientras
-  `emailVerified` sea falso. Reutilizar el perfil B05.01 y el esquema Auth
-  efectivo, sin inventar rutas ni implementar verificación/recuperación B05.03.
-- Archivos previstos B05.02: `src/auth/`, `tests/auth/`, herramientas de correo
-  local sólo si hacen falta, `docs/`, README, Branch_changes y este puntero.
-  No tocar clientes, OAuth, CORS/cookies finales, Resend ni despliegue.
-- Pruebas previstas B05.02: registro real crea usuario/perfil/cuenta de
-  credencial y captura correo sin enviarlo; login válido/contraseña incorrecta;
-  sesión Auth disponible pero acceso de negocio devuelve cuenta no verificada;
-  repetición no duplica perfil. Ejecutar tests, lint, typecheck y build.
+- Alcance previsto B05.04: configurar cookies de host API, orígenes CORS
+  exactos, CSRF y validación de origen/retorno para las rutas Auth efectivas;
+  comprobar credenciales y retornos permitidos/rechazados mediante una matriz
+  local de integración. Mantener los controles de Better Auth, sin wildcard
+  ni orígenes reflejados. Los valores locales de prueba no equivalen a dominios
+  de despliegue aprobados.
+- Archivos previstos B05.04: `src/auth/`, `tests/auth/`, adaptador HTTP mínimo
+  sólo si hace falta para aplicar y probar CORS, `docs/`, README,
+  Branch_changes y este puntero. No tocar clientes, página de ensayo B05.05,
+  Google real, Resend ni despliegue.
+- Pruebas previstas B05.04: atributos de cookies/ausencia de Domain, origen
+  permitido frente a ajeno/nulo, preflight y credenciales con allowlist
+  exacta, POST sensible desde origen ajeno, callbacks/retornos externos y
+  manipulados, regresión de registro/login/verificación/reset. Ejecutar
+  tests, lint, typecheck y build; registrar las URLs locales de ensayo.
 - Dependencias verificadas: G01/T01/T02, B02.01–B02.10, B03.01–B03.12,
-  B04.01–B04.10 y B05.01 documentados. `DOMAIN_VERSION = B03.12-v1`.
-- Intervención manual: ninguna para B05.02; el correo se captura localmente.
-  M05–M08 se requieren en puntos posteriores de Auth remoto/Google/correo real,
-  no para este siguiente punto.
-- Riesgos: el hook B05.01 corre después de crear el usuario; su inicialización
-  idempotente permite reparación al repetirla, pero B05.02 debe verificar el
-  recorrido real. El runtime declarado es Node 24; esta sesión probó Node
+  B04.01–B04.10 y B05.01–B05.03 documentados. `DOMAIN_VERSION = B03.12-v1`.
+  B04 está cerrado por ensayo remoto previo; B05 permanece abierto.
+- Intervención manual: ninguna pendiente de esta sesión. La matriz local de
+  B05.04 no requiere provisión; M05–M08 serán necesarios para servicios,
+  dominios, correo real y Google en sus puntos correspondientes.
+- Riesgos: toda ruta de negocio futura debe llamar `requireVerifiedSession`
+  y convertir errores al envelope B02; una sesión Auth por sí sola no habilita
+  sincronización. Verificación repetida es idempotente; reset consume el token
+  y revoca sesiones. El runtime declarado es Node 24 y esta sesión probó Node
   26.9.0. No declarar Auth HTTP cerrado antes de B05.12.
 - Última actualización: 2026-09-22, Mexico/General.

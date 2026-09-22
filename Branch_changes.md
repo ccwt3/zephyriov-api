@@ -1,5 +1,17 @@
 # Branch changes
 
+## 2026-09-22 — B05.02 y B05.03: registro, verificación y recuperación
+
+Registro/login real con perfil único y guardia de negocio para sesión y correo
+verificado. Captura local de verificación/reenvío/reset; tokens de una hora,
+verificación repetida idempotente y recuperación de un uso que revoca sesiones
+sin verificar la cuenta. TDD y 224 pruebas locales, lint, typecheck y build
+aprobados bajo Node 26.9.0; ocho casos remotos omitidos. Sin envío externo ni
+clientes. [Diseño](docs/auth-B05.02-B05.03.md) e
+[informe diario](docs/evidencia/B05.02-B05.03.md). Siguiente B05.04; API continúa.
+
+[Listo :v]
+
 ## 2026-09-22 — B04.10 y B05.01: esquema remoto e integración Auth
 
 Las seis migraciones de producto pasaron en una base Turso de ensayo vacía:

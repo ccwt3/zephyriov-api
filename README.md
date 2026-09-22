@@ -13,9 +13,10 @@ B02.03–B02.04 añadieron el
 [contrato de perfil, ajustes, repertorio, sesión y onboarding](docs/contrato-B02.03-B02.04.md).
 El [contrato B02.07–B02.08](docs/contrato-B02.07-B02.08.md) añade paquete
 offline/renovación y lecturas con revisión, ticket, avisos y readiness.
-El siguiente punto es B05.02, registro/login y autorización de una cuenta no
-verificada con correo capturado localmente. B04 quedó cerrado con el ensayo
-remoto del esquema de producto; B05.01 integró Better Auth y el perfil inicial.
+El siguiente punto es B05.04, cookies host API, CORS exacto, protección
+CSRF/origen y matriz de retornos. B04 quedó cerrado con el ensayo remoto del
+esquema de producto; B05.01–B05.03 integraron Better Auth, perfil inicial,
+registro/login, verificación y recuperación con correo capturado localmente.
 B04.03 dejó versionado el esquema local de identidad, perfil, preferencias y
 revisión de cuenta. B04.02 cerró el ensayo remoto en una base Turso de ensayo
 aislada con motor SQLite, plan Free y región US declarados.
@@ -28,7 +29,8 @@ del esqueleto. El paquete exporta la versión de especificación y
 `zephyriov-api/contracts` con esquemas Zod y ejemplos instalables desde un
 tarball local. Los esquemas son fuente única; DTO TypeScript y OpenAPI se
 generan desde los esquemas Zod en B02.09. Contiene el dominio SRS puro y el
-esquema local de persistencia; aún no hay HTTP ni adaptadores de casos de uso.
+esquema local de persistencia. El handler HTTP de Better Auth se prueba en
+proceso; aún no hay servidor escuchando ni rutas/casos de uso de negocio.
 La [evidencia T01](docs/evidencia/T01.md)
 y [evidencia T02](docs/evidencia/T02.md) detallan verificación y límites.
 
@@ -116,6 +118,17 @@ pruebas cubren el adaptador real, repetición simultánea y rollback por usuario
 ausente. Email/password permanece deshabilitado hasta B05.02; aún no hay Auth
 HTTP, correo ni OAuth. [Diseño](docs/auth-B05.01.md) ·
 [informe diario](docs/evidencia/B04.10-B05.01.md).
+
+**B05.02–B05.03 — registro, verificación y recuperación (2026-09-22):** el
+handler Better Auth recorre registro/login, reenvío, verificación y reset con
+correo capturado en memoria. `requireVerifiedSession` exige sesión real y
+correo verificado antes del negocio (401/403); las futuras rutas deberán
+invocarlo. Verificación y reset vencen en una hora; repetir verificación no
+crea sesión, y reset consume su token y revoca sesiones sin verificar una
+cuenta pendiente. Aprobaron 224 pruebas locales, lint, typecheck y build bajo
+Node 26.9.0. Siguiente B05.04; B05 y la fase API siguen abiertos.
+[Diseño](docs/auth-B05.02-B05.03.md) ·
+[informe diario](docs/evidencia/B05.02-B05.03.md).
 
 **B03.01–B03.02 — runner y fechas (2026-09-19):** `src/domain/` contiene un
 runner puro que recorre las 352 variantes B01 sin generar expectativas y

@@ -60,7 +60,21 @@ async function initializeAccountProfile(client: Client, userId: string): Promise
   }
 }
 
-export function createZephyriovAuth(client: Client, options: { baseURL: string; secret: string }) {
+/** Sensitive delivery data: capture only in tests; never write URLs or tokens to logs. */
+export interface AuthEmail {
+  user: { id: string; email: string; name: string };
+  url: string;
+  token: string;
+}
+
+export interface AuthOptions {
+  baseURL: string;
+  secret: string;
+  sendVerificationEmail: (message: AuthEmail) => Promise<void>;
+  sendResetPassword: (message: AuthEmail) => Promise<void>;
+}
+
+export function createZephyriovAuth(client: Client, options: AuthOptions) {
   const db = drizzle({ client, schema: authSchema });
   return betterAuth({
     appName: 'Zephyriov',
@@ -71,7 +85,20 @@ export function createZephyriovAuth(client: Client, options: { baseURL: string; 
       schema: authSchema,
       transaction: true,
     }),
-    emailAndPassword: { enabled: false },
+    emailAndPassword: {
+      enabled: true,
+      // Auth sessions can manage verification; business access has a separate gate.
+      requireEmailVerification: false,
+      resetPasswordTokenExpiresIn: 3600,
+      revokeSessionsOnPasswordReset: true,
+      sendResetPassword: options.sendResetPassword,
+    },
+    emailVerification: {
+      sendOnSignUp: true,
+      expiresIn: 3600,
+      autoSignInAfterVerification: false,
+      sendVerificationEmail: options.sendVerificationEmail,
+    },
     databaseHooks: {
       user: {
         create: {
