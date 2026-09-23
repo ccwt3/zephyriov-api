@@ -1,53 +1,68 @@
 # Estado de trabajo agéntico
 
-- Puntos ejecutados en esta sesión: **B05.04 y B05.05**, exactamente los dos
-  autorizados, sobre HEAD de entrada `110a644`. Frontera HTTP Auth y página
-  web mínima de ensayo en API. [Informe](evidencia/B05.04-B05.05.md) ·
-  [diseño y reproducción](auth-B05.04-B05.05.md).
-- Estado B05.04–B05.05: `probado(SQLite local, Request/Response, Firefox
-  156.0, Linux x64, Node 26.9.0)`. 229 pruebas locales, lint, typecheck,
-  build y recorrido opt-in BiDi aprobados. Ocho casos remotos omitidos.
-  Se usaron binarios instalados de los scripts porque pnpm no pudo verificar
-  su firma contra el registro. No se alteraron dependencias ni lockfile.
-- **Siguiente punto pendiente: B05.06**, consumidor Expo mínimo, navegador/
-  deep link y sesión segura; clave de prueba identificada.
-  **No se ejecutó B05.06 ni B05.07.**
+- Sesión actual: autorizados **B05.06 y B05.07**, sobre HEAD de entrada
+  `53c4666`, árbol limpio. **B05.06 completado y probado**; B05.07 se deja
+  pendiente para otra sesión por indicación expresa del usuario al requerir
+  M08. Un punto completado de los dos autorizados; ninguno posterior ejecutado.
+  [Informe diario](evidencia/B05.06.md) · [diseño](auth-B05.06.md).
+- Estado B05.06: `construido_local` y `probado(Android 11/API 30, moto g(20),
+  ARM64, SQLite local/loopback, Node 26.9.0)`. 233 pruebas locales, lint,
+  typecheck, build API, bundle Metro y APK aprobados. Cinco grupos de
+  aceptación Android pasados; ocho pruebas remotas opt-in omitidas.
+  APK firmado con clave debug de ensayo identificada en el informe y
+  desinstalado al terminar. Sin Google real ni despliegue.
+- **Siguiente punto pendiente: B05.07**, Google real, identidad acreditada y
+  callbacks negativos. Estado **pendiente_manual(M08)**. B05.08 queda fuera
+  de la autorización actual; no saltar a otro punto por esta espera.
+- **Próxima sesión manual/semimanual, solicitada por el usuario:** comenzar
+  guiando paso a paso M08, sin presumir que ya está configurado. Explicar
+  cómo entrar a Google Cloud Console, elegir/crear proyecto, configurar
+  consentimiento y cuenta de prueba, crear cliente OAuth de tipo Aplicación
+  web, registrar el redirect exacto y nombrar/guardar las variables `.env`.
+  Después integrar y guiar el login real en navegador cuando corresponda.
+  [Ficha M08 preparada](manual-M08.md). No pedir secretos por chat.
+- Datos de ensayo confirmados: ID Android `dev.zephyriov.authprobe`, scheme
+  `zephyriov-auth-probe`, retorno exacto `zephyriov-auth-probe://verified`.
+  API de ensayo `http://localhost:3402`; redirect OAuth preparado desde la
+  ruta Better Auth instalada: `http://localhost:3402/api/auth/callback/google`.
+  No está registrado ni probado en Google. `GOOGLE_CLIENT_ID` y
+  `GOOGLE_CLIENT_SECRET` estaban ausentes en `.env`; sólo el backend usará
+  el secreto. El consumidor web se conectará al mismo backend durante B05.07.
 - Fuentes: `/home/cacawatin/code/personal/Zephyriov/docs/blueprint/`:
-  `plan-trabajo-agentico.md` §3, §5 B05.06 y §13;
+  `plan-trabajo-agentico.md` §3, §5 B05.07, §7 M08 y §13;
   `plan-accionable-backend.md` §B05; contratos B02 y esquema B04 de esta raíz.
-- Repositorio: esta raíz `zephyriov-api` para API e infraestructura. El backend
-  §B05 ubica los consumidores mínimos web/Expo como herramientas de ensayo
-  en API, fuera de UI de producto. Los clientes Android/web siguen separados.
-  Orden: planificación → API → infraestructura → Android → web.
+- Repositorio: esta raíz `zephyriov-api` para API e infraestructura. Los
+  consumidores mínimos Expo/web son herramientas de ensayo en `tools/`,
+  permitidas por backend §B05; no son clientes de producto. Orden:
+  planificación → API → infraestructura → Android → web.
   **La fase API continúa; no corresponde cambiar de repositorio.**
-- Alcance previsto B05.06: consumidor Expo mínimo para abrir navegador del
-  sistema, recibir deep link y consultar sesión mediante integración oficial,
-  con almacenamiento seguro y clave de prueba identificada. Validar primero
-  versiones instaladas, adaptador Better Auth, toolchain y runtime disponible.
-  No desactivar CSRF/origin globalmente para habilitar móvil. Google real
-  corresponde a B05.07 tras M08; no adelantarlo ni construir UI de producto.
-- Archivos previstos B05.06: herramienta aislada en `tools/`, pruebas
-  separadas, `src/auth/` sólo para la integración requerida, configuración/
-  dependencias mínimas justificadas, `docs/`, README, Branch_changes y este
-  puntero. No tocar repositorios cliente, esquema SRS, catálogo ni despliegue.
-- Pruebas previstas B05.06: consumidor compilado/ejecutado en runtime Android
-  identificado; navegador/retorno válido, retorno ajeno o duplicado y
-  cancelación, sesión guardada de forma segura y consulta al handler real.
-  Registrar APK/firma de ensayo, versiones, scheme y URL exactos. Ejecutar
-  regresión Auth, tests, lint, typecheck y build que correspondan. No cerrar
-  el punto sólo por bundle/build o por pruebas de Request/Response.
-- Dependencias verificadas: G01/T01/T02, B02.01–B02.10, B03.01–B03.12,
-  B04.01–B04.10 y B05.01–B05.05 documentados. `DOMAIN_VERSION = B03.12-v1`.
-  B04 cerrado por ensayo remoto previo; B05 permanece abierto. La prueba
-  Android de B03 no sustituye la validación Expo/Auth de B05.06.
-- Intervención manual: ninguna pendiente de esta sesión. Firefox falló en el
-  sandbox; tras respuesta del usuario y ejecución fuera del sandbox aprobó
-  con perfil temporal. M03/M08 se evaluarán para runtime/scheme/retornos de
-  B05.06; M05–M08 siguen vigentes para los servicios reales posteriores.
-- Riesgos: futuras rutas de negocio deben llamar `requireVerifiedSession`;
-  CORS no es autorización. La frontera actual exige Origin exacto para POST,
-  JSON y retornos registrados. El ensayo localhost no demuestra TLS ni
-  cookies entre hosts distintos; HTTPS se probó en proceso. El buzón local
-  de `tools/auth-web/` no debe desplegarse. Runtime declarado Node 24; esta
-  sesión probó Node 26.9.0. No declarar Auth cerrado antes de B05.12.
+- Alcance previsto B05.07: integrar Google oficial después de M08 y probar
+  identidad verificada/no acreditada, perfil único entre consumidores y
+  callbacks alterados/reutilizados/cancelados. Scopes mínimos de identidad;
+  no adelantar vinculación B05.08, UI producto, catálogo ni despliegue.
+- Archivos previstos: `src/auth/`, `tests/auth/`, herramientas mínimas en
+  `tools/auth-web/` y `tools/auth-expo/`, configuración/dependencias mínimas
+  justificadas, `docs/`, README, Branch_changes y este puntero. No tocar
+  repositorios cliente, esquema SRS ni migraciones salvo nueva contradicción
+  que obligue a detenerse y resolverla con el usuario.
+- Pruebas previstas B05.07: login Google real web/Android con intervención
+  del usuario, identidad y perfil únicos, callbacks negativos y secreto
+  ausente de clientes/logs; regresión Auth, tests, lint, typecheck y build.
+  No cerrar el punto por mocks, tokens inventados o sólo Request/Response.
+- Dependencias verificadas: G01/T01/T02, B02 completo, B03 completo,
+  B04 completo y B05.01–B05.06 documentados. `DOMAIN_VERSION = B03.12-v1`.
+  B05 sigue abierto; M05–M08 conservan sus requisitos de servicios reales.
+- M03 resuelto durante la sesión: el usuario conectó/autorizó Android y
+  aprobó instalaciones/licencias en `tools/auth-expo/.build/`. SDK Unity
+  intacto; NDK 27.1.12297006, CMake 3.22.1/3.30.5 y Gradle 9.3.1 aislados.
+  Revalidar disponibilidad del dispositivo al reanudar. Si aparece selector
+  de navegador, guiar Chrome «Sólo esta vez» y coordinar las acciones del
+  usuario con las del runner; el primer recorrido fue interrumpido y el
+  segundo pasó completo. No usar esa interrupción como aceptación.
+- Riesgos: Node declarado 24 frente a 26.9.0 probado. HTTP loopback no
+  acredita TLS. SecureStore y el handler son reales; el correo de B05.06 se
+  capturó en memoria. El plugin Expo conserva CSRF/origin y la frontera
+  exige retorno exacto. Futuras rutas de negocio deben llamar
+  `requireVerifiedSession`; CORS y scheme no acreditan identidad. No desplegar
+  `/probe/*` ni los buzones locales. No declarar Auth cerrado antes de B05.12.
 - Última actualización: 2026-09-22, Mexico/General.

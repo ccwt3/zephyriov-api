@@ -13,7 +13,10 @@ B02.03–B02.04 añadieron el
 [contrato de perfil, ajustes, repertorio, sesión y onboarding](docs/contrato-B02.03-B02.04.md).
 El [contrato B02.07–B02.08](docs/contrato-B02.07-B02.08.md) añade paquete
 offline/renovación y lecturas con revisión, ticket, avisos y readiness.
-El siguiente punto es B05.06, consumidor Expo mínimo de ensayo Auth.
+El siguiente punto es B05.07, Google real, pendiente de configuración M08.
+B05.06 probó el consumidor Expo en Android 11: navegador/deep link exacto,
+sesión en SecureStore conservada tras cierre y logout persistente.
+[Informe B05.06](docs/evidencia/B05.06.md) y [preparación M08](docs/manual-M08.md).
 B05.04–B05.05 fijaron cookies host API, CORS/origen y retornos exactos y
 probaron una página local en Firefox. B04 quedó cerrado con el ensayo remoto del
 esquema de producto; B05.01–B05.03 integraron Better Auth, perfil inicial,
@@ -133,6 +136,19 @@ el recorrido opt-in de navegador; se usaron binarios instalados porque pnpm
 no pudo verificar su firma contra el registro. Siguiente B05.06; API continúa.
 [Diseño y reproducción](docs/auth-B05.04-B05.05.md) ·
 [informe diario](docs/evidencia/B05.04-B05.05.md).
+
+**B05.06 — ensayo Expo/Auth en Android (2026-09-22):** el plugin oficial
+Expo 1.7.5 y `nativeOrigins` habilitan transporte móvil con scheme explícito,
+retornos exactos y CSRF/origin activos. El consumidor aislado en
+`tools/auth-expo/` fija Expo 57.0.24 y React Native 0.86.3; usa SecureStore
+y consulta la sesión real después de verificar desde el navegador del sistema.
+Pasaron 233 pruebas locales, lint, typecheck, build API y APK ARM64, además
+de cinco grupos de aceptación en moto g(20)/Android 11. Dispositivo,
+ID/scheme e instalación/licencias del SDK aislado fueron autorizados durante
+la sesión; Unity no se modificó. El APK temporal se desinstaló. B05.07 queda
+pendiente de M08; no se probó Google real ni se cierra la fase API.
+[Diseño y reproducción](docs/auth-B05.06.md) ·
+[informe diario](docs/evidencia/B05.06.md).
 
 **B05.02–B05.03 — registro, verificación y recuperación (2026-09-22):** el
 handler Better Auth recorre registro/login, reenvío, verificación y reset con

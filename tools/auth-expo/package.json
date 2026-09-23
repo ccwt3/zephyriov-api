@@ -1,0 +1,23 @@
+{
+  "name": "zephyriov-auth-probe",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "packageManager": "pnpm@12.4.2",
+  "scripts": {
+    "start": "expo start --localhost",
+    "prebuild": "expo prebuild --platform android --no-install"
+  },
+  "dependencies": {
+    "@better-auth/expo": "1.7.5",
+    "better-auth": "1.7.5",
+    "expo": "57.0.24",
+    "expo-constants": "57.0.19",
+    "expo-linking": "57.0.10",
+    "expo-network": "57.0.2",
+    "expo-secure-store": "57.0.4",
+    "expo-web-browser": "57.0.3",
+    "react": "19.2.3",
+    "react-native": "0.86.3"
+  }
+}

@@ -2,6 +2,7 @@ import type { Client } from '@libsql/client';
 import { drizzleAdapter } from '@better-auth/drizzle-adapter';
 import { drizzle } from 'drizzle-orm/libsql';
 import { betterAuth } from 'better-auth';
+import { expo } from '@better-auth/expo';
 import * as authSchema from '../persistence/auth-schema.js';
 import { authHTTPPolicy, secureAuthHandler, type AuthHTTPOptions } from './http-security.js';
 
@@ -81,7 +82,8 @@ export function createZephyriovAuth(client: Client, options: AuthOptions) {
     appName: 'Zephyriov',
     baseURL: options.baseURL,
     secret: options.secret,
-    trustedOrigins: [...policy.origins],
+    trustedOrigins: [...policy.origins, ...policy.nativeOrigins],
+    plugins: policy.nativeOrigins.size ? [expo({ disableOriginOverride: true })] : [],
     advanced: {
       useSecureCookies: options.baseURL.startsWith('https://'),
       crossSubDomainCookies: { enabled: false },

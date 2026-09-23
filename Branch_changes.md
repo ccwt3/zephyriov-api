@@ -1,5 +1,24 @@
 # Branch changes
 
+## 2026-09-22 — B05.06 probado; B05.07 pendiente de M08
+
+Se integró el transporte oficial Expo con origen nativo explícito, retornos
+exactos y controles CSRF/origin activos. Consumidor mínimo aislado en API,
+con dependencias fijadas y APK de prueba identificado. TDD, 233 pruebas
+locales, lint, typecheck, build API y APK aprobados; Android 11 pasó registro,
+sesión persistente en SecureStore, cancelación, verificación/deep link,
+retornos ajenos/duplicados y logout tras reiniciar. M03 y los identificadores
+de ensayo se resolvieron con intervención del usuario. El primer recorrido
+de verificación se interrumpió al cerrar el selector de navegador; la
+repetición completa pasó y retiró el APK. B05.07 se detuvo antes de integrar
+Google por M08: faltan credenciales/configuración y login real del usuario.
+El usuario pidió reanudarlo en una sesión manual/semimanual con guía OAuth
+paso a paso. Un punto completado de los dos autorizados; API sigue abierta.
+[Diseño](docs/auth-B05.06.md), [informe](docs/evidencia/B05.06.md) y
+[preparación manual](docs/manual-M08.md).
+
+[Listo :v] — B05.06; B05.07 permanece pendiente.
+
 ## 2026-09-22 — B05.04 y B05.05: frontera HTTP y ensayo web Auth
 
 Cookies host API y CORS exacto con credenciales; origen obligatorio para POST,

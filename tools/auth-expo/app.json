@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "Zephyriov Auth Probe",
+    "slug": "zephyriov-auth-probe",
+    "version": "0.0.1",
+    "scheme": "zephyriov-auth-probe",
+    "android": {
+      "package": "dev.zephyriov.authprobe",
+      "permissions": [],
+      "blockedPermissions": ["android.permission.RECORD_AUDIO", "android.permission.SYSTEM_ALERT_WINDOW"]
+    },
+    "plugins": ["expo-secure-store", "./with-loopback.cjs"]
+  }
+}

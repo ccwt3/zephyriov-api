@@ -11,7 +11,7 @@ export const credentials = {
 };
 
 export async function authFixture(options: {
-  baseURL?: string; webOrigins?: string[]; allowedReturnURLs?: string[];
+  baseURL?: string; webOrigins?: string[]; allowedReturnURLs?: string[]; nativeOrigins?: string[];
 } = {}) {
   const directory = await mkdtemp(join(tmpdir(), 'zephyriov-auth-flow-'));
   const client = createClient({ url: `file:${join(directory, 'test.db')}` });
