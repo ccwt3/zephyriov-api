@@ -27,7 +27,7 @@ enviado por el cliente. El callback efectivo es
 `requireEmailVerification:true` impide emitir sesión para una cuenta pendiente
 de verificación. El acceso a negocio sigue pasando por `requireVerifiedSession`.
 B05.07 mantuvo la vinculación deshabilitada; B05.08 añadió después la
-política explícita, cuyo bloqueo actual se documenta en [su diseño](auth-B05.08.md). El logger interno de Auth
+política explícita y la unicidad de identidad documentadas en [su diseño](auth-B05.08.md). El logger interno de Auth
 se deshabilita para evitar que errores del intercambio impriman respuestas
 con tokens. La observabilidad de operación queda para su fase correspondiente.
 

@@ -1,5 +1,20 @@
 # Branch changes
 
+## 2026-09-27 — B05.08 completado: vinculación e identidad única
+
+La autorización expresa del usuario resolvió M17 local. Una migración nueva
+impide duplicar proveedor/sujeto; conserva datos válidos y revierte sin borrar
+si encuentra duplicados previos. La carrera OAuth devuelve un conflicto seguro
+y admite reintento; errores inesperados no filtran SQL ni tokens. TDD y 256
+pruebas locales aprobadas, nueve opt-in omitidas; lint/typecheck/build y
+migración compilada aprobados. El ensayo remoto recibió HTTP 401 antes de
+escribir: no acredita la migración 007 en Turso. B05.07–B05.08 completados
+(2/2), sin volver a necesitar Android. Siguiente B05.09, sin iniciar; API
+continúa. Cambios ajenos de entorno conservados fuera del commit.
+[Informe diario](docs/evidencia/B05.08.md) · [Diseño](docs/auth-B05.08.md).
+
+[Listo :v]
+
 ## 2026-09-27 — B05.07 probado; B05.08 bloqueado por carrera
 
 Google real pasó en web/Android con una identidad, cuenta y perfil; sesión

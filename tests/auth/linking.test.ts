@@ -131,6 +131,7 @@ test('linking does not expand scopes or allow direct client ID tokens', async ()
 });
 
 test('two concurrent links of the same Google subject cannot create duplicate accounts', async () => {
+  const errors = vi.spyOn(console, 'error').mockImplementation(() => {});
   const value = await fixture();
   const account = await local(value);
   value.claim(credentials.email);
@@ -149,6 +150,30 @@ test('two concurrent links of the same Google subject cannot create duplicate ac
     }
     return found;
   });
-  await Promise.all(requests.map((request) => value.auth.handler(request)));
+  const responses = await Promise.all(requests.map((request) => value.auth.handler(request)));
   expect(await googleCount(value)).toBe(1);
+  expect(responses.filter((response) => response.status === 302)).toHaveLength(1);
+  expect(responses.filter((response) => response.status === 409)).toHaveLength(1);
+  for (const response of responses) expect(await response.text()).not.toContain('synthetic-access');
+  expect(errors).not.toHaveBeenCalled();
+  // A new flow can observe the winner and finish idempotently; no duplicate blocks login.
+  expect(error(await value.auth.handler(await begin(value, account.cookie)))).toBeNull();
+  const login = await value.auth.handler(await begin(value, undefined, '/sign-in/social'));
+  expect(error(login)).toBeNull();
+  expect((await value.auth.api.getSession({ headers: sessionHeaders(login) }))!.user.id).toBe(account.userId);
+  expect(await googleCount(value)).toBe(1);
+});
+
+test('an unexpected account write failure cannot expose database parameters in HTTP or logs', async () => {
+  const value = await fixture();
+  const account = await local(value);
+  value.claim(credentials.email);
+  const adapter = (await value.auth.$context).internalAdapter;
+  vi.spyOn(adapter, 'createAccount').mockRejectedValue(new Error('DB failure with synthetic-access'));
+  const errors = vi.spyOn(console, 'error').mockImplementation(() => {});
+  const response = await value.auth.handler(await begin(value, account.cookie));
+  expect(response.status).toBe(500);
+  expect(await response.json()).toEqual({ code: 'AUTH_INTERNAL_ERROR', message: 'Authentication failed' });
+  expect(errors).not.toHaveBeenCalled();
+  expect(await googleCount(value)).toBe(0);
 });

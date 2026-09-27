@@ -2,7 +2,7 @@ import type { Client } from '@libsql/client';
 import { drizzleAdapter } from '@better-auth/drizzle-adapter';
 import { drizzle } from 'drizzle-orm/libsql';
 import { betterAuth } from 'better-auth';
-import { APIError, addOAuthServerContext, createAuthMiddleware, getAuthoritativeSessionFromCtx, getOAuthState } from 'better-auth/api';
+import { APIError, addOAuthServerContext, createAuthMiddleware, getAuthoritativeSessionFromCtx, getOAuthState, isAPIError } from 'better-auth/api';
 import { expo } from '@better-auth/expo';
 import * as authSchema from '../persistence/auth-schema.js';
 import { authHTTPPolicy, secureAuthHandler, type AuthHTTPOptions } from './http-security.js';
@@ -91,6 +91,16 @@ export function createZephyriovAuth(client: Client, options: AuthOptions) {
     secret: options.secret,
     // Provider errors may contain token-endpoint data. Never log those payloads.
     logger: { disabled: true },
+    // Throw only safe API errors: the router otherwise prints raw DB parameters.
+    onAPIError: { onError: (error) => {
+      if (isAPIError(error)) return;
+      for (let cause = error; cause instanceof Error; cause = cause.cause) {
+        if (cause.message.includes('UNIQUE constraint failed: account.provider_id, account.account_id')) {
+          throw new APIError('CONFLICT', { code: 'ACCOUNT_ALREADY_LINKED', message: 'Provider account already linked' });
+        }
+      }
+      throw new APIError('INTERNAL_SERVER_ERROR', { code: 'AUTH_INTERNAL_ERROR', message: 'Authentication failed' });
+    } },
     socialProviders: options.google ? {
       google: {
         ...options.google,

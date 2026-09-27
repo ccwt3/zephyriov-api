@@ -1,17 +1,23 @@
 # Estado de trabajo agéntico
 
-- Sesión del 2026-09-27: autorizados **B05.07 y B05.08**, límite antes de
-  B05.09. Reanudación sobre `202466e`. Cambios ajenos en README,
-  Branch_changes, `.env.example` y `docs/configuracion-entorno.md` conservados
-  fuera del commit propio. **B05.07 completado**; B05.08 en curso, bloqueado
-  por una contradicción de persistencia que se consultó con el usuario.
-- **Siguiente punto pendiente: B05.08**, vinculación segura. Los controles
-  locales ya rechazan sesión ausente/no verificada/antigua, verifican otra
-  vez la sesión inicial en el callback y bloquean fusiones implícitas.
-  **M17 local, pendiente de autorización de alcance:** nueva migración que impida
-  duplicar `(provider_id, account_id)`, más esquema Drizzle/cargador/pruebas.
-  Dos callbacks concurrentes reprodujeron dos cuentas para un mismo sujeto.
-  No modificar migraciones hasta resolver esta contradicción con el usuario.
+- Sesión del 2026-09-27: **B05.07 y B05.08 completados (2/2)**. Se respetó
+  el límite anterior a B05.09. La continuación sobre `0edb90b` recibió
+  autorización expresa para terminar B05.08, incluida la persistencia;
+  **M17 local resuelto**. Cambios ajenos en README, Branch_changes,
+  `.env.example` y `docs/configuracion-entorno.md` conservados fuera del
+  commit propio.
+- **Siguiente punto pendiente: B05.09**, logout, expiración y revocación,
+  con interfaz para invalidar futuros sockets. **Sin iniciar**; ejecutar
+  sólo con la siguiente autorización. Entrada: B05.01–B05.08 y contratos
+  B02/persistencia B04. Alcance propio: `src/auth/`, `tests/auth/` y
+  documentación; no implementar sockets ni limitadores B05.10.
+- **B05.08 probado localmente:** linking explícito con sesión verificada de
+  menos de cinco minutos, revalidada en el callback; sin fusión implícita ni
+  transferencia de sujeto. La migración nueva `007_account_identity.sql`
+  impone UNIQUE(provider_id, account_id), reflejado en Drizzle/cargador.
+  Las seis anteriores conservan su contenido/checksum. Un concurrente gana;
+  el otro recibe 409 sin exponer SQL y puede reintentar idempotentemente.
+  Datos duplicados previos bloquean la migración sin borrar ni elegir dueño.
   [Diseño B05.08](auth-B05.08.md) · [informe](evidencia/B05.08.md).
 - **B05.07 probado:** Google real en página web y APK Expo/Android con
   intervención del desarrollador, misma identidad verificada, una cuenta
@@ -26,28 +32,29 @@
   `zephyriov-auth-probe://verified`, scheme `zephyriov-auth-probe`, paquete
   `dev.zephyriov.authprobe`. Configuración y login de ensayo acreditados;
   repetir con orígenes/APK finales cuando corresponda. [Ficha](manual-M08.md).
-- M03: al comenzar ADB no detectaba Android; el usuario lo conectó/autorizó.
-  El APK esperó un aviso de instalación que el usuario resolvió. Instalación,
-  apertura, Google y persistencia probados. SDK aislado en
-  `tools/auth-expo/.build/`; Unity intacto. Al cerrar se desinstaló el APK,
-  se confirmó su ausencia, se retiró el reverse y se detuvo el servidor
-  con limpieza de SQLite temporal. No queda servidor de ensayo activo.
+- M03: Android fue conectado/autorizado; el usuario resolvió el aviso de
+  instalación. APK, Google y persistencia probados. SDK aislado en
+  `tools/auth-expo/.build/`; Unity intacto. Al cerrar B05.07 se desinstaló
+  el APK, se confirmó su ausencia, se retiró el reverse y se detuvo el
+  servidor con limpieza de SQLite temporal. **No se necesita el móvil
+  para cerrar B05.08; no queda servidor de ensayo activo.**
 - Fuentes: `/home/cacawatin/code/personal/Zephyriov/docs/blueprint/`,
   `plan-trabajo-agentico.md` §§3, B05, M08 y 13, backend §B05,
   contratos B02 y persistencia B04 de esta raíz. Dependencias G01/T01/T02,
-  B02/B03/B04 y B05.01–B05.06 documentadas; `DOMAIN_VERSION=B03.12-v1`.
-- Archivos autorizados: `src/auth/`, `tests/auth/`, herramientas mínimas
-  `tools/auth-web/` y `tools/auth-expo/`, configuración/dependencias mínimas
-  justificadas, `docs/`, README y Branch_changes. Extensión de persistencia
-  solicitada sólo para corregir la carrera de B05.08; todavía pendiente.
-  No tocar SRS, catálogos ni repositorios cliente.
-- Evidencia local: B05.07 TDD (4 fallos iniciales, 5 pruebas nuevas pasan),
-  238 pruebas, lint/typecheck/build API y APK ARM64 aprobados. B05.08 TDD
-  (7 fallos iniciales, luego 13 casos pasan); regresión de 251 pruebas y
-  lint/typecheck/build aprobados antes de añadir la prueba de concurrencia.
-  Estado más reciente: 13 casos de linking pasan y **1 falla** por duplicados.
-  Ocho pruebas remotas opt-in no ejecutadas; no trasladar conteos antiguos
-  como aprobación del estado actual.
+  B02/B03/B04 documentadas; `DOMAIN_VERSION=B03.12-v1`.
+- Alcance de la continuación B05.08: `src/auth/`, `tests/auth/`, migración
+  nueva, esquema/cargador en `src/persistence/`, pruebas de persistencia y
+  documentos de cierre. No se tocaron SRS, catálogos ni repositorios cliente.
+- Evidencia actual: **256 pruebas locales aprobadas**, nueve opt-in omitidas;
+  lint, typecheck y build aprobados. Incluye 15 casos de linking, tres de
+  migración/unicidad y disputa entre dos conexiones independientes. Migración
+  compilada aplicada dos veces: siete entradas e índice único activo. TDD y
+  comandos completos en el informe B05.08.
+- Límite remoto: el ensayo opt-in actualizado recibió **HTTP 401 de Turso**
+  en su lectura inicial, antes de escribir; falló la preparación y sus cinco
+  casos no se ejecutaron. Se detuvo el intento, sin cambiar credenciales ni
+  bases. No afirmar validación remota de la migración 007. La evidencia
+  histórica B04 no acredita automáticamente esta nueva migración.
 - Riesgos: Node declarado 24 frente a 26.10.0 probado; HTTP loopback no
   acredita TLS. Correo en memoria. Nunca desplegar `/probe/*`. Los casos
   locales controlan la respuesta del proveedor y se distinguen del Google

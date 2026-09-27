@@ -1,8 +1,9 @@
 // Better Auth 1.7.5 SQLite schema generated from getAuthTables({}).
 // Its relations-v2 output calls an API absent from pinned Drizzle 0.45.2;
 // only the four table definitions are retained for the adapter.
+// B05.08 adds durable provider/subject uniqueness beyond the generated schema.
 import { sql } from "drizzle-orm";
-import { sqliteTable, text, integer, index } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer, index, uniqueIndex } from "drizzle-orm/sqlite-core";
 
 export const user = sqliteTable("user", {
 					id: text('id').primaryKey(),
@@ -43,6 +44,7 @@ export const account = sqliteTable("account", {
  updatedAt: integer('updated_at', { mode: 'timestamp_ms' }).$onUpdate(() => /* @__PURE__ */ new Date()).notNull()
 					}, (table) => [
   index("account_userId_idx").on(table.userId),
+  uniqueIndex("account_provider_subject_uidx").on(table.providerId, table.accountId),
 ]);
 
 export const verification = sqliteTable("verification", {

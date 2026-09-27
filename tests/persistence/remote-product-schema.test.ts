@@ -20,7 +20,7 @@ describe.skipIf(process.env.B04_REMOTE_PRODUCT_PROBE !== '1')('B04.10 remote pro
 
   test('migrates an empty primary and a second startup preserves schema and data', async () => {
     const before = await probe.schemaSnapshot();
-    expect(before.migrations).toBe(6);
+    expect(before.migrations).toBe(7);
     expect(before.tables).toContain('study_events');
     expect(before.triggers).toContain('event_decisions_no_update');
 
@@ -62,6 +62,20 @@ describe.skipIf(process.env.B04_REMOTE_PRODUCT_PROBE !== '1')('B04.10 remote pro
     ]);
     expect([winnerA, winnerB].filter(Boolean)).toEqual(['1']);
     expect((await probe.writerA.execute("select revision from account_revisions where user_id = 'u1'")).rows[0]?.revision).toBe('0');
+  }, 120_000);
+
+  test('two remote writers cannot claim the same provider identity', async () => {
+    const insert = (id: string, userId: string) => ({
+      sql: "insert into account (id, user_id, provider_id, account_id, updated_at) values (?, ?, 'google', 'remote-synthetic-subject', 1)",
+      args: [id, userId],
+    });
+    const results = await Promise.allSettled([
+      probe.writerA.execute(insert('remote-google-a', 'u1')),
+      probe.writerB.execute(insert('remote-google-b', 'u2')),
+    ]);
+    expect(results.filter((result) => result.status === 'fulfilled')).toHaveLength(1);
+    expect(results.filter((result) => result.status === 'rejected')).toHaveLength(1);
+    expect((await probe.writerA.execute("select count(*) as n from account where provider_id = 'google' and account_id = 'remote-synthetic-subject'")).rows[0]?.n).toBe(1);
   }, 120_000);
 
   test('rolls back every prefix of the representative B06 write sequence', async () => {

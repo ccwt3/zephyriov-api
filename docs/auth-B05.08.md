@@ -5,7 +5,9 @@
 Entrada: B05.07 probado con Google real en web/Android; Better Auth 1.7.5.
 Resultado: vincular el proveedor a un perfil existente mediante sesión
 autenticada reciente, sin fusionar cuentas por email no verificado. Repositorio
-API; `src/auth/`, `tests/auth/` y documentos de cierre. No adelantar B05.09.
+API; `src/auth/`, `tests/auth/` y documentos de cierre. El usuario amplió
+expresamente el alcance para terminar B05.08: `migrations/`, esquema/cargador
+`src/persistence/` y pruebas de persistencia. No adelantar B05.09.
 
 ## Política implementada
 
@@ -44,24 +46,43 @@ o no acreditado; sesión revocada/antigua/no verificada durante el redirect;
 intento de transferir un sujeto Google de otra cuenta; parámetros/scopes
 extra y suplantación mediante additionalData.
 
-## Contradicción de persistencia y autorización pendiente
+## Unicidad durable y tratamiento de conflictos
 
-Una prueba adicional fuerza dos lecturas reales sin cuenta existente antes
-de permitir dos escrituras concurrentes del mismo sujeto Google. Resultado:
-**dos cuentas, donde debe existir una**. Las otras trece pruebas pasan.
+La prueba concurrente reprodujo inicialmente dos cuentas para un mismo
+sujeto. El usuario autorizó resolverlo, cerrando M17 local. La migración nueva
+`007_account_identity.sql` añade `account_provider_subject_uidx`, UNIQUE sobre
+`(provider_id, account_id)`. `migrateLocal` la incluye por defecto y Drizzle
+refleja el mismo índice; las seis migraciones anteriores no se reescriben.
 
-Better Auth consulta antes de crear; `account` no tiene una restricción única
-para `(provider_id, account_id)`. El adaptador rechaza después identidades
-duplicadas, por lo que el problema también impide accesos posteriores.
+La actualización conserva datos válidos y es idempotente. Si hay duplicados
+previos, SQLite rechaza el índice y la transacción revierte sin borrar filas
+ni registrar la séptima migración. No se elige automáticamente un propietario.
 
-La solución propuesta es una migración nueva con un índice UNIQUE para esa
-pareja, reflejado en el esquema Drizzle y el cargador de migraciones. No se
-reescribe SQL ya aplicado ni se eliminan duplicados automáticamente. Si una
-base ya contiene duplicados, la migración debe fallar sin modificar sus datos.
+Ante dos callbacks concurrentes, sólo una escritura gana. La otra devuelve
+HTTP 409 `ACCOUNT_ALREADY_LINKED`, sin emitir sesión nueva ni exponer el error
+SQL. Un nuevo flujo puede observar la cuenta ganadora, terminar idempotentemente
+y acceder con Google al mismo perfil. Dos conexiones SQLite independientes
+confirmaron también que un sujeto no puede asignarse a dos propietarios.
 
-`docs/next-job` excluía migraciones salvo contradicción resuelta con el usuario.
-Se detuvo la implementación y se solicitó autorización específica para esta
-ampliación de B05.08. **No se ha implementado la migración ni se cierra el punto.**
+El router de Better Call imprime errores no reconocidos incluso con el logger
+Auth deshabilitado. Por ello `onAPIError.onError` transforma sincrónicamente la
+violación específica de unicidad en un APIError 409, y otros errores inesperados
+en 500 `AUTH_INTERNAL_ERROR`. Los APIError existentes conservan su semántica.
+Las pruebas verifican respuesta y ausencia de logs con parámetros/tokens.
+
+## Resultado y límites
+
+B05.08 completado: 15 pruebas de vinculación y tres de migración/unicidad;
+regresión total de 256 pruebas locales aprobadas, lint, typecheck y build.
+La migración del artefacto compilado también se aplicó dos veces con siete
+entradas y el índice único activo. No hizo falta volver a usar el móvil:
+Google real web/Android ya se acreditó en B05.07.
+
+El ensayo remoto opt-in se actualizó a siete migraciones y un caso de dos
+escritores, pero Turso respondió HTTP 401 durante la lectura inicial, antes
+de escrituras. Sus cinco casos no se ejecutaron; no se afirma validación
+remota de la migración 007. La aceptación de B05.08 aquí es local y conserva
+esa limitación explícita. No se cambiaron credenciales ni bases remotas.
 
 ## Referencias
 

@@ -49,9 +49,9 @@ callback y APK finales en las etapas correspondientes. HTTP loopback no
 acredita TLS ni despliegue. No se cierra B05 antes de B05.12 ni se cambia
 al repositorio de un cliente.
 
-B05.08 es el segundo punto autorizado; su contradicción de unicidad y la
-ampliación de alcance pendiente M17 local se documentan por separado en
-[el informe](evidencia/B05.08.md). M08 no se usa para autorizar esa migración.
+B05.08 se completó después de que el usuario autorizara expresamente la
+migración de unicidad (M17 local resuelto). Su validación local no requirió
+repetir el ensayo móvil. [Informe B05.08](evidencia/B05.08.md).
 
 ## Referencias
 

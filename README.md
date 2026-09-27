@@ -14,9 +14,12 @@ B02.03–B02.04 añadieron el
 El [contrato B02.07–B02.08](docs/contrato-B02.07-B02.08.md) añade paquete
 offline/renovación y lecturas con revisión, ticket, avisos y readiness.
 B05.07 probó Google real en web/Android: una identidad, una cuenta y un
-perfil, sesión conservada tras reinicio y cancelación. El siguiente punto
-es B05.08, vinculación segura: controles locales construidos y una carrera
-de duplicación pendiente de corregir mediante migración autorizada.
+perfil, sesión conservada tras reinicio y cancelación. B05.08 cerró la
+vinculación explícita con sesión reciente y una migración UNIQUE de identidad
+por proveedor, que impide duplicados incluso con solicitudes simultáneas.
+Pasaron 256 pruebas locales, lint/typecheck/build; el ensayo remoto nuevo
+quedó sin ejecutar por HTTP 401 de Turso antes de escribir. El siguiente punto
+es B05.09, sin iniciar.
 [Diseño B05.07](docs/auth-B05.07.md), [informe](docs/evidencia/B05.07.md)
 y [estado B05.08](docs/auth-B05.08.md).
 B05.06 probó el consumidor Expo en Android 11: navegador/deep link exacto,
