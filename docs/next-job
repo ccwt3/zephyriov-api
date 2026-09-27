@@ -1,10 +1,13 @@
 # Estado de trabajo agéntico
 
-- Sesión actual: autorizados **B05.06 y B05.07**, sobre HEAD de entrada
-  `53c4666`, árbol limpio. **B05.06 completado y probado**; B05.07 se deja
-  pendiente para otra sesión por indicación expresa del usuario al requerir
-  M08. Un punto completado de los dos autorizados; ninguno posterior ejecutado.
-  [Informe diario](evidencia/B05.06.md) · [diseño](auth-B05.06.md).
+- Sesión actual (2026-09-27): el usuario autoriza los siguientes **dos puntos
+  pendientes: B05.07 y B05.08**, sin avanzar a B05.09. Esta autorización
+  reemplaza el límite de la sesión anterior B05.06–B05.07. HEAD de entrada
+  `9430f25`; cambios previos en README, Branch_changes, `.env.example` y
+  `docs/configuracion-entorno.md`, conservados fuera del commit de esta sesión.
+  **Cero puntos completados**: se detiene B05.07 en la entrada por M08,
+  sin integrar Google ni iniciar B05.08.
+  [Informe diario](evidencia/2026-09-27-M08.md).
 - Estado B05.06: `construido_local` y `probado(Android 11/API 30, moto g(20),
   ARM64, SQLite local/loopback, Node 26.9.0)`. 233 pruebas locales, lint,
   typecheck, build API, bundle Metro y APK aprobados. Cinco grupos de
@@ -12,8 +15,9 @@
   APK firmado con clave debug de ensayo identificada en el informe y
   desinstalado al terminar. Sin Google real ni despliegue.
 - **Siguiente punto pendiente: B05.07**, Google real, identidad acreditada y
-  callbacks negativos. Estado **pendiente_manual(M08)**. B05.08 queda fuera
-  de la autorización actual; no saltar a otro punto por esta espera.
+  callbacks negativos. Estado **pendiente_manual(M08)**: confirmar configuración externa y
+  coordinar login real web/Android. B05.08 es el segundo punto autorizado,
+  pero no se inicia mientras B05.07 siga pendiente; no saltar esta espera.
 - **Próxima sesión manual/semimanual, solicitada por el usuario:** comenzar
   guiando paso a paso M08, sin presumir que ya está configurado. Explicar
   cómo entrar a Google Cloud Console, elegir/crear proyecto, configurar
@@ -25,8 +29,10 @@
   `zephyriov-auth-probe`, retorno exacto `zephyriov-auth-probe://verified`.
   API de ensayo `http://localhost:3402`; redirect OAuth preparado desde la
   ruta Better Auth instalada: `http://localhost:3402/api/auth/callback/google`.
-  No está registrado ni probado en Google. `GOOGLE_CLIENT_ID` y
-  `GOOGLE_CLIENT_SECRET` estaban ausentes en `.env`; sólo el backend usará
+  Registro en Google aún sin confirmar y login no probado. El 2026-09-27
+  `GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` están presentes y no vacíos en
+  `.env`; se comprobó sólo presencia, sin mostrar valores ni validar credenciales.
+  Esto actualiza la ausencia registrada el 2026-09-22; sólo el backend usará
   el secreto. El consumidor web se conectará al mismo backend durante B05.07.
 - Fuentes: `/home/cacawatin/code/personal/Zephyriov/docs/blueprint/`:
   `plan-trabajo-agentico.md` §3, §5 B05.07, §7 M08 y §13;
@@ -65,4 +71,4 @@
   exige retorno exacto. Futuras rutas de negocio deben llamar
   `requireVerifiedSession`; CORS y scheme no acreditan identidad. No desplegar
   `/probe/*` ni los buzones locales. No declarar Auth cerrado antes de B05.12.
-- Última actualización: 2026-09-22, Mexico/General.
+- Última actualización: 2026-09-27, Mexico/General.

@@ -8,6 +8,14 @@ guía paso a paso. Al reanudar, acompañar cada paso desde el acceso a Google
 Cloud Console hasta las variables `.env` y el login; no asumir preparación
 externa completada ni solicitar el secreto por chat.
 
+## Revalidación del 2026-09-27
+
+Ambas variables Google están presentes y no vacías en `.env`. Se comprobó
+sólo presencia, sin mostrar valores ni validar su autenticidad. Falta confirmar
+con el desarrollador el cliente web, consentimiento/cuenta de prueba y callback
+registrado, y coordinar el login real en ambos consumidores. M08 sigue abierto;
+no se presume que falten las credenciales ni que su presencia cierre el punto.
+
 ## Datos concretos del ensayo
 
 | Dato | Valor |
@@ -47,12 +55,14 @@ los consumidores: una URL diferente requiere su propio registro exacto.
 
 ## Continuación autorizada y aceptación pendiente
 
-Reanudar **B05.07**, segundo punto de la sesión, sin avanzar a B05.08:
+Reanudar **B05.07**, primer punto pendiente de la sesión del 2026-09-27:
 proveedor oficial, scopes mínimos, identidad acreditada/no acreditada,
 un perfil por identidad en consumidores web/Expo, callbacks manipulados,
 reutilizados/cancelados y ausencia de secretos en cliente/logs. La verificación
 de Google será real; los tests locales aislados no la reemplazan.
-No cerrar B05 ni cambiar de repositorio por completar este ensayo.
+B05.08 es el segundo punto autorizado el 2026-09-27 y sólo se inicia tras
+completar B05.07. No cerrar B05 ni cambiar de repositorio por completar
+este ensayo.
 
 ## Referencia
 

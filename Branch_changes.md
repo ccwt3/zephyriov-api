@@ -1,5 +1,17 @@
 # Branch changes
 
+## 2026-09-27 — B05.07 detenido en M08
+
+Se revalidó la entrada de los dos puntos pendientes B05.07–B05.08. Las
+variables Google ya están presentes en `.env`, sin mostrar sus valores;
+faltan confirmación de configuración OAuth y coordinación del login real
+web/Android. Se detuvo la implementación por la intervención manual exigida,
+sin completar puntos ni iniciar B05.08. Se actualizaron puntero y ficha M08;
+la fase API continúa. Cambios previos conservados fuera de este commit.
+[Informe diario](docs/evidencia/2026-09-27-M08.md).
+
+[Listo :v] — cierre documental; B05.07 sigue pendiente_manual(M08).
+
 ## 2026-09-22 — B05.06 probado; B05.07 pendiente de M08
 
 Se integró el transporte oficial Expo con origen nativo explícito, retornos
