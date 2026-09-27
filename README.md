@@ -13,7 +13,12 @@ B02.03–B02.04 añadieron el
 [contrato de perfil, ajustes, repertorio, sesión y onboarding](docs/contrato-B02.03-B02.04.md).
 El [contrato B02.07–B02.08](docs/contrato-B02.07-B02.08.md) añade paquete
 offline/renovación y lecturas con revisión, ticket, avisos y readiness.
-El siguiente punto es B05.07, Google real, pendiente de configuración M08.
+B05.07 probó Google real en web/Android: una identidad, una cuenta y un
+perfil, sesión conservada tras reinicio y cancelación. El siguiente punto
+es B05.08, vinculación segura: controles locales construidos y una carrera
+de duplicación pendiente de corregir mediante migración autorizada.
+[Diseño B05.07](docs/auth-B05.07.md), [informe](docs/evidencia/B05.07.md)
+y [estado B05.08](docs/auth-B05.08.md).
 B05.06 probó el consumidor Expo en Android 11: navegador/deep link exacto,
 sesión en SecureStore conservada tras cierre y logout persistente.
 [Informe B05.06](docs/evidencia/B05.06.md) y [preparación M08](docs/manual-M08.md).

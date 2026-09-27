@@ -1,5 +1,20 @@
 # Branch changes
 
+## 2026-09-27 — B05.07 probado; B05.08 bloqueado por carrera
+
+Google real pasó en web/Android con una identidad, cuenta y perfil; sesión
+conservada tras reinicio y cancelación. TDD, 238 pruebas locales y build APK
+aprobados. B05.08 añadió linking explícito con sesión reciente y verificada,
+sin fusión implícita. Su regresión pasó 251 pruebas, lint/typecheck/build;
+una prueba concurrente posterior reprodujo dos cuentas para un mismo sujeto.
+Se detuvo por requerir migración UNIQUE fuera del alcance previo (M17 local,
+autorización solicitada y pendiente). Un punto de dos completado, B05.09
+no iniciado; API sigue abierta. Ensayo temporal limpiado, cambios ajenos
+conservados fuera del commit.
+[Informe B05.07](docs/evidencia/B05.07.md) · [Informe B05.08](docs/evidencia/B05.08.md).
+
+[Listo :v] — B05.07; B05.08 incompleto, con prueba de concurrencia fallida.
+
 ## 2026-09-27 — B05.07 detenido en M08
 
 Se revalidó la entrada de los dos puntos pendientes B05.07–B05.08. Las

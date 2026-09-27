@@ -92,6 +92,8 @@ export function secureAuthHandler(
         return finish(Response.json({ code: 'INVALID_JSON' }, { status: 400 }));
       }
       if (body && typeof body === 'object') {
+        if (['/api/auth/sign-in/social', '/api/auth/link-social'].includes(new URL(request.url).pathname) &&
+          ('idToken' in body || 'additionalParams' in body || 'scopes' in body)) return denied();
         for (const field of returnFields) {
           if (field in body && !policy.isReturnAllowed((body as Record<string, unknown>)[field])) return denied();
         }

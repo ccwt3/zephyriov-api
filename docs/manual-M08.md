@@ -1,73 +1,61 @@
-# M08 — preparación para B05.07
+# M08 — Google en el ensayo B05.07
 
-Estado: `preparado_manual`; Google real todavía no integrado ni probado.
-Dueño de la configuración y login: desarrollador, según plan agéntico §M08.
-B05.06 ya probó el consumidor Expo con email; esta evidencia no sustituye OAuth.
-El usuario indicó dejar B05.07 para otra sesión **manual/semimanual**, con
-guía paso a paso. Al reanudar, acompañar cada paso desde el acceso a Google
-Cloud Console hasta las variables `.env` y el login; no asumir preparación
-externa completada ni solicitar el secreto por chat.
+Estado: **probado(Google real web/Android)** el 2026-09-27, con intervención
+del desarrollador. La preparación histórica del 2026-09-22 se cerró mediante
+login real en ambos consumidores y comprobación del backend.
 
-## Revalidación del 2026-09-27
-
-Ambas variables Google están presentes y no vacías en `.env`. Se comprobó
-sólo presencia, sin mostrar valores ni validar su autenticidad. Falta confirmar
-con el desarrollador el cliente web, consentimiento/cuenta de prueba y callback
-registrado, y coordinar el login real en ambos consumidores. M08 sigue abierto;
-no se presume que falten las credenciales ni que su presencia cierre el punto.
-
-## Datos concretos del ensayo
+## Configuración acreditada
 
 | Dato | Valor |
 | --- | --- |
-| API local propuesta para Google | `http://localhost:3402` |
-| Base Auth instalada | `/api/auth` |
-| Redirect OAuth a registrar en Google | `http://localhost:3402/api/auth/callback/google` |
-| Tipo de cliente Google | Aplicación web (intercambio de código en backend) |
-| Paquete Android confirmado | `dev.zephyriov.authprobe` |
-| Scheme confirmado | `zephyriov-auth-probe` |
-| Retorno a la app confirmado | `zephyriov-auth-probe://verified` |
-| Certificado de prueba SHA-256 | `fac61745dc0903786fb9ede62a962b399f7348f0bb6f899b8332667591033b9c` |
+| API de ensayo | `http://localhost:3402` |
+| Base Auth | `/api/auth` |
+| Callback OAuth Google | `http://localhost:3402/api/auth/callback/google` |
+| Cliente OAuth | Aplicación web; intercambio de código sólo en backend |
+| Página/retorno web | `http://localhost:3402/probe/google` |
+| Paquete Android | `dev.zephyriov.authprobe` |
+| Scheme | `zephyriov-auth-probe` |
+| Retorno a la app | `zephyriov-auth-probe://verified` |
 
-El callback se deriva del `baseURL` concreto y del endpoint instalado
-`/callback/:id` de Better Auth 1.7.5. Es preparación local, no evidencia de
-registro en Google ni de callback ya funcional. El deep link vuelve del
-backend a la app; no se registra como redirect OAuth del cliente web Google.
-El teléfono alcanza localhost mediante `adb reverse`, como en B05.06.
+El callback del proveedor y el deep link de regreso son distintos. El
+callback deriva de la ruta oficial Better Auth 1.7.5; ambos recorridos reales
+lo usaron. El teléfono llega al backend mediante `adb reverse` de ensayo.
+Las variables `GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` existen sólo en
+`.env` backend y fueron confirmadas por el usuario. No se imprimieron valores;
+se comprobó que el secreto no aparece en el APK ni en las fuentes consumidoras.
+No copiar secretos al chat, a los clientes o a documentos versionados.
 
-## Acción del desarrollador
+## Evidencia y preparación para repetir
 
-1. Entrar a [Google Cloud Console](https://console.cloud.google.com/).
-   Crear/elegir el proyecto Google y preparar consentimiento para ensayo,
-   incluyendo la cuenta de prueba si se usa la modalidad de testing.
-2. Crear el cliente OAuth de tipo Aplicación web y registrar literalmente
-   el redirect de la tabla. Conservar los permisos limitados a identidad.
-3. Guardar `GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` en el `.env` local de
-   esta API, que ya está ignorado por Git. No enviarlos por chat ni copiarlos
-   al APK. Ambas claves estaban ausentes al comprobar nombres de variables.
-4. Avisar cuando esté listo. El agente integrará el proveedor y conectará
-   ambos consumidores de ensayo al mismo backend. El desarrollador realizará
-   el login/consentimiento con la cuenta de Google cuando se abra el navegador.
+El usuario completó Google primero en la página web y después en Android
+con la misma cuenta. `node tests/auth/google-live.mjs` comprobó sesiones
+verificadas, un usuario compartido, una cuenta Google y un perfil, además
+de callbacks alterados/cancelados/reutilizados sin sesiones nuevas.
 
-La sesión actual no actúa en Google Cloud, no configura dominios definitivos
-ni habilita EAS. Si se elige otro host/puerto, actualizar primero esta ficha y
-los consumidores: una URL diferente requiere su propio registro exacto.
+El usuario confirmó sesión, SecureStore y perfil conservados después de
+force-stop/reapertura, y retorno del navegador cancelado sin perder sesión.
+El aviso de instalación del APK se resolvió manualmente. Al terminar se
+retiraron APK/reverse y servidor/SQLite temporales; el toolchain sigue aislado.
 
-## Continuación autorizada y aceptación pendiente
+Para repetir, ejecutar los pasos de [B05.07](auth-B05.07.md), con el cliente
+OAuth/consentimiento/cuenta de prueba configurados por el desarrollador y
+credenciales sólo en backend. No asumir que el puerto esté ocupado por un
+servidor anterior: el ensayo de esta sesión quedó detenido y limpiado.
 
-Reanudar **B05.07**, primer punto pendiente de la sesión del 2026-09-27:
-proveedor oficial, scopes mínimos, identidad acreditada/no acreditada,
-un perfil por identidad en consumidores web/Expo, callbacks manipulados,
-reutilizados/cancelados y ausencia de secretos en cliente/logs. La verificación
-de Google será real; los tests locales aislados no la reemplazan.
-B05.08 es el segundo punto autorizado el 2026-09-27 y sólo se inicia tras
-completar B05.07. No cerrar B05 ni cambiar de repositorio por completar
-este ensayo.
+## Límites y continuación
 
-## Referencia
+M08 queda acreditado para este entorno local; debe repetirse con orígenes,
+callback y APK finales en las etapas correspondientes. HTTP loopback no
+acredita TLS ni despliegue. No se cierra B05 antes de B05.12 ni se cambia
+al repositorio de un cliente.
 
-Better Auth. (s. f.). *Google*. Recuperado el 22 de septiembre de 2026,
-de https://better-auth.com/docs/authentication/google
+B05.08 es el segundo punto autorizado; su contradicción de unicidad y la
+ampliación de alcance pendiente M17 local se documentan por separado en
+[el informe](evidencia/B05.08.md). M08 no se usa para autorizar esa migración.
 
-Contraste local: `better-auth` 1.7.5, `dist/api/routes/callback.mjs`,
-`dist/api/routes/sign-in.mjs` y `dist/oauth2/utils.mjs`.
+## Referencias
+
+Better Auth. (s. f.). *Expo integration*. Recuperado el 27 de septiembre de
+2026, de https://better-auth.com/docs/integrations/expo
+
+Contraste: Better Auth/Expo 1.7.5 instalados. [Informe B05.07](evidencia/B05.07.md).

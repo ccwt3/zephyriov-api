@@ -1,74 +1,57 @@
 # Estado de trabajo agéntico
 
-- Sesión actual (2026-09-27): el usuario autoriza los siguientes **dos puntos
-  pendientes: B05.07 y B05.08**, sin avanzar a B05.09. Esta autorización
-  reemplaza el límite de la sesión anterior B05.06–B05.07. HEAD de entrada
-  `9430f25`; cambios previos en README, Branch_changes, `.env.example` y
-  `docs/configuracion-entorno.md`, conservados fuera del commit de esta sesión.
-  **Cero puntos completados**: se detiene B05.07 en la entrada por M08,
-  sin integrar Google ni iniciar B05.08.
-  [Informe diario](evidencia/2026-09-27-M08.md).
-- Estado B05.06: `construido_local` y `probado(Android 11/API 30, moto g(20),
-  ARM64, SQLite local/loopback, Node 26.9.0)`. 233 pruebas locales, lint,
-  typecheck, build API, bundle Metro y APK aprobados. Cinco grupos de
-  aceptación Android pasados; ocho pruebas remotas opt-in omitidas.
-  APK firmado con clave debug de ensayo identificada en el informe y
-  desinstalado al terminar. Sin Google real ni despliegue.
-- **Siguiente punto pendiente: B05.07**, Google real, identidad acreditada y
-  callbacks negativos. Estado **pendiente_manual(M08)**: confirmar configuración externa y
-  coordinar login real web/Android. B05.08 es el segundo punto autorizado,
-  pero no se inicia mientras B05.07 siga pendiente; no saltar esta espera.
-- **Próxima sesión manual/semimanual, solicitada por el usuario:** comenzar
-  guiando paso a paso M08, sin presumir que ya está configurado. Explicar
-  cómo entrar a Google Cloud Console, elegir/crear proyecto, configurar
-  consentimiento y cuenta de prueba, crear cliente OAuth de tipo Aplicación
-  web, registrar el redirect exacto y nombrar/guardar las variables `.env`.
-  Después integrar y guiar el login real en navegador cuando corresponda.
-  [Ficha M08 preparada](manual-M08.md). No pedir secretos por chat.
-- Datos de ensayo confirmados: ID Android `dev.zephyriov.authprobe`, scheme
-  `zephyriov-auth-probe`, retorno exacto `zephyriov-auth-probe://verified`.
-  API de ensayo `http://localhost:3402`; redirect OAuth preparado desde la
-  ruta Better Auth instalada: `http://localhost:3402/api/auth/callback/google`.
-  Registro en Google aún sin confirmar y login no probado. El 2026-09-27
-  `GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` están presentes y no vacíos en
-  `.env`; se comprobó sólo presencia, sin mostrar valores ni validar credenciales.
-  Esto actualiza la ausencia registrada el 2026-09-22; sólo el backend usará
-  el secreto. El consumidor web se conectará al mismo backend durante B05.07.
-- Fuentes: `/home/cacawatin/code/personal/Zephyriov/docs/blueprint/`:
-  `plan-trabajo-agentico.md` §3, §5 B05.07, §7 M08 y §13;
-  `plan-accionable-backend.md` §B05; contratos B02 y esquema B04 de esta raíz.
-- Repositorio: esta raíz `zephyriov-api` para API e infraestructura. Los
-  consumidores mínimos Expo/web son herramientas de ensayo en `tools/`,
-  permitidas por backend §B05; no son clientes de producto. Orden:
-  planificación → API → infraestructura → Android → web.
-  **La fase API continúa; no corresponde cambiar de repositorio.**
-- Alcance previsto B05.07: integrar Google oficial después de M08 y probar
-  identidad verificada/no acreditada, perfil único entre consumidores y
-  callbacks alterados/reutilizados/cancelados. Scopes mínimos de identidad;
-  no adelantar vinculación B05.08, UI producto, catálogo ni despliegue.
-- Archivos previstos: `src/auth/`, `tests/auth/`, herramientas mínimas en
+- Sesión del 2026-09-27: autorizados **B05.07 y B05.08**, límite antes de
+  B05.09. Reanudación sobre `202466e`. Cambios ajenos en README,
+  Branch_changes, `.env.example` y `docs/configuracion-entorno.md` conservados
+  fuera del commit propio. **B05.07 completado**; B05.08 en curso, bloqueado
+  por una contradicción de persistencia que se consultó con el usuario.
+- **Siguiente punto pendiente: B05.08**, vinculación segura. Los controles
+  locales ya rechazan sesión ausente/no verificada/antigua, verifican otra
+  vez la sesión inicial en el callback y bloquean fusiones implícitas.
+  **M17 local, pendiente de autorización de alcance:** nueva migración que impida
+  duplicar `(provider_id, account_id)`, más esquema Drizzle/cargador/pruebas.
+  Dos callbacks concurrentes reprodujeron dos cuentas para un mismo sujeto.
+  No modificar migraciones hasta resolver esta contradicción con el usuario.
+  [Diseño B05.08](auth-B05.08.md) · [informe](evidencia/B05.08.md).
+- **B05.07 probado:** Google real en página web y APK Expo/Android con
+  intervención del desarrollador, misma identidad verificada, una cuenta
+  y un perfil. `node tests/auth/google-live.mjs` pasó coincidencia/conteos
+  y callbacks alterados/cancelados/reutilizados contra el handler vivo.
+  El usuario confirmó sesión/SecureStore/perfil tras force-stop y reapertura,
+  y cancelación del navegador con sesión conservada.
+  [Diseño B05.07](auth-B05.07.md) · [informe](evidencia/B05.07.md).
+- M08: ID/secreto confirmados en `.env`, sin exponer valores. Callback
+  efectivo `http://localhost:3402/api/auth/callback/google`. Retorno web
+  `http://localhost:3402/probe/google`; retorno móvil exacto
+  `zephyriov-auth-probe://verified`, scheme `zephyriov-auth-probe`, paquete
+  `dev.zephyriov.authprobe`. Configuración y login de ensayo acreditados;
+  repetir con orígenes/APK finales cuando corresponda. [Ficha](manual-M08.md).
+- M03: al comenzar ADB no detectaba Android; el usuario lo conectó/autorizó.
+  El APK esperó un aviso de instalación que el usuario resolvió. Instalación,
+  apertura, Google y persistencia probados. SDK aislado en
+  `tools/auth-expo/.build/`; Unity intacto. Al cerrar se desinstaló el APK,
+  se confirmó su ausencia, se retiró el reverse y se detuvo el servidor
+  con limpieza de SQLite temporal. No queda servidor de ensayo activo.
+- Fuentes: `/home/cacawatin/code/personal/Zephyriov/docs/blueprint/`,
+  `plan-trabajo-agentico.md` §§3, B05, M08 y 13, backend §B05,
+  contratos B02 y persistencia B04 de esta raíz. Dependencias G01/T01/T02,
+  B02/B03/B04 y B05.01–B05.06 documentadas; `DOMAIN_VERSION=B03.12-v1`.
+- Archivos autorizados: `src/auth/`, `tests/auth/`, herramientas mínimas
   `tools/auth-web/` y `tools/auth-expo/`, configuración/dependencias mínimas
-  justificadas, `docs/`, README, Branch_changes y este puntero. No tocar
-  repositorios cliente, esquema SRS ni migraciones salvo nueva contradicción
-  que obligue a detenerse y resolverla con el usuario.
-- Pruebas previstas B05.07: login Google real web/Android con intervención
-  del usuario, identidad y perfil únicos, callbacks negativos y secreto
-  ausente de clientes/logs; regresión Auth, tests, lint, typecheck y build.
-  No cerrar el punto por mocks, tokens inventados o sólo Request/Response.
-- Dependencias verificadas: G01/T01/T02, B02 completo, B03 completo,
-  B04 completo y B05.01–B05.06 documentados. `DOMAIN_VERSION = B03.12-v1`.
-  B05 sigue abierto; M05–M08 conservan sus requisitos de servicios reales.
-- M03 resuelto durante la sesión: el usuario conectó/autorizó Android y
-  aprobó instalaciones/licencias en `tools/auth-expo/.build/`. SDK Unity
-  intacto; NDK 27.1.12297006, CMake 3.22.1/3.30.5 y Gradle 9.3.1 aislados.
-  Revalidar disponibilidad del dispositivo al reanudar. Si aparece selector
-  de navegador, guiar Chrome «Sólo esta vez» y coordinar las acciones del
-  usuario con las del runner; el primer recorrido fue interrumpido y el
-  segundo pasó completo. No usar esa interrupción como aceptación.
-- Riesgos: Node declarado 24 frente a 26.9.0 probado. HTTP loopback no
-  acredita TLS. SecureStore y el handler son reales; el correo de B05.06 se
-  capturó en memoria. El plugin Expo conserva CSRF/origin y la frontera
-  exige retorno exacto. Futuras rutas de negocio deben llamar
-  `requireVerifiedSession`; CORS y scheme no acreditan identidad. No desplegar
-  `/probe/*` ni los buzones locales. No declarar Auth cerrado antes de B05.12.
+  justificadas, `docs/`, README y Branch_changes. Extensión de persistencia
+  solicitada sólo para corregir la carrera de B05.08; todavía pendiente.
+  No tocar SRS, catálogos ni repositorios cliente.
+- Evidencia local: B05.07 TDD (4 fallos iniciales, 5 pruebas nuevas pasan),
+  238 pruebas, lint/typecheck/build API y APK ARM64 aprobados. B05.08 TDD
+  (7 fallos iniciales, luego 13 casos pasan); regresión de 251 pruebas y
+  lint/typecheck/build aprobados antes de añadir la prueba de concurrencia.
+  Estado más reciente: 13 casos de linking pasan y **1 falla** por duplicados.
+  Ocho pruebas remotas opt-in no ejecutadas; no trasladar conteos antiguos
+  como aprobación del estado actual.
+- Riesgos: Node declarado 24 frente a 26.10.0 probado; HTTP loopback no
+  acredita TLS. Correo en memoria. Nunca desplegar `/probe/*`. Los casos
+  locales controlan la respuesta del proveedor y se distinguen del Google
+  real acreditado. No declarar B05 cerrado antes de B05.12.
+- Orden: planificación → API → infraestructura → Android → web, con clientes
+  separados. **La fase API continúa; no corresponde cambiar de repositorio.**
 - Última actualización: 2026-09-27, Mexico/General.

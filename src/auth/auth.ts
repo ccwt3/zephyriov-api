@@ -2,6 +2,7 @@ import type { Client } from '@libsql/client';
 import { drizzleAdapter } from '@better-auth/drizzle-adapter';
 import { drizzle } from 'drizzle-orm/libsql';
 import { betterAuth } from 'better-auth';
+import { APIError, addOAuthServerContext, createAuthMiddleware, getAuthoritativeSessionFromCtx, getOAuthState } from 'better-auth/api';
 import { expo } from '@better-auth/expo';
 import * as authSchema from '../persistence/auth-schema.js';
 import { authHTTPPolicy, secureAuthHandler, type AuthHTTPOptions } from './http-security.js';
@@ -15,6 +16,11 @@ export const INITIAL_PROFILE = Object.freeze({
 });
 
 const profileInitializations = new WeakMap<Client, Map<string, Promise<void>>>();
+const LINK_SESSION_MAX_AGE_MS = 5 * 60 * 1000;
+
+function isRecentLinkSession(createdAt: number, now: number) {
+  return createdAt <= now && now - createdAt < LINK_SESSION_MAX_AGE_MS;
+}
 
 /** Ensure the product rows for one Better Auth user exist without replacing established state. */
 export function ensureAccountProfile(client: Client, userId: string): Promise<void> {
@@ -71,6 +77,7 @@ export interface AuthEmail {
 
 export interface AuthOptions extends AuthHTTPOptions {
   secret: string;
+  google?: { clientId: string; clientSecret: string };
   sendVerificationEmail: (message: AuthEmail) => Promise<void>;
   sendResetPassword: (message: AuthEmail) => Promise<void>;
 }
@@ -82,6 +89,61 @@ export function createZephyriovAuth(client: Client, options: AuthOptions) {
     appName: 'Zephyriov',
     baseURL: options.baseURL,
     secret: options.secret,
+    // Provider errors may contain token-endpoint data. Never log those payloads.
+    logger: { disabled: true },
+    socialProviders: options.google ? {
+      google: {
+        ...options.google,
+        scope: ['openid', 'email', 'profile'],
+        disableDefaultScope: true,
+        disableIdTokenSignIn: true,
+        requireEmailVerification: true,
+        accessType: 'online',
+        includeGrantedScopes: false,
+      },
+    } : {},
+    account: { accountLinking: {
+      enabled: true,
+      disableImplicitLinking: true,
+      requireLocalEmailVerified: true,
+      allowDifferentEmails: false,
+      trustedProviders: [],
+    } },
+    hooks: {
+      before: createAuthMiddleware(async (context) => {
+        if (context.path !== '/link-social') return;
+        const session = await getAuthoritativeSessionFromCtx(context);
+        if (!session) throw new APIError('UNAUTHORIZED', { code: 'AUTH_REQUIRED' });
+        if (!session.user.emailVerified) throw new APIError('FORBIDDEN', { code: 'EMAIL_UNVERIFIED' });
+        if (!isRecentLinkSession(session.session.createdAt.getTime(), Date.now())) {
+          throw new APIError('UNAUTHORIZED', { code: 'LINK_REAUTHENTICATION_REQUIRED' });
+        }
+        // This server-only state survives the browser redirect without trusting additionalData.
+        await addOAuthServerContext({ linkSessionId: session.session.id });
+      }),
+    },
+    user: options.google ? {
+      validateUserInfo: async ({ user, source }) => {
+        if (source.action !== 'link-account') return;
+        const state = await getOAuthState();
+        const sessionId = state?.serverContext?.linkSessionId;
+        if (!state?.link || typeof sessionId !== 'string' || state.link.userId !== user.id) {
+          return { error: 'LINK_REAUTHENTICATION_REQUIRED' };
+        }
+        const result = await client.execute({
+          sql: `select s.user_id, s.created_at, s.expires_at, u.email_verified, u.email
+            from session s join user u on u.id = s.user_id where s.id = ?`,
+          args: [sessionId],
+        });
+        const row = result.rows[0];
+        const now = Date.now();
+        if (!row || row.user_id !== user.id || row.email_verified !== 1 ||
+          row.email !== state.link.email || Number(row.expires_at) <= now ||
+          !isRecentLinkSession(Number(row.created_at), now)) {
+          return { error: 'LINK_REAUTHENTICATION_REQUIRED' };
+        }
+      },
+    } : undefined,
     trustedOrigins: [...policy.origins, ...policy.nativeOrigins],
     plugins: policy.nativeOrigins.size ? [expo({ disableOriginOverride: true })] : [],
     advanced: {

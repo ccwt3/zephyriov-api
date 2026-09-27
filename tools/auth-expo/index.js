@@ -15,17 +15,25 @@ const auth = createAuthClient({ baseURL, plugins: [expoClient({
 })] });
 const gate = createReturnGate(callback);
 let waitingForBrowser = false;
+let waitingForGoogle = false;
 
 function Probe() {
   const [session, setSession] = useState('loading');
   const [cookie, setCookie] = useState('unknown');
   const [browser, setBrowser] = useState('idle');
   const [busy, setBusy] = useState(false);
+  const [profile, setProfile] = useState('none');
   async function refresh() {
     const result = await auth.getSession({ query: { disableCookieCache: true } });
     if (result.error) throw new Error('Session request failed');
     setSession(result.data ? (result.data.user.emailVerified ? 'verified' : 'pending') : 'none');
     setCookie(await auth.getCookie() ? 'yes' : 'no');
+    if (result.data?.user.emailVerified) {
+      const proof = await fetch(`${baseURL}/probe/google-proof?consumer=android`, {
+        headers: { cookie: await auth.getCookie(), 'expo-origin': 'zephyriov-auth-probe://' }, credentials: 'omit',
+      });
+      if (proof.ok) setProfile((await proof.json()).profile ?? 'none');
+    } else setProfile('none');
   }
   async function action(work) {
     setBusy(true);
@@ -35,7 +43,7 @@ function Probe() {
   useEffect(() => {
     void action(refresh);
     const subscription = Linking.addEventListener('url', ({ url }) => {
-      if (!waitingForBrowser || url !== callback) setBrowser('rejected return');
+      if (!waitingForGoogle && (!waitingForBrowser || url !== callback)) setBrowser('rejected return');
     });
     return () => subscription.remove();
   }, []);
@@ -70,6 +78,17 @@ function Probe() {
     h(Text, null, `Session: ${session}`),
     h(Text, null, `Secure cookie: ${cookie}`),
     h(Text, null, `Browser: ${browser}`),
+    h(Text, null, `Profile: ${profile}`),
+    button('Google sign in', async () => {
+      waitingForGoogle = true;
+      setBrowser('waiting for Google');
+      try {
+        const result = await auth.signIn.social({ provider: 'google', callbackURL: callback, errorCallbackURL: callback });
+        if (result.error) throw new Error('Google sign in failed');
+        await refresh();
+        setBrowser('Google returned; check session');
+      } finally { waitingForGoogle = false; }
+    }),
     button('Register', async () => {
       const result = await auth.signUp.email({ name: 'Auth probe', email: 'authprobe@example.invalid',
         password: 'synthetic-probe-password-123', callbackURL: callback });

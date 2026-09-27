@@ -3,7 +3,7 @@ import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { migrateLocal } from '../../src/persistence/migrate.js';
-import { createZephyriovAuth, type AuthEmail } from '../../src/auth/auth.js';
+import { createZephyriovAuth, type AuthEmail, type AuthOptions } from '../../src/auth/auth.js';
 
 export const baseURL = 'http://localhost:3000';
 export const credentials = {
@@ -12,6 +12,7 @@ export const credentials = {
 
 export async function authFixture(options: {
   baseURL?: string; webOrigins?: string[]; allowedReturnURLs?: string[]; nativeOrigins?: string[];
+  google?: AuthOptions['google'];
 } = {}) {
   const directory = await mkdtemp(join(tmpdir(), 'zephyriov-auth-flow-'));
   const client = createClient({ url: `file:${join(directory, 'test.db')}` });
