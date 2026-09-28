@@ -2,6 +2,16 @@
 
 ## Reconstrucción
 
+**2026-09-28 — B05.09 completado; B05.10 detenido (M18):** sesiones con
+notificación tras revocación y consulta de vigencia para futuros sockets.
+Los limitadores durables y reservas de correo quedan como trabajo parcial:
+273 pruebas pasan y una regresión OAuth falla por `SQLITE_BUSY` al confirmar
+después de contención/UNIQUE. Lint, typecheck y build pasan. El usuario decidió
+dejar B05.10 detenido; no se cambiaron driver, lockfile ni migraciones.
+La fase API continúa. [Diseño](docs/auth-B05.09-B05.10.md),
+[reproductor/M18](docs/manual-M18.md) e
+[informe diario](docs/evidencia/B05.09-B05.10.md).
+
 El [estado de trabajo agéntico](docs/next-job) es la fuente única del siguiente
 punto. T01 transfirió la [especificación SRS activa](docs/reglas-srs.md),
 su [índice](docs/fixtures-srs.md) y 22 JSON de `src/domain/fixtures/` desde la
@@ -19,7 +29,7 @@ vinculación explícita con sesión reciente y una migración UNIQUE de identida
 por proveedor, que impide duplicados incluso con solicitudes simultáneas.
 Pasaron 256 pruebas locales, lint/typecheck/build; el ensayo remoto nuevo
 quedó sin ejecutar por HTTP 401 de Turso antes de escribir. El siguiente punto
-es B05.09, sin iniciar.
+pendiente es ahora B05.10, detenido por M18.
 [Diseño B05.07](docs/auth-B05.07.md), [informe](docs/evidencia/B05.07.md)
 y [estado B05.08](docs/auth-B05.08.md).
 B05.06 probó el consumidor Expo en Android 11: navegador/deep link exacto,

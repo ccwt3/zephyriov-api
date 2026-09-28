@@ -1,16 +1,37 @@
 # Estado de trabajo agéntico
 
-- Sesión del 2026-09-27: **B05.07 y B05.08 completados (2/2)**. Se respetó
+- Sesión del 2026-09-28: **B05.09 completado; B05.10 incompleto (1/2)**.
+  Logout, revocación, recuperación y expiración pasan con interfaz para B10.
+  Los limitadores durables y presupuesto de correo se conservan como trabajo
+  parcial: la regresión detectó M18. El usuario decidió expresamente
+  **«Dejar B05.10 detenido y documentado»**. B05.11 no iniciado.
+- **Siguiente punto pendiente: B05.10, detenido por M18 local.** Reanudar
+  sólo con nueva autorización para resolver el bloqueo de libSQL. El
+  reproductor `node tests/auth/libsql-lock-probe.mjs` falla con `SQLITE_BUSY`
+  al confirmar después de contención y UNIQUE, sin Auth ni base de producto.
+  La repetición del flujo OAuth concurrente recibe 503 en lugar de 200.
+  Alcance de esta sesión: `src/auth/`, `tests/auth/` y documentación; sin
+  modificar dependencias, lockfile, persistencia, SRS ni clientes. Si la
+  corrección requiere esos archivos, solicitar ampliación antes de editarlos.
+  [Ficha M18](manual-M18.md) · [diseño](auth-B05.09-B05.10.md) ·
+  [informe diario](evidencia/B05.09-B05.10.md).
+- **Evidencia de esta sesión:** 273 pruebas aprobadas, una fallida, nueve
+  opt-in omitidas. Los 18 casos nuevos pasan; falla la regresión de linking
+  después de la carrera. Lint, typecheck y build pasan. No declarar B05.10
+  completado ni usar esta entrega parcial como regresión aprobada. Node
+  probado 26.10.0; queda por contrastar Node 24 al resolver M18.
+- Sesión anterior del 2026-09-27: **B05.07 y B05.08 completados (2/2)**. Se respetó
   el límite anterior a B05.09. La continuación sobre `0edb90b` recibió
   autorización expresa para terminar B05.08, incluida la persistencia;
   **M17 local resuelto**. Cambios ajenos en README, Branch_changes,
   `.env.example` y `docs/configuracion-entorno.md` conservados fuera del
   commit propio.
-- **Siguiente punto pendiente: B05.09**, logout, expiración y revocación,
-  con interfaz para invalidar futuros sockets. **Sin iniciar**; ejecutar
-  sólo con la siguiente autorización. Entrada: B05.01–B05.08 y contratos
-  B02/persistencia B04. Alcance propio: `src/auth/`, `tests/auth/` y
-  documentación; no implementar sockets ni limitadores B05.10.
+- **B05.09 probado:** sesiones de siete días y renovación diaria explícitas,
+  cookie cache deshabilitada, notificación `{userId, sessionId}` tras borrado
+  confirmado y consulta de vigencia/propiedad para futuros sockets. Siete
+  tests nuevos cubren logout, revocaciones, recuperación y expiración.
+  No implementa sockets ni cierra B10. B06/B08 deberán conectar sus futuras
+  rutas con autorización verificada y admisión por cuenta; no hay rutas nuevas.
 - **B05.08 probado localmente:** linking explícito con sesión verificada de
   menos de cinco minutos, revalidada en el callback; sin fusión implícita ni
   transferencia de sujeto. La migración nueva `007_account_identity.sql`
@@ -45,7 +66,7 @@
 - Alcance de la continuación B05.08: `src/auth/`, `tests/auth/`, migración
   nueva, esquema/cargador en `src/persistence/`, pruebas de persistencia y
   documentos de cierre. No se tocaron SRS, catálogos ni repositorios cliente.
-- Evidencia actual: **256 pruebas locales aprobadas**, nueve opt-in omitidas;
+- Evidencia histórica B05.08: **256 pruebas locales aprobadas**, nueve opt-in omitidas;
   lint, typecheck y build aprobados. Incluye 15 casos de linking, tres de
   migración/unicidad y disputa entre dos conexiones independientes. Migración
   compilada aplicada dos veces: siete entradas e índice único activo. TDD y
@@ -61,4 +82,4 @@
   real acreditado. No declarar B05 cerrado antes de B05.12.
 - Orden: planificación → API → infraestructura → Android → web, con clientes
   separados. **La fase API continúa; no corresponde cambiar de repositorio.**
-- Última actualización: 2026-09-27, Mexico/General.
+- Última actualización: 2026-09-28, Mexico/General.

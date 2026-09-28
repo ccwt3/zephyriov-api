@@ -6,6 +6,8 @@ import { APIError, addOAuthServerContext, createAuthMiddleware, getAuthoritative
 import { expo } from '@better-auth/expo';
 import * as authSchema from '../persistence/auth-schema.js';
 import { authHTTPPolicy, secureAuthHandler, type AuthHTTPOptions } from './http-security.js';
+import { createSessionLifecycle, type SessionInvalidator } from './session-lifecycle.js';
+import { createUsageLimits, type UsageLimitOptions } from './usage-limits.js';
 
 export const INITIAL_PROFILE = Object.freeze({
   settingsVersion: '1',
@@ -77,6 +79,8 @@ export interface AuthEmail {
 
 export interface AuthOptions extends AuthHTTPOptions {
   secret: string;
+  onSessionInvalidated?: SessionInvalidator;
+  limits?: UsageLimitOptions;
   google?: { clientId: string; clientSecret: string };
   sendVerificationEmail: (message: AuthEmail) => Promise<void>;
   sendResetPassword: (message: AuthEmail) => Promise<void>;
@@ -84,11 +88,16 @@ export interface AuthOptions extends AuthHTTPOptions {
 
 export function createZephyriovAuth(client: Client, options: AuthOptions) {
   const policy = authHTTPPolicy(options);
+  const sessionLifecycle = createSessionLifecycle(client, options.onSessionInvalidated);
+  const usageLimits = createUsageLimits(client, options.secret, options.limits);
   const db = drizzle({ client, schema: authSchema });
   const auth = betterAuth({
     appName: 'Zephyriov',
     baseURL: options.baseURL,
     secret: options.secret,
+    session: { expiresIn: 604800, updateAge: 86400, cookieCache: { enabled: false } },
+    // Replaced by atomic durable admission below; no in-memory/IP fallback.
+    rateLimit: { enabled: false },
     // Provider errors may contain token-endpoint data. Never log those payloads.
     logger: { disabled: true },
     // Throw only safe API errors: the router otherwise prints raw DB parameters.
@@ -121,6 +130,7 @@ export function createZephyriovAuth(client: Client, options: AuthOptions) {
     } },
     hooks: {
       before: createAuthMiddleware(async (context) => {
+        usageLimits.requireAdmission(context.path);
         if (context.path !== '/link-social') return;
         const session = await getAuthoritativeSessionFromCtx(context);
         if (!session) throw new APIError('UNAUTHORIZED', { code: 'AUTH_REQUIRED' });
@@ -157,6 +167,7 @@ export function createZephyriovAuth(client: Client, options: AuthOptions) {
     trustedOrigins: [...policy.origins, ...policy.nativeOrigins],
     plugins: policy.nativeOrigins.size ? [expo({ disableOriginOverride: true })] : [],
     advanced: {
+      ipAddress: { disableIpTracking: true },
       useSecureCookies: options.baseURL.startsWith('https://'),
       crossSubDomainCookies: { enabled: false },
       defaultCookieAttributes: { httpOnly: true, sameSite: 'lax', path: '/' },
@@ -174,15 +185,20 @@ export function createZephyriovAuth(client: Client, options: AuthOptions) {
       requireEmailVerification: false,
       resetPasswordTokenExpiresIn: 3600,
       revokeSessionsOnPasswordReset: true,
-      sendResetPassword: options.sendResetPassword,
+      sendResetPassword: (message) => usageLimits.sendEmail('reset', message, options.sendResetPassword),
     },
     emailVerification: {
       sendOnSignUp: true,
       expiresIn: 3600,
       autoSignInAfterVerification: false,
-      sendVerificationEmail: options.sendVerificationEmail,
+      sendVerificationEmail: (message) => usageLimits.sendEmail('verification', message, options.sendVerificationEmail),
     },
     databaseHooks: {
+      session: {
+        delete: {
+          after: async (session) => sessionLifecycle.deleted({ userId: session.userId, sessionId: session.id }),
+        },
+      },
       user: {
         create: {
           after: async (user) => ensureAccountProfile(client, user.id),
@@ -190,6 +206,7 @@ export function createZephyriovAuth(client: Client, options: AuthOptions) {
       },
     },
   });
-  auth.handler = secureAuthHandler(auth.handler, policy);
-  return auth;
+  const handler = auth.handler;
+  auth.handler = secureAuthHandler((request) => usageLimits.handleAuth(request, handler), policy);
+  return Object.assign(auth, { sessionLifecycle, usageLimits });
 }

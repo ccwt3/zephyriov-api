@@ -57,6 +57,7 @@ export function secureAuthHandler(
       if (cors && origin) {
         response.headers.set('access-control-allow-origin', origin);
         response.headers.set('access-control-allow-credentials', 'true');
+        response.headers.set('access-control-expose-headers', 'Retry-After');
       }
       return response;
     };

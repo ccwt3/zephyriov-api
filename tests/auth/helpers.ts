@@ -13,6 +13,9 @@ export const credentials = {
 export async function authFixture(options: {
   baseURL?: string; webOrigins?: string[]; allowedReturnURLs?: string[]; nativeOrigins?: string[];
   google?: AuthOptions['google'];
+  onSessionInvalidated?: AuthOptions['onSessionInvalidated'];
+  limits?: AuthOptions['limits'];
+  sendVerificationEmail?: AuthOptions['sendVerificationEmail'];
 } = {}) {
   const directory = await mkdtemp(join(tmpdir(), 'zephyriov-auth-flow-'));
   const client = createClient({ url: `file:${join(directory, 'test.db')}` });
@@ -23,14 +26,14 @@ export async function authFixture(options: {
     baseURL,
     webOrigins: [],
     allowedReturnURLs: [`${baseURL}/`, `${baseURL}/reset`],
-    ...options,
     secret: 'test-secret-that-is-at-least-thirty-two-characters',
     sendVerificationEmail: async (message) => { verificationEmails.push(message); },
     sendResetPassword: async (message) => { resetEmails.push(message); },
+    ...options,
   });
 
   return {
-    client, auth, verificationEmails, resetEmails,
+    client, auth, verificationEmails, resetEmails, databaseURL: `file:${join(directory, 'test.db')}`,
     async post(path: string, body: unknown, cookie?: string) {
       return auth.handler(new Request(`${options.baseURL ?? baseURL}/api/auth${path}`, {
         method: 'POST',

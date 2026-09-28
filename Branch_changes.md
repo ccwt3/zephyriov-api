@@ -1,5 +1,20 @@
 # Branch changes
 
+## 2026-09-28 — B05.09 completado; B05.10 detenido por M18
+
+B05.09 fija vigencia/renovación sin cookie cache, notificación de borrado
+confirmado y consulta de propiedad/vencimiento para futuros sockets.
+B05.10 añade cupos y reservas de correo durables, pero queda incompleto:
+273 pruebas pasan, una regresión OAuth falla y nueve opt-in se omiten.
+Un reproductor sin Auth confirma `SQLITE_BUSY` al hacer commit después de
+contención/UNIQUE. Lint, typecheck y build pasan. El usuario eligió dejar
+B05.10 detenido/documentado; no se tocaron dependencias ni lockfile.
+Uno de dos puntos completado, B05.11 no iniciado, fase API abierta.
+Cambios ajenos de entorno conservados fuera del commit.
+[Informe diario](docs/evidencia/B05.09-B05.10.md) · [M18](docs/manual-M18.md).
+
+[Listo :v] — cierre de sesión; B05.09 completado, B05.10 incompleto.
+
 ## 2026-09-27 — B05.08 completado: vinculación e identidad única
 
 La autorización expresa del usuario resolvió M17 local. Una migración nueva
