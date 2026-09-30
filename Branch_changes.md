@@ -1,5 +1,17 @@
 # Branch changes
 
+## 2026-09-30 — B05.12 completado; B05 y G04 cerrados
+
+Continuación con el moto g(20) conectado: el consumidor Expo pasó en Android 11
+(registro, SecureStore, cancelación, verificación por navegador, deep links y
+logout), con APK desinstalado al terminar. El runner espera ahora a que Chrome
+esté visible antes de cancelar, porque en este teléfono tarda más en abrir.
+El contrato de negocio enlaza el inventario Auth efectivo. 294 pruebas en Node
+24/26; lint, typecheck y build pasan. B05 12/12; siguiente B06, sin iniciar.
+API continúa. [Informe](docs/evidencia/B05.11-B05.12.md).
+
+[Listo :v]
+
 ## 2026-09-30 — B05.11 completado; B05.12 pendiente de M03
 
 Correo Auth real por HTTPS con Resend: adaptador sin SDK ni reintentos,

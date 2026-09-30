@@ -18,9 +18,9 @@
 - **Fuera de alcance:** rutas de negocio, sockets, despliegue, DMARC, dominios
   finales (C08/C10) y la repetición remota en Turso.
 - **Estado de salida:** B05.11 `probado(local + Resend real)` y
-  `aprobado_desarrollador` para recepción/SPF/DKIM. B05.12 **incompleto**:
-  construido y probado localmente y en Firefox; recorrido Android pendiente
-  de M03 (dispositivo no disponible el 2026-09-30).
+  `aprobado_desarrollador` para recepción/SPF/DKIM. B05.12 `probado(local,
+  Firefox 156.0.1, moto g(20) Android 11)`: completado en la continuación del
+  mismo día, cuando el desarrollador conectó el dispositivo (M03).
 
 ## B05.11 — transporte Resend
 
@@ -113,13 +113,25 @@ pendiente (D-B05.12a), no un requisito del punto.
   revocación, login inválido/válido y retornos rechazados. Ahora añade una
   cuenta B en un `userContext` aislado: cada contexto ve solo su sesión, B lista
   una sesión y su logout no afecta a A. **Pasó.**
-- **Android (Expo APK de ensayo):** `tests/auth/expo-android.mjs` no se ejecutó.
-  No había dispositivo conectado y el desarrollador indicó que no estaba
-  disponible hoy. **Pendiente M03**; el APK de B05.07 sigue en
-  `tools/auth-expo/android/app/build/outputs/apk/release/app-release.apk`.
+- **Android (Expo APK de ensayo, moto g(20), Android 11):**
+  `tests/auth/expo-android.mjs` contra este build: registro y SecureStore tras
+  reinicio, cancelación del navegador, verificación por navegador y deep link
+  exacto, rechazo de deep links ajenos/duplicados y logout persistente.
+  **Pasó (5/5)**, con APK desinstalado y reverse retirado. El primer intento
+  falló en la cancelación: el runner pulsaba Atrás a los 1.5 s y en este
+  teléfono Chrome tarda más en abrir. Ahora espera a que Chrome esté visible
+  antes de cancelar; no cambia el criterio de aceptación.
 
-B05.12 no se cierra hasta ejecutar el recorrido Android con este build. B05
-y la puerta G04 siguen abiertos.
+Con esto B05.12 queda completado; B05 (12/12) y la puerta G04 quedan
+cerradas, salvo Google con APK y dominio finales, que el plan asigna a C08/C10.
+
+## B05.12 — enlace en el contrato de negocio
+
+`contracts/openapi.json` ya no marca el inventario Auth como diferido:
+`x-auth-inventory` apunta a `contracts/auth-routes.md`, con base `/api/auth` y
+Better Auth 1.7.5, y el OpenAPI de negocio sigue sin declarar rutas
+`/api/auth/*`. Así se cierra la parte Auth que B02 dejó pendiente hasta
+B05.12. Una prueba de `auth-routes.test.ts` fija ese enlace.
 
 ## Referencias
 

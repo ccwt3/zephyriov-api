@@ -53,6 +53,8 @@ try {
   await waitFor('Secure cookie: yes');
   console.log('PASS real Auth and SecureStore survive process restart');
   await tap('Cancel browser test');
+  // Slower devices (moto g20) open the custom tab after more than 1.5 s; cancel only once it is visible.
+  await waitFor('package="com.android.chrome"');
   await pause(1500);
   run('shell', 'input', 'keyevent', '4');
   await waitFor('Browser: cancelled');

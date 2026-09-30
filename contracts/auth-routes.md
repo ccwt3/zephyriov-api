@@ -7,7 +7,8 @@ rutas exportadas por la versión instalada y con el grupo de cupo de
 `src/auth/usage-limits.ts`: una actualización de Better Auth que añada o quite
 rutas rompe la prueba hasta revisar este contrato.
 
-Todas las rutas cuelgan de `${BETTER_AUTH_URL}/api/auth`. Rutas y
+`openapi.json` enlaza este documento en `x-auth-inventory`. Todas las rutas
+cuelgan de `${BETTER_AUTH_URL}/api/auth`. Rutas y
 cuerpos son los de Better Auth; el proyecto no reimplementa contraseñas,
 tokens ni sesiones. Las rutas de negocio (`/v1/...`) están en `openapi.json`.
 

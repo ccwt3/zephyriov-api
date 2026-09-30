@@ -3,7 +3,7 @@
   "info": {
     "title": "Zephyriov business contract",
     "version": "0.0.0",
-    "description": "Declarative contract; HTTP implementation and effective Better Auth routes are future work."
+    "description": "Declarative business contract; HTTP implementation is future work. Effective Better Auth routes: contracts/auth-routes.md."
   },
   "paths": {
     "/v1/catalog": {
@@ -16077,5 +16077,9 @@
       "$ref": "#/components/schemas/RealtimeTicketResponseSchema"
     }
   },
-  "x-auth-inventory": "Deferred to B05.12; no /api/auth/* routes asserted."
+  "x-auth-inventory": {
+    "document": "contracts/auth-routes.md",
+    "basePath": "/api/auth",
+    "betterAuth": "1.7.5"
+  }
 }

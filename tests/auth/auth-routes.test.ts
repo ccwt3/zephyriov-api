@@ -32,6 +32,14 @@ test('the contract inventories exactly the Auth routes exported by the installed
   expect(documented.map(({ method, path }) => ({ method, path })).sort((a, b) => a.path.localeCompare(b.path))).toEqual(routes);
 });
 
+test('the business OpenAPI links the effective Auth inventory instead of asserting Auth paths', async () => {
+  const openapi = JSON.parse(await readFile(new URL('../../contracts/openapi.json', import.meta.url), 'utf8'));
+  expect(openapi['x-auth-inventory']).toEqual({
+    document: 'contracts/auth-routes.md', basePath: '/api/auth', betterAuth: '1.7.5',
+  });
+  expect(Object.keys(openapi.paths).some((path) => path.startsWith('/api/auth'))).toBe(false);
+});
+
 test('every exported Auth route has an explicit limit group that matches the contract', async () => {
   const documented = new Map((await inventory()).map((route) => [route.path, route.group]));
   for (const { path } of routes) {

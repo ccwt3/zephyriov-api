@@ -1,5 +1,33 @@
 # Estado de trabajo agéntico
 
+- Continuación del 2026-09-30: **B05.12 completado; B05 (12/12) y G04
+  cerrados.** El usuario conectó un moto g(20) (Android 11) y pidió terminar
+  lo empezado y dejar B06 pendiente. Recorrido Android 5/5 con este build;
+  `openapi.json` enlaza `contracts/auth-routes.md`. 294 pruebas en Node
+  24.19.0 y 26.10.0 (nueve opt-in omitidas); lint, typecheck, build, T01 y
+  `git diff --check` aprobados. [Diseño](auth-B05.11-B05.12.md) ·
+  [informe](evidencia/B05.11-B05.12.md).
+- **Siguiente punto pendiente: B06 (primer bloque completo por HTTP), NO
+  iniciado.** Requiere autorización expresa y ficha §3 antes de ejecutar.
+  Entrada según el plan: B03, B04 y B05 probados, más una línea sintética
+  legal de integración (no exige el catálogo B07). Leer plan agéntico §B06,
+  backend §B06, contratos B02 y persistencia B04. B06 debe conectar
+  `requireLimitedSession` y el límite de 256 KiB en sus rutas y repetir el
+  aislamiento A/B sobre estado y eventos.
+- G04 no acredita Google con APK y dominio finales (C08/C10). La validación
+  remota de la migración 007 en Turso sigue sin evidencia (HTTP 401 histórico).
+- Decisión abierta D-B05.12a: deshabilitar rutas Auth que los clientes no
+  usan. `.env` aún tiene tres líneas sin clave (valores Google): limpiar y
+  valorar rotar el secreto Google.
+- Cambios ajenos conservados fuera del commit: `.env.example`,
+  `docs/configuracion-entorno.md`, párrafo `.env` de README y entrada
+  2026-09-26 de Branch_changes.
+- Orden: planificación → API → infraestructura → Android → web.
+  **La fase API continúa (B06–B12); no corresponde cambiar de repositorio.**
+- Última actualización: 2026-09-30, Mexico/General.
+
+## Historial
+
 - Sesión del 2026-09-30 (B05.11–B05.12 autorizados): **B05.11 completado;
   B05.12 incompleto, pendiente M03.** M07 resuelto.
 - **Siguiente punto pendiente: terminar B05.12** (solo el recorrido Android).
@@ -29,9 +57,6 @@
   2026-09-26 de Branch_changes.
 - Orden: planificación → API → infraestructura → Android → web.
   **La fase API continúa; no corresponde cambiar de repositorio.**
-- Última actualización: 2026-09-30, Mexico/General.
-
-## Historial
 
 - Sesión del 2026-09-30 (preparación, sin punto nuevo): B05.10 quedó en
   commit propio. **M07 preparado:** dominio `mail.zephyriov.reicot.dev`

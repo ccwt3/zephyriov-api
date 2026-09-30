@@ -120,11 +120,11 @@ paths['/v1/catalog/lines/{id}'].get.parameters[2].schema = components.LineRevisi
 paths['/v1/me/repertoire/{openingId}'].delete.parameters[1].schema = components.RepertoireDeleteHeadersSchema.properties.ifMatch;
 const openapi = {
   openapi: '3.1.0',
-  info: { title: 'Zephyriov business contract', version: '0.0.0', description: 'Declarative contract; HTTP implementation and effective Better Auth routes are future work.' },
+  info: { title: 'Zephyriov business contract', version: '0.0.0', description: 'Declarative business contract; HTTP implementation is future work. Effective Better Auth routes: contracts/auth-routes.md.' },
   paths,
   components: { schemas: components },
   'x-websocket': { path: '/v1/updates', authenticate: ref('RealtimeAuthenticate'), notice: ref('RealtimeNotice'), ticket: ref('RealtimeTicketResponse') },
-  'x-auth-inventory': 'Deferred to B05.12; no /api/auth/* routes asserted.',
+  'x-auth-inventory': { document: 'contracts/auth-routes.md', basePath: '/api/auth', betterAuth: '1.7.5' },
 };
 output(join(root, 'openapi.json'), `${JSON.stringify(openapi, null, 2)}\n`);
 

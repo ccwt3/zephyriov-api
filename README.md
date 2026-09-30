@@ -2,7 +2,15 @@
 
 ## Reconstrucción
 
-**2026-09-30 — B05.11 completado; B05.12 pendiente de M03:** el correo Auth
+**2026-09-30 — B05.12 completado; B05 y G04 cerrados:** el consumidor Expo
+pasó en un moto g(20) con Android 11 (registro, SecureStore, cancelación,
+verificación por navegador, deep links y logout), y el consumidor web ya había
+pasado en Firefox con cuentas A/B. `openapi.json` enlaza ahora el inventario
+Auth efectivo. Google con APK y dominio finales queda para C08/C10.
+Siguiente: B06, sin iniciar. [Diseño](docs/auth-B05.11-B05.12.md) ·
+[informe](docs/evidencia/B05.11-B05.12.md).
+
+**2026-09-30 — B05.11 completado (primer cierre del día):** el correo Auth
 se envía por HTTPS con Resend (`src/auth/resend.ts`, sin SDK ni reintentos,
 enlaces solo al origen API y errores reducidos a estado/código). Ensayo real
 aprobado: verificación y reset recibidos, reset de un uso, N/N+1, último cupo
