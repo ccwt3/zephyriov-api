@@ -1,3 +1,11 @@
 minimumReleaseAgeExclude:
   - '@types/node@24.13.6'
   - eslint@10.11.0
+packageExtensions:
+  '@libsql/client@0.18.0':
+    dependencies:
+      better-sqlite3: 13.0.3
+allowBuilds:
+  better-sqlite3: true
+patchedDependencies:
+  '@libsql/client@0.18.0': patches/@libsql__client@0.18.0.patch

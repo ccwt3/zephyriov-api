@@ -1,25 +1,31 @@
 # Estado de trabajo agéntico
 
-- Sesión del 2026-09-28: **B05.09 completado; B05.10 incompleto (1/2)**.
-  Logout, revocación, recuperación y expiración pasan con interfaz para B10.
-  Los limitadores durables y presupuesto de correo se conservan como trabajo
-  parcial: la regresión detectó M18. El usuario decidió expresamente
-  **«Dejar B05.10 detenido y documentado»**. B05.11 no iniciado.
-- **Siguiente punto pendiente: B05.10, detenido por M18 local.** Reanudar
-  sólo con nueva autorización para resolver el bloqueo de libSQL. El
-  reproductor `node tests/auth/libsql-lock-probe.mjs` falla con `SQLITE_BUSY`
-  al confirmar después de contención y UNIQUE, sin Auth ni base de producto.
-  La repetición del flujo OAuth concurrente recibe 503 en lugar de 200.
-  Alcance de esta sesión: `src/auth/`, `tests/auth/` y documentación; sin
-  modificar dependencias, lockfile, persistencia, SRS ni clientes. Si la
-  corrección requiere esos archivos, solicitar ampliación antes de editarlos.
-  [Ficha M18](manual-M18.md) · [diseño](auth-B05.09-B05.10.md) ·
-  [informe diario](evidencia/B05.09-B05.10.md).
-- **Evidencia de esta sesión:** 273 pruebas aprobadas, una fallida, nueve
-  opt-in omitidas. Los 18 casos nuevos pasan; falla la regresión de linking
-  después de la carrera. Lint, typecheck y build pasan. No declarar B05.10
-  completado ni usar esta entrega parcial como regresión aprobada. Node
-  probado 26.10.0; queda por contrastar Node 24 al resolver M18.
+- Sesión del 2026-09-28: **B05.10 completado; M18 resuelto**. El usuario
+  autorizó terminar lo pendiente y ampliar dependencias/descargas para este
+  punto, con límite expreso antes de B05.11. B05.09 conserva su cierre.
+- **Siguiente punto pendiente: B05.11, preparado pero NO iniciado.** Alcance:
+  ensayo real Resend y límites N/N+1/concurrencia/reinicio sin resetear consumo.
+  Leer primero [cierre B05.10](evidencia/B05.10.md),
+  [diseño](auth-B05.09-B05.10.md), [compatibilidad](compatibilidad.md) y plan
+  fuente B05/M07. No ampliar a B05.12 en la continuación sin autorización.
+- **Entrada técnica lista:** admisión durable Auth y negocio, presupuesto
+  global/por identidad de correo, transporte inyectable y conteos de resultado.
+  279 pruebas locales aprobadas y nueve opt-in omitidas en Node 24.19.0 y
+  26.10.0; lint, typecheck y build aprobados en Node 24. Incluye carrera OAuth
+  con reintento, M18 ESM/CJS y consumo conservado entre procesos distintos.
+- **Decisión local M18:** parche pnpm de `@libsql/client@0.18.0` para usar
+  `better-sqlite3@13.0.3`/SQLite 3.53.4 solo en SQLite local. Mantener
+  `pnpm-workspace.yaml`, `pnpm-lock.yaml` y `patches/`; instalar con
+  `pnpm install --frozen-lockfile`. No se modificaron transportes HTTP/WS,
+  migraciones ni repositorios cliente. Réplicas embebidas/cifrado local no
+  soportados: error explícito. [Ficha M18](manual-M18.md).
+- **Pendientes propios de B05.11:** M07 debe confirmar dominio/remitente,
+  registros y cuota real de Resend, API key local y buzones de ensayo. Medir
+  hashing y ajustar la tabla de límites a esos datos; probar envío HTTPS,
+  recepción y consumo de enlaces. Los valores actuales son de ensayo.
+  No se consultó ni configuró Resend, DNS o buzones en B05.10, ni se enviaron
+  mensajes reales. El HTTP 401 histórico de Turso continúa como límite
+  independiente: no hay evidencia remota nueva de la migración 007.
 - Sesión anterior del 2026-09-27: **B05.07 y B05.08 completados (2/2)**. Se respetó
   el límite anterior a B05.09. La continuación sobre `0edb90b` recibió
   autorización expresa para terminar B05.08, incluida la persistencia;
@@ -76,7 +82,7 @@
   casos no se ejecutaron. Se detuvo el intento, sin cambiar credenciales ni
   bases. No afirmar validación remota de la migración 007. La evidencia
   histórica B04 no acredita automáticamente esta nueva migración.
-- Riesgos: Node declarado 24 frente a 26.10.0 probado; HTTP loopback no
+- Riesgos: Node 24.19.0 probado y control 26.10.0; HTTP loopback no
   acredita TLS. Correo en memoria. Nunca desplegar `/probe/*`. Los casos
   locales controlan la respuesta del proveedor y se distinguen del Google
   real acreditado. No declarar B05 cerrado antes de B05.12.

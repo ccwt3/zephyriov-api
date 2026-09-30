@@ -1,5 +1,20 @@
 # Branch changes
 
+## 2026-09-28 — B05.10 completado; M18 resuelto; B05.11 preparado
+
+Se reprodujo M18 en Node 24/26 antes de corregirlo. Un parche pnpm versionado
+usa `better-sqlite3` 13.0.3 para el backend SQLite local de libSQL 0.18.0;
+conserva API/transacciones y transportes remotos. Recupera el commit después
+de contención/UNIQUE y el reintento OAuth. Nuevas pruebas cubren ESM/CJS,
+ciclo de conexión/opciones y persistencia de cupos entre procesos distintos.
+279 pruebas locales pasan en ambos runtimes; lint, typecheck, build, T01 e
+instalación congelada aprobados. Nueve pruebas remotas opt-in omitidas.
+Documentados límites de motor local y requisitos de instalación. El puntero
+queda en B05.11, sin iniciar Resend/DNS ni avanzar a B05.12. Cambios ajenos
+de entorno conservados. [Informe](docs/evidencia/B05.10.md).
+
+[Listo :v]
+
 ## 2026-09-28 — B05.09 completado; B05.10 detenido por M18
 
 B05.09 fija vigencia/renovación sin cookie cache, notificación de borrado

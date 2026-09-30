@@ -1,10 +1,12 @@
 // B05.10/M18: standalone reproduction, no Auth, network, credentials or product database.
 import assert from 'node:assert/strict';
-import { createClient } from '@libsql/client';
+import { createClient as createESMClient } from '@libsql/client';
+import { createRequire } from 'node:module';
 import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
+const createClient = process.argv[2] === 'cjs' ? createRequire(import.meta.url)('@libsql/client').createClient : createESMClient;
 const directory = await mkdtemp(join(tmpdir(), 'zephyriov-b05-lock-'));
 const client = createClient({ url: `file:${join(directory, 'probe.db')}` });
 try {
@@ -27,6 +29,7 @@ try {
   try {
     await afterConflict.execute("insert into probe values ('quota3') returning *");
     await afterConflict.commit();
+    assert.equal((await client.execute('select count(*) n from probe')).rows[0].n, 4);
     console.log('PASS: transaction commits after contention and UNIQUE conflict');
   } finally { afterConflict.close(); }
 } catch (error) {

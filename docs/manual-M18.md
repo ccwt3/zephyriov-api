@@ -1,6 +1,31 @@
-# M18 local — B05.10 detenido por contención de libSQL
+# M18 local — resuelto en B05.10
 
-- **Estado:** pendiente; el 2026-09-28 el usuario eligió explícitamente
+
+## Resolución — 2026-09-28
+
+**Resuelto.** El usuario autorizó completar B05.10, incluidas descargas y
+ampliación del alcance necesario, sin iniciar B05.11. El defecto se reprodujo
+en Node 24.19.0 y 26.10.0 con el driver original, antes de cambiar código.
+La última versión estable nativa publicada seguía siendo `libsql` 0.5.29;
+la candidata 0.6.0-pre.42 tampoco resolvió el caso y no se incorporó al proyecto.
+
+Un parche pnpm de `@libsql/client` 0.18.0 sustituye únicamente su backend local
+por `better-sqlite3` 13.0.3, con memoria real, espera nativa cero por defecto y
+códigos de error compatibles. Conserva pool, transacciones y adaptadores; HTTP
+y WS mantienen los archivos del paquete original. Réplicas embebidas y cifrado
+local producen `LOCAL_SQLITE_UNSUPPORTED`, al igual que `sync()` local.
+No depende de GC, reaperturas por error, eliminación del test ni reintentos de
+intercambios OAuth/correos. La instalación aplica el parche con checksum.
+
+El reproductor pasa ESM/CJS en Node 24 y 26. Pasan la carrera OAuth con
+reintento, los cupos N/N+1, último cupo independiente, rollback y reinicio
+real de proceso. La suite completa da 279 aprobadas y nueve opt-in omitidas;
+lint/typecheck/build aprobados. [Informe de cierre](evidencia/B05.10.md)
+y [decisión/compatibilidad](compatibilidad.md). **B05.11 queda sin iniciar.**
+
+## Registro histórico del bloqueo
+
+- **Estado histórico al detenerse:** pendiente; el 2026-09-28 el usuario eligió explícitamente
   «Dejar B05.10 detenido y documentado». No se autorizaron cambios de driver,
   dependencias, lockfile ni persistencia en esta sesión.
 - **Dueño:** desarrollador para autorizar el alcance de una próxima sesión;
@@ -36,7 +61,7 @@ en lugar de 200. El limitador reintenta seis veces y sigue fallando en commit.
 La instrumentación temporal comprobó que no quedaban transacciones registradas
 abiertas y fue retirada; tampoco se conserva ningún intento de forzar GC.
 
-## Acción pendiente
+## Acción pendiente en la sesión anterior (resuelta arriba)
 
 Autorizar otra sesión para comprobar el entorno soportado (Node 24), aislar la
 causa en el driver instalado y elegir una corrección mantenible. Si requiere

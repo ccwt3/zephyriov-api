@@ -1,4 +1,6 @@
 import { createClient } from '@libsql/client';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { afterEach, expect, test, vi } from 'vitest';
 import { createUsageLimits } from '../../src/auth/usage-limits.js';
 import { requireLimitedSession } from '../../src/auth/authorization.js';
@@ -64,6 +66,20 @@ test('last slot is atomic across independent writers and persists after reopenin
   try {
     await expect(createUsageLimits(reopened, 'test-secret', config).consumeBusiness('u1', 'read')).rejects.toMatchObject({ statusCode: 429 });
   } finally { reopened.close(); }
+});
+
+test('business and mail consumption survives an actual process restart', async () => {
+  const f = await fixture();
+  await f.client.execute("insert into user (id, name, email) values ('restart-user', 'Restart', 'restart@example.invalid')");
+  const exec = promisify(execFile);
+  for (const phase of ['first', 'restarted']) {
+    await exec(process.execPath, ['--experimental-strip-types', 'tests/auth/usage-limits-worker.mjs', f.databaseURL, phase]);
+  }
+  const rows = (await f.client.execute('select scope, used from rate_limit_buckets')).rows;
+  expect(rows.find((row) => row.scope === 'read')?.used).toBe(2);
+  expect(rows.find((row) => row.scope === 'email:global')?.used).toBe(1);
+  expect(rows.find((row) => row.scope === 'email:sent:verification')?.used).toBe(1);
+  expect(rows.some((row) => row.scope === 'email:sent:reset')).toBe(false);
 });
 
 test('Auth limits wrong passwords by normalized identity, expose Retry-After through CORS and ignore spoofed IP', async () => {

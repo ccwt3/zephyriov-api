@@ -2,15 +2,18 @@
 
 ## Reconstrucción
 
-**2026-09-28 — B05.09 completado; B05.10 detenido (M18):** sesiones con
-notificación tras revocación y consulta de vigencia para futuros sockets.
-Los limitadores durables y reservas de correo quedan como trabajo parcial:
-273 pruebas pasan y una regresión OAuth falla por `SQLITE_BUSY` al confirmar
-después de contención/UNIQUE. Lint, typecheck y build pasan. El usuario decidió
-dejar B05.10 detenido; no se cambiaron driver, lockfile ni migraciones.
-La fase API continúa. [Diseño](docs/auth-B05.09-B05.10.md),
-[reproductor/M18](docs/manual-M18.md) e
-[informe diario](docs/evidencia/B05.09-B05.10.md).
+**2026-09-28 — B05.10 completado; B05.11 preparado, sin iniciar:**
+limitadores durables de Auth/negocio y presupuesto global de correo probados,
+incluidos último cupo concurrente, rollback y consumo tras reinicio real de
+proceso. M18 se resuelve usando `better-sqlite3` 13.0.3 (SQLite 3.53.4) en el
+backend local de `@libsql/client` 0.18.0 mediante un parche pnpm versionado.
+La interfaz Client/Drizzle/Auth y los transportes HTTP/WS se conservan;
+réplicas embebidas y cifrado local se rechazan explícitamente. Esta decisión
+requiere instalar con pnpm y conservar `patches/` junto al lockfile.
+279 pruebas locales pasan en Node 24.19.0 y 26.10.0; lint, typecheck y build
+pasan. [Cierre y reproducción](docs/evidencia/B05.10.md),
+[compatibilidad](docs/compatibilidad.md) y [M18 resuelto](docs/manual-M18.md).
+Resend real y ajuste de cuotas corresponden a B05.11. La fase API continúa.
 
 El [estado de trabajo agéntico](docs/next-job) es la fuente única del siguiente
 punto. T01 transfirió la [especificación SRS activa](docs/reglas-srs.md),
@@ -29,7 +32,7 @@ vinculación explícita con sesión reciente y una migración UNIQUE de identida
 por proveedor, que impide duplicados incluso con solicitudes simultáneas.
 Pasaron 256 pruebas locales, lint/typecheck/build; el ensayo remoto nuevo
 quedó sin ejecutar por HTTP 401 de Turso antes de escribir. El siguiente punto
-pendiente es ahora B05.10, detenido por M18.
+pendiente es ahora B05.11; M18 quedó resuelto en B05.10.
 [Diseño B05.07](docs/auth-B05.07.md), [informe](docs/evidencia/B05.07.md)
 y [estado B05.08](docs/auth-B05.08.md).
 B05.06 probó el consumidor Expo en Android 11: navegador/deep link exacto,

@@ -1,6 +1,6 @@
 # B05.09–B05.10 — sesiones y límites durables
 
-## Ficha previa
+## Ficha previa al bloqueo (histórica)
 
 - **Repositorio/archivos:** API; `src/auth/`, `tests/auth/`, docs, README y
   Branch_changes. Reutilizar tablas/adaptadores B04; sin migraciones, sockets,
@@ -21,11 +21,21 @@
 - **Límites de entrada:** HTTP 401 remoto histórico de B05.08 no se reintenta;
   no acredita migración 007 en Turso. Cambios previos de entorno se conservan.
 
-## Estado al detenerse (2026-09-28)
+## Estado actual (2026-09-28)
+
+**B05.09 y B05.10 completados localmente.** La autorización posterior permitió
+resolver M18 ampliando el backend SQLite local mediante parche pnpm. Pasan 279
+pruebas en Node 24.19.0 y 26.10.0, incluidos OAuth concurrente y reinicio real
+de proceso; lint/typecheck/build aprobados. Instalación y límites del parche
+en [compatibilidad](compatibilidad.md) y [cierre B05.10](evidencia/B05.10.md).
+El código HTTP/WS de libSQL y las siete migraciones conservan su contenido.
+B05.11 permanece sin iniciar; Resend/cuotas reales y hashing se aceptan allí.
+
+## Estado al detenerse, anterior a la reanudación (2026-09-28)
 
 **B05.09 completado localmente. B05.10 incompleto, detenido por M18.**
-El usuario decidió «Dejar B05.10 detenido y documentado». La regresión actual
-tiene 273 pruebas pasadas, una fallida y nueve opt-in omitidas. Lint,
+El usuario decidió «Dejar B05.10 detenido y documentado». La regresión de
+aquel cierre tenía 273 pruebas pasadas, una fallida y nueve opt-in omitidas. Lint,
 typecheck y build pasan. El commit es trabajo parcial, no una entrega validada
 de los limitadores. [Informe diario](evidencia/B05.09-B05.10.md) y
 [bloqueo/reproductor M18](manual-M18.md).
@@ -56,7 +66,7 @@ interno de Better Auth en el milisegundo exacto. Fuente contrastada con el códi
 instalado y [documentación oficial de sesiones](https://better-auth.com/docs/concepts/session-management),
 consultada el 2026-09-28.
 
-## B05.10: implementación parcial conservada
+## B05.10: implementación validada al resolver M18
 
 `usage-limits.ts` reutiliza `rate_limit_buckets` de la migración 006. Ventanas
 fijas desde epoch, consumo mediante UPSERT condicionado y transacción para
@@ -65,7 +75,7 @@ otra instancia. Rechazos de cupo producen 429 con `Retry-After` redondeado hacia
 arriba, expuesto mediante CORS; fallos de almacenamiento producen 503 seguro.
 Los reintentos de bloqueo local son acotados a seis esperas (630 ms en total),
 después de rollback, sin repetir transportes ni errores remotos ambiguos.
-**Estos reintentos no resuelven M18.**
+M18 se resolvió en el backend SQLite local, no aumentando estos reintentos.
 
 Los ámbitos de negocio `read` y `study` son los exigidos por el CHECK de B04.
 `requireLimitedSession` obtiene una sesión verificada antes del cupo, con
@@ -118,8 +128,10 @@ La cola de la petición es en memoria, sin reintento automático: un cierre de
 proceso puede dejar una reserva sin resultado. Tampoco un recibo del transporte
 garantiza entrega al buzón. B05.11 debe integrar y probar Resend real por HTTPS.
 
-Las once pruebas nuevas de cupos pasan localmente, incluidas dos conexiones,
-reapertura de base, 429/CORS, agotamiento global, fallo de envío, rollback y
-prohibición de saltarse la admisión. No constituyen cierre de B05.10 porque
-la regresión de vinculación OAuth falla al intentar otro flujo después de
-la carrera, con 503 causado por `SQLITE_BUSY` persistente al confirmar.
+Las doce pruebas de cupos pasan localmente, incluidas dos conexiones,
+reapertura y reinicio real de proceso, 429/CORS, agotamiento global, fallo de
+envío, rollback y prohibición de saltarse la admisión. Las cuatro pruebas del
+driver comprueban M18 en ESM/CJS, memoria/rollback/valores/cierre y rechazo de
+opciones locales no soportadas. La regresión OAuth ahora permite el siguiente
+flujo después de la carrera y el reintento idempotente. B05.10 queda cerrado
+con esa evidencia local; B05.11 debe repetir su aceptación con Resend real.

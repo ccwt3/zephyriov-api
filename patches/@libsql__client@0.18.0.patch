@@ -1,0 +1,149 @@
+diff --git a/lib-cjs/sqlite3.js b/lib-cjs/sqlite3.js
+index 21a13a83b6f8f8d5057fb9ea7edd97cc8881f955..46cae7b7c35bb76a00dea2bd546ac95df2c14a60 100644
+--- a/lib-cjs/sqlite3.js
++++ b/lib-cjs/sqlite3.js
+@@ -18,7 +18,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
+ };
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.Sqlite3Transaction = exports.Sqlite3Client = exports.ConnectionPool = exports._createClient = exports.createClient = void 0;
+-const libsql_1 = __importDefault(require("libsql"));
++const libsql_1 = __importDefault(require("better-sqlite3"));
+ const node_buffer_1 = require("node:buffer");
+ const api_1 = require("@libsql/core/api");
+ const config_1 = require("@libsql/core/config");
+@@ -34,6 +34,11 @@ function _createClient(config) {
+         throw new api_1.LibsqlError(`URL scheme ${JSON.stringify(config.scheme + ":")} is not supported by the local sqlite3 client. ` +
+             `For more information, please read ${util_1.supportedUrlLink}`, "URL_SCHEME_NOT_SUPPORTED");
+     }
++    // Zephyriov: native libsql 0.5.29 leaks active statements after errors (M18).
++    // Keep the client/transaction API, using standard SQLite for local databases.
++    if (config.syncUrl || config.encryptionKey || config.remoteEncryptionKey || config.offline || config.path.startsWith(":memory:?")) {
++        throw new api_1.LibsqlError("Local SQLite does not support replicas, encryption or memory cache options", "LOCAL_SQLITE_UNSUPPORTED");
++    }
+     const authority = config.authority;
+     if (authority !== undefined) {
+         const host = authority.host.toLowerCase();
+@@ -56,8 +61,8 @@ function _createClient(config) {
+     }
+     let path = config.path;
+     if (isInMemory) {
+-        // note: we should prepend file scheme in order for SQLite3 to recognize :memory: connection query parameters
+-        path = `${config.scheme}:${config.path}`;
++        // The pool retains one connection for an in-memory database.
++        path = ":memory:";
+     }
+     // An in-memory database exists only on the connection that opened it, so a
+     // second connection would be a second, empty database rather than another
+@@ -72,7 +77,8 @@ function _createClient(config) {
+         syncPeriod: config.syncInterval,
+         readYourWrites: config.readYourWrites,
+         offline: config.offline,
+-        timeout: config.timeout,
++        // Do not block the JS thread while another transaction must finish.
++        timeout: config.timeout ?? 0,
+     };
+     const pool = new ConnectionPool(path, options, maxConnections);
+     // fail fast if the database cannot be opened at all
+@@ -372,18 +378,7 @@ class Sqlite3Client {
+     }
+     async sync() {
+         this.#checkNotClosed();
+-        const db = await this.#pool.acquire();
+-        try {
+-            this.#checkUsable(db);
+-            const rep = await db.sync();
+-            return {
+-                frames_synced: rep.frames_synced,
+-                frame_no: rep.frame_no,
+-            };
+-        }
+-        finally {
+-            this.#pool.release(db);
+-        }
++        throw new api_1.LibsqlError("Local SQLite does not support replicas", "LOCAL_SQLITE_UNSUPPORTED");
+     }
+     async reconnect() {
+         this.#pool.reopen();
+@@ -674,7 +669,8 @@ function executeMultiple(db, sql) {
+ function mapSqliteError(e) {
+     if (e instanceof libsql_1.default.SqliteError) {
+         const extendedCode = e.code;
+-        const code = mapToBaseCode(e.rawCode);
++        // better-sqlite3 exposes symbolic extended codes, without rawCode.
++        const code = e.rawCode === undefined ? e.code.split("_").slice(0, 2).join("_") : mapToBaseCode(e.rawCode);
+         return new api_1.LibsqlError(e.message, code, extendedCode, e.rawCode, e);
+     }
+     return e;
+diff --git a/lib-esm/sqlite3.js b/lib-esm/sqlite3.js
+index bfeed75499001ad72e43d4919465108d946bb165..f00fb4d00e7b4b324af68f2c57f615127430089f 100644
+--- a/lib-esm/sqlite3.js
++++ b/lib-esm/sqlite3.js
+@@ -1,4 +1,4 @@
+-import Database from "libsql";
++import Database from "better-sqlite3";
+ import { Buffer } from "node:buffer";
+ import { LibsqlError, LibsqlBatchError } from "@libsql/core/api";
+ import { expandConfig, isInMemoryConfig } from "@libsql/core/config";
+@@ -13,6 +13,11 @@ export function _createClient(config) {
+         throw new LibsqlError(`URL scheme ${JSON.stringify(config.scheme + ":")} is not supported by the local sqlite3 client. ` +
+             `For more information, please read ${supportedUrlLink}`, "URL_SCHEME_NOT_SUPPORTED");
+     }
++    // Zephyriov: native libsql 0.5.29 leaks active statements after errors (M18).
++    // Keep the client/transaction API, using standard SQLite for local databases.
++    if (config.syncUrl || config.encryptionKey || config.remoteEncryptionKey || config.offline || config.path.startsWith(":memory:?")) {
++        throw new LibsqlError("Local SQLite does not support replicas, encryption or memory cache options", "LOCAL_SQLITE_UNSUPPORTED");
++    }
+     const authority = config.authority;
+     if (authority !== undefined) {
+         const host = authority.host.toLowerCase();
+@@ -35,8 +40,8 @@ export function _createClient(config) {
+     }
+     let path = config.path;
+     if (isInMemory) {
+-        // note: we should prepend file scheme in order for SQLite3 to recognize :memory: connection query parameters
+-        path = `${config.scheme}:${config.path}`;
++        // The pool retains one connection for an in-memory database.
++        path = ":memory:";
+     }
+     // An in-memory database exists only on the connection that opened it, so a
+     // second connection would be a second, empty database rather than another
+@@ -51,7 +56,8 @@ export function _createClient(config) {
+         syncPeriod: config.syncInterval,
+         readYourWrites: config.readYourWrites,
+         offline: config.offline,
+-        timeout: config.timeout,
++        // Do not block the JS thread while another transaction must finish.
++        timeout: config.timeout ?? 0,
+     };
+     const pool = new ConnectionPool(path, options, maxConnections);
+     // fail fast if the database cannot be opened at all
+@@ -349,18 +355,7 @@ export class Sqlite3Client {
+     }
+     async sync() {
+         this.#checkNotClosed();
+-        const db = await this.#pool.acquire();
+-        try {
+-            this.#checkUsable(db);
+-            const rep = await db.sync();
+-            return {
+-                frames_synced: rep.frames_synced,
+-                frame_no: rep.frame_no,
+-            };
+-        }
+-        finally {
+-            this.#pool.release(db);
+-        }
++        throw new LibsqlError("Local SQLite does not support replicas", "LOCAL_SQLITE_UNSUPPORTED");
+     }
+     async reconnect() {
+         this.#pool.reopen();
+@@ -649,7 +644,8 @@ function executeMultiple(db, sql) {
+ function mapSqliteError(e) {
+     if (e instanceof Database.SqliteError) {
+         const extendedCode = e.code;
+-        const code = mapToBaseCode(e.rawCode);
++        // better-sqlite3 exposes symbolic extended codes, without rawCode.
++        const code = e.rawCode === undefined ? e.code.split("_").slice(0, 2).join("_") : mapToBaseCode(e.rawCode);
+         return new LibsqlError(e.message, code, extendedCode, e.rawCode, e);
+     }
+     return e;

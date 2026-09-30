@@ -1,5 +1,58 @@
 # Compatibilidad B04.01–B04.10: transacciones locales y remotas
 
+
+## Actualización B05.10 — SQLite local (2026-09-28)
+
+La matriz B04 de abajo es histórica. La combinación local actual usa
+`@libsql/client` **0.18.0 con parche pnpm**, `better-sqlite3` **13.0.3**
+y SQLite **3.53.4**, con Drizzle 0.45.2 y Better Auth/adaptador 1.7.5.
+Se probó en Linux x64 con Node **24.19.0** y **26.10.0**.
+
+El bloqueo M18 se reproduce con `libsql` 0.5.29 al combinar contención y
+UNIQUE/RETURNING: una transacción posterior no puede confirmar. El
+[reporte oficial #352](https://github.com/tursodatabase/libsql-client-ts/issues/352)
+describe la familia de defectos de liberación de sentencias. La candidata
+0.6.0-pre.42 tampoco pasó el reproductor; no se incorporó al lockfile.
+La corrección adopta el backend SQLite estable
+[better-sqlite3](https://github.com/WiseLibs/better-sqlite3), cuyo contrato de
+sentencias usa el cliente local de libSQL. Las fuentes se consultaron el
+2026-09-28; las garantías de esta combinación proceden de nuestras pruebas.
+
+`patches/@libsql__client@0.18.0.patch` cambia únicamente `sqlite3.js` en ESM
+y CommonJS. Mantiene pool, API Client, transacciones interactivas, Drizzle,
+Better Auth y migraciones. Ajusta memoria a `:memory:`, espera nativa a cero
+por defecto para que el event loop pueda terminar el otro writer y traduce
+el código extendido simbólico a su base (`SQLITE_CONSTRAINT_UNIQUE` →
+`SQLITE_CONSTRAINT`). `extendedCode` se conserva; `rawCode` local no está
+presente en better-sqlite3. No cambiar consumidores para depender de ese
+número. La admisión conserva sus reintentos acotados tras rollback.
+
+El backend local acepta archivos y memoria privada `:memory:`. Rechaza
+réplicas embebidas, opciones de caché de memoria, cifrado local/remoto en
+archivos y `sync()` local con `LOCAL_SQLITE_UNSUPPORTED`, evitando aceptar
+configuraciones que no puede cumplir. No se usan esas extensiones en API.
+Las conexiones Turso siguen usando el transporte remoto oficial; los archivos
+`http.js`, `ws.js` y `node.js` de ESM/CJS coinciden con el paquete de origen.
+No hay cambios del motor remoto ni una nueva afirmación de ensayo Turso:
+el HTTP 401 anterior sigue limitando la evidencia remota de la migración 007.
+
+Instalar desde esta raíz con `pnpm install --frozen-lockfile`; conservar
+`pnpm-workspace.yaml`, `pnpm-lock.yaml` y `patches/` juntos. La extensión de
+paquete declara la dependencia exacta y `allowBuilds` permite únicamente su
+instalación nativa. Una instalación limpia en `/tmp` aplicó el parche y pasó
+M18 con ESM y CommonJS. El módulo nativo requiere plataforma compatible o
+herramientas de compilación; otros sistemas no se han probado. Una actualización
+del driver debe revisar/rebasar el parche y repetir estas pruebas. No basta
+instalar el manifiesto con otro gestor que ignore los parches pnpm.
+
+Aceptación: 279 pruebas locales pasan en ambos runtimes, nueve remotas opt-in
+omitidas; lint/typecheck/build en Node 24, T01 y lockfile aprobados. Incluye
+commit/rollback de driver, Drizzle y Auth, constraints de las siete migraciones,
+reintento OAuth tras carrera, valores binarios/int64 y consumo de negocio/correo
+entre dos procesos independientes. [Informe y comandos](evidencia/B05.10.md).
+
+## Matriz histórica B04
+
 Fecha de consulta y ensayo: 2026-09-19. B04.01 fijó una combinación exacta y
 la probó localmente; B04.02 ensayó esa combinación sobre Turso remoto antes de
 diseñar las migraciones B04.03.
