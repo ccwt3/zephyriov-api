@@ -81,6 +81,11 @@ servidor de producto ni rutas/casos de uso de negocio.
 La [evidencia T01](docs/evidencia/T01.md)
 y [evidencia T02](docs/evidencia/T02.md) detallan verificación y límites.
 
+Para reconstruir las variables locales, copia [.env.example](.env.example) a
+`.env` y completa las credenciales según la
+[configuración del entorno](docs/configuracion-entorno.md). `.env` está
+ignorado por Git y no debe contenerse en commits.
+
 **B04.01 — compatibilidad transaccional local (2026-09-19):** el lockfile fija
 `@libsql/client` 0.18.0, `drizzle-orm` 0.45.2, `better-auth` y
 `@better-auth/drizzle-adapter` 1.7.5. Un ensayo aislado en SQLite en memoria

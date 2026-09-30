@@ -112,6 +112,17 @@ la fase API continúa. Cambios previos conservados fuera de este commit.
 
 [Listo :v] — cierre documental; B05.07 sigue pendiente_manual(M08).
 
+## 2026-09-26 — plantilla de variables locales
+
+Se añadió `.env.example` con placeholders para OAuth Google y los ensayos
+remotos Turso, junto con una guía para reconstruir `.env` sin exponer secretos.
+README ahora enlaza la plantilla y conserva `.env` fuera de Git. No se
+modificó ninguna credencial local.
+
+[Configuración](docs/configuracion-entorno.md)
+
+[Listo :v]
+
 ## 2026-09-22 — B05.06 probado; B05.07 pendiente de M08
 
 Se integró el transporte oficial Expo con origen nativo explícito, retornos
