@@ -1,5 +1,33 @@
 # Branch changes
 
+## 2026-09-30 — B05.11 completado; B05.12 pendiente de M03
+
+Correo Auth real por HTTPS con Resend: adaptador sin SDK ni reintentos,
+enlaces limitados al origen API y errores sin datos sensibles. Ensayo real
+con cuatro mensajes: verificación y reset recibidos en bandeja, SPF/DKIM
+`pass`, reset de un uso, N/N+1, último cupo concurrente y reinicio sin perder
+consumo. Presupuesto de correo a 80/día UTC por cuota Free; scrypt medido.
+B05.12: aislamiento A/B probado, todas las rutas Auth con cupo explícito e
+inventario en `contracts/auth-routes.md`, recorrido web con A/B en Firefox.
+Recorrido Android no ejecutado: sin dispositivo (M03). 293 pruebas en Node
+24/26; lint, typecheck y build pasan. Un punto de dos completado; API sigue.
+[Diseño](docs/auth-B05.11-B05.12.md) · [informe](docs/evidencia/B05.11-B05.12.md).
+
+[Listo :v] — B05.11; B05.12 incompleto, pendiente_manual(M03).
+
+## 2026-09-30 — M07 preparado para B05.11
+
+B05.10 quedó en commit propio tras repetir 279 pruebas, lint y typecheck.
+El usuario verificó `mail.zephyriov.reicot.dev` en Resend (Free, sin cargos)
+y guardó la API key en `.env`; se comprobó DKIM/SPF por DNS público. Se
+documentaron registros, remitente y cuota oficial, y se añadieron las
+variables Resend a la plantilla de entorno. Sin correos enviados ni código
+nuevo; buzones A/B aportados. B05.11 sigue sin iniciar, a la espera de
+autorización.
+[M07](docs/manual-M07.md).
+
+[Listo :v]
+
 ## 2026-09-28 — B05.10 completado; M18 resuelto; B05.11 preparado
 
 Se reprodujo M18 en Node 24/26 antes de corregirlo. Un parche pnpm versionado

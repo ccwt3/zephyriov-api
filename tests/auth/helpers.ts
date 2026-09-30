@@ -16,6 +16,7 @@ export async function authFixture(options: {
   onSessionInvalidated?: AuthOptions['onSessionInvalidated'];
   limits?: AuthOptions['limits'];
   sendVerificationEmail?: AuthOptions['sendVerificationEmail'];
+  sendResetPassword?: AuthOptions['sendResetPassword'];
 } = {}) {
   const directory = await mkdtemp(join(tmpdir(), 'zephyriov-auth-flow-'));
   const client = createClient({ url: `file:${join(directory, 'test.db')}` });

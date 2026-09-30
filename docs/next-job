@@ -1,5 +1,48 @@
 # Estado de trabajo agéntico
 
+- Sesión del 2026-09-30 (B05.11–B05.12 autorizados): **B05.11 completado;
+  B05.12 incompleto, pendiente M03.** M07 resuelto.
+- **Siguiente punto pendiente: terminar B05.12** (solo el recorrido Android).
+  Entrada: el desarrollador conecta el Android de ensayo con depuración USB
+  autorizada; `pnpm build`; `node tools/auth-expo/run.mjs`; después
+  `ADB=tools/auth-expo/.build/sdk/platform-tools/adb
+  AUTH_PROBE_APK=tools/auth-expo/android/app/build/outputs/apk/release/app-release.apk
+  node tests/auth/expo-android.mjs`. Si pasa, cerrar B05.12, B05 y G04
+  (sin Google final de APK/dominio, que es C08/C10). No iniciar B06 en esa
+  continuación sin autorización. Leer [diseño](auth-B05.11-B05.12.md) e
+  [informe](evidencia/B05.11-B05.12.md).
+- **B05.11 probado con Resend real:** adaptador HTTPS `src/auth/resend.ts`
+  (sin reintentos, enlaces solo al origen API, errores estado/código).
+  Cuatro mensajes reales entregados en bandeja; SPF/DKIM `pass`; reset de un
+  uso; N/N+1, último cupo concurrente, reinicio y agotamiento global.
+  `emailGlobal` 80/día UTC; scrypt ≈87 ms medido (`tools/auth-mail/hash-cost.mjs`).
+- **B05.12 hecho hasta ahora:** aislamiento A/B (4 pruebas), grupos de cupo
+  explícitos para las 31 rutas, [`contracts/auth-routes.md`](../contracts/auth-routes.md)
+  verificado contra Better Auth 1.7.5, recorrido web en Firefox 156.0.1 con A/B.
+- 293 pruebas en Node 24.19.0 y 26.10.0 (nueve opt-in omitidas); lint,
+  typecheck, build, T01 y `git diff --check` aprobados.
+- Decisión abierta D-B05.12a: deshabilitar rutas Auth no usadas por clientes.
+  `.env` aún tiene tres líneas sin clave (valores Google): limpiar y valorar
+  rotar el secreto Google.
+- Cambios ajenos conservados fuera del commit: `.env.example`,
+  `docs/configuracion-entorno.md`, párrafo `.env` de README y entrada
+  2026-09-26 de Branch_changes.
+- Orden: planificación → API → infraestructura → Android → web.
+  **La fase API continúa; no corresponde cambiar de repositorio.**
+- Última actualización: 2026-09-30, Mexico/General.
+
+## Historial
+
+- Sesión del 2026-09-30 (preparación, sin punto nuevo): B05.10 quedó en
+  commit propio. **M07 preparado:** dominio `mail.zephyriov.reicot.dev`
+  verificado en Resend (Free, sin cargos autorizados), remitente
+  `Zephyriov <no-reply@mail.zephyriov.reicot.dev>` y `RESEND_API_KEY` presente
+  en `.env` sin leer su valor. Sin correos enviados. Buzones de ensayo:
+  `social@reicot.dev` (A) y `contacto@reicot.dev` (B). **Falta** la
+  autorización de alcance, que el usuario dará en la próxima sesión. Ficha y cuota Free en [M07](manual-M07.md). `.env` contiene líneas
+  sueltas sin clave (valores Google) que el usuario debe limpiar; el secreto
+  Google se mostró en la sesión y puede rotarse.
+
 - Sesión del 2026-09-28: **B05.10 completado; M18 resuelto**. El usuario
   autorizó terminar lo pendiente y ampliar dependencias/descargas para este
   punto, con límite expreso antes de B05.11. B05.09 conserva su cierre.
@@ -88,4 +131,3 @@
   real acreditado. No declarar B05 cerrado antes de B05.12.
 - Orden: planificación → API → infraestructura → Android → web, con clientes
   separados. **La fase API continúa; no corresponde cambiar de repositorio.**
-- Última actualización: 2026-09-28, Mexico/General.

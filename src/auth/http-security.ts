@@ -8,7 +8,7 @@ export interface AuthHTTPOptions {
 const returnFields = ['callbackURL', 'redirectTo', 'errorCallbackURL', 'newUserCallbackURL'];
 
 /** Only HTTPS origins, or explicit loopback HTTP for local integration tools. */
-function exactOrigin(value: string): string {
+export function exactOrigin(value: string): string {
   const url = new URL(value);
   if (value !== url.origin || value.includes('*') ||
     (url.protocol !== 'https:' && !(url.protocol === 'http:' && ['localhost', '127.0.0.1', '[::1]'].includes(url.hostname)))) {

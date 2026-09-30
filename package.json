@@ -62,7 +62,8 @@
     "contracts/examples-B02.03-B02.04.json",
     "contracts/examples-B02.05-B02.06.json",
     "contracts/examples-B02.07-B02.08.json",
-    "contracts/examples-B02.10.json"
+    "contracts/examples-B02.10.json",
+    "contracts/auth-routes.md"
   ],
   "scripts": {
     "generate:contracts": "node contracts/generate.mjs",

@@ -6,7 +6,10 @@ import type { AuthEmail } from './auth.js';
 
 export interface LimitRule { limit: number; windowMs: number }
 
-/** Local trial values. Real provider quota and throughput are accepted in B05.11. */
+/**
+ * Trial values. Mail budgets follow Resend Free (100/day UTC, 3,000/month,
+ * 10 requests/s), accepted in B05.11: 80/day keeps a 31-day month below 3,000.
+ */
 export const DEFAULT_USAGE_LIMITS = {
   signup: { limit: 10, windowMs: 60_000 },
   signupIdentity: { limit: 3, windowMs: 3_600_000 },
@@ -18,7 +21,7 @@ export const DEFAULT_USAGE_LIMITS = {
   oauth: { limit: 30, windowMs: 60_000 },
   session: { limit: 120, windowMs: 60_000 },
   other: { limit: 60, windowMs: 60_000 },
-  emailGlobal: { limit: 100, windowMs: 86_400_000 },
+  emailGlobal: { limit: 80, windowMs: 86_400_000 },
   emailIdentity: { limit: 5, windowMs: 3_600_000 },
   businessRead: { limit: 60, windowMs: 60_000 },
   businessEvents: { limit: 30, windowMs: 60_000 },
@@ -37,15 +40,28 @@ function exhausted(end: number, now: number) {
   });
 }
 
-function authGroup(path: string): keyof typeof DEFAULT_USAGE_LIMITS {
-  if (path === '/sign-up/email') return 'signup';
-  if (path === '/sign-in/email') return 'login';
-  if (['/send-verification-email', '/request-password-reset'].includes(path)) return 'mail';
-  if (['/reset-password', '/change-password', '/set-password'].includes(path) || path.startsWith('/reset-password/')) return 'password';
-  if (path === '/verify-email') return 'verification';
-  if (['/sign-in/social', '/link-social', '/unlink-account'].includes(path) || path.startsWith('/callback/')) return 'oauth';
-  if (['/get-session', '/list-sessions', '/sign-out', '/revoke-session', '/revoke-sessions', '/revoke-other-sessions'].includes(path)) return 'session';
-  return 'other';
+type AuthGroup = 'signup' | 'login' | 'mail' | 'password' | 'verification' | 'oauth' | 'session' | 'other';
+/** Explicit group for every route exported by Better Auth 1.7.5 (inventoried in contracts/auth-routes.md). */
+const AUTH_ROUTE_GROUPS: Record<string, AuthGroup> = {
+  '/sign-up/email': 'signup',
+  '/sign-in/email': 'login',
+  // Routes that can send mail share the mail budget; change-email stays disabled by default.
+  '/send-verification-email': 'mail', '/request-password-reset': 'mail', '/change-email': 'mail',
+  // Routes that run password hashing or destructive account checks.
+  '/reset-password': 'password', '/change-password': 'password', '/set-password': 'password',
+  '/verify-password': 'password', '/delete-user': 'password', '/delete-user/callback': 'password',
+  '/verify-email': 'verification',
+  '/sign-in/social': 'oauth', '/link-social': 'oauth', '/unlink-account': 'oauth', '/expo-authorization-proxy': 'oauth',
+  '/get-access-token': 'oauth', '/refresh-token': 'oauth', '/account-info': 'oauth',
+  '/get-session': 'session', '/list-sessions': 'session', '/sign-out': 'session', '/revoke-session': 'session',
+  '/revoke-sessions': 'session', '/revoke-other-sessions': 'session', '/update-session': 'session', '/list-accounts': 'session',
+  '/update-user': 'other', '/ok': 'other', '/error': 'other',
+};
+
+export function authRouteGroup(path: string): AuthGroup | undefined {
+  if (path.startsWith('/reset-password/')) return 'password';
+  if (path.startsWith('/callback/')) return 'oauth';
+  return Object.hasOwn(AUTH_ROUTE_GROUPS, path) ? AUTH_ROUTE_GROUPS[path] : undefined;
 }
 
 export function createUsageLimits(client: Client, secret: string, overrides: UsageLimitOptions = {}) {
@@ -151,7 +167,8 @@ export function createUsageLimits(client: Client, secret: string, overrides: Usa
           return Response.json({ code: 'INVALID_AUTH_PATH' }, { status: 400 });
         }
         const path = rawPath.replace(/^\/api\/auth/, '').replace(/\/+$/, '');
-        const group = authGroup(path);
+        // Unknown paths (404 in Auth) still spend the shared fallback budget.
+        const group = authRouteGroup(path) ?? 'other';
         const body = request.method === 'POST' ? await request.clone().json() as Record<string, unknown> | null : null;
         const email = body && typeof body.email === 'string' ? body.email : undefined;
         const subject = email === undefined ? undefined : identity(email);

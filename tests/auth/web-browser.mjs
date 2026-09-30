@@ -100,6 +100,29 @@ try {
   await waitFor("document.querySelector('#status')?.dataset.busy === 'false'");
   assert.match(await evaluate("document.querySelector('#return-error').textContent"), /INVALID_TOKEN/);
   console.log('PASS invalid return and callback error presentation');
+
+  // B05.12: account B in an isolated cookie jar never sees or revokes account A.
+  const { userContext } = await command('browser.createUserContext', {});
+  const { context: other } = await command('browsingContext.create', { type: 'tab', userContext });
+  const inOther = async (expression) => {
+    const response = await command('script.evaluate', { expression, target: { context: other }, awaitPromise: true });
+    assert.equal(response.type, 'success', 'Browser script must succeed (sensitive values suppressed)');
+    return response.result.value;
+  };
+  await command('browsingContext.navigate', { context: other, url: web, wait: 'complete' });
+  const emailB = `browser-b-${Date.now()}@example.invalid`;
+  const signUpB = await inOther(`fetch('${api}/api/auth/sign-up/email', { method: 'POST', credentials: 'include', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name: 'Browser B', email: ${JSON.stringify(emailB)}, password: 'browser-b-password-789', callbackURL: '${web}/' }) }).then(r => r.status)`);
+  assert.equal(signUpB, 200);
+  const sessionEmail = (run) => run(`fetch('${api}/api/auth/get-session', { credentials: 'include' }).then(r => r.json()).then(v => v?.user.email ?? '')`);
+  assert.equal(await sessionEmail(inOther), emailB);
+  assert.equal(await sessionEmail(evaluate), email);
+  const listed = await inOther(`fetch('${api}/api/auth/list-sessions', { credentials: 'include' }).then(r => r.json()).then(v => v.length)`);
+  assert.equal(listed, 1, 'B lists only its own session');
+  assert.equal(await inOther(`fetch('${api}/api/auth/sign-out', { method: 'POST', credentials: 'include', headers: { 'content-type': 'application/json' }, body: '{}' }).then(r => r.status)`), 200);
+  assert.equal(await sessionEmail(inOther), '');
+  assert.equal(await sessionEmail(evaluate), email, 'B logout must not affect A');
+  await command('browser.removeUserContext', { userContext });
+  console.log('PASS accounts A/B in isolated browser contexts: own session only, independent logout');
 } finally {
   await command('session.end', {}).catch(() => {});
   socket.close();

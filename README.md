@@ -2,6 +2,19 @@
 
 ## Reconstrucción
 
+**2026-09-30 — B05.11 completado; B05.12 pendiente de M03:** el correo Auth
+se envía por HTTPS con Resend (`src/auth/resend.ts`, sin SDK ni reintentos,
+enlaces solo al origen API y errores reducidos a estado/código). Ensayo real
+aprobado: verificación y reset recibidos, reset de un uso, N/N+1, último cupo
+concurrente y reinicio sin perder consumo; SPF/DKIM `pass`. `emailGlobal`
+queda en 80/día UTC por la cuota Free. Todas las rutas Auth exportadas tienen
+grupo de cupo explícito y se inventarían en
+[`contracts/auth-routes.md`](contracts/auth-routes.md), verificado contra la
+versión instalada. Aislamiento A/B y consumidor web aprobados; el recorrido
+Android espera dispositivo (M03). 293 pruebas en Node 24/26; lint, typecheck y
+build pasan. [Diseño](docs/auth-B05.11-B05.12.md) ·
+[informe](docs/evidencia/B05.11-B05.12.md).
+
 **2026-09-28 — B05.10 completado; B05.11 preparado, sin iniciar:**
 limitadores durables de Auth/negocio y presupuesto global de correo probados,
 incluidos último cupo concurrente, rollback y consumo tras reinicio real de
@@ -13,7 +26,7 @@ requiere instalar con pnpm y conservar `patches/` junto al lockfile.
 279 pruebas locales pasan en Node 24.19.0 y 26.10.0; lint, typecheck y build
 pasan. [Cierre y reproducción](docs/evidencia/B05.10.md),
 [compatibilidad](docs/compatibilidad.md) y [M18 resuelto](docs/manual-M18.md).
-Resend real y ajuste de cuotas corresponden a B05.11. La fase API continúa.
+Resend real y ajuste de cuotas se cerraron en B05.11 (arriba).
 
 El [estado de trabajo agéntico](docs/next-job) es la fuente única del siguiente
 punto. T01 transfirió la [especificación SRS activa](docs/reglas-srs.md),
